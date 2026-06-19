@@ -1,48 +1,36 @@
-# YOVU Homepage — Build Plan
+## Goal
 
-Build a single-page TanStack Start homepage matching the Product-Forward Density direction, using your full copy verbatim. Mostly-white canvas, deep forest-ink type, signal-green accent, Urbanist + Epilogue.
+Replace the current tabbed "Built for Insurance Brokerages" section with a desktop-accordion layout: a vertical accordion on the left (title + expanded description inline), and a synced visual panel on the right that swaps when you open an item.
 
-## Sections (in order)
+## What changes
 
-1. **Sticky nav** — YOVU wordmark, links (Features, Integrations, Security, Company), light/dark toggle, "Get a Demo" (signal-green).
-2. **Hero** — "Breathe new life into your brokerage communications." + supporting copy + two CTAs (Explore Features secondary, Get a Demo primary). Mountain video placeholder behind, scroll-driven: as user scrolls, headline/copy fade out, product mockup scales/rises into frame, primary CTA pushes above the mockup. Mountain area left empty (placeholder box) per your note.
-3. **Client logo carousel** — "Trusted by leading Canadian P&C brokerages" + 5–6 placeholder logo boxes, slow auto-scrolling marquee.
-4. **Product Overview / Feature Highlights** — "Built for Insurance Brokerages". Left-rail tabs for the 5 features (Click-to-Dial & Warm Transfer, Screen Pop-up, Call Transcription, AI Summary, Auto Logging). Right side cross-fades a placeholder product mockup per tab. Full bullet copy beneath active tab title.
-5. **Integrations** — "Plays nice with your tech stack." Copy + Learn More CTA, with a small bento of integration logo tiles.
-6. **Security & Compliance** — "Protect your brokerage and simplify your audits." Two-card bento (E&O Audit Logs / SOC 2 Certified) + Learn More CTA.
-7. **Based in Canada** — "Proudly Canadian. Powerfully Supported." Bento layout: large headline card + 3 checkmark/icon cards (Server / Headset / Shield icons for uptime, support, PIPEDA) + Meet Our Team CTA.
-8. **Testimonials** — "Don't Just Take Our Word for It" + subheadline. Rotating/auto-advancing testimonial cards (3 placeholder quotes) in an asymmetric layout.
-9. **FAQ** — Accordion with all 10 of your questions (deduped where you repeated two).
-10. **Final CTA** — "See How YOVU Works" + subheadline + Schedule a Call (signal-green).
-11. **Footer** — wordmark, minimal link groups, copyright.
+1. **New file** `src/components/ui/accordion-feature-section.tsx`
+   - Port the `Feature197` component (the pasted source was image-stripped, so I'll reconstruct the canonical layout): a 2-col grid (`lg:grid-cols-2`), left side is a shadcn `Accordion type="single" collapsible`, right side shows the active item's visual.
+   - Each `AccordionItem` uses `onClick` on the trigger to set `activeImage` / `activeTabId`.
+   - Visual panel renders the active item's `image` (string URL OR `ReactNode` — see below).
+   - Styling tuned to Evergreen Signal tokens: signal-colored active trigger, `border-border` dividers, `bg-surface` visual panel, rounded corners matching the rest of the site.
 
-## Design tokens (locked from chosen direction)
+2. **Extend the type** so `image` can be a `ReactNode` (not just a URL).
+   - Reason: today's Features section renders an icon placeholder, not real screenshots. Forcing a string URL would require stock images we don't have.
+   - Shape: `image: string | React.ReactNode`. If string → render as `<img>`; otherwise render the node directly.
 
-- Canvas `#fafaf8`, Surface `#ececea`, Ink `#0a1f1a`, Signal `#10b981`
-- Display: Urbanist 500/600/700 · Body: Epilogue 400/500
-- Dark mode inverts canvas↔ink; signal stays `#10b981`; tokens defined in `src/styles.css` only (no hardcoded colors in components)
+3. **Rewrite** `src/components/yovu/Features.tsx`
+   - Keep the same 5 feature entries, icons, and copy already in the file.
+   - Drop the manual tab-rail + `AnimatePresence` showcase.
+   - Render the new `Feature197` with each `image` set to the existing icon-in-card placeholder JSX (so visuals stay consistent with the current look until real screenshots arrive).
+   - Keep the section header ("Product Overview" / "Built for Insurance Brokerages.") and `id="features"`.
 
-## Motion
+4. **No changes** to `accordion.tsx` (already installed), `package.json` (radix-accordion + lucide-react already present), or any other section.
 
-- Hero scroll parallax via `useScroll` + `useTransform` (Motion for React)
-- Tab content cross-fades on change
-- Testimonial auto-rotate every ~6s
-- Restrained hover states only (no fade-in-on-every-element)
-- Respects `prefers-reduced-motion`
+## Behavior
 
-## Technical notes
+- Desktop (≥lg): two columns, accordion left, sticky-ish visual right.
+- Mobile: single column, visual appears above or below each open item (visual panel stacks on top, accordion below — matches the reference component).
+- First item open by default; opening another item updates the right-side visual.
+- Respects existing dark/light theme via tokens; no hardcoded colors.
 
-- One route: `src/routes/index.tsx` rebuilt; reusable section components under `src/components/sections/*`
-- Light/dark toggle stored in `localStorage`, applied via `class="dark"` on `<html>`
-- Add `motion` (Framer Motion) via `bun add motion`
-- Add `@fontsource-variable/urbanist` and `@fontsource-variable/epilogue` via bun, imported in `src/styles.css`
-- All copy used verbatim from your message; FAQ deduped (your list had 2 repeats)
-- SEO: `<title>` + meta description + OG tags in `index.tsx` head()
-- Mountain video and product mockups are intentional placeholders (boxes) for now — easy swap later
-- No backend, no Cloud, no forms wiring — CTAs are visual only this round
+## Out of scope
 
-## Out of scope (this turn)
-
-- Real mountain video, real product screenshots, real client logos
-- Integrations / Security / Company sub-pages (CTAs link to anchors only)
-- Demo booking backend
+- No real product screenshots (placeholders stay).
+- No changes to motion library usage elsewhere.
+- No copy edits.
