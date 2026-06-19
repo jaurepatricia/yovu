@@ -1,4 +1,5 @@
 import { ArrowUpRight, ShieldCheck, FileLock2 } from "lucide-react";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 export function Security() {
   return (
@@ -14,7 +15,10 @@ export function Security() {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-12">
-          <div className="lg:col-span-7 rounded-3xl bg-ink p-8 text-canvas ring-1 ring-black/10 lg:p-12">
+          <SpotlightCard
+            spotlightColor="rgba(16, 185, 129, 0.22)"
+            className="lg:col-span-7 rounded-3xl bg-ink p-8 text-canvas ring-1 ring-black/10 lg:p-12"
+          >
             <FileLock2 className="size-7 text-signal" />
             <h3 className="mt-8 font-display text-2xl font-bold md:text-3xl">
               E&amp;O Audit Logs
@@ -43,17 +47,20 @@ export function Security() {
                 </div>
               </div>
             </div>
-          </div>
+          </SpotlightCard>
 
           <div className="lg:col-span-5 flex flex-col gap-5">
-            <div className="flex-1 rounded-3xl bg-card p-8 ring-1 ring-border">
+            <SpotlightCard
+              spotlightColor="rgba(16, 185, 129, 0.14)"
+              className="flex-1 rounded-3xl bg-card p-8 ring-1 ring-border"
+            >
               <ShieldCheck className="size-7 text-signal" />
               <h3 className="mt-8 font-display text-2xl font-bold">SOC 2 Certified</h3>
               <p className="mt-3 text-pretty text-ink/70">
                 Your data is safe with us. We undergo annual, independent third-party
                 audits to verify our security, availability, and confidentiality controls.
               </p>
-            </div>
+            </SpotlightCard>
             <a
               href="#"
               className="inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-canvas transition-transform hover:scale-[1.02]"
