@@ -1,36 +1,33 @@
 ## Goal
 
-Replace the current tabbed "Built for Insurance Brokerages" section with a desktop-accordion layout: a vertical accordion on the left (title + expanded description inline), and a synced visual panel on the right that swaps when you open an item.
+Make the Features accordion auto-advance through items on a timer, with a vertical progress rail on the left edge that fills as the timer runs. Hovering the accordion text or the visual panel pauses both the timer and the rail; leaving resumes.
 
-## What changes
+## Changes
 
-1. **New file** `src/components/ui/accordion-feature-section.tsx`
-   - Port the `Feature197` component (the pasted source was image-stripped, so I'll reconstruct the canonical layout): a 2-col grid (`lg:grid-cols-2`), left side is a shadcn `Accordion type="single" collapsible`, right side shows the active item's visual.
-   - Each `AccordionItem` uses `onClick` on the trigger to set `activeImage` / `activeTabId`.
-   - Visual panel renders the active item's `image` (string URL OR `ReactNode` — see below).
-   - Styling tuned to Evergreen Signal tokens: signal-colored active trigger, `border-border` dividers, `bg-surface` visual panel, rounded corners matching the rest of the site.
+**`src/components/ui/accordion-feature-section.tsx`** (only file touched)
 
-2. **Extend the type** so `image` can be a `ReactNode` (not just a URL).
-   - Reason: today's Features section renders an icon placeholder, not real screenshots. Forcing a string URL would require stock images we don't have.
-   - Shape: `image: string | React.ReactNode`. If string → render as `<img>`; otherwise render the node directly.
+1. **Auto-advance state**
+   - `activeId` already exists. Add `isPaused` (boolean) and `progress` (0–100) state.
+   - `useEffect` runs a `requestAnimationFrame` loop that advances `progress` based on elapsed time vs. a `CYCLE_MS` constant (default 6000ms). When `progress` reaches 100, move to the next feature (wrap to first) and reset progress to 0. Loop pauses when `isPaused` is true (timestamp baseline resets on resume so the current item doesn't snap forward).
+   - Manually opening a different accordion item (existing `onValueChange` / trigger `onClick`) resets `progress` to 0 so the timer restarts on that item.
 
-3. **Rewrite** `src/components/yovu/Features.tsx`
-   - Keep the same 5 feature entries, icons, and copy already in the file.
-   - Drop the manual tab-rail + `AnimatePresence` showcase.
-   - Render the new `Feature197` with each `image` set to the existing icon-in-card placeholder JSX (so visuals stay consistent with the current look until real screenshots arrive).
-   - Keep the section header ("Product Overview" / "Built for Insurance Brokerages.") and `id="features"`.
+2. **Vertical timer rail (left edge of the accordion column)**
+   - Wrap the left column in a `relative` container with a thin full-height track (`absolute left-0 top-0 bottom-0 w-[2px] bg-border`).
+   - Inside the track, render one segment per feature stacked vertically (equal `flex-1` height). Each segment shows:
+     - past items → fully filled with `bg-signal`
+     - active item → filled to `progress%` via inline `style={{ height: \`${progress}%\` }}` on an inner div, `bg-signal`
+     - future items → empty (track color only)
+   - Accordion content shifts right with `pl-6` so the rail sits in the gutter.
 
-4. **No changes** to `accordion.tsx` (already installed), `package.json` (radix-accordion + lucide-react already present), or any other section.
+3. **Hover pause**
+   - The outer grid wrapper gets `onMouseEnter={() => setIsPaused(true)}` and `onMouseLeave={() => setIsPaused(false)}`. This covers both the accordion column and the visual panel in one handler since they share the wrapper.
+   - Also bind the same handlers via `onFocus`/`onBlur` for keyboard users tabbing through triggers.
 
-## Behavior
-
-- Desktop (≥lg): two columns, accordion left, sticky-ish visual right.
-- Mobile: single column, visual appears above or below each open item (visual panel stacks on top, accordion below — matches the reference component).
-- First item open by default; opening another item updates the right-side visual.
-- Respects existing dark/light theme via tokens; no hardcoded colors.
+4. **Reduced motion**
+   - If `matchMedia('(prefers-reduced-motion: reduce)').matches`, skip the auto-advance loop entirely (component behaves as before: manual open only, no rail animation — rail still renders as a static indicator of the active item).
 
 ## Out of scope
 
-- No real product screenshots (placeholders stay).
-- No changes to motion library usage elsewhere.
-- No copy edits.
+- No changes to `Features.tsx`, copy, icons, or the visual panel content.
+- No new dependencies. No motion library.
+- Cycle duration stays hardcoded at 6s (easy to tweak later).
