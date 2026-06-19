@@ -67,6 +67,7 @@ export function CTASection({
           />
         )}
       </div>
+      </SpotlightCard>
     </section>
   );
 }
