@@ -1,4 +1,4 @@
-import { ArrowUpRight, ShieldCheck, FileLock2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 export function Security() {
