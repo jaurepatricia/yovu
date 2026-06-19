@@ -1,4 +1,4 @@
-import { ArrowUpRight, ShieldCheck, FileLock2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 export function Security() {
@@ -19,8 +19,8 @@ export function Security() {
             spotlightColor="rgba(16, 185, 129, 0.22)"
             className="lg:col-span-7 rounded-3xl bg-ink p-8 text-canvas ring-1 ring-black/10 lg:p-12"
           >
-            <FileLock2 className="size-7 text-signal" />
-            <h3 className="mt-8 font-display text-2xl font-bold md:text-3xl">
+            <h3 className="font-display text-2xl font-bold md:text-3xl">
+
               E&amp;O Audit Logs
             </h3>
             <p className="mt-3 max-w-md text-pretty text-canvas/70">
@@ -54,8 +54,8 @@ export function Security() {
               spotlightColor="rgba(16, 185, 129, 0.14)"
               className="flex-1 rounded-3xl bg-card p-8 ring-1 ring-border"
             >
-              <ShieldCheck className="size-7 text-signal" />
-              <h3 className="mt-8 font-display text-2xl font-bold">SOC 2 Certified</h3>
+              <h3 className="font-display text-2xl font-bold">SOC 2 Certified</h3>
+
               <p className="mt-3 text-pretty text-ink/70">
                 Your data is safe with us. We undergo annual, independent third-party
                 audits to verify our security, availability, and confidentiality controls.
