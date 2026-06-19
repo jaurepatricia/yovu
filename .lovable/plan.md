@@ -1,16 +1,48 @@
-## Goal
+# YOVU Homepage — Build Plan
 
-Make the already-applied FinalCTA change visible in your preview. The code swap is complete (new `CTASection` wired into `src/components/yovu/FinalCTA.tsx`, animations added to `src/styles.css`), but the dev server's HMR gate is likely still serving the previous module.
+Build a single-page TanStack Start homepage matching the Product-Forward Density direction, using your full copy verbatim. Mostly-white canvas, deep forest-ink type, signal-green accent, Urbanist + Epilogue.
 
-## Step
+## Sections (in order)
 
-1. Flush the HMR gate so the preview re-transforms the changed modules:
-   - `curl -sf -X POST http://localhost:8080/__hmr_flush`
-2. Verify in the preview that the Final CTA section now shows: outlined green badge ("See How YOVU Works"), large display headline, description, and a plain green pill "Schedule a Call" button (no check-mark icon) with a soft radial green glow at the bottom and fade-up entrance animations.
+1. **Sticky nav** — YOVU wordmark, links (Features, Integrations, Security, Company), light/dark toggle, "Get a Demo" (signal-green).
+2. **Hero** — "Breathe new life into your brokerage communications." + supporting copy + two CTAs (Explore Features secondary, Get a Demo primary). Mountain video placeholder behind, scroll-driven: as user scrolls, headline/copy fade out, product mockup scales/rises into frame, primary CTA pushes above the mockup. Mountain area left empty (placeholder box) per your note.
+3. **Client logo carousel** — "Trusted by leading Canadian P&C brokerages" + 5–6 placeholder logo boxes, slow auto-scrolling marquee.
+4. **Product Overview / Feature Highlights** — "Built for Insurance Brokerages". Left-rail tabs for the 5 features (Click-to-Dial & Warm Transfer, Screen Pop-up, Call Transcription, AI Summary, Auto Logging). Right side cross-fades a placeholder product mockup per tab. Full bullet copy beneath active tab title.
+5. **Integrations** — "Plays nice with your tech stack." Copy + Learn More CTA, with a small bento of integration logo tiles.
+6. **Security & Compliance** — "Protect your brokerage and simplify your audits." Two-card bento (E&O Audit Logs / SOC 2 Certified) + Learn More CTA.
+7. **Based in Canada** — "Proudly Canadian. Powerfully Supported." Bento layout: large headline card + 3 checkmark/icon cards (Server / Headset / Shield icons for uptime, support, PIPEDA) + Meet Our Team CTA.
+8. **Testimonials** — "Don't Just Take Our Word for It" + subheadline. Rotating/auto-advancing testimonial cards (3 placeholder quotes) in an asymmetric layout.
+9. **FAQ** — Accordion with all 10 of your questions (deduped where you repeated two).
+10. **Final CTA** — "See How YOVU Works" + subheadline + Schedule a Call (signal-green).
+11. **Footer** — wordmark, minimal link groups, copyright.
 
-## If still not visible after flush
+## Design tokens (locked from chosen direction)
 
-- Hard-refresh the preview tab (Cmd/Ctrl+Shift+R) to bypass the browser cache.
-- If it's still the old version, I'll re-open the file, confirm contents on disk match, and look at the dev-server log for transform errors on `cta-with-rectangle.tsx`.
+- Canvas `#fafaf8`, Surface `#ececea`, Ink `#0a1f1a`, Signal `#10b981`
+- Display: Urbanist 500/600/700 · Body: Epilogue 400/500
+- Dark mode inverts canvas↔ink; signal stays `#10b981`; tokens defined in `src/styles.css` only (no hardcoded colors in components)
 
-No code changes in this step — just a flush + verify.
+## Motion
+
+- Hero scroll parallax via `useScroll` + `useTransform` (Motion for React)
+- Tab content cross-fades on change
+- Testimonial auto-rotate every ~6s
+- Restrained hover states only (no fade-in-on-every-element)
+- Respects `prefers-reduced-motion`
+
+## Technical notes
+
+- One route: `src/routes/index.tsx` rebuilt; reusable section components under `src/components/sections/*`
+- Light/dark toggle stored in `localStorage`, applied via `class="dark"` on `<html>`
+- Add `motion` (Framer Motion) via `bun add motion`
+- Add `@fontsource-variable/urbanist` and `@fontsource-variable/epilogue` via bun, imported in `src/styles.css`
+- All copy used verbatim from your message; FAQ deduped (your list had 2 repeats)
+- SEO: `<title>` + meta description + OG tags in `index.tsx` head()
+- Mountain video and product mockups are intentional placeholders (boxes) for now — easy swap later
+- No backend, no Cloud, no forms wiring — CTAs are visual only this round
+
+## Out of scope (this turn)
+
+- Real mountain video, real product screenshots, real client logos
+- Integrations / Security / Company sub-pages (CTAs link to anchors only)
+- Demo booking backend
