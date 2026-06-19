@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { cn } from "@/lib/utils";
 
 interface CTAProps {
