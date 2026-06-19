@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { cn } from "@/lib/utils";
 
 interface CTAProps {
@@ -25,11 +24,7 @@ export function CTASection({
 }: CTAProps) {
   return (
     <section className={cn("px-6 pb-24", className)}>
-      <SpotlightCard
-        spotlightColor="rgba(16,185,129,0.22)"
-        className="mx-auto max-w-7xl rounded-[2.5rem]"
-      >
-      <div className="relative flex flex-col items-center overflow-hidden rounded-[2.5rem] bg-ink px-6 py-24 text-center text-canvas lg:py-32">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center overflow-hidden rounded-[2.5rem] bg-ink px-6 py-24 text-center text-canvas lg:py-32">
         {badge && (
           <Badge
             variant="outline"
@@ -67,7 +62,6 @@ export function CTASection({
           />
         )}
       </div>
-      </SpotlightCard>
     </section>
   );
 }
