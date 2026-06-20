@@ -85,19 +85,6 @@ export function Hero() {
             </a>
           </motion.div>
 
-          {/* Product mockup that rises into frame */}
-          <motion.div
-            style={{ y: mockupY, scale: mockupScale, opacity: mockupOpacity }}
-            className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-5xl px-6"
-          >
-            <div className="aspect-[16/10] w-full overflow-hidden rounded-t-2xl bg-card shadow-2xl ring-1 ring-border">
-              <div className="grid h-full place-items-center">
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-ink/25">
-                  Product Mockup Placeholder
-                </span>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
