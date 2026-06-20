@@ -1,22 +1,20 @@
 ## Goal
-Modernize the top nav into a floating, frosted-glass pill so the hero shows through it.
+Make the hero parallax frame sequence fill the full viewport (including the area behind the floating nav pill) while it's pinned, until the user scrolls past the last frame. Keep all existing progressive/lazy frame-loading behavior intact.
 
-## Changes — `src/components/yovu/Nav.tsx`
-- Outer `<nav>`: keep `sticky top-0 z-50 h-16`, but drop the solid background and bottom border. It becomes a transparent track.
-- Inner container: convert to a centered floating pill:
-  - `mx-auto mt-3 max-w-6xl` (sits inset from the screen edges)
-  - `rounded-full` to match the CTA buttons
-  - `bg-canvas/40` + `backdrop-blur-xl` + `backdrop-saturate-150` for matte-glass
-  - `ring-1 ring-border/50` and a soft `shadow-lg shadow-ink/5`
-  - Reduce inner padding to `pl-5 pr-2 py-2` so the "Get a Demo" pill nests cleanly inside
-- Links, logo, theme toggle, and CTA stay as-is (logo slightly tightened spacing if needed).
+## Changes
 
-No change to nav height/offset (still 64px), so `Hero`'s `sticky top-16` continues to align.
+**`src/components/yovu/Hero.tsx`** — sticky stage sizing only:
+- Change the sticky stage from `sticky top-16 h-[calc(100vh-4rem)]` to `sticky top-0 h-screen` so the frame canvas spans the entire viewport and renders behind the transparent nav pill.
+- Shift the headline/copy block down so it isn't hidden under the nav: add `pt-16` to the centered flex container (keeps optical centering relative to the visible area below the nav).
+- Leave the CTA block (`bottom-24`) and mountain parallax wrapper unchanged.
+- No change to scroll math: the outer `min-h-[180vh]` and `useScroll` offsets still drive the sequence from frame 0 → last frame across the same scroll distance, so the sequence pins through the full viewport and only releases after the last frame.
+
+**`src/components/yovu/Nav.tsx`** — no functional change required. It's already `sticky top-0 z-50` with a transparent track and a frosted pill, so it will float over the full-bleed hero correctly.
+
+**`ScrollFrameSequence.tsx`** — untouched. Eager-load-first-20 + background batches of 8 + reduced-motion fallback all preserved.
 
 ## Out of scope
-- Mobile menu behavior, link list, copy, or routing
-- Hero, buttons, or any other section
-
-## Technical notes
-- Uses Tailwind's `backdrop-blur` utilities (Lightning CSS adds vendor prefixes automatically — no hand-written `-webkit-` rules).
-- Semantic tokens only (`bg-canvas`, `ring-border`) so it works in light and dark.
+- Nav styling, links, or layout
+- Headline copy, bloom halo, CTA styles
+- Frame asset pipeline or loading strategy
+- Any section below the hero
