@@ -13,7 +13,7 @@ export function Nav() {
       {/* Matte-glass layer with soft bottom fade */}
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-24 bg-canvas/50 backdrop-blur-xl backdrop-saturate-150 [mask-image:linear-gradient(to_bottom,black_55%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
+        className="absolute inset-x-0 top-0 bottom-0 border-b border-border/50 bg-canvas/50 backdrop-blur-xl backdrop-saturate-150"
       />
       {/* Content row */}
       <div className="pointer-events-auto relative mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
