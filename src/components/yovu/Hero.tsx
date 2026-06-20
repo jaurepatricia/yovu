@@ -1,6 +1,9 @@
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Check } from "lucide-react";
+import { ScrollFrameSequence } from "./ScrollFrameSequence";
+
+const TOTAL_FRAMES = 151;
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
