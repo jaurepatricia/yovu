@@ -52,7 +52,7 @@ export function Hero() {
             className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center"
           >
             <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight text-ink text-balance md:text-7xl lg:text-[5.5rem]">
-              Thaw Your Cold Leads and Watch Your Brokerage Bloom
+              Thaw Cold Leads & Watch Your Brokerage Bloom
             </h1>
             <p className="mt-8 max-w-2xl text-pretty text-lg text-ink/70 md:text-xl">
               Stop letting your client interactions freeze up in disconnected systems.
