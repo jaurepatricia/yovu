@@ -1,6 +1,9 @@
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Check } from "lucide-react";
+import { ScrollFrameSequence } from "./ScrollFrameSequence";
+
+const TOTAL_FRAMES = 151;
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,6 +20,12 @@ export function Hero() {
   const ctaY = useTransform(scrollYProgress, [0.2, 0.55], [0, -80]);
   const mountainY = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
+  const getFrameSrc = useCallback(
+    (i: number) => `/frames/ezgif-frame-${String(i + 1).padStart(3, "0")}.jpg`,
+    [],
+  );
+
+
   return (
     <section ref={ref} id="top" className="relative">
       <div className="relative min-h-[180vh]">
@@ -27,14 +36,13 @@ export function Hero() {
             style={{ y: mountainY }}
             className="absolute inset-0 -top-20 -bottom-20"
           >
-            <div className="size-full bg-gradient-to-b from-surface via-canvas to-canvas">
-              {/* Placeholder for mountain video */}
-              <div className="flex h-full items-center justify-center">
-                <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-ink/15">
-                  Mountain parallax video placeholder
-                </span>
-              </div>
-            </div>
+            <ScrollFrameSequence
+              totalFrames={TOTAL_FRAMES}
+              getFrameSrc={getFrameSrc}
+              progress={scrollYProgress}
+              ariaLabel="Mountain landscape scroll animation"
+              className="absolute inset-0 size-full bg-canvas"
+            />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-canvas" />
           </motion.div>
 
