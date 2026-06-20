@@ -30,7 +30,7 @@ export function Hero() {
     <section ref={ref} id="top" className="relative">
       <div className="relative min-h-[180vh]">
         {/* Sticky stage */}
-        <div className="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden">
+        <div className="sticky top-0 h-screen overflow-hidden">
           {/* Mountain video / parallax background */}
           <motion.div
             style={{ y: mountainY }}
@@ -49,7 +49,7 @@ export function Hero() {
           {/* Headline + copy */}
           <motion.div
             style={{ opacity: headlineOpacity, y: headlineY }}
-            className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center"
+            className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 pt-16 text-center"
           >
             {/* Soft bloom halo behind headline for legibility */}
             <div
