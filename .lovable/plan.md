@@ -1,20 +1,16 @@
-## Goal
-Make the hero parallax frame sequence fill the full viewport (including the area behind the floating nav pill) while it's pinned, until the user scrolls past the last frame. Keep all existing progressive/lazy frame-loading behavior intact.
+## Issue
+The `<Nav>` is rendered as a sibling above `<Hero>` and reserves an `h-16` (64px) block in normal flow. Even though the nav pill itself is transparent, that 64px slot pushes the Hero down so the parallax video starts below — not behind — the nav.
 
-## Changes
+## Fix
+Take the nav out of the document flow so it floats over the Hero from the very top of the page.
 
-**`src/components/yovu/Hero.tsx`** — sticky stage sizing only:
-- Change the sticky stage from `sticky top-16 h-[calc(100vh-4rem)]` to `sticky top-0 h-screen` so the frame canvas spans the entire viewport and renders behind the transparent nav pill.
-- Shift the headline/copy block down so it isn't hidden under the nav: add `pt-16` to the centered flex container (keeps optical centering relative to the visible area below the nav).
-- Leave the CTA block (`bottom-24`) and mountain parallax wrapper unchanged.
-- No change to scroll math: the outer `min-h-[180vh]` and `useScroll` offsets still drive the sequence from frame 0 → last frame across the same scroll distance, so the sequence pins through the full viewport and only releases after the last frame.
+**`src/components/yovu/Nav.tsx`**
+- Change the outer `<nav>` from `sticky top-0 z-50 h-16` to `fixed inset-x-0 top-0 z-50` (no reserved height).
+- Keep the inner floating pill (`mt-3`, frosted glass, etc.) unchanged.
 
-**`src/components/yovu/Nav.tsx`** — no functional change required. It's already `sticky top-0 z-50` with a transparent track and a frosted pill, so it will float over the full-bleed hero correctly.
-
-**`ScrollFrameSequence.tsx`** — untouched. Eager-load-first-20 + background batches of 8 + reduced-motion fallback all preserved.
+**`src/components/yovu/Hero.tsx`** — no change needed. The sticky stage is already `top-0 h-screen`, so with the nav out of flow the parallax sequence will start flush with the top of the viewport and render behind the floating pill.
 
 ## Out of scope
-- Nav styling, links, or layout
-- Headline copy, bloom halo, CTA styles
-- Frame asset pipeline or loading strategy
-- Any section below the hero
+- Nav pill styling, links, copy
+- Any other section's spacing (subsequent sections still start after the Hero's `min-h-[180vh]` track, unchanged)
+- Hero content, headline bloom, CTAs, or scroll math
