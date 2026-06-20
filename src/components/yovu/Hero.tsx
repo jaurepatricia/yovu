@@ -51,6 +51,19 @@ export function Hero() {
             style={{ opacity: headlineOpacity, y: headlineY }}
             className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center"
           >
+            {/* Soft bloom halo behind headline for legibility */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[60%] w-[110%] -translate-x-1/2 -translate-y-1/2 backdrop-blur-2xl"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(ellipse at center, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.5) 60%, transparent 80%)",
+                maskImage:
+                  "radial-gradient(ellipse at center, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.5) 60%, transparent 80%)",
+                background:
+                  "radial-gradient(ellipse at center, color-mix(in oklab, var(--canvas) 65%, transparent) 0%, color-mix(in oklab, var(--canvas) 35%, transparent) 50%, transparent 80%)",
+              }}
+            />
             <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight text-ink text-balance md:text-7xl lg:text-[5.5rem]">
               Thaw Cold Leads & Watch Your Brokerage Bloom
             </h1>
