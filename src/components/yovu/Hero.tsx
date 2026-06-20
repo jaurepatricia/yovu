@@ -51,9 +51,6 @@ export function Hero() {
             style={{ opacity: headlineOpacity, y: headlineY }}
             className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center"
           >
-            <span className="mb-6 inline-block rounded-full border border-border bg-canvas/70 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-ink/70 backdrop-blur">
-              Built for Canadian P&C Brokerages
-            </span>
             <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight text-ink text-balance md:text-7xl lg:text-[5.5rem]">
               Breathe new life into your brokerage communications.
             </h1>
