@@ -6,9 +6,6 @@ export function Security() {
     <section id="security" className="bg-surface/50 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-signal">
-            Security &amp; Compliance
-          </span>
           <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
             Protect your brokerage and minimize liability.
           </h2>
