@@ -30,14 +30,13 @@ export function Hero() {
             style={{ y: mountainY }}
             className="absolute inset-0 -top-20 -bottom-20"
           >
-            <div className="size-full bg-gradient-to-b from-surface via-canvas to-canvas">
-              {/* Placeholder for mountain video */}
-              <div className="flex h-full items-center justify-center">
-                <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-ink/15">
-                  Mountain parallax video placeholder
-                </span>
-              </div>
-            </div>
+            <ScrollFrameSequence
+              totalFrames={TOTAL_FRAMES}
+              getFrameSrc={getFrameSrc}
+              progress={scrollYProgress}
+              ariaLabel="Mountain landscape scroll animation"
+              className="absolute inset-0 size-full bg-canvas"
+            />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-canvas" />
           </motion.div>
 
