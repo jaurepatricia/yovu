@@ -9,8 +9,14 @@ const links = [
 
 export function Nav() {
   return (
-    <nav className="fixed inset-x-0 top-0 z-50">
-      <div className="mx-auto mt-3 flex max-w-6xl items-center justify-between rounded-full bg-canvas/40 py-2 pl-5 pr-2 shadow-lg shadow-ink/5 ring-1 ring-border/50 backdrop-blur-xl backdrop-saturate-150">
+    <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
+      {/* Matte-glass layer with soft bottom fade */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-24 bg-canvas/50 backdrop-blur-xl backdrop-saturate-150 [mask-image:linear-gradient(to_bottom,black_55%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
+      />
+      {/* Content row */}
+      <div className="pointer-events-auto relative mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-10">
           <a href="#top" className="font-display text-xl font-bold tracking-tight">
             YOVU
@@ -46,3 +52,4 @@ export function Nav() {
     </nav>
   );
 }
+
