@@ -21,7 +21,7 @@ export function Hero() {
 
   return (
     <section ref={ref} id="top" className="relative">
-      <div className="relative min-h-[180vh]">
+      <div className="relative min-h-[320vh]">
         {/* Sticky stage */}
         <div className="sticky top-0 h-screen overflow-hidden">
           {/* Mountain video / parallax background */}
