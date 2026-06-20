@@ -25,9 +25,6 @@ export function Canada() {
         <div className="grid gap-6 lg:grid-cols-12">
           {/* Headline card */}
           <div className="lg:col-span-5 rounded-3xl bg-card p-8 ring-1 ring-border lg:p-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-signal">
-              Based in Canada
-            </span>
             <h2 className="mt-3 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
               Proudly Canadian.
               <br />

@@ -35,9 +35,6 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-signal">
-              Testimonials
-            </span>
             <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
               Don't just take our word for it.
             </h2>
