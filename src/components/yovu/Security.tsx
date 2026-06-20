@@ -10,7 +10,7 @@ export function Security() {
             Security &amp; Compliance
           </span>
           <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Protect your brokerage and simplify your audits.
+            Protect your brokerage and minimize liability.
           </h2>
         </div>
 
