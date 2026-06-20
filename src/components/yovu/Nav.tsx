@@ -9,14 +9,8 @@ const links = [
 
 export function Nav() {
   return (
-    <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
-      {/* Matte-glass layer with soft bottom fade */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-24 bg-canvas/50 backdrop-blur-xl backdrop-saturate-150 [mask-image:linear-gradient(to_bottom,black_55%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
-      />
-      {/* Content row */}
-      <div className="pointer-events-auto relative mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-canvas">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-10">
           <a href="#top" className="font-display text-xl font-bold tracking-tight">
             YOVU
@@ -33,6 +27,7 @@ export function Nav() {
             ))}
           </div>
         </div>
+
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <a
