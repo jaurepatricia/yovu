@@ -20,6 +20,12 @@ export function Hero() {
   const ctaY = useTransform(scrollYProgress, [0.2, 0.55], [0, -80]);
   const mountainY = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
+  const getFrameSrc = useCallback(
+    (i: number) => `/frames/ezgif-frame-${String(i + 1).padStart(3, "0")}.jpg`,
+    [],
+  );
+
+
   return (
     <section ref={ref} id="top" className="relative">
       <div className="relative min-h-[180vh]">
