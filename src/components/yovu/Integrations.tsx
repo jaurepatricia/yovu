@@ -22,8 +22,8 @@ export function Integrations() {
             </h2>
             <p className="mt-6 max-w-md text-pretty text-base text-ink/70 md:text-lg">
               We adapt to your workflow, not the other way around. YOVU connects seamlessly
-              with your CRMs and business tools to automate tasks and eliminate duplicate
-              data entry. No middleware or manual syncs required — just a system that
+              with your CRMs and business tools to automate tasks and eliminate manual
+              data entry. No middleware or syncs required — just a system that
               works exactly where you do.
             </p>
             <a
