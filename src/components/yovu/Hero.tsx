@@ -2,9 +2,9 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Check } from "lucide-react";
 import { ScrollVideo } from "./ScrollVideo";
-import heroVideo from "@/assets/hero-video.asset.json";
 
-const HERO_VIDEO_SRC = heroVideo.url;
+const HERO_VIDEO_SRC =
+  "/hf_20260620_034017_37a9daab-d2e1-42fb-b418-393d485328df.mp4";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
