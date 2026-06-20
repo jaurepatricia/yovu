@@ -1,16 +1,14 @@
-## Issue
-The `<Nav>` is rendered as a sibling above `<Hero>` and reserves an `h-16` (64px) block in normal flow. Even though the nav pill itself is transparent, that 64px slot pushes the Hero down so the parallax video starts below — not behind — the nav.
+## Change
 
-## Fix
-Take the nav out of the document flow so it floats over the Hero from the very top of the page.
+In `src/components/yovu/Hero.tsx`, remove the gradient overlay that fades the hero frame sequence into the canvas color:
 
-**`src/components/yovu/Nav.tsx`**
-- Change the outer `<nav>` from `sticky top-0 z-50 h-16` to `fixed inset-x-0 top-0 z-50` (no reserved height).
-- Keep the inner floating pill (`mt-3`, frosted glass, etc.) unchanged.
+- **Line 46**: Delete the `<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-canvas" />` element sitting inside the parallax background wrapper. This is the subtle gradient visible over the hero in both light and dark mode.
 
-**`src/components/yovu/Hero.tsx`** — no change needed. The sticky stage is already `top-0 h-screen`, so with the nav out of flow the parallax sequence will start flush with the top of the viewport and render behind the floating pill.
+## Keep
+
+- The soft bloom halo behind the headline (lines 54–66) stays untouched — it's the readability effect behind the H1/subcopy.
+- No changes to scroll math, CTAs, frame sequence, or Nav.
 
 ## Out of scope
-- Nav pill styling, links, copy
-- Any other section's spacing (subsequent sections still start after the Hero's `min-h-[180vh]` track, unchanged)
-- Hero content, headline bloom, CTAs, or scroll math
+
+Any other section, theme tokens, or Nav styling.

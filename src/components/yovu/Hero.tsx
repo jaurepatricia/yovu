@@ -43,7 +43,7 @@ export function Hero() {
               ariaLabel="Mountain landscape scroll animation"
               className="absolute inset-0 size-full bg-canvas"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-canvas" />
+            
           </motion.div>
 
           {/* Headline + copy */}
