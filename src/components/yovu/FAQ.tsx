@@ -43,10 +43,7 @@ export function FAQ() {
     <section className="py-24 lg:py-32">
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-12 text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-signal">
-            FAQ
-          </span>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-5xl">
+          <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
             Frequently Asked Questions
           </h2>
         </div>
