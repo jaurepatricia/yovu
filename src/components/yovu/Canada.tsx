@@ -1,5 +1,22 @@
 import { ArrowUpRight, Headset, Server, ShieldCheck } from "lucide-react";
 
+function MapleLeaf({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 2.5 10.7 5.2c-.3.6-1 .9-1.6.6L7 4.9l.6 3c.1.6-.3 1.2-.9 1.3l-2.4.4 1.8 1.7c.4.4.4 1 .1 1.4l-1 1.2 4.2.6c.5.1.8.5.7 1L9.5 16l2.1-.5c.3-.1.6.1.6.4l-.2 5.6h0l-.2-5.6c0-.3.3-.5.6-.4l2.1.5-.6-1.5c-.1-.5.2-.9.7-1l4.2-.6-1-1.2c-.3-.4-.3-1 .1-1.4l1.8-1.7-2.4-.4c-.6-.1-1-.7-.9-1.3l.6-3-2.1 1c-.6.3-1.3 0-1.6-.6L12 2.5Z" />
+    </svg>
+  );
+}
+
 const pillars = [
   {
     icon: Server,
