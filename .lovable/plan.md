@@ -1,13 +1,22 @@
-In `src/components/yovu/Nav.tsx`:
+## Logo Carousel Update
 
-The "Plans & Pricing" and "About Us" items currently use a custom `linkCls` (just text + padding) so they don't get the same height, rounded hover background, or font sizing as the "Solutions"/"Products" triggers (which use `navigationMenuTriggerStyle()` + `triggerCls`).
+Replace the placeholder text logos in `src/components/yovu/LogoCarousel.tsx` with the 7 uploaded broker logos, each linking to its respective site.
 
-Fix: make the two plain links visually identical to the dropdown triggers (minus the chevron).
+### Asset handling
+- Upload all 7 PNGs from `/mnt/user-uploads/` to Lovable Assets via `lovable-assets create` and write `.asset.json` pointers under `src/assets/logos/`.
+- Import each pointer and render via `<img src={asset.url} />`.
 
-1. Add a new shared class string `itemCls` matching `triggerCls` styling, applied via `navigationMenuTriggerStyle()` override — same transparent background, `text-ink/60` default, `hover:text-ink`, hover `bg-accent`, `data-[active]` states, `h-9 px-3 rounded-md text-sm font-medium`.
-2. Replace the `linkCls` usage on both "Plans & Pricing" and "About Us" `<a>` elements with `itemCls`, and pass it to `NavigationMenuLink`'s `className` (drop the `navigationMenuTriggerStyle()` wrapper that's currently adding default trigger styles which include a white-ish hover bg that doesn't match).
-3. Delete the now-unused `linkCls` constant.
+### Component changes (`LogoCarousel.tsx`)
+- Replace the `logos` string array with an array of `{ name, src, href }` objects.
+- Section background: change from `bg-surface/40` to `bg-white` (use `bg-canvas` in light mode; keep dark mode legible by using `bg-canvas` token so it follows theme).
+- Each item becomes an `<a target="_blank" rel="noopener noreferrer">` wrapping the `<img>`.
+- Sizing/spacing: uniform slot per logo — `h-12 w-40` flex container, `img` set to `max-h-full max-w-full object-contain`, gap increased to `gap-20` for breathing room.
+- Grayscale → color on hover: `grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100`.
+- Edge blur fade: replace the existing solid-to-transparent gradient overlays with wider (`w-32`) overlays that combine a white gradient AND `backdrop-blur-sm` masked by the gradient, so logos appear to softly blur as they pass under the edges. Use `mask-image: linear-gradient(...)` on a `backdrop-blur` div for the soft blur transition.
+- Update the eyebrow caption color to work on white (`text-ink/50`).
 
-Result: all four nav items share identical hover/active styling — same height, padding, rounded hover background, and muted-to-ink color transition. Only Solutions/Products keep the chevron.
+### Files touched
+- `src/components/yovu/LogoCarousel.tsx` (rewrite logos list + styling)
+- `src/assets/logos/*.png.asset.json` (7 new pointer files)
 
-No other files change.
+No other components or tokens change.
