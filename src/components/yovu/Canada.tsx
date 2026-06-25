@@ -41,15 +41,18 @@ export function Canada() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-6 lg:grid-cols-12">
           {/* Headline card */}
-          <div className="lg:col-span-5 rounded-3xl bg-card p-8 ring-1 ring-border lg:p-12">
-            <h2 className="mt-3 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
+          <div className="lg:col-span-5 flex flex-col justify-center rounded-3xl bg-card p-8 ring-1 ring-border lg:p-12">
+            <div className="flex size-12 items-center justify-center rounded-xl bg-canvas ring-1 ring-border">
+              <MapleLeaf className="size-5 text-signal" />
+            </div>
+            <h2 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
               Proudly Canadian.
               <br />
               Powerfully Supported.
             </h2>
             <a
               href="#"
-              className="mt-10 inline-flex items-center gap-2 rounded-full bg-signal px-5 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
+              className="mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-signal px-5 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
             >
               Meet Our Team
               <ArrowUpRight className="size-4" />
