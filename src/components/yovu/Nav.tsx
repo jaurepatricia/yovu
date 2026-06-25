@@ -183,7 +183,7 @@ export function Nav() {
           </a>
           <a
             href="#demo"
-            className="rounded-full bg-signal px-4 py-2 text-sm font-semibold text-ink ring-1 ring-signal transition-transform hover:scale-[1.02]"
+            className="rounded-full bg-signal px-4 py-2 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
           >
             Get a Demo
           </a>

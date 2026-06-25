@@ -32,7 +32,7 @@ export function Canada() {
             </h2>
             <a
               href="#"
-              className="mt-10 inline-flex items-center gap-2 rounded-full bg-signal px-5 py-3 text-sm font-semibold text-ink ring-1 ring-signal transition-transform hover:scale-[1.02]"
+              className="mt-10 inline-flex items-center gap-2 rounded-full bg-signal px-5 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
             >
               Meet Our Team
               <ArrowUpRight className="size-4" />
