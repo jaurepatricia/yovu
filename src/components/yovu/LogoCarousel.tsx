@@ -2,18 +2,19 @@ import mcfarlanRowlands from "@/assets/logos/mcfarlan-rowlands.png.asset.json";
 import mcdougall from "@/assets/logos/mcdougall.png.asset.json";
 import youngs from "@/assets/logos/youngs.png.asset.json";
 import stoneridge from "@/assets/logos/stoneridge.png.asset.json";
+import stoneridgeDark from "@/assets/logos/stoneridge-dark.png.asset.json";
 import selectpath from "@/assets/logos/selectpath.png.asset.json";
 import aaMunro from "@/assets/logos/aa-munro.png.asset.json";
-import surenet from "@/assets/logos/surenet.png.asset.json";
 
-const logos = [
+type Logo = { name: string; src: string; srcDark?: string; href: string };
+
+const logos: Logo[] = [
   { name: "McFarlan Rowlands", src: mcfarlanRowlands.url, href: "https://mcfarlanrowlands.com/" },
   { name: "McDougall Insurance", src: mcdougall.url, href: "https://www.mcdougallinsurance.com/" },
   { name: "Youngs Insurance Brokers", src: youngs.url, href: "https://www.youngsinsurance.ca/site/home" },
-  { name: "Stoneridge Insurance", src: stoneridge.url, href: "https://stoneridgeinsurance.ca/" },
+  { name: "Stoneridge Insurance", src: stoneridge.url, srcDark: stoneridgeDark.url, href: "https://stoneridgeinsurance.ca/" },
   { name: "Select Path Insurance", src: selectpath.url, href: "https://www.selectpath.ca/" },
   { name: "AA Munro Insurance", src: aaMunro.url, href: "https://www.aamunro.com/" },
-  { name: "Surenet Insurance", src: surenet.url, href: "https://surnet.net/" },
 ];
 
 export function LogoCarousel() {
@@ -39,8 +40,16 @@ export function LogoCarousel() {
                   src={logo.src}
                   alt={logo.name}
                   loading="lazy"
-                  className="max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                  className={`max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100 ${logo.srcDark ? "dark:hidden" : ""}`}
                 />
+                {logo.srcDark && (
+                  <img
+                    src={logo.srcDark}
+                    alt={logo.name}
+                    loading="lazy"
+                    className="hidden max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100 dark:block"
+                  />
+                )}
               </a>
             ))}
           </div>
