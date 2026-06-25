@@ -66,10 +66,10 @@ export function Canada() {
               return (
                 <div
                   key={p.title}
-                  className="flex items-start gap-5 rounded-2xl bg-surface/60 p-6 ring-1 ring-border md:p-8"
+                  className="flex items-center gap-5 rounded-2xl bg-surface/60 p-6 ring-1 ring-border md:p-8"
                 >
-                  <div className="flex size-12 shrink-0 items-center justify-center">
-                    <Icon className="size-5 text-signal" />
+                  <div className="shrink-0">
+                    <Icon className="size-7 text-signal" />
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-display text-xl font-bold">{p.title}</h3>

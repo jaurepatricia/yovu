@@ -1,6 +1,7 @@
-In `src/components/yovu/Canada.tsx`, line 71, change the icon wrapper for the three pillar cards from a bordered box to a plain centered container:
+In `src/components/yovu/Canada.tsx`:
 
-- Remove `rounded-xl bg-canvas ring-1 ring-border` from the icon wrapper div
-- Keep `flex size-12 shrink-0 items-center justify-center` so the icon stays centered in its allotted space
+1. On the pillar card row (line 69), change `items-start` to `items-center` so the icon sits vertically centered in the card next to the text.
+2. On the icon wrapper (line 71), drop the fixed `size-12` box and use a simple `shrink-0` container so the icon no longer has a square footprint behind it.
+3. Bump the icon size from `size-5` to `size-7` (line 72) for a slightly larger presence.
 
-Result: the icons (Server, Headset, ShieldCheck) float freely next to the text with no box or outline behind them, still vertically aligned with the heading.
+No other components or copy are affected.
