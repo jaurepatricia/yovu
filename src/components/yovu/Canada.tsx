@@ -42,7 +42,7 @@ export function Canada() {
         <div className="grid gap-6 lg:grid-cols-12">
           {/* Headline card */}
           <div className="lg:col-span-5 flex flex-col justify-center rounded-3xl bg-card p-8 ring-1 ring-border lg:p-12">
-            <MapleLeaf className="size-7 text-signal" />
+            <MapleLeaf className="size-10 text-signal" />
             <h2 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
               Proudly Canadian.
               <br />
