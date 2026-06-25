@@ -39,7 +39,6 @@ export function Canada() {
           {/* Headline card */}
           <div className="lg:col-span-5 flex flex-col justify-center rounded-3xl bg-card p-8 ring-1 ring-border lg:p-12">
             <MapleLeaf className="size-7 text-signal" />
-            </div>
             <h2 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
               Proudly Canadian.
               <br />
