@@ -5,7 +5,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
+  
 } from "@/components/ui/navigation-menu";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -47,8 +47,9 @@ const integrations = [
 const triggerCls =
   "bg-transparent text-sm font-medium text-ink/60 hover:bg-transparent hover:text-ink focus:bg-transparent data-[state=open]:bg-transparent data-[state=open]:text-ink px-3";
 
-const linkCls =
-  "text-sm font-medium text-ink/60 transition-colors hover:text-ink px-3 py-2";
+const itemCls =
+  "inline-flex h-9 items-center justify-center rounded-md bg-transparent px-3 text-sm font-medium text-ink/60 transition-colors hover:bg-accent hover:text-ink focus:bg-accent focus:text-ink focus:outline-none";
+
 
 export function Nav() {
   return (
@@ -154,8 +155,8 @@ export function Nav() {
 
               {/* Plans & Pricing */}
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <a href="#" className={linkCls}>
+                <NavigationMenuLink asChild>
+                  <a href="#" className={itemCls}>
                     Plans &amp; Pricing
                   </a>
                 </NavigationMenuLink>
@@ -163,12 +164,13 @@ export function Nav() {
 
               {/* About Us */}
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <a href="#" className={linkCls}>
+                <NavigationMenuLink asChild>
+                  <a href="#" className={itemCls}>
                     About Us
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
+
             </NavigationMenuList>
           </NavigationMenu>
         </div>
