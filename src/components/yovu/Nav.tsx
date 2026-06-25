@@ -155,8 +155,8 @@ export function Nav() {
 
               {/* Plans & Pricing */}
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <a href="#" className={linkCls}>
+                <NavigationMenuLink asChild>
+                  <a href="#" className={itemCls}>
                     Plans &amp; Pricing
                   </a>
                 </NavigationMenuLink>
@@ -164,12 +164,13 @@ export function Nav() {
 
               {/* About Us */}
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <a href="#" className={linkCls}>
+                <NavigationMenuLink asChild>
+                  <a href="#" className={itemCls}>
                     About Us
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
+
             </NavigationMenuList>
           </NavigationMenu>
         </div>
