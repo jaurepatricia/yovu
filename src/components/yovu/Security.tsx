@@ -13,7 +13,7 @@ export function Security() {
 
         <div className="grid gap-5 lg:grid-cols-12">
           <SpotlightCard
-            spotlightColor="rgba(16, 185, 129, 0.22)"
+            spotlightColor="rgba(37, 99, 235, 0.22)"
             className="lg:col-span-7 rounded-3xl bg-ink p-8 text-canvas ring-1 ring-black/10 lg:p-12"
           >
             <h3 className="font-display text-2xl font-bold md:text-3xl">
@@ -48,7 +48,7 @@ export function Security() {
 
           <div className="lg:col-span-5 flex flex-col gap-5">
             <SpotlightCard
-              spotlightColor="rgba(16, 185, 129, 0.14)"
+              spotlightColor="rgba(59, 130, 246, 0.18)"
               className="flex-1 rounded-3xl bg-card p-8 ring-1 ring-border"
             >
               <h3 className="font-display text-2xl font-bold">SOC 2 Certified</h3>
