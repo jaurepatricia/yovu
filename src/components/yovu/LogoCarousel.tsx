@@ -1,19 +1,21 @@
 import mcfarlanRowlands from "@/assets/logos/mcfarlan-rowlands.png.asset.json";
 import mcdougall from "@/assets/logos/mcdougall.png.asset.json";
+import mcdougallDark from "@/assets/logos/mcdougall-dark.png.asset.json";
 import youngs from "@/assets/logos/youngs.png.asset.json";
 import stoneridge from "@/assets/logos/stoneridge.png.asset.json";
 import stoneridgeDark from "@/assets/logos/stoneridge-dark.png.asset.json";
 import selectpath from "@/assets/logos/selectpath.png.asset.json";
+import selectpathDark from "@/assets/logos/selectpath-dark.png.asset.json";
 import aaMunro from "@/assets/logos/aa-munro.png.asset.json";
 
 type Logo = { name: string; src: string; srcDark?: string; href: string };
 
 const logos: Logo[] = [
   { name: "McFarlan Rowlands", src: mcfarlanRowlands.url, href: "https://mcfarlanrowlands.com/" },
-  { name: "McDougall Insurance", src: mcdougall.url, href: "https://www.mcdougallinsurance.com/" },
+  { name: "McDougall Insurance", src: mcdougall.url, srcDark: mcdougallDark.url, href: "https://www.mcdougallinsurance.com/" },
   { name: "Youngs Insurance Brokers", src: youngs.url, href: "https://www.youngsinsurance.ca/site/home" },
   { name: "Stoneridge Insurance", src: stoneridge.url, srcDark: stoneridgeDark.url, href: "https://stoneridgeinsurance.ca/" },
-  { name: "Select Path Insurance", src: selectpath.url, href: "https://www.selectpath.ca/" },
+  { name: "Select Path Insurance", src: selectpath.url, srcDark: selectpathDark.url, href: "https://www.selectpath.ca/" },
   { name: "AA Munro Insurance", src: aaMunro.url, href: "https://www.aamunro.com/" },
 ];
 
