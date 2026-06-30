@@ -1,18 +1,27 @@
 ## Goal
-Create a `/v2` route that renders an identical copy of the current homepage, so both versions can be A/B tested independently going forward.
+Replace the empty Hero with a full-viewport (100vw × 100vh) looping background video that swaps based on light/dark theme, with the matching still image as a poster/fallback if the video fails or is slow to load.
 
 ## Approach
-- Extract the current homepage body (the `<main>` with Nav, Hero, LogoCarousel, Features, Integrations, Security, Canada, Testimonials, FAQ, FinalCTA, Footer) from `src/routes/index.tsx` into a shared component `src/components/yovu/HomePage.tsx`.
-- `src/routes/index.tsx` renders `<HomePage />` and keeps its existing `head()` meta (v1).
-- New `src/routes/v2.tsx` with `createFileRoute("/v2")` also renders `<HomePage />` with its own `head()` meta (title suffix " — v2", `noindex` to keep it out of search).
-- No visual or copy changes between v1 and v2 yet — they're byte-identical renders. Future edits to either route can diverge by swapping props or forking the component.
+1. Upload the four files to the CDN via `lovable-assets`:
+   - `mountain_light.mp4`, `mountain_dark.mp4`
+   - `mountain_light.png`, `mountain_dark.png`
+   Stored as `src/assets/hero/*.asset.json` pointers (binaries not committed).
+
+2. Rewrite `src/components/yovu/Hero.tsx`:
+   - `<section>` sized `w-screen h-screen` with `overflow-hidden`, keeps `id="top"`.
+   - Two `<video>` elements layered absolutely-positioned, `object-cover w-full h-full`:
+     - Light video shown via `block dark:hidden`, `poster={mountainLight.url}`
+     - Dark video shown via `hidden dark:block`, `poster={mountainDark.url}`
+   - Attributes on both: `autoPlay`, `loop`, `muted`, `playsInline`, `preload="metadata"`.
+   - `onError` handler hides the `<video>` so the matching `<img>` fallback underneath (same `object-cover`) takes over. Image layers also toggle via `dark:` classes.
+   - Stack order: fallback `<img>` → `<video>` on top. If video loads, it covers the image; if it fails, the image remains visible.
+
+3. No nav/layout changes. Remove the unused `ScrollFrameSequence` import paths only if Hero was the sole consumer (verify; leave file in place either way).
 
 ## Files
-- New: `src/components/yovu/HomePage.tsx` — shared page composition.
-- Edit: `src/routes/index.tsx` — import and render `HomePage`.
-- New: `src/routes/v2.tsx` — `/v2` route rendering `HomePage` with its own meta + `<meta name="robots" content="noindex">`.
-- `src/routeTree.gen.ts` regenerates automatically.
+- New: `src/assets/hero/mountain_light.mp4.asset.json`, `mountain_dark.mp4.asset.json`, `mountain_light.png.asset.json`, `mountain_dark.png.asset.json`
+- Edit: `src/components/yovu/Hero.tsx`
 
 ## Notes
-- Routes are reached at `/` and `/v2`. No nav link to `/v2` is added (keeps it unlinked for controlled testing); you can share the URL directly.
-- When you're ready for the versions to diverge, tell me what should change in v2 and I'll fork the relevant section components.
+- Theme switching uses the existing `dark` class on `<html>` (same mechanism as the logo carousel's `dark:block` / `dark:hidden` toggle), so no JS is needed to pick the variant.
+- `poster` attribute ensures the still image renders instantly while the video buffers; `onError` covers the case where the video fails outright.
