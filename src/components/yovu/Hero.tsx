@@ -1,12 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import mountainLightVideo from "@/assets/hero/mountain_light.mp4.asset.json";
 import mountainDarkVideo from "@/assets/hero/mountain_dark.mp4.asset.json";
 import mountainLightImage from "@/assets/hero/mountain_light.png.asset.json";
@@ -19,12 +12,25 @@ const INDUSTRIES = [
   "Financial Services",
   "Healthcare",
   "Other",
-];
+] as const;
 
 export function Hero() {
   const [lightVideoFailed, setLightVideoFailed] = useState(false);
   const [darkVideoFailed, setDarkVideoFailed] = useState(false);
-  const [industry, setIndustry] = useState("Insurance");
+  const [industry, setIndustry] = useState<(typeof INDUSTRIES)[number]>("Insurance");
+  const [open, setOpen] = useState(false);
+  const pillRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (pillRef.current && !pillRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [open]);
 
   return (
     <section
@@ -84,21 +90,41 @@ export function Hero() {
         />
 
         {/* Industry selector pill */}
-        <div className="pointer-events-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border/40 bg-canvas/40 px-5 py-2 shadow-sm backdrop-blur-xl">
-          <span className="font-[Epilogue] text-sm text-ink/70">I work in</span>
-          <Select value={industry} onValueChange={setIndustry}>
-            <SelectTrigger className="h-auto w-auto gap-1 border-0 bg-transparent p-0 text-sm font-semibold text-ink shadow-none focus:ring-0 focus:ring-offset-0 [&>svg]:hidden">
-              <SelectValue />
-              <ChevronDown className="h-4 w-4 opacity-70" />
-            </SelectTrigger>
-            <SelectContent>
-              {INDUSTRIES.map((opt) => (
-                <SelectItem key={opt} value={opt}>
-                  {opt}
-                </SelectItem>
+        <div
+          ref={pillRef}
+          className="pointer-events-auto relative mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-[15px] text-white ring-1 ring-white/15 backdrop-blur"
+        >
+          <span className="text-white/60">I work in</span>
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            className="inline-flex items-center gap-1 font-medium transition hover:text-white"
+          >
+            <span>{industry}</span>
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
+            />
+          </button>
+          {open && (
+            <ul className="absolute left-0 top-full z-20 mt-2 w-64 overflow-hidden rounded-2xl bg-white text-left text-foreground shadow-2xl ring-1 ring-black/5">
+              {INDUSTRIES.map((i) => (
+                <li key={i}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIndustry(i);
+                      setOpen(false);
+                    }}
+                    className={`w-full px-4 py-2.5 text-left text-sm transition hover:bg-muted ${
+                      i === industry ? "font-medium text-primary" : ""
+                    }`}
+                  >
+                    {i}
+                  </button>
+                </li>
               ))}
-            </SelectContent>
-          </Select>
+            </ul>
+          )}
         </div>
 
         <h1 className="font-[Urbanist] text-6xl font-bold tracking-tight text-ink md:text-8xl">
