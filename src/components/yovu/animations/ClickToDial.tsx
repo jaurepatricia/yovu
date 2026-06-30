@@ -127,7 +127,7 @@ export function ClickToDial() {
           }}
           transition={{ duration: phase === "ready" ? 1.1 : 0.3, ease: "easeInOut" }}
         >
-          <MousePointer2 className="size-5 fill-ink text-white drop-shadow" />
+          <MousePointer2 className="size-5 fill-ink text-canvas drop-shadow" />
         </motion.div>
       )}
 
