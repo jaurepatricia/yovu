@@ -1,3 +1,7 @@
-Update `src/components/yovu/Hero.tsx`:
-- H1: replace `font-[Urbanist]` with `font-display` (matches all other headlines).
-- Subhead `<p>`: drop `font-[Epilogue]` — body text inherits `--font-sans` (Epilogue) globally, matching the rest of the site.
+Update the `INDUSTRIES` constant in `src/components/yovu/Hero.tsx` to:
+
+```
+["Insurance", "Healthcare", "Automotive", "Non-Profit or Charity", "Other"]
+```
+
+Default selection stays "Insurance". No other changes.
