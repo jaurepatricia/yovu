@@ -127,11 +127,11 @@ export function Hero() {
           )}
         </div>
 
-        <h1 className="font-[Urbanist] text-6xl font-bold tracking-tight text-ink md:text-8xl">
+        <h1 className="font-display text-6xl font-bold tracking-tight text-ink md:text-8xl">
           Peak Communication
         </h1>
 
-        <p className="mt-5 max-w-2xl font-[Epilogue] text-base text-ink/80 md:text-lg">
+        <p className="mt-5 max-w-2xl text-base text-ink/80 md:text-lg">
           Discover how insurance brokerages across Canada are improving
           efficiency with our all-in-one unified communications platform.
         </p>
