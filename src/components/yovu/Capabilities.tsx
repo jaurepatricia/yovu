@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus, ArrowRight } from "lucide-react";
 import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
 import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
+import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
 
 const CYCLE_MS = 5000;
 
@@ -10,6 +11,8 @@ type Item = {
   title: string;
   copy: string;
   cta: { label: string; href: string };
+  /** Optional animated overlay shown over the card background. */
+  media?: ReactNode;
 };
 
 type Category = {
@@ -27,6 +30,7 @@ const categories: Category[] = [
         title: "Easy to Use",
         copy: "Call any number with one click from your desktop or mobile using your business number.",
         cta: { label: "Get a Demo", href: "#demo" },
+        media: <ClickToDial />,
       },
       {
         title: "Warm Transfer",
@@ -200,7 +204,7 @@ export function Capabilities() {
                         </p>
                         {/* Mobile media (inline under open item) */}
                         <div className="mt-6 lg:hidden">
-                          <MediaCard title={item.title} />
+                          <MediaCard item={item} />
                         </div>
                       </div>
                     </div>
@@ -232,7 +236,7 @@ export function Capabilities() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
                 >
-                  <MediaCard title={active.title} />
+                  <MediaCard item={active} />
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -245,10 +249,10 @@ export function Capabilities() {
 
 /**
  * Rounded media card with a theme-aware blurred mountain background.
- * The centered label is a placeholder for the feature animation/image that
- * will be overlaid on top later.
+ * Renders the item's animated `media` overlay when present, otherwise a
+ * placeholder title label until that feature's animation is built.
  */
-function MediaCard({ title }: { title: string }) {
+function MediaCard({ item }: { item: Item }) {
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lg shadow-ink/5 ring-1 ring-border">
       {/* Theme-aware blurred background */}
@@ -264,12 +268,14 @@ function MediaCard({ title }: { title: string }) {
         aria-hidden
         className="absolute inset-0 hidden size-full object-cover dark:block"
       />
-      {/* Overlay slot — feature animation/image goes here later */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-ink/50">
-          {title}
-        </span>
-      </div>
+      {/* Overlay: animated media if available, else placeholder label */}
+      {item.media ?? (
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-ink/50">
+            {item.title}
+          </span>
+        </div>
+      )}
     </div>
   );
 }
