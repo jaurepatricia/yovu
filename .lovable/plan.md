@@ -1,27 +1,27 @@
-## Goal
-Replace the empty Hero with a full-viewport (100vw × 100vh) looping background video that swaps based on light/dark theme, with the matching still image as a poster/fallback if the video fails or is slow to load.
+## Hero overlay content
 
-## Approach
-1. Upload the four files to the CDN via `lovable-assets`:
-   - `mountain_light.mp4`, `mountain_dark.mp4`
-   - `mountain_light.png`, `mountain_dark.png`
-   Stored as `src/assets/hero/*.asset.json` pointers (binaries not committed).
+Add centered content in the top half of the hero, layered above the mountain video, with theme-aware text.
 
-2. Rewrite `src/components/yovu/Hero.tsx`:
-   - `<section>` sized `w-screen h-screen` with `overflow-hidden`, keeps `id="top"`.
-   - Two `<video>` elements layered absolutely-positioned, `object-cover w-full h-full`:
-     - Light video shown via `block dark:hidden`, `poster={mountainLight.url}`
-     - Dark video shown via `hidden dark:block`, `poster={mountainDark.url}`
-   - Attributes on both: `autoPlay`, `loop`, `muted`, `playsInline`, `preload="metadata"`.
-   - `onError` handler hides the `<video>` so the matching `<img>` fallback underneath (same `object-cover`) takes over. Image layers also toggle via `dark:` classes.
-   - Stack order: fallback `<img>` → `<video>` on top. If video loads, it covers the image; if it fails, the image remains visible.
+### Layout
+- New absolutely-positioned overlay inside `src/components/yovu/Hero.tsx`, `z-10`, `pointer-events-none` on wrapper / `pointer-events-auto` on the selector so video stays interactive elsewhere.
+- Vertical placement: `top-0 h-1/2` flex column, `items-center justify-center`, with top padding to clear the fixed nav (~`pt-28`).
+- Stack order: pill selector → H1 headline → subheadline. All center-aligned.
 
-3. No nav/layout changes. Remove the unused `ScrollFrameSequence` import paths only if Hero was the sole consumer (verify; leave file in place either way).
+### Industry selector pill
+- Matte glass pill matching the Nav: `bg-canvas/40 backdrop-blur-xl border border-border/40 rounded-full` with subtle inner shadow.
+- Structure: muted "I work in" label + shadcn `Select` (borderless trigger, transparent bg, chevron icon, bold value).
+- Options: Insurance (default), Real Estate, Legal, Financial Services, Healthcare, Other. Selection is local state — no routing/side effects.
+- Text colors use semantic tokens (`text-ink`, `text-ink/70`) so they read on both light and dark video backdrops.
 
-## Files
-- New: `src/assets/hero/mountain_light.mp4.asset.json`, `mountain_dark.mp4.asset.json`, `mountain_light.png.asset.json`, `mountain_dark.png.asset.json`
-- Edit: `src/components/yovu/Hero.tsx`
+### Headline + subheadline
+- H1: "Peak Communication" — Urbanist, bold, large display size (`text-6xl md:text-8xl`), `text-ink`, tight tracking.
+- Subheadline: "Discover how insurance brokerages across Canada are improving efficiency with our all-in-one unified communications platform." — Epilogue, `text-ink/80`, `max-w-2xl`.
+- Soft bloom halo behind the text block (reusing the existing radial-blur pattern) for legibility over the video.
 
-## Notes
-- Theme switching uses the existing `dark` class on `<html>` (same mechanism as the logo carousel's `dark:block` / `dark:hidden` toggle), so no JS is needed to pick the variant.
-- `poster` attribute ensures the still image renders instantly while the video buffers; `onError` covers the case where the video fails outright.
+### Files
+- Edit `src/components/yovu/Hero.tsx` — add overlay markup + selector state.
+- No new shadcn installs needed (`select.tsx` already present).
+
+### Notes
+- Selector value is currently presentational only; wiring it to filter content can be a follow-up.
+- Existing fallback `<img>` + looping `<video>` stack is preserved untouched.
