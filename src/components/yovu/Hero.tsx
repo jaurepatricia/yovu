@@ -92,18 +92,19 @@ export function Hero() {
         {/* Industry selector pill */}
         <div
           ref={pillRef}
-          className="pointer-events-auto relative mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-[15px] text-white ring-1 ring-white/15 backdrop-blur"
+          className="pointer-events-auto relative mb-6 inline-flex items-center gap-2 rounded-full bg-white/40 px-5 py-2.5 text-[15px] text-[#0a1f3d] ring-1 ring-white/40 backdrop-blur"
         >
-          <span className="text-white/60">I work in</span>
+          <span className="text-[#0a1f3d]/70">I work in</span>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="inline-flex items-center gap-1 font-medium transition hover:text-white"
+            className="inline-flex items-center gap-1 font-semibold transition hover:text-[#0a1f3d]"
           >
             <span>{industry}</span>
             <ChevronDown
               className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
             />
+
           </button>
           {open && (
             <ul className="absolute left-0 top-full z-20 mt-2 w-64 overflow-hidden rounded-2xl bg-white text-left text-foreground shadow-2xl ring-1 ring-black/5">
