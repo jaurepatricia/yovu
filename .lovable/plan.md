@@ -1,27 +1,20 @@
-## Hero overlay content
+## Goal
+Replace the shadcn `Select`-based industry pill in `src/components/yovu/Hero.tsx` with the custom button-driven dropdown from the YOVU project's hero.
 
-Add centered content in the top half of the hero, layered above the mountain video, with theme-aware text.
+## Changes
 
-### Layout
-- New absolutely-positioned overlay inside `src/components/yovu/Hero.tsx`, `z-10`, `pointer-events-none` on wrapper / `pointer-events-auto` on the selector so video stays interactive elsewhere.
-- Vertical placement: `top-0 h-1/2` flex column, `items-center justify-center`, with top padding to clear the fixed nav (~`pt-28`).
-- Stack order: pill selector → H1 headline → subheadline. All center-aligned.
+**`src/components/yovu/Hero.tsx`**
+- Remove imports of `Select`, `SelectContent`, `SelectItem`, `SelectTrigger`, `SelectValue`.
+- Add `useRef`, `useEffect` for outside-click close.
+- Add local `open` state (`industry` already exists).
+- Replace the pill markup with the YOVU-project pattern:
+  - Container: `relative inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/15 backdrop-blur px-5 py-2.5 text-[15px]`.
+  - "I work in" label: `text-white/60`.
+  - Trigger `<button>` toggles `open`, shows current `industry` + rotating `ChevronDown`.
+  - Open panel: absolute `ul` (`mt-2 w-64 rounded-2xl bg-white text-foreground shadow-2xl ring-1 ring-black/5 z-20`) listing all INDUSTRIES; selected item gets `text-primary font-medium`; hover `bg-muted`.
+- Close on outside click via a ref + `mousedown` listener.
 
-### Industry selector pill
-- Matte glass pill matching the Nav: `bg-canvas/40 backdrop-blur-xl border border-border/40 rounded-full` with subtle inner shadow.
-- Structure: muted "I work in" label + shadcn `Select` (borderless trigger, transparent bg, chevron icon, bold value).
-- Options: Insurance (default), Real Estate, Legal, Financial Services, Healthcare, Other. Selection is local state — no routing/side effects.
-- Text colors use semantic tokens (`text-ink`, `text-ink/70`) so they read on both light and dark video backdrops.
-
-### Headline + subheadline
-- H1: "Peak Communication" — Urbanist, bold, large display size (`text-6xl md:text-8xl`), `text-ink`, tight tracking.
-- Subheadline: "Discover how insurance brokerages across Canada are improving efficiency with our all-in-one unified communications platform." — Epilogue, `text-ink/80`, `max-w-2xl`.
-- Soft bloom halo behind the text block (reusing the existing radial-blur pattern) for legibility over the video.
-
-### Files
-- Edit `src/components/yovu/Hero.tsx` — add overlay markup + selector state.
-- No new shadcn installs needed (`select.tsx` already present).
-
-### Notes
-- Selector value is currently presentational only; wiring it to filter content can be a follow-up.
-- Existing fallback `<img>` + looping `<video>` stack is preserved untouched.
+## Notes
+- Keep the existing INDUSTRIES list (Insurance default, plus current options) — only the trigger/panel styling/markup changes.
+- Keep the rest of the hero (videos, bloom, headline, subhead) untouched.
+- The source pill uses light-on-dark styling (`text-white/60`); the YOVU2 hero overlays video in both themes, so this matches the source intent. No dark-mode-only branching added.
