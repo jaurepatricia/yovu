@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus, ArrowRight } from "lucide-react";
+import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
+import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 
 const CYCLE_MS = 5000;
 
@@ -241,13 +243,33 @@ export function Capabilities() {
   );
 }
 
-/** Rounded media placeholder card. Swap for an image/video later. */
+/**
+ * Rounded media card with a theme-aware blurred mountain background.
+ * The centered label is a placeholder for the feature animation/image that
+ * will be overlaid on top later.
+ */
 function MediaCard({ title }: { title: string }) {
   return (
-    <div className="flex aspect-[4/3] w-full flex-col items-center justify-center rounded-3xl bg-card shadow-lg shadow-ink/5 ring-1 ring-border">
-      <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-ink/30">
-        {title}
-      </span>
+    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lg shadow-ink/5 ring-1 ring-border">
+      {/* Theme-aware blurred background */}
+      <img
+        src={mountainLightBlurred}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 size-full object-cover dark:hidden"
+      />
+      <img
+        src={mountainDarkBlurred}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 hidden size-full object-cover dark:block"
+      />
+      {/* Overlay slot — feature animation/image goes here later */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-ink/50">
+          {title}
+        </span>
+      </div>
     </div>
   );
 }
