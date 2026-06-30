@@ -1,6 +1,7 @@
 import { Nav } from "@/components/yovu/Nav";
 import { Hero } from "@/components/yovu/Hero";
 import { LogoCarousel } from "@/components/yovu/LogoCarousel";
+import { Capabilities } from "@/components/yovu/Capabilities";
 import { Features } from "@/components/yovu/Features";
 import { Integrations } from "@/components/yovu/Integrations";
 import { Security } from "@/components/yovu/Security";
@@ -16,6 +17,7 @@ export function HomePage() {
       <Nav />
       <Hero />
       <LogoCarousel />
+      <Capabilities />
       <Features />
       <Integrations />
       <Security />
