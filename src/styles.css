@@ -7,10 +7,11 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * YOVU design system — Evergreen Signal palette.
- * Light = canvas/white, Dark = ink/forest.
- * Signal green is the only accent in both modes.
+ * YOVU design system — Deep Navy + Electric Blue palette.
+ * Light = white canvas / cool grey, Dark = deep navy.
+ * Electric blue signal is the only accent in both modes.
  */
+
 
 @theme inline {
   --font-display: "Urbanist Variable", "Urbanist", ui-sans-serif, system-ui, sans-serif;
@@ -54,11 +55,11 @@
   --radius: 0.75rem;
 
   /* YOVU semantic tokens */
-  --canvas: #fafaf8;
-  --surface: #ececea;
-  --ink: #0a1f1a;
-  --signal: #10b981;
-  --signal-soft: #d1fae5;
+  --canvas: #ffffff;
+  --surface: #f1f4f8;
+  --ink: #0b1733;
+  --signal: #2563eb;
+  --signal-soft: #dbe7ff;
 
   /* shadcn aliases mapped to YOVU */
   --background: var(--canvas);
@@ -68,47 +69,48 @@
   --popover: #ffffff;
   --popover-foreground: var(--ink);
   --primary: var(--signal);
-  --primary-foreground: var(--ink);
+  --primary-foreground: #ffffff;
   --secondary: var(--surface);
   --secondary-foreground: var(--ink);
   --muted: var(--surface);
-  --muted-foreground: rgba(10, 31, 26, 0.6);
+  --muted-foreground: rgba(11, 23, 51, 0.6);
   --accent: var(--surface);
   --accent-foreground: var(--ink);
   --destructive: #b91c1c;
   --destructive-foreground: #ffffff;
-  --border: rgba(10, 31, 26, 0.08);
-  --input: rgba(10, 31, 26, 0.12);
+  --border: rgba(11, 23, 51, 0.08);
+  --input: rgba(11, 23, 51, 0.12);
   --ring: var(--signal);
 }
 
 .dark {
-  --canvas: #06140f;
-  --surface: #11231d;
-  --ink: #f1f5f3;
-  --signal: #10b981;
-  --signal-soft: rgba(16, 185, 129, 0.15);
+  --canvas: #070b1a;
+  --surface: #111a33;
+  --ink: #eef2f9;
+  --signal: #3b82f6;
+  --signal-soft: rgba(59, 130, 246, 0.18);
 
   --background: var(--canvas);
   --foreground: var(--ink);
-  --card: #0c1c17;
+  --card: #0c1226;
   --card-foreground: var(--ink);
-  --popover: #0c1c17;
+  --popover: #0c1226;
   --popover-foreground: var(--ink);
   --primary: var(--signal);
-  --primary-foreground: #06140f;
+  --primary-foreground: #070b1a;
   --secondary: var(--surface);
   --secondary-foreground: var(--ink);
   --muted: var(--surface);
-  --muted-foreground: rgba(241, 245, 243, 0.55);
+  --muted-foreground: rgba(238, 242, 249, 0.6);
   --accent: var(--surface);
   --accent-foreground: var(--ink);
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(241, 245, 243, 0.08);
-  --input: rgba(241, 245, 243, 0.12);
+  --border: rgba(238, 242, 249, 0.08);
+  --input: rgba(238, 242, 249, 0.12);
   --ring: var(--signal);
 }
+
 
 @layer base {
   * {

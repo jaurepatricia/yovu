@@ -46,7 +46,7 @@ export function CTASection({
 
         <a
           href={action.href}
-          className="relative z-10 mt-12 inline-flex animate-fade-in-up items-center justify-center rounded-full bg-signal px-8 py-4 text-base font-semibold text-ink opacity-0 ring-1 ring-signal transition-transform [animation-delay:500ms] hover:scale-[1.03]"
+          className="relative z-10 mt-12 inline-flex animate-fade-in-up items-center justify-center rounded-full bg-signal px-8 py-4 text-base font-semibold text-white opacity-0 ring-1 ring-signal transition-transform [animation-delay:500ms] hover:scale-[1.03]"
         >
           {action.text}
         </a>
