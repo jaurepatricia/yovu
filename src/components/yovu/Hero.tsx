@@ -7,10 +7,9 @@ import mountainDarkImage from "@/assets/hero/mountain_dark.png.asset.json";
 
 const INDUSTRIES = [
   "Insurance",
-  "Real Estate",
-  "Legal",
-  "Financial Services",
   "Healthcare",
+  "Automotive",
+  "Non-Profit or Charity",
   "Other",
 ] as const;
 
