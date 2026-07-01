@@ -8,6 +8,7 @@ import {
   
 } from "@/components/ui/navigation-menu";
 import { ThemeToggle } from "./ThemeToggle";
+import { YovuLogo } from "./YovuLogo";
 
 const industries = [
   { href: "#", label: "Insurance" },
@@ -62,8 +63,8 @@ export function Nav() {
       {/* Content row */}
       <div className="pointer-events-auto relative mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-8">
-          <a href="#top" className="font-display text-xl font-bold tracking-tight">
-            YOVU
+          <a href="#top" aria-label="YOVU home">
+            <YovuLogo height={22} />
           </a>
 
           <NavigationMenu className="hidden md:flex">
