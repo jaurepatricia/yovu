@@ -4,6 +4,7 @@ import mountainLightVideo from "@/assets/hero/mountain_light.mp4.asset.json";
 import mountainDarkVideo from "@/assets/hero/mountain_dark.mp4.asset.json";
 import mountainLightImage from "@/assets/hero/mountain_light.png.asset.json";
 import mountainDarkImage from "@/assets/hero/mountain_dark.png.asset.json";
+import appliedEpicLogo from "@/assets/homepage/Applied Epic White Logo.png";
 
 const INDUSTRIES = [
   "Insurance",
@@ -134,6 +135,30 @@ export function Hero() {
           Discover how insurance brokerages across Canada are improving
           efficiency with our all-in-one unified communications platform.
         </p>
+      </div>
+
+      {/* Bottom dark-blue fade (matte-glass, like the nav) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 backdrop-blur-md"
+        style={{
+          maskImage: "linear-gradient(to top, black 35%, transparent)",
+          WebkitMaskImage: "linear-gradient(to top, black 35%, transparent)",
+          background:
+            "linear-gradient(to top, rgba(7,11,26,0.9), rgba(7,11,26,0.5), transparent)",
+        }}
+      />
+
+      {/* Certified Integration Partner badge */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col items-center gap-2 pb-6">
+        <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">
+          Certified Integration Partner
+        </span>
+        <img
+          src={appliedEpicLogo}
+          alt="Applied Epic"
+          className="h-5 w-auto opacity-90"
+        />
       </div>
     </section>
   );
