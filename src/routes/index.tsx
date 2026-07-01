@@ -4,6 +4,7 @@ import { Hero } from "@/components/yovu/Hero";
 import { LogoCarousel } from "@/components/yovu/LogoCarousel";
 import { Capabilities } from "@/components/yovu/Capabilities";
 import { Statement } from "@/components/yovu/Statement";
+import { Showcase } from "@/components/yovu/Showcase";
 import { Testimonials } from "@/components/yovu/Testimonials";
 import { FAQ } from "@/components/yovu/FAQ";
 import { FinalCTA } from "@/components/yovu/FinalCTA";
@@ -17,6 +18,7 @@ function HomePage() {
       <LogoCarousel />
       <Capabilities />
       <Statement />
+      <Showcase />
       <Testimonials />
       <FAQ />
       <FinalCTA />
