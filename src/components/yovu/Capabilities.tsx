@@ -144,7 +144,7 @@ export function Capabilities() {
             <div
               role="tablist"
               aria-label="Feature categories"
-              className="mb-8 flex flex-wrap gap-3"
+              className="mb-8 grid grid-cols-3 gap-3"
             >
               {categories.map((c, i) => {
                 const isActive = i === activeCat;
@@ -156,8 +156,8 @@ export function Capabilities() {
                     onClick={() => selectCategory(i)}
                     className={
                       isActive
-                        ? "rounded-full border border-signal bg-signal-soft px-6 py-2.5 text-sm font-semibold text-ink transition-colors"
-                        : "rounded-full border border-border px-6 py-2.5 text-sm font-semibold text-ink/60 transition-colors hover:border-ink/20 hover:text-ink"
+                        ? "w-full rounded-full border border-signal bg-signal-soft py-2.5 text-center text-sm font-semibold text-ink transition-colors"
+                        : "w-full rounded-full border border-border py-2.5 text-center text-sm font-semibold text-ink/60 transition-colors hover:border-ink/20 hover:text-ink"
                     }
                   >
                     {c.label}
@@ -213,13 +213,13 @@ export function Capabilities() {
               })}
             </div>
 
-            {/* Per-item CTA */}
+            {/* CTA — links to the active category page */}
             <div className="mt-8">
               <a
-                href={active.cta.href}
+                href={`#${category.id}`}
                 className="inline-flex items-center gap-2 rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
               >
-                {active.cta.label}
+                Learn More
                 <ArrowRight className="size-4" />
               </a>
             </div>

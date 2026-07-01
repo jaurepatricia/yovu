@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowRight, Plus } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +10,18 @@ import {
 import forestStream from "@/assets/homepage/forest stream blurred.png";
 import mountainRoad from "@/assets/homepage/mountain_winding_road.png";
 import manIpad from "@/assets/homepage/man holding ipad.png";
+import yovuLogo from "@/assets/homepage/YOVU Logo.svg";
+import appliedLogomark from "@/assets/logos/Applied Logomark.svg";
+import teamsLogo from "@/assets/logos/Microsoft Office Teams logo.svg";
+import salesforceLogo from "@/assets/logos/Salesforce logo.svg";
+
+const AUTOPLAY_MS = 7000;
+
+const integrations = [
+  { name: "Applied Epic", src: appliedLogomark },
+  { name: "Microsoft Teams", src: teamsLogo },
+  { name: "Salesforce", src: salesforceLogo },
+];
 
 type Tone = "light" | "dark";
 
@@ -18,6 +31,7 @@ type Slide = {
   cta: { label: string; href: string };
   image: string;
   tone: Tone;
+  showIntegrations?: boolean;
 };
 
 const slides: Slide[] = [
@@ -27,6 +41,7 @@ const slides: Slide[] = [
     cta: { label: "Our Integrations", href: "#integrations" },
     image: forestStream,
     tone: "light",
+    showIntegrations: true,
   },
   {
     headline: "Built for the long road",
@@ -47,6 +62,17 @@ const slides: Slide[] = [
 export function Showcase() {
   const [api, setApi] = useState<CarouselApi>();
   const [selected, setSelected] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduced = useRef(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    reduced.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+  }, []);
 
   useEffect(() => {
     if (!api) return;
@@ -58,8 +84,33 @@ export function Showcase() {
     };
   }, [api]);
 
+  // Only autoplay while the section is on screen.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.4 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Auto-advance with enough time to read. Re-arms on each slide change, so
+  // manual navigation also resets the timer.
+  useEffect(() => {
+    if (!api || !inView || paused || reduced.current) return;
+    const t = setTimeout(() => api.scrollNext(), AUTOPLAY_MS);
+    return () => clearTimeout(t);
+  }, [api, inView, paused, selected]);
+
   return (
-    <section className="relative">
+    <section
+      ref={sectionRef}
+      className="relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
         <CarouselContent className="ml-0">
           {slides.map((slide, i) => {
@@ -85,38 +136,32 @@ export function Showcase() {
 
                 {/* Content */}
                 <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6">
-                  <div className="flex gap-6">
-                    {/* Vertical dotted accent */}
-                    <div
-                      className={`w-px shrink-0 self-stretch border-l border-dotted ${
-                        light ? "border-white/50" : "border-[#0b1733]/40"
+                  <div
+                    className={`max-w-lg pl-16 md:pl-20 ${light ? "text-white" : "text-[#0b1733]"}`}
+                  >
+                    <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
+                      {slide.headline}
+                    </h2>
+                    <p
+                      className={`mt-5 max-w-md text-base ${
+                        light ? "text-white/80" : "text-[#0b1733]/75"
                       }`}
-                    />
-                    <div
-                      className={`max-w-lg ${light ? "text-white" : "text-[#0b1733]"}`}
                     >
-                      <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
-                        {slide.headline}
-                      </h2>
-                      <p
-                        className={`mt-5 max-w-md text-base md:text-lg ${
-                          light ? "text-white/80" : "text-[#0b1733]/75"
-                        }`}
-                      >
-                        {slide.copy}
-                      </p>
-                      <a
-                        href={slide.cta.href}
-                        className={`mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${
-                          light
-                            ? "border-white/70 text-white hover:bg-white/10"
-                            : "border-[#0b1733]/40 text-[#0b1733] hover:bg-[#0b1733]/5"
-                        }`}
-                      >
-                        {slide.cta.label}
-                        <ArrowRight className="size-4" />
-                      </a>
-                    </div>
+                      {slide.copy}
+                    </p>
+                    <a
+                      href={slide.cta.href}
+                      className={`mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${
+                        light
+                          ? "border-white/70 text-white hover:bg-white/10"
+                          : "border-[#0b1733]/40 text-[#0b1733] hover:bg-[#0b1733]/5"
+                      }`}
+                    >
+                      {slide.cta.label}
+                      <ArrowRight className="size-4" />
+                    </a>
+
+                    {slide.showIntegrations && <IntegrationLockup />}
                   </div>
                 </div>
               </CarouselItem>
@@ -125,38 +170,77 @@ export function Showcase() {
         </CarouselContent>
       </Carousel>
 
-      {/* Arrows (desktop) */}
-      <button
-        type="button"
-        aria-label="Previous slide"
-        onClick={() => api?.scrollPrev()}
-        className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 items-center justify-center rounded-full bg-black/25 p-2.5 text-white backdrop-blur transition-colors hover:bg-black/40 md:flex"
-      >
-        <ChevronLeft className="size-5" />
-      </button>
-      <button
-        type="button"
-        aria-label="Next slide"
-        onClick={() => api?.scrollNext()}
-        className="absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 items-center justify-center rounded-full bg-black/25 p-2.5 text-white backdrop-blur transition-colors hover:bg-black/40 md:flex"
-      >
-        <ChevronRight className="size-5" />
-      </button>
-
-      {/* Dots */}
-      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/20 px-3 py-2 backdrop-blur">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => api?.scrollTo(i)}
-            className={`h-2 rounded-full bg-white transition-all ${
-              selected === i ? "w-6 opacity-100" : "w-2 opacity-50 hover:opacity-80"
-            }`}
-          />
-        ))}
+      {/* Vertical dot nav, aligned to the left of the content */}
+      <div className="pointer-events-none absolute inset-0 z-20">
+        <div className="mx-auto flex h-full max-w-7xl items-center px-6">
+          <div className="pointer-events-auto flex flex-col items-center gap-2 rounded-full bg-black/20 px-2 py-3 backdrop-blur">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => api?.scrollTo(i)}
+                className={`w-2 rounded-full bg-white transition-all ${
+                  selected === i ? "h-6 opacity-100" : "h-2 opacity-50 hover:opacity-80"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
+  );
+}
+
+/** YOVU + cycling integration logos, animating in on scroll. */
+function IntegrationLockup() {
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+    const t = setInterval(
+      () => setIdx((i) => (i + 1) % integrations.length),
+      2200,
+    );
+    return () => clearInterval(t);
+  }, []);
+
+  const active = integrations[idx];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+      className="mt-12 flex items-center gap-4"
+    >
+      <img src={yovuLogo} alt="YOVU" className="h-5 w-auto" />
+      <Plus className="size-4 text-white/70" strokeWidth={2.5} />
+      {/* Cycling integration chip */}
+      <div className="relative size-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.85 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="absolute inset-0 flex items-center justify-center rounded-2xl bg-white shadow-lg shadow-black/20 ring-1 ring-black/5"
+          >
+            <img
+              src={active.src}
+              alt={active.name}
+              className="size-7 object-contain"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </motion.div>
   );
 }
