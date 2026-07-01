@@ -59,8 +59,8 @@ const categories: Category[] = [
         cta: { label: "Learn More", href: "#demo" },
       },
       {
-        title: "Secure Storage",
-        copy: "Store recordings for seven years to support compliance and strengthen your E&O documentation.",
+        title: "Recording Storage",
+        copy: "Store recordings for up to seven years to support compliance and strengthen your E&O documentation.",
         cta: { label: "Our Security", href: "#security" },
       },
     ],
