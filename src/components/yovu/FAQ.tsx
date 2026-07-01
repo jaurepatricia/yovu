@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const items = [
   {
@@ -41,14 +41,14 @@ export function FAQ() {
 
   return (
     <section className="py-24 lg:py-32">
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="mb-12 text-center">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12">
           <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
             Frequently Asked Questions
           </h2>
         </div>
 
-        <div className="divide-y divide-border border-y border-border">
+        <div className="max-w-3xl divide-y divide-border border-y border-border">
           {items.map((item, i) => {
             const isOpen = open === i;
             return (
@@ -62,7 +62,9 @@ export function FAQ() {
                     {item.q}
                   </span>
                   <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
-                    {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
+                    <ChevronDown
+                      className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    />
                   </span>
                 </button>
                 <div
