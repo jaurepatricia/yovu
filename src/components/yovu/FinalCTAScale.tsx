@@ -13,7 +13,7 @@ export function FinalCTAScale() {
           <h2 className="animate-fade-in-up text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight opacity-0 [animation-delay:200ms] md:text-6xl">
             Scale Your Brokerage
           </h2>
-          <p className="mt-6 max-w-2xl animate-fade-in-up text-pretty text-lg text-canvas/65 opacity-0 [animation-delay:300ms]">
+          <p className="mt-6 max-w-4xl animate-fade-in-up text-pretty text-lg text-canvas/65 opacity-0 [animation-delay:300ms]">
             Connect your team and upgrade your client experience in one move.
             Book a 30-minute demo to see how simple scaling your business
             communications with YOVU can be.
