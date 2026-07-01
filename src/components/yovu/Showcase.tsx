@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowRight, Plus } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +10,18 @@ import {
 import forestStream from "@/assets/homepage/forest stream blurred.png";
 import mountainRoad from "@/assets/homepage/mountain_winding_road.png";
 import manIpad from "@/assets/homepage/man holding ipad.png";
+import yovuLogo from "@/assets/homepage/YOVU Logo.svg";
+import appliedLogomark from "@/assets/logos/Applied Logomark.svg";
+import teamsLogo from "@/assets/logos/Microsoft Office Teams logo.svg";
+import salesforceLogo from "@/assets/logos/Salesforce logo.svg";
+
+const AUTOPLAY_MS = 7000;
+
+const integrations = [
+  { name: "Applied Epic", src: appliedLogomark },
+  { name: "Microsoft Teams", src: teamsLogo },
+  { name: "Salesforce", src: salesforceLogo },
+];
 
 type Tone = "light" | "dark";
 
@@ -18,6 +31,7 @@ type Slide = {
   cta: { label: string; href: string };
   image: string;
   tone: Tone;
+  showIntegrations?: boolean;
 };
 
 const slides: Slide[] = [
@@ -27,6 +41,7 @@ const slides: Slide[] = [
     cta: { label: "Our Integrations", href: "#integrations" },
     image: forestStream,
     tone: "light",
+    showIntegrations: true,
   },
   {
     headline: "Built for the long road",
@@ -47,6 +62,17 @@ const slides: Slide[] = [
 export function Showcase() {
   const [api, setApi] = useState<CarouselApi>();
   const [selected, setSelected] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduced = useRef(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    reduced.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+  }, []);
 
   useEffect(() => {
     if (!api) return;
@@ -58,8 +84,33 @@ export function Showcase() {
     };
   }, [api]);
 
+  // Only autoplay while the section is on screen.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.4 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Auto-advance with enough time to read. Re-arms on each slide change, so
+  // manual navigation also resets the timer.
+  useEffect(() => {
+    if (!api || !inView || paused || reduced.current) return;
+    const t = setTimeout(() => api.scrollNext(), AUTOPLAY_MS);
+    return () => clearTimeout(t);
+  }, [api, inView, paused, selected]);
+
   return (
-    <section className="relative">
+    <section
+      ref={sectionRef}
+      className="relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
         <CarouselContent className="ml-0">
           {slides.map((slide, i) => {
@@ -109,6 +160,8 @@ export function Showcase() {
                       {slide.cta.label}
                       <ArrowRight className="size-4" />
                     </a>
+
+                    {slide.showIntegrations && <IntegrationLockup />}
                   </div>
                 </div>
               </CarouselItem>
@@ -136,5 +189,58 @@ export function Showcase() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** YOVU + cycling integration logos, animating in on scroll. */
+function IntegrationLockup() {
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+    const t = setInterval(
+      () => setIdx((i) => (i + 1) % integrations.length),
+      2200,
+    );
+    return () => clearInterval(t);
+  }, []);
+
+  const active = integrations[idx];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+      className="mt-12 flex items-center gap-4"
+    >
+      <img src={yovuLogo} alt="YOVU" className="h-5 w-auto" />
+      <Plus className="size-4 text-white/70" strokeWidth={2.5} />
+      {/* Cycling integration chip */}
+      <div className="relative size-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.85 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="absolute inset-0 flex items-center justify-center rounded-2xl bg-white shadow-lg shadow-black/20 ring-1 ring-black/5"
+          >
+            <img
+              src={active.src}
+              alt={active.name}
+              className="size-7 object-contain"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </motion.div>
   );
 }
