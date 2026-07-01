@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -85,38 +85,30 @@ export function Showcase() {
 
                 {/* Content */}
                 <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6">
-                  <div className="flex gap-6">
-                    {/* Vertical dotted accent */}
-                    <div
-                      className={`w-px shrink-0 self-stretch border-l border-dotted ${
-                        light ? "border-white/50" : "border-[#0b1733]/40"
+                  <div
+                    className={`max-w-lg pl-16 md:pl-20 ${light ? "text-white" : "text-[#0b1733]"}`}
+                  >
+                    <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
+                      {slide.headline}
+                    </h2>
+                    <p
+                      className={`mt-5 max-w-md text-base ${
+                        light ? "text-white/80" : "text-[#0b1733]/75"
                       }`}
-                    />
-                    <div
-                      className={`max-w-lg ${light ? "text-white" : "text-[#0b1733]"}`}
                     >
-                      <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
-                        {slide.headline}
-                      </h2>
-                      <p
-                        className={`mt-5 max-w-md text-base md:text-lg ${
-                          light ? "text-white/80" : "text-[#0b1733]/75"
-                        }`}
-                      >
-                        {slide.copy}
-                      </p>
-                      <a
-                        href={slide.cta.href}
-                        className={`mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${
-                          light
-                            ? "border-white/70 text-white hover:bg-white/10"
-                            : "border-[#0b1733]/40 text-[#0b1733] hover:bg-[#0b1733]/5"
-                        }`}
-                      >
-                        {slide.cta.label}
-                        <ArrowRight className="size-4" />
-                      </a>
-                    </div>
+                      {slide.copy}
+                    </p>
+                    <a
+                      href={slide.cta.href}
+                      className={`mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${
+                        light
+                          ? "border-white/70 text-white hover:bg-white/10"
+                          : "border-[#0b1733]/40 text-[#0b1733] hover:bg-[#0b1733]/5"
+                      }`}
+                    >
+                      {slide.cta.label}
+                      <ArrowRight className="size-4" />
+                    </a>
                   </div>
                 </div>
               </CarouselItem>
@@ -125,37 +117,23 @@ export function Showcase() {
         </CarouselContent>
       </Carousel>
 
-      {/* Arrows (desktop) */}
-      <button
-        type="button"
-        aria-label="Previous slide"
-        onClick={() => api?.scrollPrev()}
-        className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 items-center justify-center rounded-full bg-black/25 p-2.5 text-white backdrop-blur transition-colors hover:bg-black/40 md:flex"
-      >
-        <ChevronLeft className="size-5" />
-      </button>
-      <button
-        type="button"
-        aria-label="Next slide"
-        onClick={() => api?.scrollNext()}
-        className="absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 items-center justify-center rounded-full bg-black/25 p-2.5 text-white backdrop-blur transition-colors hover:bg-black/40 md:flex"
-      >
-        <ChevronRight className="size-5" />
-      </button>
-
-      {/* Dots */}
-      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/20 px-3 py-2 backdrop-blur">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => api?.scrollTo(i)}
-            className={`h-2 rounded-full bg-white transition-all ${
-              selected === i ? "w-6 opacity-100" : "w-2 opacity-50 hover:opacity-80"
-            }`}
-          />
-        ))}
+      {/* Vertical dot nav, aligned to the left of the content */}
+      <div className="pointer-events-none absolute inset-0 z-20">
+        <div className="mx-auto flex h-full max-w-7xl items-center px-6">
+          <div className="pointer-events-auto flex flex-col items-center gap-2 rounded-full bg-black/20 px-2 py-3 backdrop-blur">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => api?.scrollTo(i)}
+                className={`w-2 rounded-full bg-white transition-all ${
+                  selected === i ? "h-6 opacity-100" : "h-2 opacity-50 hover:opacity-80"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
