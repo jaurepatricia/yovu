@@ -150,7 +150,7 @@ export function Showcase() {
                 </div>
 
                 {slide.showIntegrations && (
-                  <div className="hidden flex-1 items-center justify-center lg:flex">
+                  <div className="hidden flex-1 items-center justify-end lg:flex">
                     <IntegrationLockup />
                   </div>
                 )}
@@ -238,8 +238,6 @@ function IntegrationLockup() {
   }, []);
 
   const active = integrations[idx];
-  const glass =
-    "rounded-full bg-white/12 ring-1 ring-white/25 backdrop-blur-md shadow-2xl shadow-black/20";
 
   return (
     <motion.div
@@ -247,17 +245,13 @@ function IntegrationLockup() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-      className="flex items-center gap-6"
+      className="flex items-center gap-8"
     >
-      {/* YOVU */}
-      <div className={`flex size-32 items-center justify-center ${glass}`}>
-        <img src={yovuLogo} alt="YOVU" className="h-9 w-auto" />
-      </div>
-      <Plus className="size-8 shrink-0 text-white/80" strokeWidth={2.5} />
+      {/* YOVU wordmark (no circle) */}
+      <img src={yovuLogo} alt="YOVU" className="h-14 w-auto shrink-0" />
+      <Plus className="size-12 shrink-0 text-white/80" strokeWidth={2} />
       {/* Static integration circle, icons pop in and out */}
-      <div
-        className={`relative flex size-32 items-center justify-center ${glass}`}
-      >
+      <div className="relative flex size-44 items-center justify-center rounded-full bg-white/12 shadow-2xl shadow-black/20 ring-1 ring-white/25 backdrop-blur-md">
         <AnimatePresence mode="wait">
           <motion.img
             key={idx}
@@ -267,7 +261,7 @@ function IntegrationLockup() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="absolute size-16 object-contain"
+            className="absolute size-24 object-contain"
           />
         </AnimatePresence>
       </div>
