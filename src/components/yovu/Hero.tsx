@@ -156,7 +156,7 @@ export function Hero() {
       {/* Certified Integration Partner badge — focuses in on scroll */}
       <motion.div
         style={{ opacity: badgeOpacity, filter: badgeBlur, y: badgeY }}
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center justify-center gap-4 pb-7"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center justify-center gap-4 pb-14"
       >
         {/* Diffused dark-blue glow for legibility */}
         <div
@@ -168,7 +168,7 @@ export function Hero() {
           alt="Applied Epic"
           className="h-8 w-auto opacity-95 drop-shadow-[0_2px_10px_rgba(7,11,26,0.6)] md:h-9"
         />
-        <span className="text-sm font-medium uppercase tracking-[0.18em] text-white/85 drop-shadow-[0_2px_10px_rgba(7,11,26,0.6)] md:text-base">
+        <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/85 drop-shadow-[0_2px_10px_rgba(7,11,26,0.6)] md:text-sm">
           Certified Integration Partner
         </span>
       </motion.div>
