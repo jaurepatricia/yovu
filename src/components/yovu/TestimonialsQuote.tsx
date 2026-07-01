@@ -38,7 +38,7 @@ export function TestimonialsQuote() {
 
   return (
     <section className="py-24 lg:py-32">
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Quote mark */}
         <span
           aria-hidden="true"
@@ -47,7 +47,7 @@ export function TestimonialsQuote() {
           &rdquo;
         </span>
 
-        <div className="relative mt-8">
+        <div className="mt-8">
           <AnimatePresence mode="wait">
             <motion.blockquote
               key={i}
@@ -56,35 +56,37 @@ export function TestimonialsQuote() {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <p className="max-w-3xl font-display text-2xl font-medium leading-snug tracking-tight text-ink md:text-4xl md:leading-[1.2]">
+              <p className="max-w-4xl font-display text-2xl font-medium leading-snug tracking-tight text-ink md:text-4xl md:leading-[1.2]">
                 {t.quote}
               </p>
 
-              <figcaption className="mt-10 flex items-center gap-4">
-                <span className="flex size-12 items-center justify-center rounded-full bg-surface text-sm font-semibold text-ink ring-1 ring-border">
-                  {initials(t.name)}
-                </span>
-                <div>
-                  <div className="font-semibold text-ink">{t.name}</div>
-                  <div className="text-sm text-ink/55">{t.role}</div>
-                </div>
-              </figcaption>
+              {/* Author row + next button (aligned to the right margin) */}
+              <div className="mt-10 flex items-center justify-between gap-4">
+                <figcaption className="flex items-center gap-4">
+                  <span className="flex size-12 items-center justify-center rounded-full bg-surface text-sm font-semibold text-ink ring-1 ring-border">
+                    {initials(t.name)}
+                  </span>
+                  <div>
+                    <div className="font-semibold text-ink">{t.name}</div>
+                    <div className="text-sm text-ink/55">{t.role}</div>
+                  </div>
+                </figcaption>
+
+                <button
+                  type="button"
+                  onClick={next}
+                  aria-label="Next testimonial"
+                  className="flex size-10 shrink-0 items-center justify-center rounded-full bg-surface text-ink ring-1 ring-border transition-colors hover:bg-ink/5"
+                >
+                  <ChevronRight className="size-4" />
+                </button>
+              </div>
             </motion.blockquote>
           </AnimatePresence>
-
-          {/* Next */}
-          <button
-            type="button"
-            onClick={next}
-            aria-label="Next testimonial"
-            className="absolute right-0 top-1/2 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-ink ring-1 ring-border transition-colors hover:bg-ink/5"
-          >
-            <ChevronRight className="size-5" />
-          </button>
         </div>
 
-        {/* Progress segments */}
-        <div className="mt-12 flex max-w-md gap-2">
+        {/* Progress segments — full width */}
+        <div className="mt-12 flex gap-2">
           {testimonials.map((_, idx) => (
             <button
               key={idx}

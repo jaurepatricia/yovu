@@ -48,7 +48,7 @@ export function FAQ() {
           </h2>
         </div>
 
-        <div className="max-w-3xl divide-y divide-border border-y border-border">
+        <div className="divide-y divide-border border-y border-border">
           {items.map((item, i) => {
             const isOpen = open === i;
             return (
