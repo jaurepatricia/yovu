@@ -22,7 +22,7 @@ const logos: Logo[] = [
 export function LogoCarousel() {
   const doubled = [...logos, ...logos];
   return (
-    <section className="border-y border-border bg-canvas py-16">
+    <section className="border-y border-border bg-canvas py-24 lg:py-32">
       <div className="relative overflow-hidden">
         <div className="marquee-track flex w-max items-center gap-20">
           {doubled.map((logo, i) => (
