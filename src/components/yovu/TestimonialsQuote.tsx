@@ -39,15 +39,12 @@ export function TestimonialsQuote() {
   return (
     <section className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Quote mark */}
-        <span
-          aria-hidden="true"
-          className="block font-display text-6xl font-bold leading-none text-ink"
-        >
-          &rdquo;
-        </span>
+        {/* Headline */}
+        <h2 className="text-center font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+          Our Clients Say It Best
+        </h2>
 
-        <div className="mt-8">
+        <div className="mt-12">
           <AnimatePresence mode="wait">
             <motion.blockquote
               key={i}
