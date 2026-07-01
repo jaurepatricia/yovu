@@ -199,7 +199,7 @@ export function Capabilities() {
                       }`}
                     >
                       <div className="min-h-0">
-                        <p className="max-w-md text-pretty text-ink/65">
+                        <p className="text-pretty text-ink/65">
                           {item.copy}
                         </p>
                         {/* Mobile media (inline under open item) */}
