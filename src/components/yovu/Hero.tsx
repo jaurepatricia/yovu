@@ -137,27 +137,25 @@ export function Hero() {
         </p>
       </div>
 
-      {/* Bottom dark-blue fade (matte-glass, like the nav) */}
+      {/* Bottom dark-blue gradient to soften the badge */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 backdrop-blur-md"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40"
         style={{
-          maskImage: "linear-gradient(to top, black 35%, transparent)",
-          WebkitMaskImage: "linear-gradient(to top, black 35%, transparent)",
           background:
-            "linear-gradient(to top, rgba(7,11,26,0.9), rgba(7,11,26,0.5), transparent)",
+            "linear-gradient(to top, rgba(7,11,26,0.85), rgba(7,11,26,0.4) 45%, transparent)",
         }}
       />
 
       {/* Certified Integration Partner badge */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col items-center gap-2 pb-6">
-        <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center justify-center gap-4 pb-7">
+        <span className="text-sm font-medium uppercase tracking-[0.18em] text-white/85 md:text-base">
           Certified Integration Partner
         </span>
         <img
           src={appliedEpicLogo}
           alt="Applied Epic"
-          className="h-5 w-auto opacity-90"
+          className="h-8 w-auto opacity-95 md:h-9"
         />
       </div>
     </section>
