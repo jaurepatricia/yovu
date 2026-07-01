@@ -2,7 +2,7 @@ import { useRef, type ReactNode } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 
 const COPY =
-  "Insurance brokerages use YOVU to streamline client conversation by embedding within the BMS to automatically log, transcribe, and summarize calls, eliminating manual data entry and improving E&O defensibility.";
+  "YOVU integrates with your Broker Management System to automatically capture, transcribe, and summarize every client call, freeing producers from manual data entry while securing your E&O defensibility.";
 
 export function Statement() {
   const ref = useRef<HTMLParagraphElement>(null);
