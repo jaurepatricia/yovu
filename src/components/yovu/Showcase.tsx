@@ -130,9 +130,9 @@ export function Showcase() {
                     {slide.headline}
                   </h2>
                   <p
-                    className={`mt-5 max-w-lg text-base ${
-                      light ? "text-white/80" : "text-[#0b1733]/75"
-                    }`}
+                    className={`mt-5 text-pretty text-base ${
+                      slide.showIntegrations ? "max-w-md" : "max-w-lg"
+                    } ${light ? "text-white/80" : "text-[#0b1733]/75"}`}
                   >
                     {slide.copy}
                   </p>
