@@ -56,7 +56,7 @@ export function TestimonialsQuote() {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <p className="max-w-4xl font-display text-2xl font-medium leading-snug tracking-tight text-ink md:text-4xl md:leading-[1.2]">
+              <p className="font-display text-2xl font-medium leading-snug tracking-tight text-ink md:text-4xl md:leading-[1.2]">
                 {t.quote}
               </p>
 

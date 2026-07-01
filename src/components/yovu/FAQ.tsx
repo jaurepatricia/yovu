@@ -73,7 +73,7 @@ export function FAQ() {
                   }`}
                 >
                   <div className="min-h-0">
-                    <p className="max-w-2xl text-pretty text-ink/65">{item.a}</p>
+                    <p className="text-pretty text-ink/65">{item.a}</p>
                   </div>
                 </div>
               </div>
