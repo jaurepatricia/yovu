@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Plus, Minus, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
 import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
@@ -132,40 +132,40 @@ export function Capabilities() {
           </h2>
         </div>
 
-        {/* Category tabs */}
-        <div
-          role="tablist"
-          aria-label="Feature categories"
-          className="mb-14 flex flex-wrap justify-center gap-3"
-        >
-          {categories.map((c, i) => {
-            const isActive = i === activeCat;
-            return (
-              <button
-                key={c.id}
-                role="tab"
-                aria-selected={isActive}
-                onClick={() => selectCategory(i)}
-                className={
-                  isActive
-                    ? "rounded-full border border-signal bg-signal-soft px-6 py-2.5 text-sm font-semibold text-ink transition-colors"
-                    : "rounded-full border border-border px-6 py-2.5 text-sm font-semibold text-ink/60 transition-colors hover:border-ink/20 hover:text-ink"
-                }
-              >
-                {c.label}
-              </button>
-            );
-          })}
-        </div>
-
         {/* Content: accordion + media */}
         <div
           className="grid gap-10 lg:grid-cols-2 lg:gap-16"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Left: accordion */}
+          {/* Left: tabs + accordion */}
           <div>
+            {/* Category tabs */}
+            <div
+              role="tablist"
+              aria-label="Feature categories"
+              className="mb-8 flex flex-wrap gap-3"
+            >
+              {categories.map((c, i) => {
+                const isActive = i === activeCat;
+                return (
+                  <button
+                    key={c.id}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => selectCategory(i)}
+                    className={
+                      isActive
+                        ? "rounded-full border border-signal bg-signal-soft px-6 py-2.5 text-sm font-semibold text-ink transition-colors"
+                        : "rounded-full border border-border px-6 py-2.5 text-sm font-semibold text-ink/60 transition-colors hover:border-ink/20 hover:text-ink"
+                    }
+                  >
+                    {c.label}
+                  </button>
+                );
+              })}
+            </div>
+
             <div className="divide-y divide-border border-y border-border">
               {category.items.map((item, i) => {
                 const isOpen = i === activeItem;
@@ -186,11 +186,11 @@ export function Capabilities() {
                         {item.title}
                       </span>
                       <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
-                        {isOpen ? (
-                          <Minus className="size-4" />
-                        ) : (
-                          <Plus className="size-4" />
-                        )}
+                        <ChevronDown
+                          className={`size-4 transition-transform ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        />
                       </span>
                     </button>
                     <div
