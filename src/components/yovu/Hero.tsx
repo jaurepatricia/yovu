@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import mountainLightVideo from "@/assets/hero/mountain_light.mp4.asset.json";
 import mountainDarkVideo from "@/assets/hero/mountain_dark.mp4.asset.json";
@@ -21,20 +21,6 @@ export function Hero() {
   const [industry, setIndustry] = useState<(typeof INDUSTRIES)[number]>("Insurance");
   const [open, setOpen] = useState(false);
   const pillRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  // Badge sharpens and fades into focus over the first bit of scroll.
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const badgeOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  const badgeBlur = useTransform(
-    scrollYProgress,
-    [0, 0.1],
-    ["blur(10px)", "blur(0px)"],
-  );
-  const badgeY = useTransform(scrollYProgress, [0, 0.1], [10, 0]);
 
   useEffect(() => {
     if (!open) return;
@@ -49,7 +35,6 @@ export function Hero() {
 
   return (
     <section
-      ref={sectionRef}
       id="top"
       className="relative h-screen w-screen overflow-hidden bg-canvas"
     >
@@ -153,9 +138,11 @@ export function Hero() {
         </p>
       </div>
 
-      {/* Certified Integration Partner badge — focuses in on scroll */}
+      {/* Certified Integration Partner badge — blurs into focus on load */}
       <motion.div
-        style={{ opacity: badgeOpacity, filter: badgeBlur, y: badgeY }}
+        initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center justify-center gap-4 pb-14"
       >
         {/* Diffused dark-blue glow for legibility */}
