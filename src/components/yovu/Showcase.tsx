@@ -36,7 +36,7 @@ type Slide = {
 const slides: Slide[] = [
   {
     headline: "Built to fit your stack",
-    copy: "YOVU connects to the tools you already trust and uses, improving efficiency so you spend more time connecting with clients.",
+    copy: "YOVU connects to the tools you already trust and use, so you can spend more time connecting with clients.",
     cta: { label: "Our Integrations", href: "#integrations" },
     image: forestStream,
     tone: "light",

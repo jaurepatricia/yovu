@@ -27,20 +27,20 @@ const categories: Category[] = [
     label: "Communicate",
     items: [
       {
-        title: "Easy to Use",
-        copy: "Call any number with one click from your desktop or mobile using your business number.",
+        title: "Work From Anywhere",
+        copy: "Use our software to ring all your devices simultaneously, easily flip active calls from your desktop to your cellphone, and keep your personal number completely private.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ClickToDial />,
       },
       {
-        title: "Warm Transfer",
-        copy: "Transfer calls with full context attached, so clients do not have to repeat themselves.",
+        title: "Caller Context",
+        copy: "A screen pop surfaces the caller's identity and account before anyone picks up, so you can deliver highly personalized service without making the caller repeat themselves.",
         cta: { label: "Learn More", href: "#demo" },
       },
       {
-        title: "Integrates Seamlessly",
-        copy: "Works across your devices and integrates natively with Applied Epic or fits into your preferred BMS workflow.",
-        cta: { label: "Our Integrations", href: "#integrations" },
+        title: "Transfers & Custom Statuses",
+        copy: "See who is available and their detailed status in the directory, transfer with context, or bring a colleague onto the call, all from the same interface.",
+        cta: { label: "Learn More", href: "#demo" },
       },
     ],
   },
@@ -59,8 +59,8 @@ const categories: Category[] = [
         cta: { label: "Learn More", href: "#demo" },
       },
       {
-        title: "Secure Storage",
-        copy: "Store recordings for seven years to support compliance and strengthen your E&O documentation.",
+        title: "Recording Storage",
+        copy: "Store recordings for up to seven years to support compliance and strengthen your E&O documentation.",
         cta: { label: "Our Security", href: "#security" },
       },
     ],
@@ -80,7 +80,7 @@ const categories: Category[] = [
         cta: { label: "Learn More", href: "#demo" },
       },
       {
-        title: "Coming Soon",
+        title: "More Coming Soon",
         copy: "Turn real conversations into training tools that help new hires ramp faster and top performers scale.",
         cta: { label: "Get Early Access", href: "#demo" },
       },
