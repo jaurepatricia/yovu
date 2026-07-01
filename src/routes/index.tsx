@@ -7,7 +7,7 @@ import { Statement } from "@/components/yovu/Statement";
 import { Showcase } from "@/components/yovu/Showcase";
 import { TestimonialsQuote } from "@/components/yovu/TestimonialsQuote";
 import { FAQ } from "@/components/yovu/FAQ";
-import { FinalCTA } from "@/components/yovu/FinalCTA";
+import { FinalCTAScale } from "@/components/yovu/FinalCTAScale";
 import { Footer } from "@/components/yovu/Footer";
 
 function HomePage() {
@@ -21,7 +21,7 @@ function HomePage() {
       <Showcase />
       <TestimonialsQuote />
       <FAQ />
-      <FinalCTA />
+      <FinalCTAScale />
       <Footer />
     </main>
   );
