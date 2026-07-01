@@ -28,18 +28,18 @@ const categories: Category[] = [
     items: [
       {
         title: "Work From Anywhere",
-        copy: "Use our software to ring all your devices simultaneously, easily flip active calls from your desktop to your cellphone, and keep your personal number completely private.",
+        copy: "Ring multiple devices, seamlessly flip calls, and keep your personal number private.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ClickToDial />,
       },
       {
         title: "Caller Context",
-        copy: "A screen pop surfaces the caller's identity and account before anyone picks up, so you can deliver highly personalized service without making the caller repeat themselves.",
+        copy: "Screen pops instantly reveal caller accounts, letting you personalize service and eliminate repetitive questions.",
         cta: { label: "Learn More", href: "#demo" },
       },
       {
         title: "Transfers & Custom Statuses",
-        copy: "See who is available and their detailed status in the directory, transfer with context, or bring a colleague onto the call, all from the same interface.",
+        copy: "Avoid blind handoffs by checking live statuses, transferring with context, or adding a colleague.",
         cta: { label: "Learn More", href: "#demo" },
       },
     ],
