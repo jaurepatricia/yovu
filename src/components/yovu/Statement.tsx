@@ -18,7 +18,7 @@ export function Statement() {
       <div className="mx-auto max-w-7xl px-6">
         <p
           ref={ref}
-          className="max-w-5xl font-display text-3xl font-semibold leading-tight tracking-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.1]"
+          className="font-display text-3xl font-semibold leading-tight tracking-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.1]"
         >
           {words.map((word, i) => {
             const start = i / words.length;
