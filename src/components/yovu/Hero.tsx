@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import mountainLightVideo from "@/assets/hero/mountain_light.mp4.asset.json";
 import mountainDarkVideo from "@/assets/hero/mountain_dark.mp4.asset.json";
@@ -20,6 +21,20 @@ export function Hero() {
   const [industry, setIndustry] = useState<(typeof INDUSTRIES)[number]>("Insurance");
   const [open, setOpen] = useState(false);
   const pillRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Badge sharpens and fades into focus over the first bit of scroll.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const badgeOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const badgeBlur = useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    ["blur(10px)", "blur(0px)"],
+  );
+  const badgeY = useTransform(scrollYProgress, [0, 0.1], [10, 0]);
 
   useEffect(() => {
     if (!open) return;
@@ -34,6 +49,7 @@ export function Hero() {
 
   return (
     <section
+      ref={sectionRef}
       id="top"
       className="relative h-screen w-screen overflow-hidden bg-canvas"
     >
@@ -137,27 +153,25 @@ export function Hero() {
         </p>
       </div>
 
-      {/* Bottom dark-blue gradient to soften the badge */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(7,11,26,0.85), rgba(7,11,26,0.4) 45%, transparent)",
-        }}
-      />
-
-      {/* Certified Integration Partner badge */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center justify-center gap-4 pb-7">
-        <span className="text-sm font-medium uppercase tracking-[0.18em] text-white/85 md:text-base">
-          Certified Integration Partner
-        </span>
+      {/* Certified Integration Partner badge — focuses in on scroll */}
+      <motion.div
+        style={{ opacity: badgeOpacity, filter: badgeBlur, y: badgeY }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center justify-center gap-4 pb-14"
+      >
+        {/* Diffused dark-blue glow for legibility */}
+        <div
+          aria-hidden="true"
+          className="absolute left-1/2 top-1/2 -z-10 h-24 w-[560px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#070b1a]/70 blur-2xl"
+        />
         <img
           src={appliedEpicLogo}
           alt="Applied Epic"
-          className="h-8 w-auto opacity-95 md:h-9"
+          className="h-8 w-auto opacity-95 drop-shadow-[0_2px_10px_rgba(7,11,26,0.6)] md:h-9"
         />
-      </div>
+        <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/85 drop-shadow-[0_2px_10px_rgba(7,11,26,0.6)] md:text-sm">
+          Certified Integration Partner
+        </span>
+      </motion.div>
     </section>
   );
 }
