@@ -6,7 +6,7 @@ const GRID_COLOR = "#3b82f6";
 
 export function FinalCTAScale() {
   return (
-    <section id="demo" className="px-6 py-24 lg:py-32">
+    <section id="demo" className="px-6 pb-24 lg:pb-32">
       <div className="relative mx-auto flex max-w-7xl flex-col items-center overflow-hidden rounded-[2.5rem] bg-ink px-6 py-24 text-center text-canvas lg:py-32">
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center">
