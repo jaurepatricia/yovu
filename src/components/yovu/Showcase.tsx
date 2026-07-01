@@ -62,20 +62,15 @@ export function Showcase() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const count = slides.length;
 
-  // Pinned: scrolling through the section's height drives the vertical slide track.
+  // Pinned: the section stays in view while scrolling drives the crossfade.
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
-  const trackY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0%", `-${((count - 1) / count) * 100}%`],
-  );
 
   const [active, setActive] = useState(0);
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setActive(Math.min(count - 1, Math.max(0, Math.round(v * (count - 1)))));
+    setActive(Math.min(count - 1, Math.max(0, Math.floor(v * count))));
   });
 
   const goTo = (i: number) => {
@@ -83,11 +78,14 @@ export function Showcase() {
     if (!el || typeof window === "undefined") return;
     const elTop = el.getBoundingClientRect().top + window.scrollY;
     const scrollable = el.offsetHeight - window.innerHeight;
+    // Aim for the middle of the target slide's scroll band.
     window.scrollTo({
-      top: elTop + (i / (count - 1)) * scrollable,
+      top: elTop + ((i + 0.5) / count) * scrollable,
       behavior: "smooth",
     });
   };
+
+  const navLight = slides[active].tone === "light";
 
   return (
     <section
@@ -96,77 +94,86 @@ export function Showcase() {
       style={{ height: `${count * 100}vh` }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Vertical slide track */}
-        <motion.div style={{ y: trackY }}>
-          {slides.map((slide, i) => {
-            const light = slide.tone === "light";
-            return (
-              <div key={i} className="relative h-screen w-full">
-                {/* Background image */}
-                <img
-                  src={slide.image}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                {/* Readability scrim on the text side */}
+        {/* Stacked slides — crossfade in place */}
+        {slides.map((slide, i) => {
+          const light = slide.tone === "light";
+          return (
+            <div
+              key={i}
+              className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+                active === i ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
+            >
+              {/* Background image */}
+              <img
+                src={slide.image}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              {/* Readability scrim on the text side */}
+              <div
+                aria-hidden="true"
+                className={`absolute inset-0 ${
+                  light
+                    ? "bg-gradient-to-r from-black/45 via-black/15 to-transparent"
+                    : "bg-gradient-to-r from-white/55 via-white/20 to-transparent"
+                }`}
+              />
+
+              {/* Content */}
+              <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center gap-10 px-6">
                 <div
-                  aria-hidden="true"
-                  className={`absolute inset-0 ${
-                    light
-                      ? "bg-gradient-to-r from-black/45 via-black/15 to-transparent"
-                      : "bg-gradient-to-r from-white/55 via-white/20 to-transparent"
-                  }`}
-                />
-
-                {/* Content */}
-                <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center gap-10 px-6">
-                  <div
-                    className={`max-w-lg ${light ? "text-white" : "text-[#0b1733]"}`}
+                  className={`max-w-lg ${light ? "text-white" : "text-[#0b1733]"}`}
+                >
+                  <h2 className="font-display text-4xl font-bold tracking-tight md:whitespace-nowrap md:text-5xl">
+                    {slide.headline}
+                  </h2>
+                  <p
+                    className={`mt-5 max-w-md text-base ${
+                      light ? "text-white/80" : "text-[#0b1733]/75"
+                    }`}
                   >
-                    <h2 className="font-display text-4xl font-bold tracking-tight md:whitespace-nowrap md:text-5xl">
-                      {slide.headline}
-                    </h2>
-                    <p
-                      className={`mt-5 max-w-md text-base ${
-                        light ? "text-white/80" : "text-[#0b1733]/75"
-                      }`}
-                    >
-                      {slide.copy}
-                    </p>
-                    <a
-                      href={slide.cta.href}
-                      className={`mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${
-                        light
-                          ? "border-white/70 text-white hover:bg-white/10"
-                          : "border-[#0b1733]/40 text-[#0b1733] hover:bg-[#0b1733]/5"
-                      }`}
-                    >
-                      {slide.cta.label}
-                      <ArrowRight className="size-4" />
-                    </a>
-                  </div>
-
-                  {slide.showIntegrations && (
-                    <div className="hidden flex-1 items-center justify-center lg:flex">
-                      <IntegrationLockup />
-                    </div>
-                  )}
+                    {slide.copy}
+                  </p>
+                  <a
+                    href={slide.cta.href}
+                    className={`mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${
+                      light
+                        ? "border-white/70 text-white hover:bg-white/10"
+                        : "border-[#0b1733]/40 text-[#0b1733] hover:bg-[#0b1733]/5"
+                    }`}
+                  >
+                    {slide.cta.label}
+                    <ArrowRight className="size-4" />
+                  </a>
                 </div>
-              </div>
-            );
-          })}
-        </motion.div>
 
-        {/* Vertical progress nav, nudged just outside the content margin */}
+                {slide.showIntegrations && (
+                  <div className="hidden flex-1 items-center justify-end lg:flex">
+                    <IntegrationLockup />
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+
+        {/* Segmented progress line, nudged just outside the content margin */}
         <div className="pointer-events-none absolute inset-0 z-20">
           <div className="mx-auto flex h-full max-w-7xl items-center px-6">
-            <ProgressNav
-              progress={scrollYProgress}
-              active={active}
-              count={count}
-              onGo={goTo}
-            />
+            <div className="pointer-events-auto -ml-5 flex flex-col gap-1.5 md:-ml-8">
+              {Array.from({ length: count }).map((_, i) => (
+                <ProgressSegment
+                  key={i}
+                  progress={scrollYProgress}
+                  index={i}
+                  count={count}
+                  light={navLight}
+                  onClick={() => goTo(i)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -174,40 +181,41 @@ export function Showcase() {
   );
 }
 
-function ProgressNav({
+function ProgressSegment({
   progress,
-  active,
+  index,
   count,
-  onGo,
+  light,
+  onClick,
 }: {
   progress: MotionValue<number>;
-  active: number;
+  index: number;
   count: number;
-  onGo: (i: number) => void;
+  light: boolean;
+  onClick: () => void;
 }) {
-  const fill = useTransform(progress, [0, 1], ["0%", "100%"]);
+  // Fills from top to bottom as the viewer scrolls through this slide's band.
+  const scaleY = useTransform(
+    progress,
+    [index / count, (index + 1) / count],
+    [0, 1],
+  );
   return (
-    <div className="pointer-events-auto -ml-5 flex flex-col items-center rounded-full bg-black/15 px-2 py-4 backdrop-blur md:-ml-8">
-      <div className="relative h-56 w-1.5 rounded-full bg-white/30">
-        <motion.div
-          style={{ height: fill }}
-          className="absolute inset-x-0 top-0 rounded-full bg-white"
-        />
-        <div className="absolute -inset-x-1 inset-y-0 flex flex-col justify-between">
-          {Array.from({ length: count }).map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              aria-label={`Go to slide ${i + 1}`}
-              onClick={() => onGo(i)}
-              className={`size-3.5 rounded-full border border-white/70 transition-colors ${
-                active >= i ? "bg-white" : "bg-transparent"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+    <button
+      type="button"
+      aria-label={`Go to slide ${index + 1}`}
+      onClick={onClick}
+      className={`relative h-16 w-1 overflow-hidden rounded-full transition-colors ${
+        light ? "bg-white/30" : "bg-[#0b1733]/25"
+      }`}
+    >
+      <motion.span
+        style={{ scaleY }}
+        className={`absolute inset-0 origin-top rounded-full ${
+          light ? "bg-white" : "bg-[#0b1733]"
+        }`}
+      />
+    </button>
   );
 }
 
@@ -230,8 +238,6 @@ function IntegrationLockup() {
   }, []);
 
   const active = integrations[idx];
-  const glass =
-    "rounded-full bg-white/12 ring-1 ring-white/25 backdrop-blur-md shadow-2xl shadow-black/20";
 
   return (
     <motion.div
@@ -239,17 +245,13 @@ function IntegrationLockup() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-      className="flex items-center gap-6"
+      className="flex items-center gap-8"
     >
-      {/* YOVU */}
-      <div className={`flex size-32 items-center justify-center ${glass}`}>
-        <img src={yovuLogo} alt="YOVU" className="h-9 w-auto" />
-      </div>
-      <Plus className="size-8 shrink-0 text-white/80" strokeWidth={2.5} />
+      {/* YOVU wordmark (no circle) */}
+      <img src={yovuLogo} alt="YOVU" className="h-14 w-auto shrink-0" />
+      <Plus className="size-12 shrink-0 text-white/80" strokeWidth={2} />
       {/* Static integration circle, icons pop in and out */}
-      <div
-        className={`relative flex size-32 items-center justify-center ${glass}`}
-      >
+      <div className="relative flex size-44 items-center justify-center rounded-full bg-white/12 shadow-2xl shadow-black/20 ring-1 ring-white/25 backdrop-blur-md">
         <AnimatePresence mode="wait">
           <motion.img
             key={idx}
@@ -259,7 +261,7 @@ function IntegrationLockup() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="absolute size-16 object-contain"
+            className="absolute size-24 object-contain"
           />
         </AnimatePresence>
       </div>
