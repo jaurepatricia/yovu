@@ -166,7 +166,7 @@ export function Capabilities() {
               })}
             </div>
 
-            <div className="divide-y divide-border border-y border-border">
+            <div className="divide-y divide-border">
               {category.items.map((item, i) => {
                 const isOpen = i === activeItem;
                 return (
