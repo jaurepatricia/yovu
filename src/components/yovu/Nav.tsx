@@ -61,10 +61,10 @@ export function Nav() {
         className="absolute inset-x-0 top-0 bottom-0 border-b border-border/50 bg-canvas/50 backdrop-blur-xl backdrop-saturate-150"
       />
       {/* Content row */}
-      <div className="pointer-events-auto relative mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+      <div className="pointer-events-auto relative mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-8">
           <a href="#top" aria-label="YOVU home">
-            <YovuLogo height={22} />
+            <YovuLogo height={18} />
           </a>
 
           <NavigationMenu className="hidden md:flex">
