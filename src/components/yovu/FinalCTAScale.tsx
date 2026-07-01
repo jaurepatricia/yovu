@@ -1,5 +1,5 @@
 import { FlickeringGrid } from "@/components/ui/flickering-grid-hero";
-import mountainVector from "@/assets/homepage/mountain vector.svg";
+import mountainVector from "@/assets/homepage/mountain vector graphic.svg";
 
 // Lighter blue accent (matches the site's signal), replacing the demo's purple.
 const GRID_COLOR = "#3b82f6";
@@ -29,14 +29,14 @@ export function FinalCTAScale() {
         {/* Flickering grid, masked to the mountain vector, at the bottom */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[55%]"
+          className="pointer-events-none absolute inset-0 z-0"
           style={{
             WebkitMaskImage: `url('${mountainVector}')`,
             maskImage: `url('${mountainVector}')`,
-            WebkitMaskSize: "100% 100%",
-            maskSize: "100% 100%",
-            WebkitMaskPosition: "bottom",
-            maskPosition: "bottom",
+            WebkitMaskSize: "100% auto",
+            maskSize: "100% auto",
+            WebkitMaskPosition: "center bottom",
+            maskPosition: "center bottom",
             WebkitMaskRepeat: "no-repeat",
             maskRepeat: "no-repeat",
           }}
