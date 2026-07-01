@@ -80,7 +80,7 @@ const categories: Category[] = [
         cta: { label: "Learn More", href: "#demo" },
       },
       {
-        title: "Coming Soon",
+        title: "More Coming Soon",
         copy: "Turn real conversations into training tools that help new hires ramp faster and top performers scale.",
         cta: { label: "Get Early Access", href: "#demo" },
       },
