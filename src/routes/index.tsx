@@ -1,5 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HomePage } from "@/components/yovu/HomePage";
+import { Nav } from "@/components/yovu/Nav";
+import { Hero } from "@/components/yovu/Hero";
+import { LogoCarousel } from "@/components/yovu/LogoCarousel";
+import { Capabilities } from "@/components/yovu/Capabilities";
+import { Statement } from "@/components/yovu/Statement";
+import { Testimonials } from "@/components/yovu/Testimonials";
+import { FAQ } from "@/components/yovu/FAQ";
+import { FinalCTA } from "@/components/yovu/FinalCTA";
+import { Footer } from "@/components/yovu/Footer";
+
+function HomePage() {
+  return (
+    <main className="bg-canvas text-ink">
+      <Nav />
+      <Hero />
+      <LogoCarousel />
+      <Capabilities />
+      <Statement />
+      <Testimonials />
+      <FAQ />
+      <FinalCTA />
+      <Footer />
+    </main>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
