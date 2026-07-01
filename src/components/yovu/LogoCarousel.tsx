@@ -23,55 +23,50 @@ export function LogoCarousel() {
   const doubled = [...logos, ...logos];
   return (
     <section className="border-y border-border bg-canvas py-16">
-      <div className="mx-auto max-w-7xl px-6">
-        <p className="mb-12 text-center text-[10px] font-bold uppercase tracking-[0.22em] text-ink/45">
-          Trusted by leading Canadian P&amp;C brokerages
-        </p>
-        <div className="relative overflow-hidden">
-          <div className="marquee-track flex w-max items-center gap-20">
-            {doubled.map((logo, i) => (
-              <a
-                key={i}
-                href={logo.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={logo.name}
-                className="group flex h-16 w-44 shrink-0 items-center justify-center"
-              >
+      <div className="relative overflow-hidden">
+        <div className="marquee-track flex w-max items-center gap-20">
+          {doubled.map((logo, i) => (
+            <a
+              key={i}
+              href={logo.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={logo.name}
+              className="group flex h-16 w-44 shrink-0 items-center justify-center"
+            >
+              <img
+                src={logo.src}
+                alt={logo.name}
+                loading="lazy"
+                className={`max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100 ${logo.srcDark ? "dark:hidden" : ""}`}
+              />
+              {logo.srcDark && (
                 <img
-                  src={logo.src}
+                  src={logo.srcDark}
                   alt={logo.name}
                   loading="lazy"
-                  className={`max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100 ${logo.srcDark ? "dark:hidden" : ""}`}
+                  className="hidden max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100 dark:block"
                 />
-                {logo.srcDark && (
-                  <img
-                    src={logo.srcDark}
-                    alt={logo.name}
-                    loading="lazy"
-                    className="hidden max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100 dark:block"
-                  />
-                )}
-              </a>
-            ))}
-          </div>
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-32 backdrop-blur-sm"
-            style={{
-              maskImage: "linear-gradient(to right, black, transparent)",
-              WebkitMaskImage: "linear-gradient(to right, black, transparent)",
-              background: "linear-gradient(to right, var(--canvas), transparent)",
-            }}
-          />
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-32 backdrop-blur-sm"
-            style={{
-              maskImage: "linear-gradient(to left, black, transparent)",
-              WebkitMaskImage: "linear-gradient(to left, black, transparent)",
-              background: "linear-gradient(to left, var(--canvas), transparent)",
-            }}
-          />
+              )}
+            </a>
+          ))}
         </div>
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 w-32 backdrop-blur-sm"
+          style={{
+            maskImage: "linear-gradient(to right, black, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, black, transparent)",
+            background: "linear-gradient(to right, var(--canvas), transparent)",
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 w-32 backdrop-blur-sm"
+          style={{
+            maskImage: "linear-gradient(to left, black, transparent)",
+            WebkitMaskImage: "linear-gradient(to left, black, transparent)",
+            background: "linear-gradient(to left, var(--canvas), transparent)",
+          }}
+        />
       </div>
     </section>
   );
