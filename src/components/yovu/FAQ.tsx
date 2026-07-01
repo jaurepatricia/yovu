@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const items = [
   {
@@ -62,7 +62,9 @@ export function FAQ() {
                     {item.q}
                   </span>
                   <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
-                    {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
+                    <ChevronDown
+                      className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    />
                   </span>
                 </button>
                 <div
