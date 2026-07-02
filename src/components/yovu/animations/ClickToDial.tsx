@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Phone, PhoneCall, MousePointer2 } from "lucide-react";
+import { demoContact } from "./demoContact";
 
 /**
  * Looping "click-to-dial" demo styled after the Applied Epic contact card.
@@ -77,9 +78,9 @@ export function ClickToDial() {
 
         {/* Body */}
         <div className="space-y-0.5 px-4 py-3 text-[13px] leading-snug text-slate-700">
-          <p className="font-semibold text-slate-800">Ms. Priya Desai</p>
-          <p>88 Wellington St</p>
-          <p>Ottawa, ON&nbsp;&nbsp;K1P&nbsp;5A5</p>
+          <p className="font-semibold text-slate-800">{demoContact.name}</p>
+          <p>{demoContact.addressLine1}</p>
+          <p>{demoContact.addressLine2}</p>
           <p>Canada</p>
 
           {/* Click-to-call row */}
@@ -122,12 +123,12 @@ export function ClickToDial() {
               </AnimatePresence>
               <Phone className="size-3.5 text-[#2563eb]" strokeWidth={2.5} />
               <span className="font-medium text-[#2563eb] underline decoration-[#2563eb]/40 underline-offset-2">
-                (613) 555-0142
+                {demoContact.phone}
               </span>
             </span>
           </div>
 
-          <p className="text-[#c2410c]">priya@yovu.ca</p>
+          <p className="text-[#c2410c]">{demoContact.email}</p>
           <p className="text-slate-500">Contact via: Phone</p>
         </div>
 
@@ -172,7 +173,7 @@ export function ClickToDial() {
             </span>
             {phase === "calling" ? (
               <span className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
-                Calling Priya
+                Calling {demoContact.firstName}
                 <span className="flex gap-0.5">
                   {[0, 1, 2].map((i) => (
                     <motion.span
