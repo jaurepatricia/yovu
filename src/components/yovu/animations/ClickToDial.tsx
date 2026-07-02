@@ -19,8 +19,6 @@ const STEPS: { phase: Phase; ms: number }[] = [
   { phase: "connected", ms: 1800 },
 ];
 
-const glass =
-  "bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-white/50 dark:ring-white/15";
 
 export function ClickToDial() {
   const [step, setStep] = useState(0);
@@ -50,19 +48,6 @@ export function ClickToDial() {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-      {/* Faint floating chips for layered depth */}
-      <motion.div
-        aria-hidden
-        className={`absolute left-[8%] top-[18%] h-8 w-24 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden
-        className={`absolute bottom-[14%] right-[8%] h-8 w-20 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      />
 
       {/* Applied Epic contact card */}
       <div className="relative w-[19rem] max-w-[86%] overflow-hidden rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5">
