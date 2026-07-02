@@ -21,7 +21,7 @@ function HomePage() {
       <Showcase />
       <TestimonialsQuote />
       <FinalCTAScale />
-      <FAQ />
+      <FAQ className="pt-12 lg:pt-16" />
       <Footer />
     </main>
   );

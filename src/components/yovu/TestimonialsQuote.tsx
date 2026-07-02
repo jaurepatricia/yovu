@@ -52,7 +52,7 @@ export function TestimonialsQuote() {
               </p>
 
               {/* Author row + next button (aligned to the right margin) */}
-              <div className="mt-10 flex items-center justify-between gap-4">
+              <div className="mt-14 flex items-center justify-between gap-4">
                 <figcaption className="flex items-center gap-4">
                   <span className="flex size-12 items-center justify-center rounded-full bg-surface text-sm font-semibold text-ink ring-1 ring-border">
                     {initials(t.name)}
