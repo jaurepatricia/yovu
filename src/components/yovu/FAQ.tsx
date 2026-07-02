@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const items = [
   {
@@ -36,11 +37,11 @@ const items = [
   },
 ];
 
-export function FAQ() {
+export function FAQ({ className }: { className?: string }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="py-24 lg:py-32">
+    <section className={cn("py-24 lg:py-32", className)}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 text-center">
           <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
