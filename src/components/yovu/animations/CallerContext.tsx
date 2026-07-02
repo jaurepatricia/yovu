@@ -9,8 +9,6 @@ import { demoContact } from "./demoContact";
  * Renders the popped state statically when reduced motion is preferred.
  */
 
-const glass =
-  "bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-white/50 dark:ring-white/15";
 
 const details: { label: string; value: string; accent?: string }[] = [
   { label: "Policy", value: demoContact.policyType },
@@ -41,19 +39,6 @@ export function CallerContext() {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-      {/* Faint floating chips for depth */}
-      <motion.div
-        aria-hidden
-        className={`absolute left-[9%] top-[20%] h-8 w-20 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden
-        className={`absolute bottom-[16%] right-[9%] h-8 w-24 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      />
 
       <div className="relative flex w-[19rem] max-w-[86%] flex-col items-center gap-3">
         {/* Incoming call banner */}

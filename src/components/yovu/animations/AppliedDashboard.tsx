@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import appliedLogomark from "@/assets/logos/Applied Logomark.svg";
+import appliedText from "@/assets/logos/Applied Text.svg";
 import { demoContact } from "./demoContact";
 
 /**
@@ -19,8 +20,6 @@ import { demoContact } from "./demoContact";
  * Pure CSS / motion — recreates the look, not the product.
  */
 
-const glass =
-  "bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-white/50 dark:ring-white/15";
 
 const tabs = [
   { label: "Account Detail", Icon: FileText },
@@ -37,19 +36,6 @@ const tabs = [
 export function AppliedDashboard() {
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-      {/* Faint floating chips for depth */}
-      <motion.div
-        aria-hidden
-        className={`absolute left-[7%] top-[18%] h-8 w-20 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden
-        className={`absolute bottom-[15%] right-[7%] h-8 w-24 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      />
 
       {/* Applied Epic window */}
       <motion.div
@@ -62,9 +48,7 @@ export function AppliedDashboard() {
         {/* Header */}
         <div className="flex items-center gap-2 bg-[#17255e] px-3 py-2">
           <img src={appliedLogomark} alt="" className="h-4 w-auto" />
-          <span className="text-sm font-semibold tracking-wide text-white">
-            APPLIED
-          </span>
+          <img src={appliedText} alt="Applied" className="h-3 w-auto" />
           <span className="text-[10px] font-medium text-white/70">Epic</span>
           <span className="ml-auto flex gap-1">
             <span className="size-2 rounded-full bg-white/25" />

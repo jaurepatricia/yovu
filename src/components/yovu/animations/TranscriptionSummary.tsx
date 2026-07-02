@@ -7,24 +7,10 @@ import { demoContact } from "./demoContact";
  * Pure CSS / motion.
  */
 
-const glass =
-  "bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-white/50 dark:ring-white/15";
 
 export function TranscriptionSummary() {
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-      <motion.div
-        aria-hidden
-        className={`absolute left-[8%] top-[18%] h-8 w-20 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden
-        className={`absolute bottom-[15%] right-[8%] h-8 w-24 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      />
 
       <motion.div
         initial={{ opacity: 0, y: 14 }}

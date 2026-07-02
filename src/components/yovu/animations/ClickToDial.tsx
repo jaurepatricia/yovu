@@ -19,8 +19,6 @@ const STEPS: { phase: Phase; ms: number }[] = [
   { phase: "connected", ms: 1800 },
 ];
 
-const glass =
-  "bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-white/50 dark:ring-white/15";
 
 export function ClickToDial() {
   const [step, setStep] = useState(0);
@@ -50,19 +48,6 @@ export function ClickToDial() {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-      {/* Faint floating chips for layered depth */}
-      <motion.div
-        aria-hidden
-        className={`absolute left-[8%] top-[18%] h-8 w-24 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden
-        className={`absolute bottom-[14%] right-[8%] h-8 w-20 rounded-lg ${glass} opacity-40`}
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      />
 
       {/* Applied Epic contact card */}
       <div className="relative w-[19rem] max-w-[86%] overflow-hidden rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5">
@@ -116,17 +101,17 @@ export function ClickToDial() {
         {!reduced.current && (
           <motion.div
             aria-hidden
-            className="pointer-events-none absolute left-[26%] top-[63%] z-30"
+            className="pointer-events-none absolute left-[30%] top-[63%] z-30"
             initial={false}
             animate={{
-              x: phase === "ready" ? [26, 0] : 0,
-              y: phase === "ready" ? [26, 0] : 0,
-              scale: tapping ? 0.85 : 1,
+              x: phase === "ready" ? [72, 0] : 0,
+              y: phase === "ready" ? [50, 0] : 0,
+              scale: tapping ? 0.78 : 1,
               opacity: inCall ? 0 : 1,
             }}
-            transition={{ duration: phase === "ready" ? 1.2 : 0.25, ease: "easeInOut" }}
+            transition={{ duration: phase === "ready" ? 1.2 : 0.2, ease: "easeInOut" }}
           >
-            <MousePointer2 className="size-5 fill-slate-900 text-white drop-shadow" />
+            <MousePointer2 className="size-6 fill-slate-900 text-white drop-shadow-md" />
           </motion.div>
         )}
       </div>
