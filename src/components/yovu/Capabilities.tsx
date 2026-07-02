@@ -5,6 +5,10 @@ import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
 import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
 import { CallerContext } from "@/components/yovu/animations/CallerContext";
+import { AppliedDashboard } from "@/components/yovu/animations/AppliedDashboard";
+import { CallRecording } from "@/components/yovu/animations/CallRecording";
+import { TranscriptionSummary } from "@/components/yovu/animations/TranscriptionSummary";
+import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
 
 const CYCLE_MS = 5000;
 
@@ -28,8 +32,14 @@ const categories: Category[] = [
     label: "Communicate",
     items: [
       {
-        title: "Work From Anywhere",
-        copy: "Ring multiple devices, seamlessly flip calls, and click to dial numbers directly all while keeping your personal number private.",
+        title: "Work Inside Your BMS",
+        copy: "Integrates natively with Applied Epic or fits into your preferred Broker Management System workflow.",
+        cta: { label: "Our Integrations", href: "#integrations" },
+        media: <AppliedDashboard />,
+      },
+      {
+        title: "Click-to-Call",
+        copy: "Call any number with one click from your desktop within your BMS or mobile using your business number.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ClickToDial />,
       },
@@ -39,11 +49,6 @@ const categories: Category[] = [
         cta: { label: "Learn More", href: "#demo" },
         media: <CallerContext />,
       },
-      {
-        title: "Transfers & Custom Statuses",
-        copy: "Avoid blind handoffs by checking live statuses, transferring with context, or adding a colleague.",
-        cta: { label: "Learn More", href: "#demo" },
-      },
     ],
   },
   {
@@ -51,19 +56,22 @@ const categories: Category[] = [
     label: "Capture",
     items: [
       {
-        title: "Call Transcription",
-        copy: "Review recorded calls, search conversation history, and find details fast.",
+        title: "Call Recording",
+        copy: "Capture every call with secure playback and up to seven years of data retention for long-term E&O defensibility.",
         cta: { label: "Get a Demo", href: "#demo" },
+        media: <CallRecording />,
       },
       {
-        title: "AI Summary",
-        copy: "Generate customizable summaries with sentiment, key points, and action items ready for your BMS.",
+        title: "Transcription & AI Summary",
+        copy: "Automatically transcribe conversations and let our customizable AI highlight key points, sentiment, and follow-up tasks.",
         cta: { label: "Learn More", href: "#demo" },
+        media: <TranscriptionSummary />,
       },
       {
-        title: "Recording Storage",
-        copy: "Store recordings for up to seven years to support compliance and strengthen your E&O documentation.",
+        title: "Activity Logging",
+        copy: "Easily connect calls into activities on client profiles, including what the discussion was about and any additional notes.",
         cta: { label: "Our Security", href: "#security" },
+        media: <ActivityLogging />,
       },
     ],
   },
