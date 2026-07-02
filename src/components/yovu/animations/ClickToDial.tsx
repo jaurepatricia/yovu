@@ -128,15 +128,7 @@ export function ClickToDial() {
             </span>
           </div>
 
-          <p className="text-[#c2410c]">{demoContact.email}</p>
           <p className="text-slate-500">Contact via: Phone</p>
-        </div>
-
-        {/* Footer */}
-        <div className="flex items-center gap-2 border-t border-slate-200 px-4 py-2 text-[11px] text-slate-400">
-          <span>Applied Epic</span>
-          <span className="text-slate-300">|</span>
-          <span>Copyright 2024 Applied Systems</span>
         </div>
 
         {/* Cursor tapping the number */}
