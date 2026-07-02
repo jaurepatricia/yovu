@@ -5,21 +5,15 @@ import { ChevronRight } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "Switching to YOVU was the single best operational decision we made this year. The deep integration with Applied Epic has saved our account managers hours of manual data entry every single week.",
-    name: "Sarah Jenkins",
-    role: "Principal, Atlantic Insurance Group",
+      "Invaluable for growth. YOVU solved our data dilemma. We needed better visibility and our previous tools were not accurate. YOVU solved this and added more that helped us launch a new business stream.",
+    name: "Rhys Doiron",
+    role: "VP of Corporate Development, Youngs Insurance",
   },
   {
     quote:
-      "We went from chasing call notes to having every conversation summarized and logged automatically. Our E&O posture has never been stronger.",
-    name: "Mark Bouchard",
-    role: "Operations Lead, Western Brokerage Group",
-  },
-  {
-    quote:
-      "The AI summaries save our brokers at least an hour a day. It pays for itself in the first week.",
-    name: "Elena Rossi",
-    role: "Director of Service, Rossi & Co.",
+      "They have our complete confidence. YOVU has been an outstanding partner. Responsive, flexible, and truly willing to listen. We have complete confidence in their ability to support us as we scale.",
+    name: "Lorne MacDougall",
+    role: "VP of Operations & Corp Development, MacDougall Insurance",
   },
 ];
 

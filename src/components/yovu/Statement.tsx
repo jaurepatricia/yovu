@@ -14,7 +14,7 @@ export function Statement() {
   const words = COPY.split(" ");
 
   return (
-    <section className="py-24 lg:py-32">
+    <section className="pt-24 pb-40 lg:pt-32 lg:pb-56">
       <div className="mx-auto max-w-7xl px-6">
         <p
           ref={ref}
