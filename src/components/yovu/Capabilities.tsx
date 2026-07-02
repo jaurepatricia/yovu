@@ -53,18 +53,18 @@ const categories: Category[] = [
     label: "Capture",
     items: [
       {
-        title: "Call Transcription",
-        copy: "Review recorded calls, search conversation history, and find details fast.",
+        title: "Call Recording",
+        copy: "Capture every call with secure playback and up to seven years of data retention for long-term E&O defensibility.",
         cta: { label: "Get a Demo", href: "#demo" },
       },
       {
-        title: "AI Summary",
-        copy: "Generate customizable summaries with sentiment, key points, and action items ready for your BMS.",
+        title: "Transcription & AI Summary",
+        copy: "Automatically transcribe conversations and let our customizable AI highlight key points, sentiment, and follow-up tasks.",
         cta: { label: "Learn More", href: "#demo" },
       },
       {
-        title: "Recording Storage",
-        copy: "Store recordings for up to seven years to support compliance and strengthen your E&O documentation.",
+        title: "Activity Logging",
+        copy: "Easily connect calls into activities on client profiles, including what the discussion was about and any additional notes.",
         cta: { label: "Our Security", href: "#security" },
       },
     ],
