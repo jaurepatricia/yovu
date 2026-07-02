@@ -101,17 +101,17 @@ export function ClickToDial() {
         {!reduced.current && (
           <motion.div
             aria-hidden
-            className="pointer-events-none absolute left-[26%] top-[63%] z-30"
+            className="pointer-events-none absolute left-[30%] top-[63%] z-30"
             initial={false}
             animate={{
-              x: phase === "ready" ? [26, 0] : 0,
-              y: phase === "ready" ? [26, 0] : 0,
-              scale: tapping ? 0.85 : 1,
+              x: phase === "ready" ? [72, 0] : 0,
+              y: phase === "ready" ? [50, 0] : 0,
+              scale: tapping ? 0.78 : 1,
               opacity: inCall ? 0 : 1,
             }}
-            transition={{ duration: phase === "ready" ? 1.2 : 0.25, ease: "easeInOut" }}
+            transition={{ duration: phase === "ready" ? 1.2 : 0.2, ease: "easeInOut" }}
           >
-            <MousePointer2 className="size-5 fill-slate-900 text-white drop-shadow" />
+            <MousePointer2 className="size-6 fill-slate-900 text-white drop-shadow-md" />
           </motion.div>
         )}
       </div>
