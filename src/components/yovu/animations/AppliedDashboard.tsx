@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import appliedLogomark from "@/assets/logos/Applied Logomark.svg";
+import appliedText from "@/assets/logos/Applied Text.svg";
 import { demoContact } from "./demoContact";
 
 /**
@@ -47,9 +48,7 @@ export function AppliedDashboard() {
         {/* Header */}
         <div className="flex items-center gap-2 bg-[#17255e] px-3 py-2">
           <img src={appliedLogomark} alt="" className="h-4 w-auto" />
-          <span className="text-sm font-semibold tracking-wide text-white">
-            APPLIED
-          </span>
+          <img src={appliedText} alt="Applied" className="h-3 w-auto" />
           <span className="text-[10px] font-medium text-white/70">Epic</span>
           <span className="ml-auto flex gap-1">
             <span className="size-2 rounded-full bg-white/25" />
