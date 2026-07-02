@@ -5,6 +5,7 @@ import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
 import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
 import { CallerContext } from "@/components/yovu/animations/CallerContext";
+import { AppliedDashboard } from "@/components/yovu/animations/AppliedDashboard";
 
 const CYCLE_MS = 5000;
 
@@ -28,8 +29,14 @@ const categories: Category[] = [
     label: "Communicate",
     items: [
       {
-        title: "Work From Anywhere",
-        copy: "Ring multiple devices, seamlessly flip calls, and click to dial numbers directly all while keeping your personal number private.",
+        title: "Work Inside Your BMS",
+        copy: "Integrates natively with Applied Epic or fits into your preferred Broker Management System workflow.",
+        cta: { label: "Our Integrations", href: "#integrations" },
+        media: <AppliedDashboard />,
+      },
+      {
+        title: "Click-to-Call",
+        copy: "Call any number with one click from your desktop within your BMS or mobile using your business number.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ClickToDial />,
       },
@@ -38,11 +45,6 @@ const categories: Category[] = [
         copy: "Screen pops instantly reveal caller accounts, letting you personalize service and eliminate repetitive questions.",
         cta: { label: "Learn More", href: "#demo" },
         media: <CallerContext />,
-      },
-      {
-        title: "Transfers & Custom Statuses",
-        copy: "Avoid blind handoffs by checking live statuses, transferring with context, or adding a colleague.",
-        cta: { label: "Learn More", href: "#demo" },
       },
     ],
   },
