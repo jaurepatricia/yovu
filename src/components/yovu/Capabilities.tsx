@@ -29,7 +29,7 @@ const categories: Category[] = [
     items: [
       {
         title: "Work From Anywhere",
-        copy: "Ring multiple devices, seamlessly flip calls, and keep your personal number private.",
+        copy: "Ring multiple devices, seamlessly flip calls, and click to dial numbers directly all while keeping your personal number private.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ClickToDial />,
       },

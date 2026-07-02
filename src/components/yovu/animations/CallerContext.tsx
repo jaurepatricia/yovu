@@ -33,8 +33,9 @@ export function CallerContext() {
   }, []);
 
   useEffect(() => {
-    if (reduced.current) return;
-    const t = setTimeout(() => setPopped((p) => !p), popped ? 2600 : 1600);
+    if (reduced.current || popped) return;
+    // Ring briefly, then pop the account and hold it.
+    const t = setTimeout(() => setPopped(true), 1600);
     return () => clearTimeout(t);
   }, [popped]);
 
@@ -112,13 +113,6 @@ export function CallerContext() {
                     </span>
                   </motion.div>
                 ))}
-              </div>
-
-              {/* Footer */}
-              <div className="flex items-center gap-2 border-t border-slate-200 px-4 py-2 text-[11px] text-slate-400">
-                <span>Applied Epic</span>
-                <span className="text-slate-300">|</span>
-                <span>Screen pop</span>
               </div>
             </motion.div>
           )}

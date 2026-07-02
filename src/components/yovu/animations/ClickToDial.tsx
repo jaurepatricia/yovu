@@ -85,25 +85,6 @@ export function ClickToDial() {
 
           {/* Click-to-call row */}
           <div className="relative pt-0.5">
-            {/* "Click to call" hint */}
-            <AnimatePresence>
-              {!inCall && (
-                <motion.span
-                  className="absolute -top-6 left-0 z-20 flex items-center rounded-md bg-slate-900 px-2 py-1 text-[10px] font-semibold text-white shadow-lg"
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: [0, -2, 0] }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{
-                    opacity: { duration: 0.3 },
-                    y: { duration: 1.4, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  Click to call
-                  <span className="absolute -bottom-1 left-3 size-2 rotate-45 bg-slate-900" />
-                </motion.span>
-              )}
-            </AnimatePresence>
-
             <span
               className={`relative inline-flex items-center gap-1.5 rounded px-1.5 py-0.5 transition-colors ${
                 active ? "bg-[#2563eb]/10 ring-1 ring-[#2563eb]/30" : ""
@@ -128,15 +109,7 @@ export function ClickToDial() {
             </span>
           </div>
 
-          <p className="text-[#c2410c]">{demoContact.email}</p>
           <p className="text-slate-500">Contact via: Phone</p>
-        </div>
-
-        {/* Footer */}
-        <div className="flex items-center gap-2 border-t border-slate-200 px-4 py-2 text-[11px] text-slate-400">
-          <span>Applied Epic</span>
-          <span className="text-slate-300">|</span>
-          <span>Copyright 2024 Applied Systems</span>
         </div>
 
         {/* Cursor tapping the number */}
