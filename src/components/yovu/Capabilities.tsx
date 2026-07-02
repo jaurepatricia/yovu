@@ -9,6 +9,9 @@ import { AppliedDashboard } from "@/components/yovu/animations/AppliedDashboard"
 import { CallRecording } from "@/components/yovu/animations/CallRecording";
 import { TranscriptionSummary } from "@/components/yovu/animations/TranscriptionSummary";
 import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
+import { ReportingDashboard } from "@/components/yovu/animations/ReportingDashboard";
+import { ThreeWayCall } from "@/components/yovu/animations/ThreeWayCall";
+import { ComingSoon } from "@/components/yovu/animations/ComingSoon";
 
 const CYCLE_MS = 5000;
 
@@ -83,16 +86,19 @@ const categories: Category[] = [
         title: "In-Depth Reporting",
         copy: "Track call activity, team performance, and queue trends with customizable dashboards.",
         cta: { label: "Get a Demo", href: "#demo" },
+        media: <ReportingDashboard />,
       },
       {
         title: "Listen, Whisper & Collaborate",
         copy: "Listen live, coach privately, or join the call when your team needs support.",
         cta: { label: "Learn More", href: "#demo" },
+        media: <ThreeWayCall />,
       },
       {
         title: "More Coming Soon",
         copy: "Turn real conversations into training tools that help new hires ramp faster and top performers scale.",
         cta: { label: "Get Early Access", href: "#demo" },
+        media: <ComingSoon />,
       },
     ],
   },
