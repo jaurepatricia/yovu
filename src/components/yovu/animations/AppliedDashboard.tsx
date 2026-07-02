@@ -10,15 +10,14 @@ import {
   Activity,
 } from "lucide-react";
 import { motion } from "motion/react";
-import appliedLogo from "@/assets/logos/Applied Logo.svg";
+import appliedLogomark from "@/assets/logos/Applied Logomark.svg";
+import { demoContact } from "./demoContact";
 
 /**
  * Stylized Applied Epic dashboard that animates open, as if the user partly
  * opened the BMS. Sidebar tabs stagger in with Account Detail active.
  * Pure CSS / motion — recreates the look, not the product.
  */
-
-const APPLIED_RATIO = 599.9 / 128.1;
 
 const glass =
   "bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-white/50 dark:ring-white/15";
@@ -62,22 +61,10 @@ export function AppliedDashboard() {
       >
         {/* Header */}
         <div className="flex items-center gap-2 bg-[#17255e] px-3 py-2">
-          <span
-            role="img"
-            aria-label="Applied"
-            className="block h-3.5 bg-white"
-            style={{
-              width: `${14 * APPLIED_RATIO}px`,
-              maskImage: `url('${appliedLogo}')`,
-              WebkitMaskImage: `url('${appliedLogo}')`,
-              maskSize: "contain",
-              WebkitMaskSize: "contain",
-              maskRepeat: "no-repeat",
-              WebkitMaskRepeat: "no-repeat",
-              maskPosition: "center",
-              WebkitMaskPosition: "center",
-            }}
-          />
+          <img src={appliedLogomark} alt="" className="h-4 w-auto" />
+          <span className="text-sm font-semibold tracking-wide text-white">
+            APPLIED
+          </span>
           <span className="text-[10px] font-medium text-white/70">Epic</span>
           <span className="ml-auto flex gap-1">
             <span className="size-2 rounded-full bg-white/25" />
@@ -100,12 +87,12 @@ export function AppliedDashboard() {
                   transition={{ duration: 0.3, delay: 0.25 + i * 0.06 }}
                   className={`flex items-center gap-2 px-3 py-[5px] text-[11px] ${
                     active
-                      ? "border-l-2 border-[#e11d48] bg-white font-semibold text-[#e11d48]"
+                      ? "border-l-2 border-[#2563eb] bg-white font-semibold text-[#2563eb]"
                       : "border-l-2 border-transparent text-slate-600"
                   }`}
                 >
                   <t.Icon
-                    className={`size-3.5 ${active ? "text-[#e11d48]" : "text-slate-400"}`}
+                    className={`size-3.5 ${active ? "text-[#2563eb]" : "text-slate-400"}`}
                   />
                   <span className="truncate">{t.label}</span>
                 </motion.div>
@@ -116,8 +103,8 @@ export function AppliedDashboard() {
           {/* Content */}
           <div className="flex-1 space-y-2 p-3">
             <p className="text-[11px] font-semibold text-slate-700">Account</p>
-            <div className="rounded border border-[#e11d48]/60 px-2 py-1 text-[11px] text-slate-700">
-              YOVU Office Phone
+            <div className="rounded border border-[#2563eb]/60 px-2 py-1 text-[11px] text-slate-700">
+              {demoContact.name}
             </div>
             {[70, 55, 62].map((w, i) => (
               <div key={i} className="space-y-1">

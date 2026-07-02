@@ -63,7 +63,17 @@ export function TranscriptionSummary() {
         {/* Topics */}
         <div>
           <p className="text-[11px] font-medium text-slate-500">Topics</p>
-          <Star className="mt-1 size-4 fill-amber-400 text-amber-400" />
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            {["Renewal", "Adding a Driver"].map((topic) => (
+              <span
+                key={topic}
+                className="inline-flex items-center gap-1 rounded-full bg-[#2563eb]/10 px-2 py-0.5 text-[11px] font-medium text-[#2563eb]"
+              >
+                <Star className="size-3 fill-amber-400 text-amber-400" />
+                {topic}
+              </span>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>
