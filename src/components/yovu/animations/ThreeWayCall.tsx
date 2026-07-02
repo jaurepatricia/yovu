@@ -1,32 +1,38 @@
-import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { Headphones, Mic, Users } from "lucide-react";
+import { Headphones } from "lucide-react";
 import { demoContact } from "./demoContact";
 
 /**
- * Three-way coaching call: agent + client connected, with a supervisor joining.
- * The mode cycles Listen → Whisper → Collaborate. Pure CSS / motion.
+ * Three-way coaching call: agent + client on a live (solid) call, with a
+ * supervisor joined via a dotted line into the middle of that call.
+ * Pure CSS / motion / SVG.
  */
-
-const modes = [
-  { label: "Listen", Icon: Headphones },
-  { label: "Whisper", Icon: Mic },
-  { label: "Collaborate", Icon: Users },
-];
 
 function Node({
   initials,
   role,
-  className,
+  x,
+  y,
+  badge,
 }: {
   initials: string;
   role: string;
-  className?: string;
+  x: string;
+  y: string;
+  badge?: boolean;
 }) {
   return (
-    <div className={`flex flex-col items-center gap-1 ${className ?? ""}`}>
-      <span className="flex size-11 items-center justify-center rounded-full bg-[#2563eb]/10 text-sm font-semibold text-[#2563eb] ring-1 ring-[#2563eb]/20">
+    <div
+      className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
+      style={{ left: x, top: y }}
+    >
+      <span className="relative flex size-12 items-center justify-center rounded-full bg-[#2563eb]/10 text-sm font-semibold text-[#2563eb] ring-1 ring-[#2563eb]/20">
         {initials}
+        {badge && (
+          <span className="absolute -bottom-1 -right-1 flex size-5 items-center justify-center rounded-full bg-[#2563eb] text-white ring-2 ring-white">
+            <Headphones className="size-2.5" strokeWidth={2.5} />
+          </span>
+        )}
       </span>
       <span className="text-[11px] font-medium text-slate-600">{role}</span>
     </div>
@@ -34,24 +40,6 @@ function Node({
 }
 
 export function ThreeWayCall() {
-  const [mode, setMode] = useState(0);
-  const reduced = useRef(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    reduced.current = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-  }, []);
-
-  useEffect(() => {
-    if (reduced.current) return;
-    const t = setInterval(() => setMode((m) => (m + 1) % modes.length), 2200);
-    return () => clearInterval(t);
-  }, []);
-
-  const Active = modes[mode].Icon;
-
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
       <motion.div
@@ -59,46 +47,40 @@ export function ThreeWayCall() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-[19rem] max-w-[88%] rounded-xl bg-white p-5 text-center shadow-2xl shadow-black/30 ring-1 ring-black/5"
+        className="flex w-[24rem] max-w-[92%] items-center justify-center rounded-xl bg-white p-6 shadow-2xl shadow-black/30 ring-1 ring-black/5"
       >
-        {/* Agent + Client on the live call */}
-        <div className="relative flex items-center justify-center gap-14">
-          {/* connecting line */}
-          <span className="absolute top-[22px] left-1/2 h-0.5 w-14 -translate-x-1/2 bg-[#2563eb]/40" />
-          <Node initials="AV" role="Agent" />
-          <Node initials={demoContact.initials} role="Client" />
-        </div>
+        <div className="relative w-[17rem] max-w-full">
+          <svg viewBox="0 0 240 176" className="block w-full">
+            {/* Solid live call line: agent <-> client */}
+            <line
+              x1="56"
+              y1="44"
+              x2="184"
+              y2="44"
+              stroke="#2563eb"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            />
+            {/* Dotted supervisor line joining the middle of the call */}
+            <motion.path
+              d="M120 44 L120 120"
+              fill="none"
+              stroke="#2563eb"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeDasharray="2 6"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+            />
+            {/* Join dot at the intersection */}
+            <circle cx="120" cy="44" r="3" fill="#2563eb" />
+          </svg>
 
-        {/* Supervisor joining via dashed link */}
-        <svg viewBox="0 0 200 40" className="mx-auto -mt-1 h-8 w-40">
-          <motion.path
-            d="M100 2 L100 38"
-            fill="none"
-            stroke="#2563eb"
-            strokeWidth="2"
-            strokeDasharray="4 4"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-          />
-        </svg>
-        <div className="-mt-1 flex justify-center">
-          <Node initials="SU" role="Supervisor" />
-        </div>
-
-        {/* Mode chip cycling */}
-        <div className="mt-4 flex justify-center">
-          <motion.span
-            key={mode}
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="inline-flex items-center gap-1.5 rounded-full bg-[#2563eb] px-3 py-1.5 text-xs font-semibold text-white"
-          >
-            <Active className="size-3.5" strokeWidth={2.5} />
-            {modes[mode].label}
-          </motion.span>
+          <Node initials="AV" role="Agent" x="23.3%" y="25%" />
+          <Node initials={demoContact.initials} role="Client" x="76.7%" y="25%" />
+          <Node initials="SU" role="Supervisor" x="50%" y="78%" badge />
         </div>
       </motion.div>
     </div>

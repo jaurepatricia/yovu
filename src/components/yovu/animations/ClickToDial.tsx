@@ -50,7 +50,7 @@ export function ClickToDial() {
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
 
       {/* Applied Epic contact card */}
-      <div className="relative w-[19rem] max-w-[86%] overflow-hidden rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5">
+      <div className="relative w-[24rem] max-w-[92%] overflow-hidden rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5">
         {/* Tabs */}
         <div className="flex items-end gap-1 border-b border-slate-200 px-3 pt-3">
           <span className="rounded-t-md border border-b-0 border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700">

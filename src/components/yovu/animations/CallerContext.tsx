@@ -40,7 +40,7 @@ export function CallerContext() {
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
 
-      <div className="relative flex w-[19rem] max-w-[86%] flex-col items-center gap-3">
+      <div className="relative flex w-[24rem] max-w-[92%] flex-col items-center gap-3">
         {/* Incoming call banner */}
         <div className="flex items-center gap-2.5 rounded-full bg-white py-2 pl-2.5 pr-4 shadow-lg shadow-black/15 ring-1 ring-black/5">
           <span className="relative flex size-7 items-center justify-center rounded-full bg-[#2563eb] text-white">

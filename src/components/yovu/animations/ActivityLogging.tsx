@@ -19,7 +19,7 @@ export function ActivityLogging() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-[19rem] max-w-[88%] rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5"
+        className="w-[24rem] max-w-[92%] rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5"
       >
         {/* Header */}
         <div className="flex items-center gap-2 border-b border-slate-100 px-4 py-3">
