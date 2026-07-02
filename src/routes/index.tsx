@@ -20,8 +20,8 @@ function HomePage() {
       <Statement />
       <Showcase />
       <TestimonialsQuote />
-      <FAQ />
       <FinalCTAScale />
+      <FAQ />
       <Footer />
     </main>
   );
