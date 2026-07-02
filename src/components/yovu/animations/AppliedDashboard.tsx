@@ -43,7 +43,7 @@ export function AppliedDashboard() {
         whileInView={{ opacity: 1, x: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-[22rem] max-w-[90%] overflow-hidden rounded-lg bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/10"
+        className="w-[26rem] max-w-[92%] overflow-hidden rounded-lg bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/10"
       >
         {/* Header */}
         <div className="flex items-center gap-2 bg-[#17255e] px-3 py-2">

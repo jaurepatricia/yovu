@@ -14,21 +14,21 @@ export function ComingSoon() {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="flex w-[16rem] max-w-[80%] flex-col items-center gap-4 rounded-2xl bg-white/10 px-8 py-10 text-center shadow-2xl shadow-black/20 ring-1 ring-white/25 backdrop-blur-md"
+        className="flex w-[20rem] max-w-[86%] flex-col items-center gap-4 rounded-2xl bg-white/10 px-8 py-12 text-center shadow-2xl shadow-black/20 ring-1 ring-white/25 backdrop-blur-md"
       >
         {/* Animated lock */}
         <div className="relative">
           <motion.span
-            className="absolute inset-0 rounded-full ring-2 ring-white/40"
-            animate={{ scale: [1, 1.6], opacity: [0.5, 0] }}
+            className="absolute inset-0 rounded-full ring-2 ring-[#3b82f6]"
+            animate={{ scale: [1, 1.7], opacity: [0.6, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
           />
           <motion.span
-            className="relative flex size-14 items-center justify-center rounded-full bg-white/15 text-white ring-1 ring-white/30"
+            className="relative flex size-16 items-center justify-center rounded-full bg-[#2563eb] text-white shadow-lg shadow-[#2563eb]/40 ring-1 ring-[#3b82f6]/50"
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Lock className="size-6" strokeWidth={2} />
+            <Lock className="size-7" strokeWidth={2} />
           </motion.span>
         </div>
 
