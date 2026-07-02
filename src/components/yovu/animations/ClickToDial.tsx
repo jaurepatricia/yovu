@@ -1,24 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Phone, PhoneCall, MousePointer2 } from "lucide-react";
+import { demoContact } from "./demoContact";
 
 /**
- * Looping "click-to-dial" demo that sits over a feature card.
- * A cursor taps the dial button on a contact card, a call connects, and the
- * sequence loops. Pure CSS / motion — no media assets. Renders a static
- * connected state when the user prefers reduced motion.
+ * Looping "click-to-dial" demo styled after the Applied Epic contact card.
+ * A cursor taps the blue phone number, it highlights, and a call connects —
+ * making the click-to-call action obvious. Pure CSS / motion, no assets.
+ * Renders a static connected state when the user prefers reduced motion.
  */
 
 type Phase = "ready" | "tap" | "calling" | "connected";
 
 const STEPS: { phase: Phase; ms: number }[] = [
-  { phase: "ready", ms: 1300 },
-  { phase: "tap", ms: 450 },
-  { phase: "calling", ms: 1300 },
-  { phase: "connected", ms: 1700 },
+  { phase: "ready", ms: 1700 },
+  { phase: "tap", ms: 500 },
+  { phase: "calling", ms: 1400 },
+  { phase: "connected", ms: 1800 },
 ];
 
-// Frosted-glass surface that reads over both the light and dark blurred bg.
 const glass =
   "bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-white/50 dark:ring-white/15";
 
@@ -31,7 +31,7 @@ export function ClickToDial() {
     reduced.current = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (reduced.current) setStep(3); // hold on "connected"
+    if (reduced.current) setStep(3);
   }, []);
 
   useEffect(() => {
@@ -45,6 +45,7 @@ export function ClickToDial() {
 
   const phase = STEPS[step].phase;
   const tapping = phase === "tap";
+  const active = phase === "tap" || phase === "calling" || phase === "connected";
   const inCall = phase === "calling" || phase === "connected";
 
   return (
@@ -52,125 +53,146 @@ export function ClickToDial() {
       {/* Faint floating chips for layered depth */}
       <motion.div
         aria-hidden
-        className={`absolute left-[8%] top-[20%] flex items-center gap-2 rounded-full px-3 py-1.5 ${glass} opacity-50`}
+        className={`absolute left-[8%] top-[18%] h-8 w-24 rounded-lg ${glass} opacity-40`}
         animate={{ y: [0, -6, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <span className="size-4 rounded-full bg-signal/30" />
-        <span className="h-1.5 w-10 rounded-full bg-ink/15" />
-      </motion.div>
+      />
       <motion.div
         aria-hidden
-        className={`absolute bottom-[16%] right-[7%] flex items-center gap-2 rounded-full px-3 py-1.5 ${glass} opacity-50`}
+        className={`absolute bottom-[14%] right-[8%] h-8 w-20 rounded-lg ${glass} opacity-40`}
         animate={{ y: [0, 6, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      >
-        <span className="size-4 rounded-full bg-signal/30" />
-        <span className="h-1.5 w-8 rounded-full bg-ink/15" />
-      </motion.div>
+      />
 
-      {/* Contact card */}
-      <div
-        className={`relative w-[68%] max-w-xs rounded-2xl p-5 shadow-xl shadow-ink/10 ${glass}`}
-      >
-        <div className="flex items-center gap-3">
-          <span className="flex size-10 items-center justify-center rounded-full bg-signal/15 text-sm font-semibold text-signal">
-            JR
+      {/* Applied Epic contact card */}
+      <div className="relative w-[19rem] max-w-[86%] overflow-hidden rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5">
+        {/* Tabs */}
+        <div className="flex items-end gap-1 border-b border-slate-200 px-3 pt-3">
+          <span className="rounded-t-md border border-b-0 border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700">
+            Primary
           </span>
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-ink">
-              Jordan Reyes
-            </p>
-            <p className="truncate text-xs text-ink/55">Auto · Renewal</p>
-          </div>
+          <span className="px-3 py-1 text-xs font-medium text-slate-400">
+            Additional
+          </span>
         </div>
 
-        {/* Phone row with dial button */}
-        <div className="mt-5 flex items-center justify-between gap-3 rounded-xl bg-ink/[0.04] px-3 py-2.5 ring-1 ring-ink/5">
-          <span className="font-mono text-sm tracking-tight text-ink/80">
-            (416) 555-0142
-          </span>
-          <div className="relative">
-            {/* Tap ripple */}
+        {/* Body */}
+        <div className="space-y-0.5 px-4 py-3 text-[13px] leading-snug text-slate-700">
+          <p className="font-semibold text-slate-800">{demoContact.name}</p>
+          <p>{demoContact.addressLine1}</p>
+          <p>{demoContact.addressLine2}</p>
+          <p>Canada</p>
+
+          {/* Click-to-call row */}
+          <div className="relative pt-0.5">
+            {/* "Click to call" hint */}
             <AnimatePresence>
-              {tapping && (
+              {!inCall && (
                 <motion.span
-                  className="absolute inset-0 rounded-full bg-signal/40"
-                  initial={{ scale: 1, opacity: 0.6 }}
-                  animate={{ scale: 2.2, opacity: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                />
+                  className="absolute -top-6 left-0 z-20 flex items-center rounded-md bg-slate-900 px-2 py-1 text-[10px] font-semibold text-white shadow-lg"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: [0, -2, 0] }}
+                  exit={{ opacity: 0, y: 4 }}
+                  transition={{
+                    opacity: { duration: 0.3 },
+                    y: { duration: 1.4, repeat: Infinity, ease: "easeInOut" },
+                  }}
+                >
+                  Click to call
+                  <span className="absolute -bottom-1 left-3 size-2 rotate-45 bg-slate-900" />
+                </motion.span>
               )}
             </AnimatePresence>
-            <motion.span
-              className="relative flex size-9 items-center justify-center rounded-full bg-signal text-white shadow-lg shadow-signal/30"
-              animate={{ scale: tapping ? 0.88 : 1 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Phone className="size-4" strokeWidth={2.5} />
-            </motion.span>
-          </div>
-        </div>
-      </div>
 
-      {/* Cursor */}
-      {!reduced.current && (
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute"
-          initial={false}
-          animate={{
-            x: phase === "ready" ? [40, 92] : 92,
-            y: phase === "ready" ? [56, 30] : 30,
-            opacity: inCall ? 0 : 1,
-          }}
-          transition={{ duration: phase === "ready" ? 1.1 : 0.3, ease: "easeInOut" }}
-        >
-          <MousePointer2 className="size-5 fill-ink text-canvas drop-shadow" />
-        </motion.div>
-      )}
+            <span
+              className={`relative inline-flex items-center gap-1.5 rounded px-1.5 py-0.5 transition-colors ${
+                active ? "bg-[#2563eb]/10 ring-1 ring-[#2563eb]/30" : ""
+              }`}
+            >
+              {/* Tap ripple */}
+              <AnimatePresence>
+                {tapping && (
+                  <motion.span
+                    className="absolute inset-0 rounded bg-[#2563eb]/25"
+                    initial={{ scale: 0.6, opacity: 0.7 }}
+                    animate={{ scale: 1.4, opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  />
+                )}
+              </AnimatePresence>
+              <Phone className="size-3.5 text-[#2563eb]" strokeWidth={2.5} />
+              <span className="font-medium text-[#2563eb] underline decoration-[#2563eb]/40 underline-offset-2">
+                {demoContact.phone}
+              </span>
+            </span>
+          </div>
+
+          <p className="text-[#c2410c]">{demoContact.email}</p>
+          <p className="text-slate-500">Contact via: Phone</p>
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center gap-2 border-t border-slate-200 px-4 py-2 text-[11px] text-slate-400">
+          <span>Applied Epic</span>
+          <span className="text-slate-300">|</span>
+          <span>Copyright 2024 Applied Systems</span>
+        </div>
+
+        {/* Cursor tapping the number */}
+        {!reduced.current && (
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute left-[26%] top-[63%] z-30"
+            initial={false}
+            animate={{
+              x: phase === "ready" ? [26, 0] : 0,
+              y: phase === "ready" ? [26, 0] : 0,
+              scale: tapping ? 0.85 : 1,
+              opacity: inCall ? 0 : 1,
+            }}
+            transition={{ duration: phase === "ready" ? 1.2 : 0.25, ease: "easeInOut" }}
+          >
+            <MousePointer2 className="size-5 fill-slate-900 text-white drop-shadow" />
+          </motion.div>
+        )}
+      </div>
 
       {/* Call status pill */}
       <AnimatePresence>
         {inCall && (
           <motion.div
-            className={`absolute bottom-[10%] flex items-center gap-2.5 rounded-full py-2 pl-2.5 pr-4 shadow-xl shadow-ink/10 ${glass}`}
+            className="absolute bottom-[9%] flex items-center gap-2.5 rounded-full bg-white py-2 pl-2.5 pr-4 shadow-xl shadow-black/20 ring-1 ring-black/5"
             initial={{ y: 24, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 16, opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
           >
-            <span className="flex size-7 items-center justify-center rounded-full bg-signal text-white">
+            <span className="flex size-7 items-center justify-center rounded-full bg-[#2563eb] text-white">
               <PhoneCall className="size-3.5" strokeWidth={2.5} />
             </span>
             {phase === "calling" ? (
-              <span className="flex items-center gap-1.5 text-xs font-medium text-ink/80">
-                Calling
+              <span className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
+                Calling {demoContact.firstName}
                 <span className="flex gap-0.5">
                   {[0, 1, 2].map((i) => (
                     <motion.span
                       key={i}
-                      className="size-1 rounded-full bg-ink/50"
+                      className="size-1 rounded-full bg-slate-400"
                       animate={{ opacity: [0.2, 1, 0.2] }}
-                      transition={{
-                        duration: 1,
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                      }}
+                      transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
                     />
                   ))}
                 </span>
               </span>
             ) : (
-              <span className="flex items-center gap-2 text-xs font-medium text-ink/80">
+              <span className="flex items-center gap-2 text-xs font-medium text-slate-700">
                 Connected
-                {/* Waveform */}
                 <span className="flex items-end gap-0.5">
                   {[0, 1, 2, 3].map((i) => (
                     <motion.span
                       key={i}
-                      className="w-0.5 rounded-full bg-signal"
+                      className="w-0.5 rounded-full bg-[#2563eb]"
                       animate={{ height: [4, 12, 6, 10, 4] }}
                       transition={{
                         duration: 0.9,
@@ -181,7 +203,7 @@ export function ClickToDial() {
                     />
                   ))}
                 </span>
-                <span className="font-mono text-[11px] tabular-nums text-ink/50">
+                <span className="font-mono text-[11px] tabular-nums text-slate-400">
                   00:04
                 </span>
               </span>

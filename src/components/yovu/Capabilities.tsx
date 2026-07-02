@@ -4,6 +4,7 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
 import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
+import { CallerContext } from "@/components/yovu/animations/CallerContext";
 
 const CYCLE_MS = 5000;
 
@@ -36,6 +37,7 @@ const categories: Category[] = [
         title: "Caller Context",
         copy: "Screen pops instantly reveal caller accounts, letting you personalize service and eliminate repetitive questions.",
         cta: { label: "Learn More", href: "#demo" },
+        media: <CallerContext />,
       },
       {
         title: "Transfers & Custom Statuses",
