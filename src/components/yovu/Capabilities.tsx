@@ -6,6 +6,9 @@ import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
 import { CallerContext } from "@/components/yovu/animations/CallerContext";
 import { AppliedDashboard } from "@/components/yovu/animations/AppliedDashboard";
+import { CallRecording } from "@/components/yovu/animations/CallRecording";
+import { TranscriptionSummary } from "@/components/yovu/animations/TranscriptionSummary";
+import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
 
 const CYCLE_MS = 5000;
 
@@ -56,16 +59,19 @@ const categories: Category[] = [
         title: "Call Recording",
         copy: "Capture every call with secure playback and up to seven years of data retention for long-term E&O defensibility.",
         cta: { label: "Get a Demo", href: "#demo" },
+        media: <CallRecording />,
       },
       {
         title: "Transcription & AI Summary",
         copy: "Automatically transcribe conversations and let our customizable AI highlight key points, sentiment, and follow-up tasks.",
         cta: { label: "Learn More", href: "#demo" },
+        media: <TranscriptionSummary />,
       },
       {
         title: "Activity Logging",
         copy: "Easily connect calls into activities on client profiles, including what the discussion was about and any additional notes.",
         cta: { label: "Our Security", href: "#security" },
+        media: <ActivityLogging />,
       },
     ],
   },
