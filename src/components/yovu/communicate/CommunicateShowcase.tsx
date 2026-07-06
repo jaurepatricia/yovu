@@ -32,6 +32,10 @@ const panels: Panel[] = [
   },
 ];
 
+// Complete the horizontal travel before the pin ends, so the last panel
+// settles centered and holds for the final stretch of scroll.
+const TRAVEL = 0.85;
+
 export function CommunicateShowcase() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const count = panels.length;
@@ -42,13 +46,14 @@ export function CommunicateShowcase() {
   });
   const trackX = useTransform(
     scrollYProgress,
-    [0, 1],
+    [0, TRAVEL],
     ["0%", `-${((count - 1) / count) * 100}%`],
   );
 
   const [active, setActive] = useState(0);
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setActive(Math.min(count - 1, Math.max(0, Math.floor(v * count))));
+    const p = Math.min(v / TRAVEL, 1);
+    setActive(Math.min(count - 1, Math.max(0, Math.floor(p * count))));
   });
 
   const goTo = (i: number) => {
@@ -56,8 +61,9 @@ export function CommunicateShowcase() {
     if (!el || typeof window === "undefined") return;
     const elTop = el.getBoundingClientRect().top + window.scrollY;
     const scrollable = el.offsetHeight - window.innerHeight;
+    const target = i === count - 1 ? TRAVEL : ((i + 0.5) / count) * TRAVEL;
     window.scrollTo({
-      top: elTop + ((i + 0.5) / count) * scrollable,
+      top: elTop + target * scrollable,
       behavior: "smooth",
     });
   };
@@ -134,7 +140,7 @@ function ProgressSegment({
 }) {
   const scaleX = useTransform(
     progress,
-    [index / count, (index + 1) / count],
+    [(index / count) * TRAVEL, ((index + 1) / count) * TRAVEL],
     [0, 1],
   );
   return (
