@@ -196,7 +196,7 @@ export function CommunicateCapabilities() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 text-center">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Capabilities
+            VoIP Phone Features
           </h2>
         </div>
 
