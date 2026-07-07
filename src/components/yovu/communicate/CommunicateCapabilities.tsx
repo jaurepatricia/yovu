@@ -29,13 +29,7 @@ const features = [
   "Direct Numbers & Extensions",
 ];
 
-function Card({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div
       className={`group relative overflow-hidden rounded-3xl bg-card p-8 ring-1 ring-border ${className}`}
@@ -89,12 +83,7 @@ function FeatureWall() {
     <div className="relative h-64 w-full overflow-hidden">
       <div className="flex justify-center gap-3">
         {cols.map((items, i) => (
-          <MarqueeColumn
-            key={i}
-            items={items}
-            reverse={i % 2 === 1}
-            duration={26 + i * 5}
-          />
+          <MarqueeColumn key={i} items={items} reverse={i % 2 === 1} duration={26 + i * 5} />
         ))}
       </div>
       {/* Fade + blur the pills as they rotate through the top and bottom */}
@@ -132,32 +121,22 @@ function CallerVisual() {
           {demoContact.initials}
         </span>
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-slate-800">
-            {demoContact.name}
-          </p>
-          <p className="truncate text-xs text-slate-500">
-            {demoContact.addressLine2}
-          </p>
+          <p className="truncate text-sm font-semibold text-slate-800">{demoContact.name}</p>
+          <p className="truncate text-xs text-slate-500">{demoContact.addressLine2}</p>
         </div>
       </div>
       <div className="mt-3 space-y-1.5 border-t border-slate-100 pt-3 text-[13px]">
         <div className="flex justify-between">
           <span className="text-slate-500">Policy</span>
-          <span className="font-medium text-slate-800">
-            {demoContact.policyType}
-          </span>
+          <span className="font-medium text-slate-800">{demoContact.policyType}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-slate-500">Renewal</span>
-          <span className="font-medium text-[#c2410c]">
-            {demoContact.renewal}
-          </span>
+          <span className="font-medium text-[#c2410c]">{demoContact.renewal}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-slate-500">Status</span>
-          <span className="font-medium text-emerald-600">
-            {demoContact.status}
-          </span>
+          <span className="font-medium text-emerald-600">{demoContact.status}</span>
         </div>
       </div>
     </div>
@@ -203,17 +182,16 @@ export function CommunicateCapabilities() {
         <div className="grid gap-4 md:grid-cols-2">
           {/* Talk & Text — small */}
           <Card className="min-h-[14rem]">
-            <div className="flex h-full items-center gap-5">
-              <div className="w-[42%] shrink-0">
-                <h3 className="font-display text-xl font-bold tracking-tight text-ink md:text-2xl">
+            <div className="relative flex h-full items-center">
+              <div className="w-1/2">
+                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                   Talk &amp; Text
                 </h3>
-                <p className="mt-3 text-pretty text-sm text-ink/70">
-                  Voice and SMS from the same workspace — a quick text and a
-                  callback in one place.
+                <p className="mt-3 text-pretty text-ink/70">
+                  Voice and SMS from the same workspace — a quick text and a callback in one place.
                 </p>
               </div>
-              <div className="flex flex-1 items-center justify-center pt-4">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10">
                 <TalkTextVisual />
               </div>
             </div>
@@ -223,13 +201,13 @@ export function CommunicateCapabilities() {
           <Card className="min-h-[30rem] md:row-span-2">
             <div className="flex h-full flex-col">
               <div>
-                <h3 className="font-display text-xl font-bold tracking-tight text-ink md:text-2xl">
+                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                   Warm &amp; Personalized Calls
                 </h3>
                 <p className="mt-3 max-w-md text-pretty text-ink/70">
-                  Deliver highly personalized service — a screen pop surfaces the
-                  caller's identity and account before anyone picks up,
-                  eliminating unnecessary repetition and reducing handle time.
+                  Deliver highly personalized service — a screen pop surfaces the caller's identity
+                  and account before anyone picks up, eliminating unnecessary repetition and
+                  reducing handle time.
                 </p>
               </div>
               <div className="flex flex-1 items-center justify-center pt-8">
@@ -240,17 +218,16 @@ export function CommunicateCapabilities() {
 
           {/* Transfers & Custom Statuses — small */}
           <Card className="min-h-[14rem]">
-            <div className="flex h-full items-center gap-5">
-              <div className="w-[42%] shrink-0">
-                <h3 className="font-display text-xl font-bold tracking-tight text-ink md:text-2xl">
+            <div className="relative flex h-full items-center">
+              <div className="w-1/2">
+                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                   Transfers &amp; Custom Statuses
                 </h3>
-                <p className="mt-3 text-pretty text-sm text-ink/70">
-                  See who's available, transfer with context, or bring a
-                  colleague onto the call.
+                <p className="mt-3 text-pretty text-ink/70">
+                  See who's available, transfer with context, or bring a colleague onto the call.
                 </p>
               </div>
-              <div className="flex flex-1 items-center justify-center pt-4">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10">
                 <StatusVisual />
               </div>
             </div>
@@ -264,8 +241,8 @@ export function CommunicateCapabilities() {
                   All That &amp; More
                 </h3>
                 <p className="mt-3 max-w-md text-pretty text-ink/70">
-                  We offer everything your business needs to keep calls
-                  organized, teams connected, and conversations running smoothly.
+                  We offer everything your business needs to keep calls organized, teams connected,
+                  and conversations running smoothly.
                 </p>
               </div>
               <div className="flex-1">
