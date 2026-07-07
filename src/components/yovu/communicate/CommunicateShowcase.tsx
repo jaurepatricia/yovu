@@ -44,10 +44,12 @@ export function CommunicateShowcase() {
     target: sectionRef,
     offset: ["start start", "end end"],
   });
+  // Translate in vw (viewport-relative) rather than %, which would resolve
+  // against the flex track's own width instead of the full panel run.
   const trackX = useTransform(
     scrollYProgress,
     [0, TRAVEL],
-    ["0%", `-${((count - 1) / count) * 100}%`],
+    ["0vw", `-${(count - 1) * 100}vw`],
   );
 
   const [active, setActive] = useState(0);
@@ -76,7 +78,7 @@ export function CommunicateShowcase() {
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Horizontal track */}
-        <motion.div style={{ x: trackX }} className="flex h-full">
+        <motion.div style={{ x: trackX }} className="flex h-full w-max">
           {panels.map((panel, i) => (
             <div
               key={i}
