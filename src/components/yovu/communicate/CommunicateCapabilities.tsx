@@ -221,7 +221,7 @@ export function CommunicateCapabilities() {
             <div className="relative flex h-full items-center">
               <div className="w-1/2">
                 <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
-                  Transfers &amp; Custom Statuses
+                  Transfers &amp; Statuses
                 </h3>
                 <p className="mt-3 text-pretty text-ink/70">
                   See who's available, transfer with context, or bring a colleague onto the call.
