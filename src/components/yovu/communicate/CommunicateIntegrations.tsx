@@ -8,13 +8,11 @@ export function CommunicateIntegrations() {
             Integrations
           </h2>
           <p className="mt-6 text-pretty text-lg text-ink/70">
-            We believe you do your best work when your tools talk to each other,
-            which is why our open architecture connects your phone system to the
-            software you use every day. You can enjoy syncing with over 70
-            platforms, including powerful, direct integrations with Applied Epic,
-            Salesforce, and Microsoft Teams to keep your voice and data unified.
-            Need something specific? Our developers build custom integrations for
-            any proprietary software.
+            You can enjoy syncing with over 70 platforms, including powerful,
+            direct integrations with Applied Epic, Salesforce, and Microsoft
+            Teams to keep your voice and data unified. Need something specific?
+            Our developers build custom integrations for any proprietary
+            software.
           </p>
         </div>
 
