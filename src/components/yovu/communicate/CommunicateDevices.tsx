@@ -27,7 +27,7 @@ export function CommunicateDevices() {
         {/* Right: headline, copy, and points */}
         <div>
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Work From Anywhere
+            Unified Communications
           </h2>
           <p className="mt-5 text-pretty text-lg text-ink/70">
             Your phone system should follow you, not tie you to a desk. Our mobility solutions let
