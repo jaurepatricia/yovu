@@ -182,8 +182,8 @@ export function CommunicateCapabilities() {
         <div className="grid gap-4 md:grid-cols-2">
           {/* Talk & Text — small */}
           <Card className="min-h-[14rem]">
-            <div className="relative flex h-full items-center">
-              <div className="w-1/2">
+            <div className="flex h-full items-center gap-5">
+              <div className="w-[42%] shrink-0">
                 <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                   Talk &amp; Text
                 </h3>
@@ -191,7 +191,7 @@ export function CommunicateCapabilities() {
                   Voice and SMS from the same workspace — a quick text and a callback in one place.
                 </p>
               </div>
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10">
+              <div className="flex flex-1 items-center justify-center pt-4">
                 <TalkTextVisual />
               </div>
             </div>
@@ -227,7 +227,7 @@ export function CommunicateCapabilities() {
                   See who's available, transfer with context, or bring a colleague onto the call.
                 </p>
               </div>
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-10">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8">
                 <StatusVisual />
               </div>
             </div>
