@@ -9,7 +9,7 @@ const testimonials = [
     quote:
       "Invaluable for growth. YOVU solved our data dilemma. We needed better visibility and our previous tools were not accurate. YOVU solved this and added more that helped us launch a new business stream.",
     name: "Rhys Doiron",
-    role: "VP of Corporate Development, Youngs Insurance",
+    role: "VP of Corporate Development",
     brokerage: "Youngs Insurance",
     logo: youngs.url,
     logoClass: "h-16 max-w-[220px]",
@@ -18,7 +18,7 @@ const testimonials = [
     quote:
       "They have our complete confidence. YOVU has been an outstanding partner. Responsive, flexible, and truly willing to listen. We have complete confidence in their ability to support us as we scale.",
     name: "Lorne MacDougall",
-    role: "VP of Operations & Corp Development, MacDougall Insurance",
+    role: "VP of Operations & Corp Development",
     brokerage: "McDougall Insurance",
     logo: mcdougall.url,
     logoDark: mcdougallDark.url,
