@@ -10,7 +10,7 @@ export function ScaleCallout() {
           {/* Emphasized top CTA */}
           <div className="flex flex-[1.4] flex-col justify-between gap-10 p-10 lg:p-12">
             <h2 className="text-balance font-display text-3xl font-bold leading-[1.1] tracking-tight text-ink md:text-4xl">
-              Discover how you can scale your brokerage with our business communications platform.
+              Are you ready to bridge the gap between your client calls and your BMS?
             </h2>
             <div>
               <a
