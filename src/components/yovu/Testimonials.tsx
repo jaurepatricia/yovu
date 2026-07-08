@@ -35,7 +35,7 @@ export function Testimonials() {
   const t = testimonials[i];
 
   return (
-    <section className="bg-canvas py-32 lg:py-44">
+    <section className="bg-canvas pb-32 pt-40 lg:pb-44 lg:pt-56">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
