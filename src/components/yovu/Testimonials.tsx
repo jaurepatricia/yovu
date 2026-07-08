@@ -30,7 +30,7 @@ export function Testimonials() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Don't just take our word for it.
+              Loved by the community
             </h2>
             <p className="mt-6 text-pretty text-ink/70">
               Join over 100+ insurance brokers boosting their productivity with YOVU
