@@ -1,24 +1,30 @@
-## Plan
+## Locale toggle in top nav
 
-Split the homepage layout so `/` and `/v2` render different section lists.
+Add a circular button next to `ThemeToggle` in `src/components/yovu/Nav.tsx` that opens a small popover of country/language options. Visual only — persists the choice, no content translation.
 
-### Changes
+### Locales
 
-1. **`src/routes/index.tsx`** — Stop using the shared `HomePage` component. Inline a homepage composition that includes only:
-   - Nav
-   - Hero
-   - LogoCarousel
-   - Capabilities (ends with "Explore Key Features")
-   - Statement
-   - Testimonials
-   - FAQ
-   - FinalCTA
-   - Footer
+- 🇨🇦 Canada — English (`en-CA`)
+- 🇨🇦 Canada — French (`fr-CA`)
+- 🇺🇸 US — English (`en-US`)
+- 🇲🇽 Mexico — Spanish (`es-MX`)
 
-   Sections removed from `/` only: **Features**, **Integrations**, **Security**, **Canada**.
+Default: `en-CA` (or match `navigator.language` if it starts with one of the four).
 
-2. **`src/routes/v2.tsx`** — Leave untouched. It keeps rendering `HomePage`, which retains the full section list (the "graveyard").
+### Component: `src/components/yovu/LocaleToggle.tsx`
 
-3. **`src/components/yovu/HomePage.tsx`** — Leave untouched so `/v2` still shows every section.
+- Circular 36px button, same border/hover styles as `ThemeToggle`.
+- Content: the flag emoji of the active locale (e.g. 🇨🇦), rendered at ~18px.
+- `aria-label`: "Change country and language" plus the current locale.
+- Click opens a shadcn `Popover` (already in the project via components.json) anchored bottom-right.
+- Popover lists the four locales as buttons: `flag  Country — Language`, with a check on the active one.
+- Selection updates state, closes the popover, writes `localStorage["yovu-locale"]`, and sets `document.documentElement.lang`.
+- SSR-safe: read `localStorage` inside `useEffect`, not in `useState` initializer.
 
-No component files are deleted; the four sections remain available for later reuse.
+### Nav wiring
+
+In `src/components/yovu/Nav.tsx`, import `LocaleToggle` and render it immediately before `<ThemeToggle />` inside the right-hand action group.
+
+### Out of scope
+
+No string translation, no routing changes, no i18n library. Just the toggle and stored preference — ready to hook into real i18n later.
