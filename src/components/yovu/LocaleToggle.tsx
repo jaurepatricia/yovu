@@ -64,7 +64,7 @@ export function LocaleToggle() {
           <img src={active.flag} alt="" aria-hidden className="size-5 rounded-full object-cover" />
         </button>
       </PopoverTrigger>
-      <PopoverContent align="end" className="w-56 p-1">
+      <PopoverContent align="center" className="w-56 p-1">
         <ul className="flex flex-col">
           {LOCALES.map((l) => {
             const isActive = l.code === locale;
