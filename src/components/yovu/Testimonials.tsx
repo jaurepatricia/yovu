@@ -61,7 +61,7 @@ export function Testimonials() {
                   transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
                 >
                   <p className="font-display text-2xl font-semibold leading-snug text-ink md:text-3xl">
-                    &ldquo;{t.quote}&rdquo;
+                    {t.quote}
                   </p>
                   <div className="mt-10 flex items-center gap-4">
                     <div className="size-12 rounded-full bg-surface ring-1 ring-border" />
