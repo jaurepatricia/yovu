@@ -12,7 +12,7 @@ const testimonials = [
     role: "VP of Corporate Development",
     brokerage: "Youngs Insurance",
     logo: youngs.url,
-    logoClass: "h-16 max-w-[220px]",
+    logoClass: "h-14 max-w-[200px]",
   },
   {
     quote:
@@ -22,7 +22,7 @@ const testimonials = [
     brokerage: "McDougall Insurance",
     logo: mcdougall.url,
     logoDark: mcdougallDark.url,
-    logoClass: "h-9 max-w-[130px]",
+    logoClass: "h-10 max-w-[140px]",
   },
 ];
 
@@ -35,14 +35,14 @@ export function Testimonials() {
   const t = testimonials[i];
 
   return (
-    <section className="bg-card py-32 lg:py-44">
+    <section className="bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <h2 className="text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
               Loved by the community
             </h2>
-            <p className="mt-5 max-w-[15rem] text-pretty text-ink/70">
+            <p className="mt-5 text-pretty text-ink/70 lg:max-w-[22rem]">
               Don't just take our word for it. See what professionals in leading insurance
               brokerages have to say about us.
             </p>
