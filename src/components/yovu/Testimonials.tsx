@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import youngs from "@/assets/logos/youngs.png.asset.json";
+import mcdougall from "@/assets/logos/mcdougall.png.asset.json";
+import mcdougallDark from "@/assets/logos/mcdougall-dark.png.asset.json";
 
 const testimonials = [
   {
@@ -7,12 +10,17 @@ const testimonials = [
       "Invaluable for growth. YOVU solved our data dilemma. We needed better visibility and our previous tools were not accurate. YOVU solved this and added more that helped us launch a new business stream.",
     name: "Rhys Doiron",
     role: "VP of Corporate Development, Youngs Insurance",
+    brokerage: "Youngs Insurance",
+    logo: youngs.url,
   },
   {
     quote:
       "They have our complete confidence. YOVU has been an outstanding partner. Responsive, flexible, and truly willing to listen. We have complete confidence in their ability to support us as we scale.",
     name: "Lorne MacDougall",
     role: "VP of Operations & Corp Development, MacDougall Insurance",
+    brokerage: "McDougall Insurance",
+    logo: mcdougall.url,
+    logoDark: mcdougallDark.url,
   },
 ];
 
@@ -25,7 +33,7 @@ export function Testimonials() {
   const t = testimonials[i];
 
   return (
-    <section className="bg-surface/40 py-24 lg:py-32">
+    <section className="bg-card py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -33,8 +41,8 @@ export function Testimonials() {
               Loved by the community
             </h2>
             <p className="mt-6 text-pretty text-ink/70">
-              Don't just take our word for it. See what professionals in leading
-              insurance brokerages have to say about us.
+              Don't just take our word for it. See what professionals in leading insurance
+              brokerages have to say about us.
             </p>
             <div className="mt-10 flex gap-2">
               {testimonials.map((_, idx) => (
@@ -51,7 +59,7 @@ export function Testimonials() {
           </div>
 
           <div className="lg:col-span-8">
-            <div className="relative min-h-[280px] rounded-3xl bg-card p-8 ring-1 ring-border md:p-12">
+            <div className="relative flex min-h-[340px] flex-col justify-center rounded-3xl bg-surface p-8 ring-1 ring-border md:p-12">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={i}
@@ -64,7 +72,21 @@ export function Testimonials() {
                     {t.quote}
                   </p>
                   <div className="mt-10 flex items-center gap-4">
-                    <div className="size-12 rounded-full bg-surface ring-1 ring-border" />
+                    <img
+                      src={t.logo}
+                      alt={t.brokerage}
+                      className={`h-8 w-auto max-w-[120px] object-contain ${
+                        t.logoDark ? "dark:hidden" : ""
+                      }`}
+                    />
+                    {t.logoDark && (
+                      <img
+                        src={t.logoDark}
+                        alt={t.brokerage}
+                        className="hidden h-8 w-auto max-w-[120px] object-contain dark:block"
+                      />
+                    )}
+                    <span aria-hidden className="h-8 w-px bg-border" />
                     <div>
                       <div className="font-semibold text-ink">{t.name}</div>
                       <div className="text-sm text-ink/55">{t.role}</div>
