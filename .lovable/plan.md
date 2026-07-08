@@ -1,11 +1,7 @@
-Swap the two testimonial sections between the homepage (`/`) and the v2 page (`/v2`).
+Update `src/components/yovu/Testimonials.tsx` so its `testimonials` array uses the two entries currently in `src/components/yovu/TestimonialsQuote.tsx` instead of its existing three.
 
-Currently:
-- `/` (src/routes/index.tsx) renders `TestimonialsQuote` (single large pull-quote, "Our Clients Say It Best").
-- `/v2` (renders `src/components/yovu/HomePage.tsx`) uses `Testimonials` (two-column card layout, "Don't just take our word for it.").
+Replace the array with:
+1. Rhys Doiron — VP of Corporate Development, Youngs Insurance — "Invaluable for growth. YOVU solved our data dilemma. We needed better visibility and our previous tools were not accurate. YOVU solved this and added more that helped us launch a new business stream."
+2. Lorne MacDougall — VP of Operations & Corp Development, MacDougall Insurance — "They have our complete confidence. YOVU has been an outstanding partner. Responsive, flexible, and truly willing to listen. We have complete confidence in their ability to support us as we scale."
 
-Changes:
-1. In `src/routes/index.tsx`: replace the `TestimonialsQuote` import and usage with `Testimonials`.
-2. In `src/components/yovu/HomePage.tsx`: replace the `Testimonials` import and usage with `TestimonialsQuote`.
-
-No changes to the testimonial components themselves or to any other sections.
+No layout or component changes; the existing dot pagination will automatically reflect two items.
