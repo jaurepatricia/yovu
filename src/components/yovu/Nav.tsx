@@ -180,7 +180,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <LocaleToggle />
           <ThemeToggle />
-          <
+          <a
             href="#demo"
             className="hidden text-sm font-medium text-ink/70 transition-colors hover:text-ink sm:inline"
           >
