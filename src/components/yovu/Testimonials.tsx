@@ -33,8 +33,8 @@ export function Testimonials() {
               Loved by the community
             </h2>
             <p className="mt-6 text-pretty text-ink/70">
-              Join over 100+ insurance brokers boosting their productivity with YOVU
-              right inside their Applied Epic dashboards.
+              Don't just take our word for it. See what professionals in leading
+              insurance brokerages have to say about us.
             </p>
             <div className="mt-10 flex gap-2">
               {testimonials.map((_, idx) => (
