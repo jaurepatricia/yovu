@@ -7,6 +7,7 @@ import { Statement } from "@/components/yovu/Statement";
 import { Showcase } from "@/components/yovu/Showcase";
 import { Testimonials } from "@/components/yovu/Testimonials";
 import { FAQ } from "@/components/yovu/FAQ";
+import { ScaleCallout } from "@/components/yovu/ScaleCallout";
 import { Footer } from "@/components/yovu/Footer";
 
 function HomePage() {
@@ -20,6 +21,7 @@ function HomePage() {
       <Showcase />
       <Testimonials />
       <FAQ className="pt-12 lg:pt-16" />
+      <ScaleCallout />
       <Footer />
     </main>
   );
