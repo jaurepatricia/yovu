@@ -12,6 +12,7 @@ const testimonials = [
     role: "VP of Corporate Development, Youngs Insurance",
     brokerage: "Youngs Insurance",
     logo: youngs.url,
+    logoClass: "h-16 max-w-[220px]",
   },
   {
     quote:
@@ -21,6 +22,7 @@ const testimonials = [
     brokerage: "McDougall Insurance",
     logo: mcdougall.url,
     logoDark: mcdougallDark.url,
+    logoClass: "h-9 max-w-[130px]",
   },
 ];
 
@@ -33,25 +35,25 @@ export function Testimonials() {
   const t = testimonials[i];
 
   return (
-    <section className="bg-card py-24 lg:py-32">
+    <section className="bg-card py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
               Loved by the community
             </h2>
-            <p className="mt-6 text-pretty text-ink/70">
+            <p className="mt-5 max-w-[15rem] text-pretty text-ink/70">
               Don't just take our word for it. See what professionals in leading insurance
               brokerages have to say about us.
             </p>
-            <div className="mt-10 flex gap-2">
+            <div className="mt-8 flex gap-2">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setI(idx)}
                   aria-label={`Show testimonial ${idx + 1}`}
                   className={`h-1.5 rounded-full transition-all ${
-                    idx === i ? "w-8 bg-signal" : "w-4 bg-ink/15"
+                    idx === i ? "w-8 bg-ink" : "w-4 bg-ink/15"
                   }`}
                 />
               ))}
@@ -59,7 +61,7 @@ export function Testimonials() {
           </div>
 
           <div className="lg:col-span-8">
-            <div className="relative flex min-h-[340px] flex-col justify-center rounded-3xl bg-surface p-8 ring-1 ring-border md:p-12">
+            <div className="flex min-h-[420px] flex-col justify-center rounded-3xl bg-surface p-8 ring-1 ring-border md:p-12">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={i}
@@ -71,11 +73,11 @@ export function Testimonials() {
                   <p className="font-display text-2xl font-semibold leading-snug text-ink md:text-3xl">
                     {t.quote}
                   </p>
-                  <div className="mt-10 flex items-center gap-4">
+                  <div className="mt-12 flex items-center gap-4">
                     <img
                       src={t.logo}
                       alt={t.brokerage}
-                      className={`h-8 w-auto max-w-[120px] object-contain ${
+                      className={`w-auto object-contain ${t.logoClass} ${
                         t.logoDark ? "dark:hidden" : ""
                       }`}
                     />
@@ -83,7 +85,7 @@ export function Testimonials() {
                       <img
                         src={t.logoDark}
                         alt={t.brokerage}
-                        className="hidden h-8 w-auto max-w-[120px] object-contain dark:block"
+                        className={`hidden w-auto object-contain dark:block ${t.logoClass}`}
                       />
                     )}
                     <span aria-hidden className="h-8 w-px bg-border" />
