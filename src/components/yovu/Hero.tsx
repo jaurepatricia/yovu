@@ -34,10 +34,7 @@ export function Hero() {
   }, [open]);
 
   return (
-    <section
-      id="top"
-      className="relative h-screen w-screen overflow-hidden bg-canvas"
-    >
+    <section id="top" className="relative h-screen w-screen overflow-hidden bg-canvas">
       {/* Fallback images */}
       <img
         src={mountainLightImage.url}
@@ -102,12 +99,10 @@ export function Hero() {
             className="inline-flex items-center gap-1 font-semibold text-ink transition-colors hover:text-ink/80"
           >
             <span>{industry}</span>
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
-            />
+            <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
           </button>
           {open && (
-            <ul className="absolute left-0 top-full z-20 mt-2 w-64 overflow-hidden rounded-2xl bg-canvas/95 text-left shadow-2xl ring-1 ring-border/50 backdrop-blur-xl">
+            <ul className="absolute left-0 top-full z-20 mt-2 w-max overflow-hidden rounded-xl border border-border/50 bg-canvas/80 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150">
               {INDUSTRIES.map((i) => (
                 <li key={i}>
                   <button
@@ -116,7 +111,7 @@ export function Hero() {
                       setIndustry(i);
                       setOpen(false);
                     }}
-                    className={`w-full px-4 py-2.5 text-left text-sm text-ink transition-colors hover:bg-ink/5 ${
+                    className={`block w-full whitespace-nowrap rounded-md px-3 py-1.5 text-left text-sm transition-colors hover:bg-accent hover:text-ink ${
                       i === industry ? "font-semibold text-ink" : "text-ink/70"
                     }`}
                   >
@@ -133,8 +128,8 @@ export function Hero() {
         </h1>
 
         <p className="mt-5 max-w-2xl text-base text-ink/80 md:text-lg">
-          Discover how insurance brokerages across Canada are improving
-          efficiency with our all-in-one unified communications platform.
+          Discover how insurance brokerages across Canada are improving efficiency with our
+          all-in-one unified communications platform.
         </p>
       </div>
 
