@@ -102,7 +102,7 @@ export function Hero() {
             <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
           </button>
           {open && (
-            <ul className="absolute left-0 top-full z-20 mt-2 w-max overflow-hidden rounded-xl border border-border/50 bg-canvas/80 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150">
+            <ul className="absolute left-0 top-full z-20 mt-2 w-max min-w-full overflow-hidden rounded-xl border border-border/50 bg-canvas/80 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150">
               {INDUSTRIES.map((i) => (
                 <li key={i}>
                   <button
