@@ -81,9 +81,11 @@ export function CccOverview() {
 
         {/* Main: sticky nav + steps */}
         <div className="mt-24 grid gap-10 lg:mt-40 lg:grid-cols-[200px_1fr] lg:gap-12">
-          {/* Sticky nav (aligns with the top of the first step, sticks as steps scroll) */}
+          {/* Sticky nav: starts at the top of the first step, rides centered in the
+              viewport while scrolling, and is clamped by the column so it ends at the
+              bottom of the last step. top offset ~= 50vh minus half the nav height. */}
           <div className="hidden lg:block">
-            <nav className="sticky top-28 flex flex-col">
+            <nav className="sticky top-[calc(50vh-4rem)] flex flex-col">
               {steps.map((s, i) => {
                 const isActive = i === active;
                 return (
