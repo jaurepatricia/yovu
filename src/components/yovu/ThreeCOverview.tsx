@@ -41,7 +41,7 @@ const steps: Step[] = [
   },
 ];
 
-export function CccOverview() {
+export function ThreeCOverview() {
   const [active, setActive] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
