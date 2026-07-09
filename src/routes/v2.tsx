@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Hero } from "@/components/yovu/Hero";
 import { LogoCarousel } from "@/components/yovu/LogoCarousel";
-import { CccOverview } from "@/components/yovu/CccOverview";
+import { ThreeCOverview } from "@/components/yovu/ThreeCOverview";
 import { Showcase } from "@/components/yovu/Showcase";
-import { Testimonials } from "@/components/yovu/Testimonials";
+import { TestimonialsV2 } from "@/components/yovu/TestimonialsV2";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
 import { Footer } from "@/components/yovu/Footer";
@@ -16,9 +16,9 @@ function HomePageV2() {
       <Nav />
       <Hero />
       <LogoCarousel />
-      <CccOverview />
+      <ThreeCOverview />
       <Showcase />
-      <Testimonials />
+      <TestimonialsV2 />
       <FAQ className="pt-12 lg:pt-16" />
       <ScaleCallout />
       <Footer />
