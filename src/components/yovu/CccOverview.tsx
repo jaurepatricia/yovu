@@ -72,10 +72,10 @@ export function CccOverview() {
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[200px_1fr] lg:gap-12">
           <p className="text-sm font-medium text-ink/50">How it works</p>
-          <p className="max-w-3xl text-pretty font-display text-3xl font-bold leading-snug tracking-tight text-ink md:text-4xl">
-            YOVU integrates directly with your Broker Management System to automatically capture,
-            transcribe, and summarize every client call, freeing your insurance brokerage from
-            manual data entry while improving your E&O defensibility.
+          <p className="max-w-5xl text-pretty font-display text-3xl font-bold leading-snug tracking-tight text-ink md:text-4xl">
+            YOVU connects with your Broker Management System to automatically capture, transcribe,
+            and summarize every client call, freeing your insurance brokerage from manual data entry
+            while improving your E&O defensibility.
           </p>
         </div>
 
