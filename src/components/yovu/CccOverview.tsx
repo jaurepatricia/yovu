@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 type Step = {
   id: string;
   nav: string;
-  number: string;
   title: string;
   copy: string;
   items: string[];
@@ -15,7 +14,6 @@ const steps: Step[] = [
   {
     id: "ccc-communicate",
     nav: "Communicate",
-    number: "01",
     title: "Communicate with your clients",
     copy: "Built for modern insurance brokerages, our reliable cloud communications system connects a full suite of VoIP features directly to your BMS, like Applied Epic.",
     items: ["Work from anywhere", "Click-to-call", "Caller context"],
@@ -24,7 +22,6 @@ const steps: Step[] = [
   {
     id: "ccc-capture",
     nav: "Capture",
-    number: "02",
     title: "Capture your calls",
     copy: "Calls are captured and automatically attached to client files within your BMS so you can spend more time focusing on clients and closing policies.",
     items: ["Transcription", "Tailored AI summaries", "Long-term call storage"],
@@ -33,7 +30,6 @@ const steps: Step[] = [
   {
     id: "ccc-coach",
     nav: "Coach",
-    number: "03",
     title: "Coach your team",
     copy: "Foster collaboration and drive continuous employee growth with an expanding suite of dedicated coaching tools tailored to your team's success.",
     items: [
@@ -76,7 +72,7 @@ export function CccOverview() {
         {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[200px_1fr] lg:gap-12">
           <p className="text-sm font-medium text-ink/50">How it works</p>
-          <p className="max-w-3xl text-balance font-display text-2xl font-medium leading-snug tracking-tight text-ink md:text-3xl">
+          <p className="max-w-3xl text-pretty font-display text-3xl font-bold leading-snug tracking-tight text-ink md:text-4xl">
             YOVU integrates directly with your Broker Management System to automatically capture,
             transcribe, and summarize every client call, freeing your insurance brokerage from
             manual data entry while improving your E&O defensibility.
@@ -84,10 +80,10 @@ export function CccOverview() {
         </div>
 
         {/* Main: sticky nav + steps */}
-        <div className="mt-16 grid gap-10 lg:mt-24 lg:grid-cols-[200px_1fr] lg:gap-12">
-          {/* Sticky nav (stays centered as the steps scroll) */}
+        <div className="mt-24 grid gap-10 lg:mt-40 lg:grid-cols-[200px_1fr] lg:gap-12">
+          {/* Sticky nav (aligns with the top of the first step, sticks as steps scroll) */}
           <div className="hidden lg:block">
-            <nav className="sticky top-1/2 flex -translate-y-1/2 flex-col">
+            <nav className="sticky top-28 flex flex-col">
               {steps.map((s, i) => {
                 const isActive = i === active;
                 return (
@@ -129,8 +125,7 @@ export function CccOverview() {
 
                 {/* Copy */}
                 <div>
-                  <div className="font-mono text-sm text-ink/40">{s.number}</div>
-                  <h3 className="mt-3 text-balance font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                  <h3 className="text-balance font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
                     {s.title}
                   </h3>
                   <p className="mt-5 max-w-md text-pretty text-ink/70">{s.copy}</p>
