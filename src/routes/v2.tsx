@@ -3,7 +3,6 @@ import { Nav } from "@/components/yovu/Nav";
 import { Hero } from "@/components/yovu/Hero";
 import { LogoCarousel } from "@/components/yovu/LogoCarousel";
 import { CccOverview } from "@/components/yovu/CccOverview";
-import { Statement } from "@/components/yovu/Statement";
 import { Showcase } from "@/components/yovu/Showcase";
 import { Testimonials } from "@/components/yovu/Testimonials";
 import { FAQ } from "@/components/yovu/FAQ";
@@ -18,7 +17,6 @@ function HomePageV2() {
       <Hero />
       <LogoCarousel />
       <CccOverview />
-      <Statement />
       <Showcase />
       <Testimonials />
       <FAQ className="pt-12 lg:pt-16" />
