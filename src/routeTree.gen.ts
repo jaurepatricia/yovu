@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as V2RouteImport } from './routes/v2'
+import { Route as TbdRouteImport } from './routes/tbd'
 import { Route as CommunicateRouteImport } from './routes/communicate'
 import { Route as IndexRouteImport } from './routes/index'
 
 const V2Route = V2RouteImport.update({
   id: '/v2',
   path: '/v2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TbdRoute = TbdRouteImport.update({
+  id: '/tbd',
+  path: '/tbd',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunicateRoute = CommunicateRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/communicate': typeof CommunicateRoute
+  '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/communicate': typeof CommunicateRoute
+  '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/communicate': typeof CommunicateRoute
+  '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/communicate' | '/v2'
+  fullPaths: '/' | '/communicate' | '/tbd' | '/v2'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/communicate' | '/v2'
-  id: '__root__' | '/' | '/communicate' | '/v2'
+  to: '/' | '/communicate' | '/tbd' | '/v2'
+  id: '__root__' | '/' | '/communicate' | '/tbd' | '/v2'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CommunicateRoute: typeof CommunicateRoute
+  TbdRoute: typeof TbdRoute
   V2Route: typeof V2Route
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/v2'
       fullPath: '/v2'
       preLoaderRoute: typeof V2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tbd': {
+      id: '/tbd'
+      path: '/tbd'
+      fullPath: '/tbd'
+      preLoaderRoute: typeof TbdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/communicate': {
@@ -88,8 +105,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CommunicateRoute: CommunicateRoute,
+  TbdRoute: TbdRoute,
   V2Route: V2Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
