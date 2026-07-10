@@ -9,7 +9,7 @@ const testimonials = [
     quote:
       "Invaluable for growth. YOVU solved our data dilemma. We needed better visibility and our previous tools were not accurate. YOVU solved this and added more that helped us launch a new business stream.",
     name: "Rhys Doiron",
-    role: "VP of Corporate Development",
+    role: "Vice President of Corporate Development",
     brokerage: "Youngs Insurance",
     logo: youngs.url,
     logoClass: "h-14 max-w-[200px]",
