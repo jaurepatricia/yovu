@@ -7,6 +7,7 @@ import { Features } from "@/components/yovu/Features";
 import { Integrations } from "@/components/yovu/Integrations";
 import { Security } from "@/components/yovu/Security";
 import { Canada } from "@/components/yovu/Canada";
+import { CommunicateShowcase } from "@/components/yovu/communicate/CommunicateShowcase";
 import { TestimonialsQuote } from "@/components/yovu/TestimonialsQuote";
 import { Testimonials } from "@/components/yovu/Testimonials";
 import { FinalCTAScale } from "@/components/yovu/FinalCTAScale";
@@ -19,6 +20,7 @@ export function HomePage() {
     <main className="bg-canvas text-ink">
       <Nav />
       <Hero />
+      <CommunicateShowcase />
       <LogoCarousel />
       <Capabilities />
       <Statement />
