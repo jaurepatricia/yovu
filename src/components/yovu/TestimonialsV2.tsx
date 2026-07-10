@@ -45,7 +45,7 @@ export function TestimonialsV2() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="max-h-14 w-auto max-w-[250px] object-contain brightness-0 invert"
+                className="max-h-20 w-auto max-w-[250px] object-contain brightness-0 invert"
               />
             </AnimatePresence>
           </div>

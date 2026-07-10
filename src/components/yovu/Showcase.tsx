@@ -31,6 +31,7 @@ type Slide = {
   image: string;
   tone: Tone;
   showIntegrations?: boolean;
+  narrowCopy?: boolean;
 };
 
 const slides: Slide[] = [
@@ -55,6 +56,7 @@ const slides: Slide[] = [
     cta: { label: "Our Team", href: "#canada" },
     image: manIpad,
     tone: "light",
+    narrowCopy: true,
   },
 ];
 
@@ -88,11 +90,7 @@ export function Showcase() {
   const navLight = slides[active].tone === "light";
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative"
-      style={{ height: `${count * 100}vh` }}
-    >
+    <section ref={sectionRef} className="relative" style={{ height: `${count * 100}vh` }}>
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Stacked slides — crossfade in place */}
         {slides.map((slide, i) => {
@@ -123,15 +121,13 @@ export function Showcase() {
 
               {/* Content */}
               <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center gap-10 px-6">
-                <div
-                  className={`max-w-xl ${light ? "text-white" : "text-[#0b1733]"}`}
-                >
+                <div className={`max-w-xl ${light ? "text-white" : "text-[#0b1733]"}`}>
                   <h2 className="font-display text-4xl font-bold tracking-tight md:whitespace-nowrap md:text-5xl">
                     {slide.headline}
                   </h2>
                   <p
                     className={`mt-5 text-pretty text-base ${
-                      slide.showIntegrations ? "max-w-md" : "max-w-lg"
+                      slide.showIntegrations || slide.narrowCopy ? "max-w-md" : "max-w-lg"
                     } ${light ? "text-white/80" : "text-[#0b1733]/75"}`}
                   >
                     {slide.copy}
@@ -195,11 +191,7 @@ function ProgressSegment({
   onClick: () => void;
 }) {
   // Fills from top to bottom as the viewer scrolls through this slide's band.
-  const scaleY = useTransform(
-    progress,
-    [index / count, (index + 1) / count],
-    [0, 1],
-  );
+  const scaleY = useTransform(progress, [index / count, (index + 1) / count], [0, 1]);
   return (
     <button
       type="button"
@@ -230,10 +222,7 @@ function IntegrationLockup() {
     ) {
       return;
     }
-    const t = setInterval(
-      () => setIdx((i) => (i + 1) % integrations.length),
-      2200,
-    );
+    const t = setInterval(() => setIdx((i) => (i + 1) % integrations.length), 2200);
     return () => clearInterval(t);
   }, []);
 
