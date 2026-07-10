@@ -8,6 +8,7 @@ import { Integrations } from "@/components/yovu/Integrations";
 import { Security } from "@/components/yovu/Security";
 import { Canada } from "@/components/yovu/Canada";
 import { TestimonialsQuote } from "@/components/yovu/TestimonialsQuote";
+import { Testimonials } from "@/components/yovu/Testimonials";
 import { FinalCTAScale } from "@/components/yovu/FinalCTAScale";
 import { FAQ } from "@/components/yovu/FAQ";
 import { FinalCTA } from "@/components/yovu/FinalCTA";
@@ -26,6 +27,7 @@ export function HomePage() {
       <Security />
       <Canada />
       <TestimonialsQuote />
+      <Testimonials />
       <FinalCTAScale />
       <FAQ />
       <FinalCTA />

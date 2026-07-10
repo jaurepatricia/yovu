@@ -5,7 +5,7 @@ import { LogoCarousel } from "@/components/yovu/LogoCarousel";
 import { Capabilities } from "@/components/yovu/Capabilities";
 import { Statement } from "@/components/yovu/Statement";
 import { Showcase } from "@/components/yovu/Showcase";
-import { Testimonials } from "@/components/yovu/Testimonials";
+import { TestimonialsV2 } from "@/components/yovu/TestimonialsV2";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
 import { Footer } from "@/components/yovu/Footer";
@@ -19,7 +19,7 @@ function HomePage() {
       <Capabilities />
       <Statement />
       <Showcase />
-      <Testimonials />
+      <TestimonialsV2 />
       <FAQ className="pt-12 lg:pt-16" />
       <ScaleCallout />
       <Footer />
