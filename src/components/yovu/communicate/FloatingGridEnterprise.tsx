@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { FloatingCard } from "@/components/ui/floating-card";
-import blueSky from "@/assets/hero/Blue Sky with Clouds.webp";
+import whispyClouds from "@/assets/hero/whispy clouds.webp";
 
 const cards = [
   {
@@ -45,7 +45,7 @@ export function FloatingGridEnterprise() {
     <section ref={sectionRef} className="relative flex min-h-screen items-center overflow-hidden">
       {/* Parallax sky background */}
       <motion.img
-        src={blueSky}
+        src={whispyClouds}
         alt=""
         aria-hidden="true"
         style={{ scale, y }}
@@ -62,7 +62,7 @@ export function FloatingGridEnterprise() {
         <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => (
             <FloatingCard key={card.title}>
-              <div className="flex h-full min-h-[18rem] flex-col rounded-3xl border border-white/15 bg-[#0b1733]/45 p-7 backdrop-blur-xl backdrop-saturate-150">
+              <div className="flex h-full min-h-[18rem] flex-col rounded-3xl border border-white/30 bg-[#0b1733]/45 p-7 ring-1 ring-white/10 backdrop-blur-xl backdrop-saturate-150">
                 <h3 className="font-display text-xl font-bold tracking-tight text-white md:text-2xl">
                   {card.title}
                 </h3>
