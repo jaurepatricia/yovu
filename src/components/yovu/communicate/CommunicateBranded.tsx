@@ -1,4 +1,4 @@
-import { Clock, PhoneOutgoing, Music, Bot } from "lucide-react";
+import { Clock, PhoneOutgoing, Music, Bot, ArrowRight } from "lucide-react";
 
 const items = [
   {
@@ -37,21 +37,41 @@ export function CommunicateBranded() {
           </h2>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-3">
           {items.map(({ icon: Icon, title, copy, span }) => (
             <div
               key={title}
-              className={`flex min-h-[15rem] flex-col rounded-3xl bg-card p-8 ring-1 ring-border ${span}`}
+              className={`flex min-h-[16rem] flex-col rounded-3xl bg-card p-8 ring-1 ring-border lg:p-10 ${span}`}
             >
               <span className="flex size-12 items-center justify-center rounded-2xl bg-signal/10 text-signal">
                 <Icon className="size-6" strokeWidth={1.75} />
               </span>
-              <h3 className="mt-6 font-display text-xl font-bold tracking-tight text-ink md:text-2xl">
+              <h3 className="mb-3 mt-auto pt-6 font-display text-xl font-bold tracking-tight text-ink md:text-2xl">
                 {title}
               </h3>
-              <p className="mt-3 max-w-md text-pretty text-base text-ink/70">{copy}</p>
+              <p className="text-pretty text-base text-ink/70">{copy}</p>
             </div>
           ))}
+
+          {/* CTA tile anchors the grid */}
+          <div className="flex flex-col items-start gap-6 rounded-3xl bg-signal p-8 text-white sm:flex-row sm:items-center sm:justify-between md:col-span-3 lg:p-10">
+            <div>
+              <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
+                Make it unmistakably yours
+              </h3>
+              <p className="mt-3 max-w-xl text-pretty text-base text-white/85">
+                From custom greetings to a fully branded AI receptionist, our team can tailor every
+                touchpoint to your brokerage.
+              </p>
+            </div>
+            <a
+              href="#demo"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-signal transition-transform hover:scale-[1.02]"
+            >
+              Schedule a call
+              <ArrowRight className="size-4" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
