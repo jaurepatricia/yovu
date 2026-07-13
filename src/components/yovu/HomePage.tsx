@@ -8,6 +8,7 @@ import { Integrations } from "@/components/yovu/Integrations";
 import { Security } from "@/components/yovu/Security";
 import { Canada } from "@/components/yovu/Canada";
 import { CommunicateShowcase } from "@/components/yovu/communicate/CommunicateShowcase";
+import { CommunicateCapabilities } from "@/components/yovu/communicate/CommunicateCapabilities";
 import { TestimonialsQuote } from "@/components/yovu/TestimonialsQuote";
 import { Testimonials } from "@/components/yovu/Testimonials";
 import { FinalCTAScale } from "@/components/yovu/FinalCTAScale";
@@ -21,6 +22,7 @@ export function HomePage() {
       <Nav />
       <Hero />
       <CommunicateShowcase />
+      <CommunicateCapabilities />
       <LogoCarousel />
       <Capabilities />
       <Statement />
