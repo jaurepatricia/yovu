@@ -5,7 +5,7 @@ export function CommunicateHero() {
         <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-7xl">
           Elevate Your Business Phone System
         </h1>
-        <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg text-ink/70 md:text-xl">
+        <p className="mx-auto mt-8 max-w-2xl text-pretty text-base text-ink/70 md:text-lg">
           YOVU combines enterprise-grade reliability, responsive Canadian
           support, and a business communications platform purpose-built for you.
           Every conversation matters — that&rsquo;s why no matter where

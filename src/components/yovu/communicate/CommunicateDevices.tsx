@@ -38,7 +38,7 @@ export function CommunicateDevices() {
 
           {/* Right: intro copy and accordion */}
           <div>
-            <p className="text-pretty text-lg text-ink/70">
+            <p className="text-pretty text-base text-ink/70">
               Give your team the freedom to work from anywhere. Whether at a desk or in the field,
               they can make and receive calls with the same reliability and professionalism as they
               would from their office.

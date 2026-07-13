@@ -28,7 +28,7 @@ export function CommunicateConnect() {
                 <h3 className="font-display text-xl font-bold tracking-tight text-ink md:text-2xl">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-pretty text-lg text-ink/70">{item.copy}</p>
+                <p className="mt-3 text-pretty text-base text-ink/70">{item.copy}</p>
               </div>
             ))}
           </div>

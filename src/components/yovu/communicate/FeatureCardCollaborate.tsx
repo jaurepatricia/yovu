@@ -36,7 +36,7 @@ export function FeatureCardCollaborate() {
                   <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                     {card.title}
                   </h3>
-                  <p className="mt-4 max-w-xl text-pretty text-base text-ink/70 md:text-lg">
+                  <p className="mt-4 max-w-xl text-pretty text-base text-ink/70">
                     {card.copy}
                   </p>
                 </div>
