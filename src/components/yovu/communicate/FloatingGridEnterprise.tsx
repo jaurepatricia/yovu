@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { FloatingCard } from "@/components/ui/floating-card";
-import blueSky from "@/assets/hero/Blue Sky with Clouds.jpg";
+import blueSky from "@/assets/hero/Blue Sky with Clouds.webp";
 
 const cards = [
   {

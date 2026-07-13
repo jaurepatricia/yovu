@@ -17,7 +17,8 @@ export function FeatureCardCollaborate() {
   return (
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
+        {/* Heading and the spacing above it stay pinned as the cards stack beneath. */}
+        <div className="sticky top-0 z-20 bg-canvas pb-10 pt-8 text-center">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             Collaborate with Your Team
           </h2>
@@ -28,7 +29,7 @@ export function FeatureCardCollaborate() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="sticky top-28 overflow-hidden rounded-3xl bg-card p-8 shadow-lg shadow-black/5 ring-1 ring-border md:p-12"
+              className="sticky top-32 overflow-hidden rounded-3xl bg-card p-8 shadow-lg shadow-black/5 ring-1 ring-border md:p-12"
             >
               <div className="grid items-center gap-8 md:grid-cols-3">
                 <div className="md:col-span-2">
