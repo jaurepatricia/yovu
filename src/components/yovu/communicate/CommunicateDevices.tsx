@@ -28,7 +28,7 @@ export function CommunicateDevices() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Roam Free, Stay Connected
+            Roam Free
           </h2>
         </div>
 
