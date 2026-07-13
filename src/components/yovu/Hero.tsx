@@ -102,7 +102,7 @@ export function Hero() {
             <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
           </button>
           {open && (
-            <ul className="absolute left-0 top-full z-20 mt-2 w-max min-w-full overflow-hidden rounded-xl border border-border/50 bg-canvas/80 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150">
+            <ul className="absolute left-0 top-full z-20 mt-2 w-max min-w-full overflow-hidden rounded-xl border border-border/50 bg-canvas/80 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150 dark:ring-1 dark:ring-inset dark:ring-white/15">
               {INDUSTRIES.map((i) => (
                 <li key={i}>
                   <button
@@ -139,7 +139,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
-          className="flex items-center gap-3 rounded-full bg-[#0b1733]/60 px-5 py-2.5 ring-1 ring-white/10 backdrop-blur-md"
+          className="flex items-center justify-center gap-3.5 rounded-full bg-[#0b1733]/60 px-8 py-4 ring-1 ring-white/10 backdrop-blur-md"
         >
           <img src={appliedLogoWhite} alt="Applied" className="h-6 w-auto md:h-7" />
           <span className="text-xs font-medium uppercase tracking-[0.18em] text-white md:text-sm">

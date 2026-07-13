@@ -10,7 +10,7 @@ type Country = {
   flag?: string;
   icon?: ComponentType<{ className?: string }>;
 };
-type Language = { code: string; name: string };
+type Language = { code: string; name: string; short: string };
 
 const COUNTRIES: Country[] = [
   { code: "CA", name: "Canada", flag: canadaFlag },
@@ -19,9 +19,9 @@ const COUNTRIES: Country[] = [
 ];
 
 const LANGUAGES: Language[] = [
-  { code: "en", name: "English" },
-  { code: "fr", name: "Français" },
-  { code: "es", name: "Español" },
+  { code: "en", name: "English", short: "EN" },
+  { code: "fr", name: "Français", short: "FR" },
+  { code: "es", name: "Español", short: "ES" },
 ];
 
 function CountryGlyph({ country }: { country: Country }) {
@@ -37,74 +37,98 @@ function CountryGlyph({ country }: { country: Country }) {
 export function LocaleToggle() {
   const [countryCode, setCountryCode] = useState("CA");
   const [languageCode, setLanguageCode] = useState("en");
-  const [countryOpen, setCountryOpen] = useState(false);
-  const [languageOpen, setLanguageOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState<"country" | "language" | null>(null);
 
   const country = COUNTRIES.find((c) => c.code === countryCode) ?? COUNTRIES[0];
   const language = LANGUAGES.find((l) => l.code === languageCode) ?? LANGUAGES[0];
 
+  const toggle = (key: "country" | "language") =>
+    setExpanded((prev) => (prev === key ? null : key));
+
   return (
-    <div className="hidden items-center gap-2 sm:flex">
-      {/* Country selector */}
-      <Popover open={countryOpen} onOpenChange={setCountryOpen}>
+    <div className="hidden sm:block">
+      <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <button
-            aria-label={`Country: ${country.name}`}
+            aria-label={`Country and language: ${country.name}, ${language.name}`}
             className="flex items-center gap-1.5 rounded-full border border-border py-1.5 pl-2.5 pr-2 transition-colors hover:bg-accent"
           >
             <CountryGlyph country={country} />
+            <span className="text-sm font-medium text-ink">{language.short}</span>
             <ChevronDown className="size-4 text-ink/50" />
           </button>
         </PopoverTrigger>
-        <PopoverContent align="center" className="w-52 p-1">
-          <ul className="flex flex-col">
-            {COUNTRIES.map((c) => (
-              <li key={c.code}>
-                <button
-                  onClick={() => {
-                    setCountryCode(c.code);
-                    setCountryOpen(false);
-                  }}
-                  className="flex w-full items-center gap-3 rounded-md px-2 py-2 text-left text-sm text-ink/80 transition-colors hover:bg-accent hover:text-ink"
-                >
-                  <CountryGlyph country={c} />
-                  <span className="flex-1 font-medium text-ink">{c.name}</span>
-                  {c.code === countryCode && <Check className="size-4 text-ink/70" />}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </PopoverContent>
-      </Popover>
-
-      {/* Language selector */}
-      <Popover open={languageOpen} onOpenChange={setLanguageOpen}>
-        <PopoverTrigger asChild>
+        <PopoverContent align="end" className="w-56 p-1">
+          {/* Country */}
           <button
-            aria-label={`Language: ${language.name}`}
-            className="flex items-center gap-1.5 rounded-full border border-border py-1.5 pl-3 pr-2 text-sm font-medium text-ink transition-colors hover:bg-accent"
+            type="button"
+            onClick={() => toggle("country")}
+            aria-expanded={expanded === "country"}
+            className="flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm font-medium text-ink transition-colors hover:bg-accent"
           >
-            {language.name}
-            <ChevronDown className="size-4 text-ink/50" />
+            <span>Country</span>
+            <ChevronDown
+              className={`size-4 text-ink/50 transition-transform ${
+                expanded === "country" ? "rotate-180" : ""
+              }`}
+            />
           </button>
-        </PopoverTrigger>
-        <PopoverContent align="center" className="w-44 p-1">
-          <ul className="flex flex-col">
-            {LANGUAGES.map((l) => (
-              <li key={l.code}>
-                <button
-                  onClick={() => {
-                    setLanguageCode(l.code);
-                    setLanguageOpen(false);
-                  }}
-                  className="flex w-full items-center justify-between gap-3 rounded-md px-2 py-2 text-left text-sm font-medium text-ink/80 transition-colors hover:bg-accent hover:text-ink"
-                >
-                  <span>{l.name}</span>
-                  {l.code === languageCode && <Check className="size-4 text-ink/70" />}
-                </button>
-              </li>
-            ))}
-          </ul>
+          {expanded === "country" && (
+            <ul className="flex flex-col pb-1">
+              {COUNTRIES.map((c) => (
+                <li key={c.code}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCountryCode(c.code);
+                      setOpen(false);
+                    }}
+                    className="flex w-full items-center justify-between rounded-md py-2 pl-4 pr-2 text-left text-sm text-ink/80 transition-colors hover:bg-accent hover:text-ink"
+                  >
+                    <span>{c.name}</span>
+                    {c.code === countryCode && <Check className="size-4 text-ink/70" />}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div className="my-1 border-t border-border" />
+
+          {/* Language */}
+          <button
+            type="button"
+            onClick={() => toggle("language")}
+            aria-expanded={expanded === "language"}
+            className="flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-sm font-medium text-ink transition-colors hover:bg-accent"
+          >
+            <span>Language</span>
+            <ChevronDown
+              className={`size-4 text-ink/50 transition-transform ${
+                expanded === "language" ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+          {expanded === "language" && (
+            <ul className="flex flex-col pb-1">
+              {LANGUAGES.map((l) => (
+                <li key={l.code}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLanguageCode(l.code);
+                      setOpen(false);
+                    }}
+                    className="flex w-full items-center justify-between rounded-md py-2 pl-4 pr-2 text-left text-sm text-ink/80 transition-colors hover:bg-accent hover:text-ink"
+                  >
+                    <span>{l.name}</span>
+                    {l.code === languageCode && <Check className="size-4 text-ink/70" />}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </PopoverContent>
       </Popover>
     </div>
