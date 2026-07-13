@@ -42,7 +42,10 @@ export function FloatingGridEnterprise() {
   const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
 
   return (
-    <section ref={sectionRef} className="relative flex min-h-screen items-center overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative my-16 flex min-h-screen items-center overflow-hidden lg:my-24"
+    >
       {/* Parallax sky background */}
       <motion.img
         src={whispyClouds}
