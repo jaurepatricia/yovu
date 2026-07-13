@@ -5,7 +5,7 @@ import mountainLightVideo from "@/assets/hero/mountain_light.mp4.asset.json";
 import mountainDarkVideo from "@/assets/hero/mountain_dark.mp4.asset.json";
 import mountainLightImage from "@/assets/hero/mountain_light.png.asset.json";
 import mountainDarkImage from "@/assets/hero/mountain_dark.png.asset.json";
-import appliedEpicLogo from "@/assets/homepage/Applied Epic White Logo.png";
+import appliedLogoWhite from "@/assets/logos/Applied Logo White.svg";
 
 const INDUSTRIES = [
   "Insurance",
@@ -133,27 +133,20 @@ export function Hero() {
         </p>
       </div>
 
-      {/* Certified Integration Partner badge — blurs into focus on load */}
-      <motion.div
-        initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center justify-center gap-4 pb-14"
-      >
-        {/* Diffused dark-blue glow for legibility */}
-        <div
-          aria-hidden="true"
-          className="absolute left-1/2 top-1/2 -z-10 h-24 w-[560px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#070b1a]/70 blur-2xl"
-        />
-        <img
-          src={appliedEpicLogo}
-          alt="Applied Epic"
-          className="h-8 w-auto opacity-95 drop-shadow-[0_2px_10px_rgba(7,11,26,0.6)] md:h-9"
-        />
-        <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/85 drop-shadow-[0_2px_10px_rgba(7,11,26,0.6)] md:text-sm">
-          Certified Integration Partner
-        </span>
-      </motion.div>
+      {/* Certified Integration Partner pill — pops up from the bottom on load */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center pb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
+          className="flex items-center gap-3 rounded-full bg-[#0b1733]/60 px-5 py-2.5 ring-1 ring-white/10 backdrop-blur-md"
+        >
+          <img src={appliedLogoWhite} alt="Applied" className="h-6 w-auto md:h-7" />
+          <span className="text-xs font-medium uppercase tracking-[0.18em] text-white md:text-sm">
+            Epic Certified Integration Partner
+          </span>
+        </motion.div>
+      </div>
     </section>
   );
 }
