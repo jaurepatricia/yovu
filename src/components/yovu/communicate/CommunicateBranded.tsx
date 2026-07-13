@@ -4,22 +4,22 @@ const items = [
   {
     icon: Clock,
     title: "Business Hours",
-    copy: "Set custom greetings at the user and organization level, so callers hear the right message during and after hours.",
+    copy: "Customize greetings at the user and organizational level. Ensure your callers always receive relevant, helpful information, whether they call during or after business hours.",
   },
   {
     icon: PhoneOutgoing,
     title: "Caller ID & Custom Numbers",
-    copy: "Control how your business appears on outbound calls, and spin up custom numbers for promotions or new lines.",
+    copy: "Control how your business appears on outbound calls using individual or company-wide caller IDs. Instantly spin up custom numbers for special promotions or new services.",
   },
   {
     icon: Music,
     title: "Music on Hold",
-    copy: "Shape the wait with our built-in hold music, or upload your own MP3 files whenever you like.",
+    copy: "Keep callers engaged while they wait. Easily customize your hold experience by selecting from our premium default music or uploading your own branded MP3 files.",
   },
   {
     icon: Bot,
     title: "AI Receptionist",
-    copy: "Our AI receptionist greets callers, understands their needs, and routes them to the right person instantly.",
+    copy: "Let our smart AI Receptionist handle the front desk. It professionally greets your customers, understands their exact needs, and instantly routes them to the right person.",
   },
 ];
 
