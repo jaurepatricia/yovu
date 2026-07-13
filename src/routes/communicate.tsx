@@ -4,7 +4,7 @@ import { Footer } from "@/components/yovu/Footer";
 import { CommunicateHero } from "@/components/yovu/communicate/CommunicateHero";
 import { FeatureCardCollaborate } from "@/components/yovu/communicate/FeatureCardCollaborate";
 import { CommunicateDevices } from "@/components/yovu/communicate/CommunicateDevices";
-import { CommunicateIntegrations } from "@/components/yovu/communicate/CommunicateIntegrations";
+import { FloatingGridEnterprise } from "@/components/yovu/communicate/FloatingGridEnterprise";
 
 function CommunicatePage() {
   return (
@@ -13,7 +13,7 @@ function CommunicatePage() {
       <CommunicateHero />
       <FeatureCardCollaborate />
       <CommunicateDevices />
-      <CommunicateIntegrations />
+      <FloatingGridEnterprise />
       <Footer />
     </main>
   );
