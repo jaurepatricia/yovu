@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { CommunicateHero } from "@/components/yovu/communicate/CommunicateHero";
-import { CommunicateCollaborate } from "@/components/yovu/communicate/CommunicateCollaborate";
+import { FeatureCardCollaborate } from "@/components/yovu/communicate/FeatureCardCollaborate";
 import { CommunicateDevices } from "@/components/yovu/communicate/CommunicateDevices";
 import { CommunicateIntegrations } from "@/components/yovu/communicate/CommunicateIntegrations";
 
@@ -11,7 +11,7 @@ function CommunicatePage() {
     <main className="bg-canvas text-ink">
       <Nav />
       <CommunicateHero />
-      <CommunicateCollaborate />
+      <FeatureCardCollaborate />
       <CommunicateDevices />
       <CommunicateIntegrations />
       <Footer />

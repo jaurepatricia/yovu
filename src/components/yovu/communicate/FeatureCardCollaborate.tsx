@@ -13,10 +13,10 @@ const cards = [
   },
 ];
 
-export function CommunicateCollaborate() {
+export function FeatureCardCollaborate() {
   return (
     <section className="bg-canvas py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             Collaborate with Your Team
