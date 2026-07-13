@@ -26,19 +26,16 @@ export function CommunicateDevices() {
   return (
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Roam Free
-          </h2>
-        </div>
-
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: placeholder image */}
           <div className="aspect-[4/3] w-full rounded-3xl bg-surface ring-1 ring-border" />
 
-          {/* Right: intro copy and accordion */}
+          {/* Right: headline, intro copy, and accordion */}
           <div>
-            <p className="text-pretty text-base text-ink/70">
+            <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Roam Free
+            </h2>
+            <p className="mt-6 text-pretty text-base text-ink/70">
               Give your team the freedom to work from anywhere. Whether at a desk or in the field,
               they can make and receive calls with the same reliability and professionalism as they
               would from their office.
