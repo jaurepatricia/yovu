@@ -54,24 +54,19 @@ export function FloatingGridEnterprise() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 lg:py-32">
         <div className="mb-14 text-center">
-          <h2
-            className="font-display text-4xl font-bold tracking-tight text-[#0b1733] md:text-5xl"
-            style={{
-              textShadow: "0 0 28px rgba(255,255,255,0.85), 0 0 12px rgba(255,255,255,0.7)",
-            }}
-          >
+          <h2 className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
             The Enterprise Cloud Phone
           </h2>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => (
             <FloatingCard key={card.title}>
-              <div className="h-full rounded-3xl border border-white/50 bg-white/35 p-7 shadow-xl shadow-black/10 backdrop-blur-xl backdrop-saturate-150">
-                <h3 className="font-display text-xl font-bold tracking-tight text-[#0b1733] md:text-2xl">
+              <div className="flex h-full min-h-[18rem] flex-col rounded-3xl border border-white/15 bg-[#0b1733]/45 p-7 backdrop-blur-xl backdrop-saturate-150">
+                <h3 className="font-display text-xl font-bold tracking-tight text-white md:text-2xl">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-pretty text-[#0b1733]/75">{card.copy}</p>
+                <p className="mt-3 text-pretty text-white/80">{card.copy}</p>
               </div>
             </FloatingCard>
           ))}

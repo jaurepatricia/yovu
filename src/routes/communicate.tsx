@@ -5,6 +5,7 @@ import { CommunicateHero } from "@/components/yovu/communicate/CommunicateHero";
 import { FeatureCardCollaborate } from "@/components/yovu/communicate/FeatureCardCollaborate";
 import { CommunicateDevices } from "@/components/yovu/communicate/CommunicateDevices";
 import { FloatingGridEnterprise } from "@/components/yovu/communicate/FloatingGridEnterprise";
+import { CommunicateConnect } from "@/components/yovu/communicate/CommunicateConnect";
 
 function CommunicatePage() {
   return (
@@ -14,6 +15,7 @@ function CommunicatePage() {
       <FeatureCardCollaborate />
       <CommunicateDevices />
       <FloatingGridEnterprise />
+      <CommunicateConnect />
       <Footer />
     </main>
   );
