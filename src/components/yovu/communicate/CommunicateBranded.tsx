@@ -29,7 +29,7 @@ export function CommunicateBranded() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Branded Experience
+            Cultivate a Branded Experience
           </h2>
         </div>
 
