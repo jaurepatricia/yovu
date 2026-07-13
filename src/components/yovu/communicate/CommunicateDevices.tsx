@@ -25,57 +25,63 @@ export function CommunicateDevices() {
 
   return (
     <section className="bg-canvas py-24 lg:py-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
-        {/* Left: placeholder image */}
-        <div className="aspect-[4/3] w-full rounded-3xl bg-surface ring-1 ring-border" />
-
-        {/* Right: headline, copy, and accordion */}
-        <div>
-          <h2 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
-            Unified Communications
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-16 text-center">
+          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+            Uncompromised Mobility
           </h2>
-          <p className="mt-5 text-pretty text-lg text-ink/70">
-            Your phone system should follow you, not tie you to a desk. Our mobility solutions let
-            your team work from anywhere without compromising professionalism.
-          </p>
+        </div>
 
-          <div className="mt-6 divide-y divide-border border-t border-border">
-            {items.map((item, i) => {
-              const isOpen = i === open;
-              return (
-                <div key={item.title}>
-                  <button
-                    onClick={() => setOpen(isOpen ? -1 : i)}
-                    aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between gap-6 py-4 text-left"
-                  >
-                    <span
-                      className={
-                        isOpen
-                          ? "font-display text-lg font-semibold tracking-tight text-ink md:text-xl"
-                          : "font-display text-lg font-semibold tracking-tight text-ink/55 transition-colors md:text-xl"
-                      }
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left: placeholder image */}
+          <div className="aspect-[4/3] w-full rounded-3xl bg-surface ring-1 ring-border" />
+
+          {/* Right: intro copy and accordion */}
+          <div>
+            <p className="text-pretty text-lg text-ink/70">
+              Give your team the freedom to work from anywhere. Whether at a desk or in the field,
+              they can make and receive calls with the same reliability and professionalism as they
+              would from their office.
+            </p>
+
+            <div className="mt-6 divide-y divide-border border-t border-border">
+              {items.map((item, i) => {
+                const isOpen = i === open;
+                return (
+                  <div key={item.title}>
+                    <button
+                      onClick={() => setOpen(isOpen ? -1 : i)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between gap-6 py-4 text-left"
                     >
-                      {item.title}
-                    </span>
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
-                      <ChevronDown
-                        className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                      />
-                    </span>
-                  </button>
-                  <div
-                    className={`grid overflow-hidden transition-all duration-300 ${
-                      isOpen ? "grid-rows-[1fr] pb-4" : "grid-rows-[0fr]"
-                    }`}
-                  >
-                    <div className="min-h-0">
-                      <p className="text-pretty text-ink/65">{item.copy}</p>
+                      <span
+                        className={
+                          isOpen
+                            ? "font-display text-lg font-semibold tracking-tight text-ink md:text-xl"
+                            : "font-display text-lg font-semibold tracking-tight text-ink/55 transition-colors md:text-xl"
+                        }
+                      >
+                        {item.title}
+                      </span>
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
+                        <ChevronDown
+                          className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                        />
+                      </span>
+                    </button>
+                    <div
+                      className={`grid overflow-hidden transition-all duration-300 ${
+                        isOpen ? "grid-rows-[1fr] pb-4" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="min-h-0">
+                        <p className="text-pretty text-ink/65">{item.copy}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
