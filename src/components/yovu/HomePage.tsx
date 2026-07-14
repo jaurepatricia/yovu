@@ -13,7 +13,7 @@ import { CommunicateIntegrations } from "@/components/yovu/communicate/Communica
 import { TestimonialsQuote } from "@/components/yovu/TestimonialsQuote";
 import { Testimonials } from "@/components/yovu/Testimonials";
 
-import { FAQ } from "@/components/yovu/FAQ";
+
 import { FinalCTA } from "@/components/yovu/FinalCTA";
 import { Footer } from "@/components/yovu/Footer";
 
@@ -35,7 +35,7 @@ export function HomePage() {
       <TestimonialsQuote />
       <Testimonials />
       
-      <FAQ />
+      
       <FinalCTA />
       <Footer />
     </main>
