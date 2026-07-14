@@ -14,7 +14,7 @@ import { TestimonialsQuote } from "@/components/yovu/TestimonialsQuote";
 import { Testimonials } from "@/components/yovu/Testimonials";
 
 
-import { FinalCTA } from "@/components/yovu/FinalCTA";
+
 import { Footer } from "@/components/yovu/Footer";
 
 export function HomePage() {
@@ -36,7 +36,7 @@ export function HomePage() {
       <Testimonials />
       
       
-      <FinalCTA />
+      
       <Footer />
     </main>
   );
