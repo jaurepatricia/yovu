@@ -40,7 +40,7 @@ function MicrosoftTeamsPage() {
       <Statement copy="YOVU's integration brings Microsoft Teams to life, making meetings more personal while boosting real-time collaboration." />
       <TeamsHowItWorks />
       <TeamsCollaboration />
-      <FAQ heading="YOVU Microsoft Teams Integration FAQs" items={faqItems} />
+      <FAQ heading="Frequently Asked Questions" items={faqItems} />
       <Footer />
     </main>
   );
