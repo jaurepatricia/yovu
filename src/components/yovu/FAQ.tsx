@@ -2,7 +2,9 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const items = [
+type FaqItem = { q: string; a: string };
+
+const defaultItems: FaqItem[] = [
   {
     q: "Can we automatically record calls for compliance and training?",
     a: "Yes, you can enable call recording for all calls, specific extensions, or on-demand. Recordings are stored securely to help you meet insurance industry compliance standards.",
@@ -37,7 +39,13 @@ const items = [
   },
 ];
 
-export function FAQ({ className }: { className?: string }) {
+export function FAQ({
+  className,
+  items = defaultItems,
+}: {
+  className?: string;
+  items?: FaqItem[];
+}) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -59,9 +67,7 @@ export function FAQ({ className }: { className?: string }) {
                   className="flex w-full items-center justify-between gap-6 py-6 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base font-semibold text-ink md:text-lg">
-                    {item.q}
-                  </span>
+                  <span className="text-base font-semibold text-ink md:text-lg">{item.q}</span>
                   <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
                     <ChevronDown
                       className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
