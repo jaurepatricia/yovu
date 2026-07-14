@@ -102,7 +102,7 @@ export function Hero() {
             <ChevronDown className={`h-5 w-5 transition-transform ${open ? "rotate-180" : ""}`} />
           </button>
           {open && (
-            <ul className="absolute left-0 top-full z-20 mt-2 w-max min-w-full overflow-hidden rounded-xl border border-border bg-canvas p-1 text-left shadow-xl dark:ring-1 dark:ring-inset dark:ring-white/15">
+            <ul className="absolute left-0 top-full z-20 mt-2 w-max min-w-full overflow-hidden rounded-xl border border-border bg-canvas/95 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150 dark:ring-1 dark:ring-inset dark:ring-white/15">
               {INDUSTRIES.map((i) => (
                 <li key={i}>
                   <button
@@ -112,7 +112,7 @@ export function Hero() {
                       setOpen(false);
                     }}
                     className={`block w-full whitespace-nowrap rounded-md px-3 py-1.5 text-left text-sm transition-colors hover:bg-accent hover:text-ink ${
-                      i === industry ? "font-semibold text-ink" : "text-ink/80"
+                      i === industry ? "font-semibold text-ink" : "text-ink/85"
                     }`}
                   >
                     {i}
