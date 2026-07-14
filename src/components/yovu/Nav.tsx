@@ -171,8 +171,8 @@ export function Nav() {
         </div>
 
         <div className="flex items-center gap-3">
-          <LocaleToggle />
           <StickyNoteTrigger />
+          <LocaleToggle />
           <ThemeToggle />
           <a
             href="#demo"

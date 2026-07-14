@@ -199,7 +199,7 @@ export function StickyNoteTrigger() {
           aria-label="Review sticky notes"
           className="relative flex items-center gap-1.5 rounded-full border border-border px-2.5 py-1.5 text-ink transition-colors hover:bg-accent"
         >
-          <StickyNote className="size-5" />
+          <StickyNote className="size-5 fill-[#fcd34d] text-[#a16207]" />
           {isUnlocked && all.length > 0 && (
             <span className="flex size-5 items-center justify-center rounded-full bg-signal text-xs font-semibold text-white">
               {all.length}
