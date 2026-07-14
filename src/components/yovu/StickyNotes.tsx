@@ -158,13 +158,6 @@ async function resolveNote(id: string) {
   await supabase.from("review_notes").delete().eq("id", id);
 }
 
-function initialsOf(author: string) {
-  const parts = author.trim().split(/\s+/).filter(Boolean);
-  if (parts.length === 0) return "?";
-  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
-  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-}
-
 // ---------------------------------------------------------------------------
 // Nav trigger — unlock, compose a note, then enter "placement" mode
 // ---------------------------------------------------------------------------
@@ -366,9 +359,6 @@ function PinnedNote({ note }: { note: Note }) {
         className="flex cursor-grab items-center gap-2 rounded-t-lg bg-[#fcd34d] px-3 py-2 active:cursor-grabbing"
       >
         <GripVertical className="size-4 text-[#0b1733]/50" />
-        <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#0b1733] text-[10px] font-bold text-[#fde68a]">
-          {initialsOf(note.author)}
-        </span>
         <span className="truncate text-xs font-semibold">{note.author}</span>
         <button
           type="button"
