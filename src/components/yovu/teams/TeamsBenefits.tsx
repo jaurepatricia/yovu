@@ -1,0 +1,66 @@
+import { motion } from "motion/react";
+
+const items = [
+  {
+    title: "Communicate Effectively",
+    copy: "Make and receive business calls directly within the Microsoft Teams interface.",
+  },
+  {
+    title: "Work from Anywhere",
+    copy: "Install Teams on any PC, Mac, or mobile device to keep your team connected on the go.",
+  },
+  {
+    title: "Built-in Security",
+    copy: "Enjoy enterprise-grade, end-to-end encryption for all signaling and media. You maintain full control with the ability to revoke Microsoft 365 tenant access at any time.",
+  },
+];
+
+export function TeamsBenefits() {
+  return (
+    <section className="bg-canvas py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Centered intro */}
+        <div className="mx-auto mb-16 max-w-3xl text-center lg:mb-24">
+          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+            Core Benefits of YOVU + Microsoft Teams
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-ink/70 md:text-lg">
+            Combine your tools into one shared workspace to chat, meet, share files, and make calls
+            seamlessly.
+          </p>
+        </div>
+
+        {/* Z-style alternating rows */}
+        <div className="space-y-16 lg:space-y-24">
+          {items.map((item, i) => {
+            const imageRight = i % 2 === 1;
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
+              >
+                {/* Copy */}
+                <div className={imageRight ? "lg:order-1" : "lg:order-2"}>
+                  <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 max-w-xl text-pretty text-base text-ink/70">{item.copy}</p>
+                </div>
+                {/* Placeholder image */}
+                <div
+                  className={`aspect-[4/3] w-full rounded-2xl bg-surface ring-1 ring-border ${
+                    imageRight ? "lg:order-2" : "lg:order-1"
+                  }`}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

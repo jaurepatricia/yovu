@@ -4,14 +4,14 @@ import { motion, useScroll, useTransform, type MotionValue } from "motion/react"
 const COPY =
   "YOVU integrates directly with your Broker Management System to automatically capture, transcribe, and summarize every client call, freeing your insurance brokerage from manual data entry while improving your E&O defensibility.";
 
-export function Statement() {
+export function Statement({ copy = COPY }: { copy?: string }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.85", "end 0.55"],
   });
 
-  const words = COPY.split(" ");
+  const words = copy.split(" ");
 
   return (
     <section className="pt-24 pb-40 lg:pt-32 lg:pb-56">

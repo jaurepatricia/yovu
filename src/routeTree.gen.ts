@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as V2RouteImport } from './routes/v2'
 import { Route as TbdRouteImport } from './routes/tbd'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
 import { Route as CommunicateRouteImport } from './routes/communicate'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -30,6 +31,11 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MicrosoftTeamsRoute = MicrosoftTeamsRouteImport.update({
+  id: '/microsoft-teams',
+  path: '/microsoft-teams',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CommunicateRoute = CommunicateRouteImport.update({
   id: '/communicate',
   path: '/communicate',
@@ -44,6 +50,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/communicate': typeof CommunicateRoute
+  '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/communicate': typeof CommunicateRoute
+  '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
@@ -59,21 +67,31 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/communicate': typeof CommunicateRoute
+  '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/communicate' | '/pricing' | '/tbd' | '/v2'
+  fullPaths:
+    '/' | '/communicate' | '/microsoft-teams' | '/pricing' | '/tbd' | '/v2'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/communicate' | '/pricing' | '/tbd' | '/v2'
-  id: '__root__' | '/' | '/communicate' | '/pricing' | '/tbd' | '/v2'
+  to: '/' | '/communicate' | '/microsoft-teams' | '/pricing' | '/tbd' | '/v2'
+  id:
+    | '__root__'
+    | '/'
+    | '/communicate'
+    | '/microsoft-teams'
+    | '/pricing'
+    | '/tbd'
+    | '/v2'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CommunicateRoute: typeof CommunicateRoute
+  MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
   PricingRoute: typeof PricingRoute
   TbdRoute: typeof TbdRoute
   V2Route: typeof V2Route
@@ -102,6 +120,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/microsoft-teams': {
+      id: '/microsoft-teams'
+      path: '/microsoft-teams'
+      fullPath: '/microsoft-teams'
+      preLoaderRoute: typeof MicrosoftTeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/communicate': {
       id: '/communicate'
       path: '/communicate'
@@ -122,6 +147,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CommunicateRoute: CommunicateRoute,
+  MicrosoftTeamsRoute: MicrosoftTeamsRoute,
   PricingRoute: PricingRoute,
   TbdRoute: TbdRoute,
   V2Route: V2Route,
@@ -129,3 +155,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
