@@ -42,9 +42,11 @@ const defaultItems: FaqItem[] = [
 export function FAQ({
   className,
   items = defaultItems,
+  heading = "Frequently Asked Questions",
 }: {
   className?: string;
   items?: FaqItem[];
+  heading?: string;
 }) {
   const [open, setOpen] = useState<number | null>(0);
 
@@ -52,9 +54,7 @@ export function FAQ({
     <section className={cn("py-24 lg:py-32", className)}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Frequently Asked Questions
-          </h2>
+          <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">{heading}</h2>
         </div>
 
         <div className="divide-y divide-border border-y border-border">
