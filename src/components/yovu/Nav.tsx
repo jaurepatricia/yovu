@@ -22,7 +22,7 @@ const industries = [
 
 const features = [
   {
-    href: "#",
+    href: "/communicate",
     title: "Communicate",
     description:
       "A cloud phone system that streamlines your daily workflow with talk, text, and intelligent call queues.",
@@ -43,7 +43,7 @@ const features = [
 
 const integrations = [
   { href: "#", label: "Applied Epic" },
-  { href: "#", label: "Microsoft" },
+  { href: "/microsoft-teams", label: "Microsoft" },
   { href: "#", label: "SalesForce" },
 ];
 
@@ -64,7 +64,7 @@ export function Nav() {
       {/* Content row */}
       <div className="pointer-events-auto relative mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-8">
-          <a href="#top" aria-label="YOVU home">
+          <a href="/" aria-label="YOVU home">
             <YovuLogo height={18} />
           </a>
 
