@@ -45,7 +45,11 @@ export function TeamsHowItWorks() {
   };
 
   return (
-    <section ref={sectionRef} className="relative" style={{ height: `${count * 100}vh` }}>
+    <section
+      ref={sectionRef}
+      className="relative my-16 lg:my-24"
+      style={{ height: `${count * 100}vh` }}
+    >
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Placeholder background */}
         <div aria-hidden="true" className="absolute inset-0 bg-surface" />
