@@ -56,7 +56,7 @@ const tiers: Tier[] = [
     name: "Advanced",
     tagline: "Professional + Analytics, BMS/CRM Integration, 7-Year Recording",
     priceLabel: "Custom",
-    priceNote: "tailored to your brokerage",
+    priceNote: "\n",
     cta: { label: "Schedule a Call", href: "#demo" },
     featuresTitle: "Everything in Professional, plus:",
     features: [
@@ -74,7 +74,7 @@ const tiers: Tier[] = [
     tagline:
       "Advanced + All Integrations, Included Transcription, Preferred Routing, AI Receptionist",
     priceLabel: "Custom",
-    priceNote: "tailored to your brokerage",
+    priceNote: "\n",
     cta: { label: "Schedule a Call", href: "#demo" },
     featuresTitle: "Everything in Advanced, plus:",
     features: [
