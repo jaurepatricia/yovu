@@ -75,12 +75,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/communicate'
-    | '/microsoft-teams'
-    | '/pricing'
-    | '/tbd'
-    | '/v2'
+    '/' | '/communicate' | '/microsoft-teams' | '/pricing' | '/tbd' | '/v2'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/communicate' | '/microsoft-teams' | '/pricing' | '/tbd' | '/v2'
   id:
