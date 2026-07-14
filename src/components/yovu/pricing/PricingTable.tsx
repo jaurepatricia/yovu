@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Info } from "lucide-react";
+
+type Feature = string | { text: string; tooltip: string };
 
 type Tier = {
   name: string;
@@ -10,7 +12,7 @@ type Tier = {
   priceNote?: string;
   cta: { label: string; href: string };
   featuresTitle: string;
-  features: string[];
+  features: Feature[];
   emphasize?: boolean;
 };
 
@@ -63,7 +65,7 @@ const tiers: Tier[] = [
       "Audio Signatures",
       "MS Teams Softphone",
       "84-month recording",
-      "1 deep integration (Epic, Acturis, Vertafore, or Salesforce)",
+      { text: "1 Integration", tooltip: "Epic, Acturis, Vertafore, or Salesforce" },
     ],
     emphasize: true,
   },
@@ -76,7 +78,10 @@ const tiers: Tier[] = [
     cta: { label: "Schedule a Call", href: "#demo" },
     featuresTitle: "Everything in Advanced, plus:",
     features: [
-      "All integrations (Epic + Acturis + Vertafore + Salesforce + NetSuite + Web CRM)",
+      {
+        text: "All Integrations",
+        tooltip: "Epic, Acturis, Vertafore, Salesforce, NetSuite, and Web CRM",
+      },
       "Full transcription included",
       "Preferred Agent Routing",
       "AI Receptionist",
@@ -129,7 +134,7 @@ export function PricingTable() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col rounded-3xl bg-card p-8 ${
+              className={`relative flex flex-col rounded-xl bg-card p-8 ${
                 tier.emphasize ? "ring-2 ring-signal lg:-my-2 lg:py-10" : "ring-1 ring-border"
               }`}
             >
@@ -144,7 +149,9 @@ export function PricingTable() {
                 <h2 className="font-display text-2xl font-bold tracking-tight text-ink">
                   {tier.name}
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-ink/60">{tier.tagline}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink/60 md:min-h-[3.5rem] lg:min-h-[5rem]">
+                  {tier.tagline}
+                </p>
               </div>
 
               {/* Price */}
@@ -188,12 +195,32 @@ export function PricingTable() {
               {/* Features */}
               <div className="mt-8 text-sm font-medium text-ink">{tier.featuresTitle}</div>
               <ul className="mt-4 flex-1 space-y-3">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check className="mt-0.5 size-5 shrink-0 text-signal" />
-                    <span className="text-sm leading-relaxed text-ink/70">{feature}</span>
-                  </li>
-                ))}
+                {tier.features.map((feature) => {
+                  const text = typeof feature === "string" ? feature : feature.text;
+                  const tooltip = typeof feature === "string" ? undefined : feature.tooltip;
+                  return (
+                    <li key={text} className="flex items-start gap-3">
+                      <Check className="mt-0.5 size-5 shrink-0 text-signal" />
+                      <span className="flex items-center gap-1.5 text-sm leading-relaxed text-ink/70">
+                        {text}
+                        {tooltip && (
+                          <span className="group/tip relative inline-flex">
+                            <button
+                              type="button"
+                              aria-label={tooltip}
+                              className="inline-flex text-ink/40 transition-colors hover:text-ink/70"
+                            >
+                              <Info className="size-4" />
+                            </button>
+                            <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-max max-w-[14rem] -translate-x-1/2 rounded-lg bg-ink px-3 py-1.5 text-xs font-medium text-canvas opacity-0 shadow-lg transition-opacity group-hover/tip:opacity-100">
+                              {tooltip}
+                            </span>
+                          </span>
+                        )}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

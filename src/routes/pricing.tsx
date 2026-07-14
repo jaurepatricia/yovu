@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { PricingTable } from "@/components/yovu/pricing/PricingTable";
+import { CompareFeatures } from "@/components/yovu/pricing/CompareFeatures";
 
 function PricingPage() {
   return (
@@ -9,6 +10,7 @@ function PricingPage() {
       <Nav />
       <div className="pt-20">
         <PricingTable />
+        <CompareFeatures />
       </div>
       <Footer />
     </main>
