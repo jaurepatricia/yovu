@@ -12,7 +12,7 @@ import { CommunicateCapabilities } from "@/components/yovu/communicate/Communica
 import { CommunicateIntegrations } from "@/components/yovu/communicate/CommunicateIntegrations";
 import { TestimonialsQuote } from "@/components/yovu/TestimonialsQuote";
 import { Testimonials } from "@/components/yovu/Testimonials";
-import { FinalCTAScale } from "@/components/yovu/FinalCTAScale";
+
 import { FAQ } from "@/components/yovu/FAQ";
 import { FinalCTA } from "@/components/yovu/FinalCTA";
 import { Footer } from "@/components/yovu/Footer";
@@ -34,7 +34,7 @@ export function HomePage() {
       <Canada />
       <TestimonialsQuote />
       <Testimonials />
-      <FinalCTAScale />
+      
       <FAQ />
       <FinalCTA />
       <Footer />
