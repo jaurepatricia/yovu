@@ -8,6 +8,7 @@ import { FloatingGridEnterprise } from "@/components/yovu/communicate/FloatingGr
 import { CommunicateConnect } from "@/components/yovu/communicate/CommunicateConnect";
 import { CommunicateBranded } from "@/components/yovu/communicate/CommunicateBranded";
 import { FAQ } from "@/components/yovu/FAQ";
+import { ScaleCallout } from "@/components/yovu/ScaleCallout";
 
 const faqItems = [
   {
@@ -55,6 +56,7 @@ function CommunicatePage() {
       <CommunicateConnect />
       <CommunicateBranded />
       <FAQ items={faqItems} />
+      <ScaleCallout heading="Ready to navigate your calls with total clarity and ease?" />
       <Footer />
     </main>
   );

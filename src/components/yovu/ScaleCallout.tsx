@@ -1,7 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import dialerMockup from "@/assets/homepage/Dialer Iphone Cloud Mockup.png";
 
-export function ScaleCallout() {
+export function ScaleCallout({
+  heading = "Are you ready to bridge the gap between your client calls and your BMS?",
+}: {
+  heading?: string;
+}) {
   return (
     <section className="px-6 pb-24 lg:pb-32">
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
@@ -10,7 +14,7 @@ export function ScaleCallout() {
           {/* Emphasized top CTA */}
           <div className="flex flex-[1.4] flex-col justify-between gap-10 p-10 lg:p-12">
             <h2 className="text-balance font-display text-3xl font-bold leading-[1.1] tracking-tight text-ink md:text-4xl">
-              Are you ready to bridge the gap between your client calls and your BMS?
+              {heading}
             </h2>
             <div>
               <a
