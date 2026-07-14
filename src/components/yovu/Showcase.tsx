@@ -90,7 +90,11 @@ export function Showcase() {
   const navLight = slides[active].tone === "light";
 
   return (
-    <section ref={sectionRef} className="relative" style={{ height: `${count * 100}vh` }}>
+    <section
+      ref={sectionRef}
+      className="relative my-16 lg:my-24"
+      style={{ height: `${count * 100}vh` }}
+    >
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Stacked slides — crossfade in place */}
         {slides.map((slide, i) => {
