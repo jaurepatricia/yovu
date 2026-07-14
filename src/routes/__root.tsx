@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+// TEMPORARY review tool — remove before launch (see StickyNotes.tsx).
+import { StickyNoteLayer } from "../components/yovu/StickyNotes";
 
 function NotFoundComponent() {
   return (
@@ -78,17 +80,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "YOVU 2.0" },
-      { name: "description", content: "Content First Focus is a platform for managing brokerage communications and client interactions." },
+      {
+        name: "description",
+        content:
+          "Content First Focus is a platform for managing brokerage communications and client interactions.",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "YOVU 2.0" },
-      { property: "og:description", content: "Content First Focus is a platform for managing brokerage communications and client interactions." },
+      {
+        property: "og:description",
+        content:
+          "Content First Focus is a platform for managing brokerage communications and client interactions.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "YOVU 2.0" },
-      { name: "twitter:description", content: "Content First Focus is a platform for managing brokerage communications and client interactions." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3426ba41-24c7-4216-a9a7-d6a7dee53127/id-preview-9f53fd98--3afcd730-4a9c-4036-addb-4cf1268272a6.lovable.app-1781927292268.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3426ba41-24c7-4216-a9a7-d6a7dee53127/id-preview-9f53fd98--3afcd730-4a9c-4036-addb-4cf1268272a6.lovable.app-1781927292268.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Content First Focus is a platform for managing brokerage communications and client interactions.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3426ba41-24c7-4216-a9a7-d6a7dee53127/id-preview-9f53fd98--3afcd730-4a9c-4036-addb-4cf1268272a6.lovable.app-1781927292268.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3426ba41-24c7-4216-a9a7-d6a7dee53127/id-preview-9f53fd98--3afcd730-4a9c-4036-addb-4cf1268272a6.lovable.app-1781927292268.png",
+      },
     ],
     links: [
       {
@@ -124,6 +146,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <StickyNoteLayer />
     </QueryClientProvider>
   );
 }

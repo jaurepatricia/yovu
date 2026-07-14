@@ -5,9 +5,10 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  
 } from "@/components/ui/navigation-menu";
 import { LocaleToggle } from "./LocaleToggle";
+// TEMPORARY review tool — remove before launch (see StickyNotes.tsx).
+import { StickyNoteTrigger } from "./StickyNotes";
 import { ThemeToggle } from "./ThemeToggle";
 import { YovuLogo } from "./YovuLogo";
 
@@ -52,7 +53,6 @@ const triggerCls =
 const itemCls =
   "inline-flex h-9 items-center justify-center rounded-md bg-transparent px-3 text-sm font-medium text-ink/60 transition-colors hover:bg-accent hover:text-ink focus:bg-accent focus:text-ink focus:outline-none";
 
-
 export function Nav() {
   return (
     <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
@@ -72,9 +72,7 @@ export function Nav() {
             <NavigationMenuList className="gap-1">
               {/* Solutions */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className={triggerCls}>
-                  Solutions
-                </NavigationMenuTrigger>
+                <NavigationMenuTrigger className={triggerCls}>Solutions</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-64 p-4">
                     <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
@@ -100,9 +98,7 @@ export function Nav() {
 
               {/* Products */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className={triggerCls}>
-                  Products
-                </NavigationMenuTrigger>
+                <NavigationMenuTrigger className={triggerCls}>Products</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[640px] grid-cols-2 gap-8 p-6">
                     {/* Features column */}
@@ -118,9 +114,7 @@ export function Nav() {
                                 href={f.href}
                                 className="block rounded-md px-2 py-2 transition-colors hover:bg-accent"
                               >
-                                <div className="text-sm font-semibold text-ink">
-                                  {f.title}
-                                </div>
+                                <div className="text-sm font-semibold text-ink">{f.title}</div>
                                 <p className="mt-0.5 text-xs leading-snug text-ink/60">
                                   {f.description}
                                 </p>
@@ -172,13 +166,13 @@ export function Nav() {
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-
             </NavigationMenuList>
           </NavigationMenu>
         </div>
 
         <div className="flex items-center gap-3">
           <LocaleToggle />
+          <StickyNoteTrigger />
           <ThemeToggle />
           <a
             href="#demo"
