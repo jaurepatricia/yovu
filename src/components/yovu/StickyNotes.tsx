@@ -25,8 +25,9 @@ const SUPABASE_URL = "https://futjcrecojdzklzqjkjd.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_X1PvRAo7v3_61YrUzntQQw_0a0mcbs4";
 const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
-// Shared passphrase reviewers type once to unlock the tool. Change as you like.
-const REVIEW_PASSPHRASE = "yovu-review";
+// Reviewers answer this once to unlock the tool (case-insensitive).
+const REVIEW_QUESTION = "Who is Mariano's alter ego?";
+const REVIEW_ANSWER = "fairiano";
 const UNLOCK_KEY = "yovu_review_unlocked";
 const AUTHOR_KEY = "yovu_sticky_author";
 
@@ -120,8 +121,8 @@ function initBackend() {
     .subscribe();
 }
 
-function unlock(pass: string): boolean {
-  if (pass.trim() !== REVIEW_PASSPHRASE) return false;
+function unlock(answer: string): boolean {
+  if (answer.trim().toLowerCase() !== REVIEW_ANSWER) return false;
   unlocked = true;
   window.localStorage.setItem(UNLOCK_KEY, "1");
   commit();
@@ -219,20 +220,17 @@ export function StickyNoteTrigger() {
             <div className="flex items-center gap-2 text-sm font-semibold text-ink">
               <Lock className="size-4" /> Review notes
             </div>
-            <p className="mt-1 text-xs text-ink/60">
-              Enter the team passphrase to add and view shared review notes.
-            </p>
+            <p className="mt-1 text-xs text-ink/60">Answer this to unlock shared review notes.</p>
+            <label className="mt-3 block text-sm font-medium text-ink">{REVIEW_QUESTION}</label>
             <input
-              type="password"
+              type="text"
               value={pass}
               onChange={(e) => setPass(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && tryUnlock()}
-              placeholder="Team passphrase"
-              className="mt-3 w-full rounded-md border border-border bg-canvas px-3 py-2 text-sm text-ink outline-none focus:ring-2 focus:ring-signal/40"
+              placeholder="Your answer"
+              className="mt-2 w-full rounded-md border border-border bg-canvas px-3 py-2 text-sm text-ink outline-none focus:ring-2 focus:ring-signal/40"
             />
-            {passError && (
-              <p className="mt-1 text-xs text-red-500">That passphrase didn't match.</p>
-            )}
+            {passError && <p className="mt-1 text-xs text-red-500">Not quite — try again.</p>}
             <button
               type="button"
               onClick={tryUnlock}
