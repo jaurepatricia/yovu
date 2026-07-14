@@ -158,7 +158,7 @@ export function Nav() {
               {/* Plans & Pricing */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a href="#" className={itemCls}>
+                  <a href="/pricing" className={itemCls}>
                     Plans &amp; Pricing
                   </a>
                 </NavigationMenuLink>
