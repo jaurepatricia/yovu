@@ -33,7 +33,7 @@ const tiers: Tier[] = [
       "History",
       "Directory",
       "Screen Pop URL",
-      "1-month recording retention",
+      "1-month recording\u00a0",
     ],
   },
   {
@@ -230,7 +230,7 @@ export function PricingTable() {
         <div className="mt-6 flex flex-col items-start justify-between gap-6 rounded-3xl bg-surface p-8 ring-1 ring-border sm:flex-row sm:items-center">
           <div>
             <h3 className="font-display text-xl font-bold tracking-tight text-ink">
-              Non-Profit Discount
+              Discounts for Non-Profits & Charities
             </h3>
             <p className="mt-2 text-base text-ink/70">
               Verify the status of your non-profit or charity and get access to up to 50% off YOVU.
