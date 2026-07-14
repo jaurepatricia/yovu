@@ -90,7 +90,7 @@ export function Hero() {
         {/* Industry selector pill */}
         <div
           ref={pillRef}
-          className="pointer-events-auto relative mb-6 inline-flex items-center gap-2 rounded-full bg-canvas/50 px-5 py-2.5 text-[15px] text-ink ring-1 ring-border/50 backdrop-blur-xl backdrop-saturate-150"
+          className="pointer-events-auto relative mb-6 inline-flex items-center gap-2.5 rounded-full bg-canvas/50 px-6 py-3 text-base text-ink ring-1 ring-border/50 backdrop-blur-xl backdrop-saturate-150 md:text-lg"
         >
           <span className="text-ink/60">I work in</span>
           <button
@@ -99,7 +99,7 @@ export function Hero() {
             className="inline-flex items-center gap-1 font-semibold text-ink transition-colors hover:text-ink/80"
           >
             <span>{industry}</span>
-            <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
+            <ChevronDown className={`h-5 w-5 transition-transform ${open ? "rotate-180" : ""}`} />
           </button>
           {open && (
             <ul className="absolute left-0 top-full z-20 mt-2 w-max min-w-full overflow-hidden rounded-xl border border-border/50 bg-canvas/80 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150 dark:ring-1 dark:ring-inset dark:ring-white/15">
@@ -139,10 +139,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
-          className="flex items-center justify-center gap-3.5 rounded-full bg-[#0b1733]/60 px-8 py-4 ring-1 ring-white/10 backdrop-blur-md"
+          className="flex items-center justify-center gap-3 rounded-full bg-[#0b1733]/60 px-6 py-3 ring-1 ring-white/10 backdrop-blur-md"
         >
-          <img src={appliedLogoWhite} alt="Applied" className="h-6 w-auto md:h-7" />
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-white md:text-sm">
+          <img src={appliedLogoWhite} alt="Applied" className="h-5 w-auto md:h-6" />
+          <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-white md:text-xs">
             Epic Certified Integration Partner
           </span>
         </motion.div>
