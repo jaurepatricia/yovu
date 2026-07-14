@@ -90,7 +90,7 @@ export function Hero() {
         {/* Industry selector pill */}
         <div
           ref={pillRef}
-          className="pointer-events-auto relative mb-6 inline-flex items-center gap-2.5 rounded-full bg-canvas/50 px-6 py-3 text-base text-ink ring-1 ring-border/50 backdrop-blur-xl backdrop-saturate-150 md:text-lg"
+          className="pointer-events-auto relative mb-6 inline-flex items-center gap-3 rounded-full bg-canvas/50 px-7 py-3.5 text-lg text-ink ring-1 ring-border/50 backdrop-blur-xl backdrop-saturate-150 md:text-xl"
         >
           <span className="text-ink/60">I work in</span>
           <button
@@ -102,7 +102,7 @@ export function Hero() {
             <ChevronDown className={`h-5 w-5 transition-transform ${open ? "rotate-180" : ""}`} />
           </button>
           {open && (
-            <ul className="absolute left-0 top-full z-20 mt-2 w-max min-w-full overflow-hidden rounded-xl border border-border/50 bg-canvas/80 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150 dark:ring-1 dark:ring-inset dark:ring-white/15">
+            <ul className="absolute left-0 top-full z-20 mt-2 w-max min-w-full overflow-hidden rounded-xl border border-border bg-canvas/95 p-1 text-left shadow-xl backdrop-blur-xl backdrop-saturate-150 dark:ring-1 dark:ring-inset dark:ring-white/15">
               {INDUSTRIES.map((i) => (
                 <li key={i}>
                   <button
@@ -112,7 +112,7 @@ export function Hero() {
                       setOpen(false);
                     }}
                     className={`block w-full whitespace-nowrap rounded-md px-3 py-1.5 text-left text-sm transition-colors hover:bg-accent hover:text-ink ${
-                      i === industry ? "font-semibold text-ink" : "text-ink/70"
+                      i === industry ? "font-semibold text-ink" : "text-ink/85"
                     }`}
                   >
                     {i}
@@ -139,7 +139,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
-          className="flex items-center justify-center gap-3 rounded-full bg-[#0b1733]/60 px-6 py-3 ring-1 ring-white/10 backdrop-blur-md"
+          className="flex items-center justify-center gap-3 rounded-full bg-[#0b1733]/80 px-6 py-3 ring-1 ring-white/10 backdrop-blur-md"
         >
           <img src={appliedLogoWhite} alt="Applied" className="h-5 w-auto md:h-6" />
           <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-white md:text-xs">
