@@ -68,7 +68,7 @@ const faqItems = [
     a: "Yes, users can click to call directly from a client account and stay inside the same Salesforce workflow while capturing call results right away.",
   },
   {
-    q: "Does the integration support call recording?",
+    q: "Does YOVU's Salesforce integration support call recording?",
     a: "Yes, recorded calls can be accessed from within the account, which gives sales and customer service managers a simple way to review conversations and coach teams.",
   },
   {
