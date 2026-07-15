@@ -1,15 +1,15 @@
-## Update TeamsBenefits items
+## Update `TeamsCollaboration.tsx`
 
-Update the `items` array in `src/components/yovu/teams/TeamsBenefits.tsx` so the second and third entries match the kicker + headline + body copy style used by the first entry.
+Restructure the "Why use an integration?" section into two stacked parts:
 
-**Item 2 (Mobility)**
-- kicker: `MOBILITY`
-- title: `Work from anywhere, on any device`
-- copy: `Install Teams on any PC, Mac, or mobile device to keep your team connected on the go. Stay fully accessible and responsive no matter where your workday takes you.`
+### 1. New 2-column copy/image section (top)
+- Left column: Headline "Why use an integration?" + body copy "Bring your team together while simplifying your tech stack. Boost productivity and inclusion by simplifying how your workforce collaborates."
+- Right column: Placeholder image block (matching the `aspect-[4/3] rounded-2xl bg-surface ring-1 ring-border` style used in `TeamsBenefits`)
+- Responsive: stacks on mobile, side-by-side on `lg:`
 
-**Item 3 (Security)**
-- kicker: `SECURITY`
-- title: `Protect your data with built-in security`
-- copy: `Enjoy enterprise-grade, end-to-end encryption for all your signaling and media. You maintain complete administrative control, including the ability to revoke Microsoft 365 tenant access securely at any time.`
+### 2. Existing 3-column icon grid (below)
+- Keep the three cards (Simplify Your IT, Increase Connection, Boost Productivity) exactly as they are today — same icons, same copy, same visual treatment
+- Remove the old centered heading above them (since the new section now provides the header)
+- Add appropriate spacing between the two sub-sections
 
-No component/markup changes — the existing render already handles the optional `kicker` field.
+No other files change. Copy on the icon cards stays identical to current.

@@ -22,13 +22,22 @@ export function TeamsCollaboration() {
   return (
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Why use an integration?
-          </h2>
+        {/* 2-column intro */}
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20 xl:gap-24">
+          <div className="lg:px-4 xl:px-8">
+            <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Why use an integration?
+            </h2>
+            <p className="mt-6 max-w-xl text-pretty text-base text-ink/70">
+              Bring your team together while simplifying your tech stack. Boost productivity and
+              inclusion by simplifying how your workforce collaborates.
+            </p>
+          </div>
+          <div className="aspect-[4/3] w-full rounded-2xl bg-surface ring-1 ring-border" />
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {/* 3-column icon grid */}
+        <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:mt-28 lg:grid-cols-3">
           {items.map(({ icon: Icon, title, copy }) => (
             <div key={title}>
               <Icon className="size-8 text-signal" strokeWidth={1.75} />
