@@ -100,7 +100,7 @@ export function SalesforceHowItWorks() {
             </div>
 
             {/* Cycling step content, stacked in one grid cell */}
-            <div className="mt-14 grid md:mt-16">
+            <div className="mt-14 grid min-h-[180px] md:mt-16 md:min-h-[200px]">
               {steps.map((step, i) => (
                 <div
                   key={i}
@@ -117,6 +117,13 @@ export function SalesforceHowItWorks() {
                 </div>
               ))}
             </div>
+
+            <a
+              href="#demo"
+              className="mt-10 inline-flex items-center justify-center rounded-full bg-signal px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-signal/20 transition-colors hover:bg-signal/90"
+            >
+              Speak to an Expert
+            </a>
           </div>
         </div>
       </div>
