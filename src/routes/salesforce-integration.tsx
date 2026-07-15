@@ -52,7 +52,7 @@ const integrationBenefits: SectionIntroFeatureItem[] = [
 
 const faqItems = [
   {
-    q: "What is YOVU's Salesforce Integration?",
+    q: "What is YOVU's Salesforce integration?",
     a: "It is a VoIP and CTI integration that connects YOVU's business phone system with Salesforce so users can access customer details, call logs, and reporting from within Salesforce.",
   },
   {
