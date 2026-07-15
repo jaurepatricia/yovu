@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Check, X } from "lucide-react";
 
 const tiers = [
-  { name: "Starter", price: "$18", note: "per user / mo" },
-  { name: "Professional", price: "$39", note: "per user / mo" },
-  { name: "Advanced", price: "Custom", note: "" },
-  { name: "Ultra", price: "Custom", note: "" },
+  { name: "Starter", monthly: "$18", annually: "$15", custom: false },
+  { name: "Professional", monthly: "$39", annually: "$32", custom: false },
+  { name: "Advanced", monthly: "Custom", annually: "Custom", custom: true },
+  { name: "Ultra", monthly: "Custom", annually: "Custom", custom: true },
 ] as const;
 
 type Cell = boolean | string;
@@ -102,6 +102,7 @@ function CellContent({ value }: { value: Cell }) {
 
 export function CompareFeatures() {
   const [active, setActive] = useState(0);
+  const [annual, setAnnual] = useState(false);
   const category = categories[active];
 
   return (
@@ -137,16 +138,42 @@ export function CompareFeatures() {
           <table className="w-full min-w-[720px] border-collapse">
             <thead>
               <tr className="bg-surface">
-                <th className="px-6 py-4 text-left text-sm font-semibold text-ink">
-                  {category.name} Features
+                <th className="w-[28%] px-6 py-6 text-left align-middle text-sm font-semibold text-ink">
+                  <div className="mb-3">{category.name} Features</div>
+                  <div className="inline-flex items-center rounded-full bg-canvas p-1 ring-1 ring-border">
+                    {(["Monthly", "Annual"] as const).map((label) => {
+                      const isAnnual = label === "Annual";
+                      const active = isAnnual === annual;
+                      return (
+                        <button
+                          key={label}
+                          type="button"
+                          onClick={() => setAnnual(isAnnual)}
+                          aria-pressed={active}
+                          className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                            active ? "bg-signal text-white" : "text-ink/70 hover:text-ink"
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </th>
                 {tiers.map((t) => (
-                  <th key={t.name} className="px-4 py-4 text-center text-sm font-semibold text-ink">
+                  <th
+                    key={t.name}
+                    className="px-4 py-6 text-center align-middle text-sm font-semibold text-ink"
+                  >
                     <div>{t.name}</div>
-                    <div className="mt-1 text-xs font-medium text-ink/60">
-                      {t.price}
-                      {t.note && <span className="ml-1 font-normal">{t.note}</span>}
+                    <div className="mt-1 font-display text-lg font-bold text-ink">
+                      {annual ? t.annually : t.monthly}
                     </div>
+                    {!t.custom && (
+                      <div className="mt-0.5 text-xs font-normal text-ink/60">
+                        per user / mo{annual ? ", billed annually" : ""}
+                      </div>
+                    )}
                   </th>
                 ))}
               </tr>
