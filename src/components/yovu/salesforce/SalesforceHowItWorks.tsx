@@ -1,5 +1,11 @@
 import { useRef, useState } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+  type MotionValue,
+} from "motion/react";
 import blueSky from "@/assets/hero/Blue Sky with Clouds.webp";
 
 const steps = [
@@ -53,7 +59,7 @@ export function SalesforceHowItWorks() {
       className="relative my-16 lg:my-24"
       style={{ height: `${count * 100}vh` }}
     >
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         {/* Parallax sky background */}
         <motion.img
           src={blueSky}
@@ -63,35 +69,42 @@ export function SalesforceHowItWorks() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Centered white card */}
-        <div className="relative z-10 mx-6 w-full max-w-2xl rounded-3xl bg-white p-10 text-center shadow-2xl shadow-black/10 md:p-14">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-[#0b1733] md:text-4xl">
-            How it Works
-          </h2>
+        {/* Card matches the content width of the sections above */}
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+          <div className="rounded-3xl bg-white p-10 shadow-2xl shadow-black/10 md:p-14 lg:p-16">
+            <h2 className="font-display text-4xl font-bold tracking-tight text-[#0b1733] md:text-5xl">
+              How it Works
+            </h2>
 
-          <div className="mt-8 flex items-center gap-6 md:gap-10">
-            {/* Step numbers rail */}
-            <div className="flex shrink-0 flex-col gap-3">
+            {/* Horizontal stepper — connector lines fill with scroll */}
+            <div className="mt-10 flex items-center gap-4 md:mt-12 md:gap-6">
               {steps.map((_, i) => (
-                <button
+                <div
                   key={i}
-                  type="button"
-                  onClick={() => goTo(i)}
-                  aria-label={`Go to step ${i + 1}`}
-                  aria-current={active === i}
-                  className={`flex size-10 items-center justify-center rounded-full font-display text-lg font-bold transition-all duration-300 ${
-                    active === i
-                      ? "bg-signal text-white"
-                      : "bg-[#0b1733]/5 text-[#0b1733]/40 hover:text-[#0b1733]/70"
-                  }`}
+                  className={`flex items-center ${i < count - 1 ? "flex-1" : ""} gap-4 md:gap-6`}
                 >
-                  {i + 1}
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => goTo(i)}
+                    aria-label={`Go to step ${i + 1}`}
+                    aria-current={active === i}
+                    className={`flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-colors duration-300 md:size-10 ${
+                      i <= active
+                        ? "bg-[#0b1733] text-white"
+                        : "bg-[#0b1733]/[0.06] text-[#0b1733]/40"
+                    }`}
+                  >
+                    {i + 1}
+                  </button>
+                  {i < count - 1 && (
+                    <Connector progress={scrollYProgress} index={i} count={count} />
+                  )}
+                </div>
               ))}
             </div>
 
             {/* Cycling step content, stacked in one grid cell */}
-            <div className="grid flex-1 text-left">
+            <div className="mt-10 grid md:mt-12">
               {steps.map((step, i) => (
                 <div
                   key={i}
@@ -99,10 +112,12 @@ export function SalesforceHowItWorks() {
                     active === i ? "opacity-100" : "pointer-events-none opacity-0"
                   }`}
                 >
-                  <h3 className="font-display text-xl font-bold tracking-tight text-[#0b1733] md:text-2xl">
+                  <h3 className="font-display text-2xl font-bold tracking-tight text-[#0b1733] md:text-3xl">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-pretty text-base text-[#0b1733]/70">{step.copy}</p>
+                  <p className="mt-4 max-w-2xl text-pretty text-base text-[#0b1733]/70 md:text-lg">
+                    {step.copy}
+                  </p>
                 </div>
               ))}
             </div>
@@ -110,5 +125,23 @@ export function SalesforceHowItWorks() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** Thin line between step numbers that fills left-to-right during its step's scroll band. */
+function Connector({
+  progress,
+  index,
+  count,
+}: {
+  progress: MotionValue<number>;
+  index: number;
+  count: number;
+}) {
+  const scaleX = useTransform(progress, [index / count, (index + 1) / count], [0, 1]);
+  return (
+    <div className="relative h-px flex-1 overflow-hidden bg-[#0b1733]/10">
+      <motion.span style={{ scaleX }} className="absolute inset-0 origin-left bg-[#0b1733]" />
+    </div>
   );
 }
