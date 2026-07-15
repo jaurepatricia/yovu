@@ -65,7 +65,7 @@ const faqItems = [
   },
   {
     q: "Can users make calls directly from Salesforce?",
-    a: "Yes, YOVU says users can click to call directly from a client account and stay inside the same Salesforce workflow while capturing call results right away.",
+    a: "Yes, users can click to call directly from a client account and stay inside the same Salesforce workflow while capturing call results right away.",
   },
   {
     q: "Does the integration support call recording?",
