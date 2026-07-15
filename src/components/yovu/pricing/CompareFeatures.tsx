@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Check, X } from "lucide-react";
 
-const tiers = ["Starter", "Professional", "Advanced", "Ultra"] as const;
+const tiers = [
+  { name: "Starter", price: "$18", note: "per user / mo" },
+  { name: "Professional", price: "$39", note: "per user / mo" },
+  { name: "Advanced", price: "Custom", note: "" },
+  { name: "Ultra", price: "Custom", note: "" },
+] as const;
 
 type Cell = boolean | string;
 type Row = { label: string; subhead?: never; values: Cell[] } | { subhead: string; label?: never };
@@ -136,8 +141,12 @@ export function CompareFeatures() {
                   {category.name} Features
                 </th>
                 {tiers.map((t) => (
-                  <th key={t} className="px-4 py-4 text-center text-sm font-semibold text-ink">
-                    {t}
+                  <th key={t.name} className="px-4 py-4 text-center text-sm font-semibold text-ink">
+                    <div>{t.name}</div>
+                    <div className="mt-1 text-xs font-medium text-ink/60">
+                      {t.price}
+                      {t.note && <span className="ml-1 font-normal">{t.note}</span>}
+                    </div>
                   </th>
                 ))}
               </tr>
