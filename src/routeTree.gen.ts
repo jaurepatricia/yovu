@@ -75,7 +75,12 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/communicate' | '/microsoft-teams' | '/pricing' | '/tbd' | '/v2'
+    | '/'
+    | '/communicate'
+    | '/microsoft-teams'
+    | '/pricing'
+    | '/tbd'
+    | '/v2'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/communicate' | '/microsoft-teams' | '/pricing' | '/tbd' | '/v2'
   id:
@@ -155,3 +160,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
