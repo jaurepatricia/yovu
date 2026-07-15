@@ -70,8 +70,9 @@ export function SalesforceHowItWorks() {
         />
 
         {/* Card matches the content width of the sections above */}
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-          <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-16 text-center shadow-2xl shadow-black/10 md:px-10 md:py-20 lg:py-24">
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-6">
+          <div className="flex min-h-[80vh] flex-col items-center justify-center rounded-3xl bg-white px-6 py-24 text-center shadow-2xl shadow-black/10 md:px-10 md:py-32 lg:py-40">
+
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
               How it Works
             </p>
