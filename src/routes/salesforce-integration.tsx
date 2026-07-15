@@ -76,7 +76,7 @@ const faqItems = [
     a: "Users can manage calls from within Salesforce, including transferring, holding, ending, and switching to a second call.",
   },
   {
-    q: "How does the integration improve reporting and accuracy?",
+    q: "How does YOVU's Salesforce integration improve reporting and accuracy?",
     a: "The integration is designed to reduce manual processes by logging call activity, surfacing call history and analytics, and helping teams maintain more current sales and customer records.",
   },
   {
