@@ -23,7 +23,7 @@ export function TeamsBenefits() {
         {/* Centered intro */}
         <div className="mx-auto mb-20 max-w-3xl text-center lg:mb-28">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Core Benefits of YOVU + Microsoft Teams
+            One shared workspace
           </h2>
         </div>
 
