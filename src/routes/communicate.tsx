@@ -2,7 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { CommunicateHero } from "@/components/yovu/communicate/CommunicateHero";
-import { FeatureCardCollaborate } from "@/components/yovu/communicate/FeatureCardCollaborate";
+import {
+  IndividualFeatureCards,
+  type IndividualFeatureCard,
+} from "@/components/yovu/IndividualFeatureCards";
 import { CommunicateDevices } from "@/components/yovu/communicate/CommunicateDevices";
 import { FloatingGridEnterprise } from "@/components/yovu/communicate/FloatingGridEnterprise";
 import { CommunicateConnect } from "@/components/yovu/communicate/CommunicateConnect";
@@ -45,12 +48,31 @@ const faqItems = [
   },
 ];
 
+const collaborateCards: IndividualFeatureCard[] = [
+  {
+    title: "Unified Communications",
+    copy: "Voice and SMS from the same workspace across multiple devices, so a quick text confirmation and a callback live in the same place as the rest of the conversation. Easily assign direct numbers and extensions to all employees within your organization.",
+  },
+  {
+    title: "Empower Your Employees",
+    copy: "Equip your team with our powerful VoIP capabilities in one easy-to-use platform. You can instantly check a colleague's real-time availability, seamlessly transfer calls with context, and merge team members into ongoing conversations.",
+  },
+  {
+    title: "Tailored Workflows",
+    copy: "Boost your team's daily productivity by configuring our platform to match your exact business needs. You can easily set up advanced call routing, trigger automated replies, and connect your favorite software integrations for easier task completion.",
+  },
+];
+
 function CommunicatePage() {
   return (
     <main className="bg-canvas text-ink">
       <Nav />
       <CommunicateHero />
-      <FeatureCardCollaborate />
+      <IndividualFeatureCards
+        heading="Collaborate with Your Team"
+        cards={collaborateCards}
+      />
+
       <CommunicateDevices />
       <FloatingGridEnterprise />
       <CommunicateConnect />

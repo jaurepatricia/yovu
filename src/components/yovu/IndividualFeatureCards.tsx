@@ -1,26 +1,29 @@
-const cards = [
-  {
-    title: "Unified Communications",
-    copy: "Voice and SMS from the same workspace across multiple devices, so a quick text confirmation and a callback live in the same place as the rest of the conversation. Easily assign direct numbers and extensions to all employees within your organization.",
-  },
-  {
-    title: "Empower Your Employees",
-    copy: "Equip your team with our powerful VoIP capabilities in one easy-to-use platform. You can instantly check a colleague's real-time availability, seamlessly transfer calls with context, and merge team members into ongoing conversations.",
-  },
-  {
-    title: "Tailored Workflows",
-    copy: "Boost your team's daily productivity by configuring our platform to match your exact business needs. You can easily set up advanced call routing, trigger automated replies, and connect your favorite software integrations for easier task completion.",
-  },
-];
+import type { ReactNode } from "react";
 
-export function FeatureCardCollaborate() {
+export type IndividualFeatureCard = {
+  title: string;
+  copy: string;
+  media?: ReactNode;
+};
+
+type IndividualFeatureCardsProps = {
+  heading: string;
+  cards: IndividualFeatureCard[];
+  className?: string;
+};
+
+export function IndividualFeatureCards({
+  heading,
+  cards,
+  className,
+}: IndividualFeatureCardsProps) {
   return (
-    <section className="bg-canvas py-24 lg:py-32">
+    <section className={`bg-canvas py-24 lg:py-32 ${className ?? ""}`}>
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading and the spacing above it stay pinned as the cards stack beneath. */}
         <div className="sticky top-20 z-20 bg-canvas pb-8 pt-4 text-center">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Collaborate with Your Team
+            {heading}
           </h2>
         </div>
 
@@ -41,7 +44,9 @@ export function FeatureCardCollaborate() {
                   </p>
                 </div>
                 <div className="md:col-span-1">
-                  <div className="aspect-square w-full rounded-2xl bg-surface ring-1 ring-border" />
+                  {card.media ?? (
+                    <div className="aspect-square w-full rounded-2xl bg-surface ring-1 ring-border" />
+                  )}
                 </div>
               </div>
             </div>
