@@ -1,15 +1,36 @@
-## Update `TeamsCollaboration.tsx`
+# Salesforce Integration Page
 
-Restructure the "Why use an integration?" section into two stacked parts:
+Create `/salesforce-integration` route and link it from the Products → Integrations mega menu.
 
-### 1. New 2-column copy/image section (top)
-- Left column: Headline "Why use an integration?" + body copy "Bring your team together while simplifying your tech stack. Boost productivity and inclusion by simplifying how your workforce collaborates."
-- Right column: Placeholder image block (matching the `aspect-[4/3] rounded-2xl bg-surface ring-1 ring-border` style used in `TeamsBenefits`)
-- Responsive: stacks on mobile, side-by-side on `lg:`
+## 1. New route: `src/routes/salesforce-integration.tsx`
 
-### 2. Existing 3-column icon grid (below)
-- Keep the three cards (Simplify Your IT, Increase Connection, Boost Productivity) exactly as they are today — same icons, same copy, same visual treatment
-- Remove the old centered heading above them (since the new section now provides the header)
-- Add appropriate spacing between the two sub-sections
+Structure:
+- `<Nav />`
+- Placeholder hero section (simple centered layout, matches editorial rhythm of other pages):
+  - Heading: "Salesforce Integration"
+  - Copy: "Skyrocket sales and productivity and reporting with complete Salesforce integration built right into our VoIP phone service."
+- `<IndividualFeatureCards heading="..." cards={...} />` with the four cards: Screen Pop, Click to Call, Call Recording, Call Control.
+- `<SectionIntroFeatureGrid />` reused from the Microsoft Teams page, with:
+  - Intro copy: "Why use an integration?" (same 2-column intro copy as Teams page)
+  - 3-column feature grid replaced with:
+    - Live Updates — `AlertCircle` icon
+    - Improve Accuracy — `Zap` icon
+    - Stay Current — `MessageCircle` icon
+- `<FAQ items={salesforceFaq} heading="Frequently Asked Questions" />` with the 8 provided Q&As.
+- `<Footer />`
 
-No other files change. Copy on the icon cards stays identical to current.
+Route `head()` gets Salesforce-specific title/description and og tags.
+
+## 2. Nav update: `src/components/yovu/Nav.tsx`
+
+Change the `SalesForce` integration entry so `href` points to `/salesforce-integration` (currently `#`).
+
+## 3. Reuse check
+
+- `IndividualFeatureCards`, `SectionIntroFeatureGrid`, and `FAQ` are already reusable with prop-driven content — no component changes needed beyond passing new data.
+- If `SectionIntroFeatureGrid` currently hardcodes the "Why use an integration?" intro or icons, I'll refactor it to accept `intro` and `features` props so both the Teams and Salesforce pages can share it cleanly. (I'll confirm on entering build mode by reading the file.)
+
+## Technical notes
+- Filename `salesforce-integration.tsx` → route id `/salesforce-integration` (matches TanStack file-based routing rules).
+- Icons from `lucide-react`: `AlertCircle`, `Zap`, `MessageCircle`.
+- No business logic / backend changes.

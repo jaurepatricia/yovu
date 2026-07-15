@@ -1,6 +1,12 @@
-import { Layers, Users, Zap } from "lucide-react";
+import { Layers, Users, Zap, type LucideIcon } from "lucide-react";
 
-const items = [
+export type SectionIntroFeatureItem = {
+  icon: LucideIcon;
+  title: string;
+  copy: string;
+};
+
+const defaultItems: SectionIntroFeatureItem[] = [
   {
     icon: Layers,
     title: "Simplify Your IT",
@@ -18,7 +24,17 @@ const items = [
   },
 ];
 
-export function SectionIntroFeatureGrid() {
+type Props = {
+  heading?: string;
+  intro?: string;
+  items?: SectionIntroFeatureItem[];
+};
+
+export function SectionIntroFeatureGrid({
+  heading = "Why use an integration?",
+  intro = "Bring your team together while simplifying your tech stack. Boost productivity and inclusion by simplifying how your workforce collaborates.",
+  items = defaultItems,
+}: Props) {
   return (
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -26,12 +42,9 @@ export function SectionIntroFeatureGrid() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20 xl:gap-24">
           <div>
             <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-              Why use an integration?
+              {heading}
             </h2>
-            <p className="mt-6 max-w-xl text-pretty text-base text-ink/70">
-              Bring your team together while simplifying your tech stack. Boost productivity and
-              inclusion by simplifying how your workforce collaborates.
-            </p>
+            <p className="mt-6 max-w-xl text-pretty text-base text-ink/70">{intro}</p>
           </div>
           <div className="aspect-[4/3] w-full rounded-2xl bg-surface ring-1 ring-border" />
         </div>
