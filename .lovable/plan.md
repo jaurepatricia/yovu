@@ -1,27 +1,22 @@
-## Add pricing row to Compare Features table
+## Add Monthly/Annual toggle to Compare Features header
 
-Show each tier's price directly under its name in the Compare Features table header so viewers see prices at a glance while scanning features.
+Enlarge the top-left header cell of the Compare Features table and place a Monthly / Annual pill toggle inside it (mirroring the reference screenshot). Prices in the tier header cells switch based on the toggle.
 
-### Change
+### Changes in `src/components/yovu/pricing/CompareFeatures.tsx`
 
-In `src/components/yovu/pricing/CompareFeatures.tsx`, replace the plain `tiers` string array with an array of `{ name, price, note }` objects and render the price beneath the tier name in the sticky-looking table `<thead>`.
+1. Extend the `tiers` data with both monthly and annual prices:
+   - Starter — $18 monthly / $15 annual
+   - Professional — $39 monthly / $32 annual
+   - Advanced — Custom (no toggle effect)
+   - Ultra — Custom (no toggle effect)
 
-Prices (mirrored from `PricingTable.tsx`, monthly rate):
-- Starter — $18 / user / mo
-- Professional — $39 / user / mo
-- Advanced — Custom
-- Ultra — Custom
+2. Add local state `const [annual, setAnnual] = useState(false)`.
 
-### Header cell layout
+3. Make the first `<th>` taller and wider-feeling by increasing vertical padding and rendering a Monthly / Annual segmented pill inside it, styled to match the existing pill on `PricingTable.tsx` (rounded-full, `bg-surface`, `ring-1 ring-border`, active state `bg-signal text-white`). Keep the "Compare Features by Category" heading above.
 
-```text
-| Telephony Features | Starter        | Professional   | Advanced | Ultra   |
-|                    | $18 /user/mo   | $39 /user/mo   | Custom   | Custom  |
-```
+4. Tier header cells render `t.monthly` or `t.annually` based on state. Custom tiers keep showing "Custom". Note text becomes "per user / mo" (monthly) or "per user / mo, billed annually" (annual).
 
-Tier name stays bold in `text-ink`; price renders below in smaller `text-ink/60` text so the visual hierarchy matches the rest of the pricing page.
+### Non-goals
 
-### Notes / non-goals
-
-- No monthly/annual toggle here — the main `PricingTable` above already handles that. Keeping a single monthly figure avoids state duplication and keeps the compare table scannable.
-- No changes to row data, category tabs, or styling tokens.
+- Do not share state with the `PricingTable` toggle above — keeping it local avoids lifting state across sections.
+- No changes to feature rows, categories, or styling tokens.
