@@ -2,7 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { CommunicateHero } from "@/components/yovu/communicate/CommunicateHero";
-import { FeatureCardCollaborate } from "@/components/yovu/communicate/FeatureCardCollaborate";
+import {
+  IndividualFeatureCards,
+  type IndividualFeatureCard,
+} from "@/components/yovu/IndividualFeatureCards";
 import { CommunicateDevices } from "@/components/yovu/communicate/CommunicateDevices";
 import { FloatingGridEnterprise } from "@/components/yovu/communicate/FloatingGridEnterprise";
 import { CommunicateConnect } from "@/components/yovu/communicate/CommunicateConnect";
