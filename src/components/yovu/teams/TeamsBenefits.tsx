@@ -46,6 +46,11 @@ export function TeamsBenefits() {
               >
                 {/* Copy */}
                 <div className={imageRight ? "lg:order-1" : "lg:order-2"}>
+                  {item.kicker && (
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+                      {item.kicker}
+                    </p>
+                  )}
                   <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                     {item.title}
                   </h3>
