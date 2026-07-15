@@ -6,19 +6,20 @@ import {
   useMotionValueEvent,
   type MotionValue,
 } from "motion/react";
+import blueSky from "@/assets/hero/Blue Sky with Clouds.webp";
 
 const steps = [
   {
-    label: "Step 1",
-    copy: "Clients with a Microsoft Teams account add a Microsoft common area phone license.",
+    title: "Add Your Microsoft License",
+    copy: "Start by adding a Microsoft common area phone license to your existing Microsoft Teams account. This simple prerequisite ensures your environment is properly equipped to link seamlessly with our phone system.",
   },
   {
-    label: "Step 2",
-    copy: "The YOVU Teams Connector registers the Teams softphone as an endpoint on the YOVU network.",
+    title: "Connect to the YOVU Network",
+    copy: "Once licensed, YOVU's integration automatically registers your Microsoft Teams softphone as an active endpoint on our secure network. This bridges the two platforms together behind the scenes without any complicated hardware setup.",
   },
   {
-    label: "Step 3",
-    copy: "Any YOVU number can ring one or more Teams clients, and outbound Teams calls route through YOVU.",
+    title: "Make and Receive Calls Anywhere",
+    copy: "With the integration live, your communication is completely unified. Any inbound call to a YOVU number can simultaneously ring one or more of your Teams clients, while all your outbound Teams calls will route reliably through YOVU's powerful VoIP network.",
   },
 ];
 
@@ -30,6 +31,14 @@ export function TeamsHowItWorks() {
     target: sectionRef,
     offset: ["start start", "end end"],
   });
+
+  // Parallax: the sky drifts and settles as the section scrolls through.
+  const { scrollYProgress: bgProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const scale = useTransform(bgProgress, [0, 1], [1.3, 1]);
+  const y = useTransform(bgProgress, [0, 1], ["-5%", "5%"]);
 
   const [active, setActive] = useState(0);
   useMotionValueEvent(scrollYProgress, "change", (v) => {
@@ -48,54 +57,72 @@ export function TeamsHowItWorks() {
     <section
       ref={sectionRef}
       className="relative my-16 lg:my-24"
-      style={{ height: `${count * 100}vh` }}
+      style={{ height: `${count * 140}vh` }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Placeholder background */}
-        <div aria-hidden="true" className="absolute inset-0 bg-surface" />
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        {/* Parallax sky background */}
+        <motion.img
+          src={blueSky}
+          alt=""
+          aria-hidden="true"
+          style={{ scale, y }}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-        {/* Content: heading sits just above the crossfading step copy */}
-        <div className="absolute inset-0">
-          <div className="mx-auto flex h-full max-w-7xl items-center px-6">
-            {/* Left column; right side left open for future imagery */}
-            <div className="max-w-xl lg:max-w-lg">
-              <h2 className="font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
-                How It Works
-              </h2>
-              {/* Steps stacked in one cell so the heading stays fixed above them */}
-              <div className="mt-6 grid">
-                {steps.map((step, i) => (
-                  <div
-                    key={i}
-                    className={`col-start-1 row-start-1 transition-opacity duration-700 ease-out ${
-                      active === i ? "opacity-100" : "pointer-events-none opacity-0"
+        {/* Card matches the content width of the sections above */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
+          <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-16 text-center shadow-2xl shadow-black/10 md:px-10 md:py-20 lg:py-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
+              How it Works
+            </p>
+
+            {/* Horizontal stepper — connector lines fill with scroll */}
+            <div className="mt-12 flex items-center justify-center">
+              {steps.map((_, i) => (
+                <div key={i} className="flex items-center">
+                  <button
+                    type="button"
+                    onClick={() => goTo(i)}
+                    aria-label={`Go to step ${i + 1}`}
+                    aria-current={active === i}
+                    className={`flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-colors duration-300 md:size-10 ${
+                      i <= active ? "bg-signal text-white" : "bg-[#0b1733]/[0.06] text-[#0b1733]/40"
                     }`}
                   >
-                    <span className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
-                      {step.label}
-                    </span>
-                    <p className="mt-3 text-pretty text-base text-ink/70 md:text-lg">{step.copy}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Segmented progress line */}
-        <div className="pointer-events-none absolute inset-0 z-20">
-          <div className="mx-auto flex h-full max-w-7xl items-center px-6">
-            <div className="pointer-events-auto -ml-5 flex flex-col gap-1.5 md:-ml-8">
-              {Array.from({ length: count }).map((_, i) => (
-                <ProgressSegment
-                  key={i}
-                  progress={scrollYProgress}
-                  index={i}
-                  count={count}
-                  onClick={() => goTo(i)}
-                />
+                    {i + 1}
+                  </button>
+                  {i < count - 1 && (
+                    <Connector progress={scrollYProgress} index={i} count={count} />
+                  )}
+                </div>
               ))}
             </div>
+
+            {/* Cycling step content, stacked in one grid cell */}
+            <div className="mt-12 grid">
+              {steps.map((step, i) => (
+                <div
+                  key={i}
+                  className={`col-start-1 row-start-1 transition-opacity duration-500 ease-out ${
+                    active === i ? "opacity-100" : "pointer-events-none opacity-0"
+                  }`}
+                >
+                  <h3 className="font-display text-2xl font-bold tracking-tight text-[#0b1733] md:text-3xl">
+                    {step.title}
+                  </h3>
+                  <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-[#0b1733]/70 md:text-lg">
+                    {step.copy}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="#demo"
+              className="mt-12 inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
+            >
+              Speak to an Expert
+            </a>
           </div>
         </div>
       </div>
@@ -103,26 +130,20 @@ export function TeamsHowItWorks() {
   );
 }
 
-function ProgressSegment({
+/** Thin line between step numbers that fills left-to-right during its step's scroll band. */
+function Connector({
   progress,
   index,
   count,
-  onClick,
 }: {
   progress: MotionValue<number>;
   index: number;
   count: number;
-  onClick: () => void;
 }) {
-  const scaleY = useTransform(progress, [index / count, (index + 1) / count], [0, 1]);
+  const scaleX = useTransform(progress, [index / count, (index + 1) / count], [0, 1]);
   return (
-    <button
-      type="button"
-      aria-label={`Go to step ${index + 1}`}
-      onClick={onClick}
-      className="relative h-16 w-1 overflow-hidden rounded-full bg-ink/25 transition-colors"
-    >
-      <motion.span style={{ scaleY }} className="absolute inset-0 origin-top rounded-full bg-ink" />
-    </button>
+    <div className="relative mx-3 h-px w-32 overflow-hidden bg-[#0b1733]/10 md:mx-4 md:w-56">
+      <motion.span style={{ scaleX }} className="absolute inset-0 origin-left bg-signal" />
+    </div>
   );
 }
