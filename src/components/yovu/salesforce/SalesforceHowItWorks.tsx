@@ -57,7 +57,7 @@ export function SalesforceHowItWorks() {
     <section
       ref={sectionRef}
       className="relative my-16 lg:my-24"
-      style={{ height: `${count * 150}vh` }}
+      style={{ height: `${count * 100}vh` }}
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         {/* Parallax sky background */}
@@ -70,8 +70,8 @@ export function SalesforceHowItWorks() {
         />
 
         {/* Card matches the content width of the sections above */}
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-6">
-          <div className="flex min-h-[80vh] flex-col items-center justify-center rounded-3xl bg-white px-6 py-24 text-center shadow-2xl shadow-black/10 md:px-10 md:py-32 lg:py-40">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+          <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-16 text-center shadow-2xl shadow-black/10 md:px-10 md:py-20 lg:py-24">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
               How it Works
             </p>
@@ -99,7 +99,7 @@ export function SalesforceHowItWorks() {
             </div>
 
             {/* Cycling step content, stacked in one grid cell */}
-            <div className="mt-14 grid min-h-[180px] md:mt-16 md:min-h-[200px]">
+            <div className="mt-14 grid md:mt-16">
               {steps.map((step, i) => (
                 <div
                   key={i}
@@ -116,13 +116,6 @@ export function SalesforceHowItWorks() {
                 </div>
               ))}
             </div>
-
-            <a
-              href="#demo"
-              className="mt-12 inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02] md:mt-14"
-            >
-              Speak to an Expert
-            </a>
           </div>
         </div>
       </div>
