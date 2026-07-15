@@ -11,6 +11,7 @@ import {
   SectionIntroFeatureGrid,
   type SectionIntroFeatureItem,
 } from "@/components/yovu/teams/SectionIntroFeatureGrid";
+import { SalesforceHowItWorks } from "@/components/yovu/salesforce/SalesforceHowItWorks";
 
 const featureCards: IndividualFeatureCard[] = [
   {
@@ -105,7 +106,11 @@ function SalesforceIntegrationPage() {
     <main className="bg-canvas text-ink">
       <Nav />
       <SalesforceHero />
-      <IndividualFeatureCards heading="Everything you need, inside Salesforce" cards={featureCards} />
+      <IndividualFeatureCards
+        heading="Everything you need, inside Salesforce"
+        cards={featureCards}
+      />
+      <SalesforceHowItWorks />
       <SectionIntroFeatureGrid items={integrationBenefits} />
       <FAQ items={faqItems} />
       <Footer />
