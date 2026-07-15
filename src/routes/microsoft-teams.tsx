@@ -54,7 +54,7 @@ function MicrosoftTeamsPage() {
     <main className="bg-canvas text-ink">
       <Nav />
       <TeamsHero />
-      <TeamsBenefits />
+      <ZLayout heading="One shared workspace" items={teamsBenefitsItems} />
       <Statement copy="YOVU's integration brings Microsoft Teams to life, making meetings more personal while boosting real-time collaboration." />
       <TeamsHowItWorks />
       <SectionIntroFeatureGrid />
