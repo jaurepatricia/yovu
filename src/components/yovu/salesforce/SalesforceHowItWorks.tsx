@@ -18,8 +18,8 @@ const steps = [
     copy: "Configure your dashboard to perfectly fit your team's workflow by tailoring user profiles and softphones to specific roles. You can also update search fields so your team only sees the most relevant customer data instantly.",
   },
   {
-    title: "Call, Control, and Log Instantly",
-    copy: "Enjoy a seamless workflow with automated screen pops, one-click calling, and full call controls right inside your CRM. You will save time by capturing call results instantly and reviewing previous recordings directly from the client's account.",
+    title: "Communicate Seamlessly",
+    copy: "Enjoy one-click calling, screen pops, and full call controls without ever leaving your CRM. Save time by automatically logging call results and accessing recordings in one place.",
   },
 ];
 
