@@ -38,7 +38,7 @@ const tiers: Tier[] = [
   },
   {
     name: "Professional",
-    tagline: "Starter + Queuing, Transcription Summary & Sentiment",
+    tagline: "Queuing, Transcription Summary & Sentiment",
     monthly: "39",
     annually: "32",
     priceNote: "per user / month",
@@ -54,7 +54,7 @@ const tiers: Tier[] = [
   },
   {
     name: "Advanced",
-    tagline: "Professional + Analytics, BMS/CRM Integration, 7-Year Recording",
+    tagline: "Analytics, BMS/CRM Integration, 7-Year Recording",
     priceLabel: "Custom",
     priceNote: "\n",
     cta: { label: "Schedule a Call", href: "#demo" },
@@ -71,8 +71,7 @@ const tiers: Tier[] = [
   },
   {
     name: "Ultra",
-    tagline:
-      "Advanced + All Integrations, Included Transcription, Preferred Routing, AI Receptionist",
+    tagline: "All Integrations, Transcription, Preferred Routing, AI Receptionist",
     priceLabel: "Custom",
     priceNote: "\n",
     cta: { label: "Schedule a Call", href: "#demo" },
