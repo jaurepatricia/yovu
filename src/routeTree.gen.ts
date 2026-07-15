@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as V2RouteImport } from './routes/v2'
 import { Route as TbdRouteImport } from './routes/tbd'
+import { Route as SalesforceIntegrationRouteImport } from './routes/salesforce-integration'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
 import { Route as CommunicateRouteImport } from './routes/communicate'
@@ -24,6 +25,11 @@ const V2Route = V2RouteImport.update({
 const TbdRoute = TbdRouteImport.update({
   id: '/tbd',
   path: '/tbd',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SalesforceIntegrationRoute = SalesforceIntegrationRouteImport.update({
+  id: '/salesforce-integration',
+  path: '/salesforce-integration',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
+  '/salesforce-integration': typeof SalesforceIntegrationRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
+  '/salesforce-integration': typeof SalesforceIntegrationRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
+  '/salesforce-integration': typeof SalesforceIntegrationRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
@@ -79,16 +88,25 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
+    | '/salesforce-integration'
     | '/tbd'
     | '/v2'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/communicate' | '/microsoft-teams' | '/pricing' | '/tbd' | '/v2'
+  to:
+    | '/'
+    | '/communicate'
+    | '/microsoft-teams'
+    | '/pricing'
+    | '/salesforce-integration'
+    | '/tbd'
+    | '/v2'
   id:
     | '__root__'
     | '/'
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
+    | '/salesforce-integration'
     | '/tbd'
     | '/v2'
   fileRoutesById: FileRoutesById
@@ -98,6 +116,7 @@ export interface RootRouteChildren {
   CommunicateRoute: typeof CommunicateRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
   PricingRoute: typeof PricingRoute
+  SalesforceIntegrationRoute: typeof SalesforceIntegrationRoute
   TbdRoute: typeof TbdRoute
   V2Route: typeof V2Route
 }
@@ -116,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/tbd'
       fullPath: '/tbd'
       preLoaderRoute: typeof TbdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/salesforce-integration': {
+      id: '/salesforce-integration'
+      path: '/salesforce-integration'
+      fullPath: '/salesforce-integration'
+      preLoaderRoute: typeof SalesforceIntegrationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -154,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommunicateRoute: CommunicateRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
   PricingRoute: PricingRoute,
+  SalesforceIntegrationRoute: SalesforceIntegrationRoute,
   TbdRoute: TbdRoute,
   V2Route: V2Route,
 }
