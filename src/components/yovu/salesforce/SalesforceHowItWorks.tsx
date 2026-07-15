@@ -57,7 +57,7 @@ export function SalesforceHowItWorks() {
     <section
       ref={sectionRef}
       className="relative my-16 lg:my-24"
-      style={{ height: `${count * 100}vh` }}
+      style={{ height: `${count * 150}vh` }}
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         {/* Parallax sky background */}
@@ -72,7 +72,6 @@ export function SalesforceHowItWorks() {
         {/* Card matches the content width of the sections above */}
         <div className="relative z-10 mx-auto w-full max-w-4xl px-6">
           <div className="flex min-h-[80vh] flex-col items-center justify-center rounded-3xl bg-white px-6 py-24 text-center shadow-2xl shadow-black/10 md:px-10 md:py-32 lg:py-40">
-
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
               How it Works
             </p>
@@ -120,7 +119,7 @@ export function SalesforceHowItWorks() {
 
             <a
               href="#demo"
-              className="mt-10 inline-flex items-center justify-center rounded-full bg-signal px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-signal/20 transition-colors hover:bg-signal/90"
+              className="mt-12 inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02] md:mt-14"
             >
               Speak to an Expert
             </a>
