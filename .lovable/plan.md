@@ -1,22 +1,20 @@
-## Add Monthly/Annual toggle to Compare Features header
+## Improve margins in `TeamsBenefits.tsx`
 
-Enlarge the top-left header cell of the Compare Features table and place a Monthly / Annual pill toggle inside it (mirroring the reference screenshot). Prices in the tier header cells switch based on the toggle.
+Scope: only the alternating benefit rows section on `/microsoft-teams`. No copy or structural changes.
 
-### Changes in `src/components/yovu/pricing/CompareFeatures.tsx`
+### Changes
+1. **Row gutter**: increase horizontal gap between copy and image so text doesn't crowd the visual.
+   - `lg:gap-16` → `lg:gap-20 xl:gap-24`
+2. **Row rhythm**: give more vertical breathing room between the three alternating rows.
+   - `space-y-16 lg:space-y-24` → `space-y-20 lg:space-y-32`
+3. **Copy column padding**: add inner side padding on desktop so text sits away from the row edge and aligns more editorially.
+   - Copy `<div>`: add `lg:px-4 xl:px-8`
+4. **Kicker spacing**: bump kicker → headline gap for a cleaner editorial stack.
+   - Kicker `<p>`: `mb-3` → `mb-4`
+5. **Headline → body**: slightly larger gap.
+   - Body `<p>`: `mt-4` → `mt-5`
+6. **Intro block**: increase the gap between the intro and the first row on large screens.
+   - Intro wrapper: `mb-16 lg:mb-24` → `mb-20 lg:mb-28`
 
-1. Extend the `tiers` data with both monthly and annual prices:
-   - Starter — $18 monthly / $15 annual
-   - Professional — $39 monthly / $32 annual
-   - Advanced — Custom (no toggle effect)
-   - Ultra — Custom (no toggle effect)
-
-2. Add local state `const [annual, setAnnual] = useState(false)`.
-
-3. Make the first `<th>` taller and wider-feeling by increasing vertical padding and rendering a Monthly / Annual segmented pill inside it, styled to match the existing pill on `PricingTable.tsx` (rounded-full, `bg-surface`, `ring-1 ring-border`, active state `bg-signal text-white`). Keep the "Compare Features by Category" heading above.
-
-4. Tier header cells render `t.monthly` or `t.annually` based on state. Custom tiers keep showing "Custom". Note text becomes "per user / mo" (monthly) or "per user / mo, billed annually" (annual).
-
-### Non-goals
-
-- Do not share state with the `PricingTable` toggle above — keeping it local avoids lifting state across sections.
-- No changes to feature rows, categories, or styling tokens.
+### Out of scope
+Section-level `py-24 lg:py-32`, container `max-w-7xl px-6`, image aspect ratio, and all copy remain unchanged.
