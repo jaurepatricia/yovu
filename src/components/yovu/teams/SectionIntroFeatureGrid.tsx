@@ -18,7 +18,7 @@ const items = [
   },
 ];
 
-export function TeamsCollaboration() {
+export function SectionIntroFeatureGrid() {
   return (
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
