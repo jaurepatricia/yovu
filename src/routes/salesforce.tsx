@@ -128,7 +128,7 @@ function SalesforceIntegrationPage() {
         cards={featureCards}
       />
       <Statement copy="Transform how you work with customers using YOVU's Salesforce integration for more personalized communication, increased productivity, and real-time results." />
-      <ZLayout heading="Improve Accuracy & Eliminate Manual Processes" items={accuracyItems} />
+      <ZLayout heading="Scale your workflows to new heights" items={accuracyItems} />
       <SalesforceHowItWorks />
       <SectionIntroFeatureGrid items={integrationBenefits} />
       <FAQ items={faqItems} />
