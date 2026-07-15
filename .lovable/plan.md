@@ -1,36 +1,23 @@
-# Salesforce Integration Page
+## Add persistent "Speak to an Expert" CTA to SalesforceHowItWorks
 
-Create `/salesforce-integration` route and link it from the Products → Integrations mega menu.
+Add a single button below the cycling step copy in `src/components/yovu/salesforce/SalesforceHowItWorks.tsx` that stays fixed in place regardless of which step is active or the scroll position.
 
-## 1. New route: `src/routes/salesforce-integration.tsx`
+### Approach
 
-Structure:
-- `<Nav />`
-- Placeholder hero section (simple centered layout, matches editorial rhythm of other pages):
-  - Heading: "Salesforce Integration"
-  - Copy: "Skyrocket sales and productivity and reporting with complete Salesforce integration built right into our VoIP phone service."
-- `<IndividualFeatureCards heading="..." cards={...} />` with the four cards: Screen Pop, Click to Call, Call Recording, Call Control.
-- `<SectionIntroFeatureGrid />` reused from the Microsoft Teams page, with:
-  - Intro copy: "Why use an integration?" (same 2-column intro copy as Teams page)
-  - 3-column feature grid replaced with:
-    - Live Updates — `AlertCircle` icon
-    - Improve Accuracy — `Zap` icon
-    - Stay Current — `MessageCircle` icon
-- `<FAQ items={salesforceFaq} heading="Frequently Asked Questions" />` with the 8 provided Q&As.
-- `<Footer />`
+The three step blocks currently stack in one grid cell and cross-fade by opacity. If the button lived inside each step block, it would fade with the copy and shift if step copy lengths differed.
 
-Route `head()` gets Salesforce-specific title/description and og tags.
+To keep the CTA anchored:
 
-## 2. Nav update: `src/components/yovu/Nav.tsx`
+1. Render the button **once**, as a sibling below the stacked step grid — outside the `.map()` — so it is not duplicated per step and doesn't fade.
+2. Give the stacked step grid a fixed `min-h` so varying copy length between steps doesn't push the button up or down as steps cycle.
+3. Since the card is inside a `sticky top-0` container, the button naturally stays put during scroll — the whole card is pinned.
 
-Change the `SalesForce` integration entry so `href` points to `/salesforce-integration` (currently `#`).
+### Styling
 
-## 3. Reuse check
+- Signal-colored primary button matching site conventions (rounded-full, `bg-signal text-white`, hover state).
+- Centered under the copy with consistent top margin (`mt-10`).
+- Links to the same destination as other "Speak to an Expert" / demo CTAs on the site (will match existing pattern — likely `/contact` or the demo route; will confirm from Nav/FinalCTA usage during implementation).
 
-- `IndividualFeatureCards`, `SectionIntroFeatureGrid`, and `FAQ` are already reusable with prop-driven content — no component changes needed beyond passing new data.
-- If `SectionIntroFeatureGrid` currently hardcodes the "Why use an integration?" intro or icons, I'll refactor it to accept `intro` and `features` props so both the Teams and Salesforce pages can share it cleanly. (I'll confirm on entering build mode by reading the file.)
+### Files changed
 
-## Technical notes
-- Filename `salesforce-integration.tsx` → route id `/salesforce-integration` (matches TanStack file-based routing rules).
-- Icons from `lucide-react`: `AlertCircle`, `Zap`, `MessageCircle`.
-- No business logic / backend changes.
+- `src/components/yovu/salesforce/SalesforceHowItWorks.tsx` — move button outside the step `.map()`, add `min-h` to the stacked grid.
