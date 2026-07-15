@@ -143,15 +143,15 @@ export function CompareFeatures() {
                   <div className="inline-flex items-center rounded-full bg-canvas p-1 ring-1 ring-border">
                     {(["Monthly", "Annual"] as const).map((label) => {
                       const isAnnual = label === "Annual";
-                      const active = isAnnual === annual;
+                      const isActive = isAnnual === annual;
                       return (
                         <button
                           key={label}
                           type="button"
                           onClick={() => setAnnual(isAnnual)}
-                          aria-pressed={active}
+                          aria-pressed={isActive}
                           className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
-                            active ? "bg-signal text-white" : "text-ink/70 hover:text-ink"
+                            isActive ? "bg-signal text-white" : "text-ink/70 hover:text-ink"
                           }`}
                         >
                           {label}
