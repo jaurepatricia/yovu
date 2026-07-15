@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layers, Users, Zap } from "lucide-react";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { Statement } from "@/components/yovu/Statement";
@@ -7,26 +6,7 @@ import { FAQ } from "@/components/yovu/FAQ";
 import { TeamsHero } from "@/components/yovu/teams/TeamsHero";
 import { TeamsBenefits } from "@/components/yovu/teams/TeamsBenefits";
 import { TeamsHowItWorks } from "@/components/yovu/teams/TeamsHowItWorks";
-import { SectionIntro } from "@/components/yovu/layouts/SectionIntro";
-import { FeatureGrid } from "@/components/yovu/layouts/FeatureGrid";
-
-const collaborationFeatures = [
-  {
-    icon: Layers,
-    title: "Simplify Your IT",
-    copy: "Reduce the number of applications your team needs to juggle, lowering support costs while increasing efficiency.",
-  },
-  {
-    icon: Users,
-    title: "Increase Connection",
-    copy: "Voice-enabled collaboration is a growing asset for company inclusion, keeping remote and distributed teams connected.",
-  },
-  {
-    icon: Zap,
-    title: "Boost Productivity",
-    copy: "When employees can easily collaborate and connect from any device, business goals are achieved faster.",
-  },
-];
+import { TeamsCollaboration } from "@/components/yovu/teams/TeamsCollaboration";
 
 const faqItems = [
   {
@@ -59,11 +39,7 @@ function MicrosoftTeamsPage() {
       <TeamsBenefits />
       <Statement copy="YOVU's integration brings Microsoft Teams to life, making meetings more personal while boosting real-time collaboration." />
       <TeamsHowItWorks />
-      <SectionIntro
-        headline="Why use an integration?"
-        body="Bring your team together while simplifying your tech stack. Boost productivity and inclusion by simplifying how your workforce collaborates."
-      />
-      <FeatureGrid items={collaborationFeatures} />
+      <TeamsCollaboration />
       <FAQ heading="Frequently Asked Questions" items={faqItems} />
       <Footer />
     </main>
