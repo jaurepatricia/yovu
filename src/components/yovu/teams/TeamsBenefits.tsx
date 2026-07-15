@@ -25,10 +25,6 @@ export function TeamsBenefits() {
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             Core Benefits of YOVU + Microsoft Teams
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-ink/70 md:text-lg">
-            Combine your tools into one shared workspace to chat, meet, share files, and make calls
-            seamlessly.
-          </p>
         </div>
 
         {/* Z-style alternating rows */}
