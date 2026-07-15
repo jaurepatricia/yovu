@@ -4,7 +4,25 @@ import { Footer } from "@/components/yovu/Footer";
 import { Statement } from "@/components/yovu/Statement";
 import { FAQ } from "@/components/yovu/FAQ";
 import { TeamsHero } from "@/components/yovu/teams/TeamsHero";
-import { TeamsBenefits } from "@/components/yovu/teams/TeamsBenefits";
+import { ZLayout } from "@/components/yovu/ZLayout";
+
+const teamsBenefitsItems = [
+  {
+    kicker: "COMMUNICATION",
+    title: "Communicate effectively without leaving Teams",
+    copy: "Make and receive all your business calls directly within the Microsoft Teams interface. Unify your communication channels into a single platform so your team can collaborate without switching contexts.",
+  },
+  {
+    kicker: "MOBILITY",
+    title: "Work from anywhere, on any device",
+    copy: "Install Teams on any PC, Mac, or mobile device to keep your team connected on the go. Stay fully accessible and responsive no matter where your workday takes you.",
+  },
+  {
+    kicker: "SECURITY",
+    title: "Protect your data with built-in security",
+    copy: "Enjoy enterprise-grade, end-to-end encryption for all your signaling and media. You maintain complete administrative control, including the ability to revoke Microsoft 365 tenant access securely at any time.",
+  },
+];
 import { TeamsHowItWorks } from "@/components/yovu/teams/TeamsHowItWorks";
 import { SectionIntroFeatureGrid } from "@/components/yovu/teams/SectionIntroFeatureGrid";
 
