@@ -2,8 +2,9 @@ import { motion } from "motion/react";
 
 const items = [
   {
-    title: "Communicate Effectively",
-    copy: "Make and receive business calls directly within the Microsoft Teams interface.",
+    kicker: "COMMUNICATION",
+    title: "Communicate effectively without leaving Teams",
+    copy: "Make and receive all your business calls directly within the Microsoft Teams interface. Unify your communication channels into a single platform so your team can collaborate without switching contexts.",
   },
   {
     title: "Work from Anywhere",
