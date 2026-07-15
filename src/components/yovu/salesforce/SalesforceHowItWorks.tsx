@@ -72,12 +72,12 @@ export function SalesforceHowItWorks() {
         {/* Card matches the content width of the sections above */}
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
           <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-16 text-center shadow-2xl shadow-black/10 md:px-10 md:py-20 lg:py-24">
-            <h2 className="font-display text-4xl font-bold tracking-tight text-[#0b1733] md:text-5xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
               How it Works
-            </h2>
+            </p>
 
             {/* Horizontal stepper — connector lines fill with scroll */}
-            <div className="mt-14 flex items-center justify-center md:mt-16">
+            <div className="mt-8 flex items-center justify-center md:mt-10">
               {steps.map((_, i) => (
                 <div key={i} className="flex items-center">
                   <button
