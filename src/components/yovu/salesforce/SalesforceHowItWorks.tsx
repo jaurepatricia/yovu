@@ -135,7 +135,7 @@ function Connector({
 }) {
   const scaleX = useTransform(progress, [index / count, (index + 1) / count], [0, 1]);
   return (
-    <div className="relative mx-3 h-px w-16 overflow-hidden bg-[#0b1733]/10 md:mx-4 md:w-24">
+    <div className="relative mx-3 h-px w-32 overflow-hidden bg-[#0b1733]/10 md:mx-4 md:w-56">
       <motion.span style={{ scaleX }} className="absolute inset-0 origin-left bg-signal" />
     </div>
   );
