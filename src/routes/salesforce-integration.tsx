@@ -57,7 +57,7 @@ const faqItems = [
   },
   {
     q: "Who can use the YOVU Salesforce integration?",
-    a: "YOVU states that new or existing YOVU customers with a Salesforce Lightning account can access the Salesforce phone integration.",
+    a: "New or existing YOVU customers with a Salesforce Lightning account can access the Salesforce phone integration.",
   },
   {
     q: "How does screen pop work?",
