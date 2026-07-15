@@ -44,7 +44,7 @@ const features = [
 const integrations = [
   { href: "#", label: "Applied Epic" },
   { href: "/microsoft-teams", label: "Microsoft" },
-  { href: "/salesforce-integration", label: "SalesForce" },
+  { href: "/salesforce", label: "SalesForce" },
 ];
 
 const triggerCls =

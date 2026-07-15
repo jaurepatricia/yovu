@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as V2RouteImport } from './routes/v2'
 import { Route as TbdRouteImport } from './routes/tbd'
-import { Route as SalesforceIntegrationRouteImport } from './routes/salesforce-integration'
+import { Route as SalesforceRouteImport } from './routes/salesforce'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
 import { Route as CommunicateRouteImport } from './routes/communicate'
@@ -27,9 +27,9 @@ const TbdRoute = TbdRouteImport.update({
   path: '/tbd',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SalesforceIntegrationRoute = SalesforceIntegrationRouteImport.update({
-  id: '/salesforce-integration',
-  path: '/salesforce-integration',
+const SalesforceRoute = SalesforceRouteImport.update({
+  id: '/salesforce',
+  path: '/salesforce',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -58,7 +58,7 @@ export interface FileRoutesByFullPath {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
-  '/salesforce-integration': typeof SalesforceIntegrationRoute
+  '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
@@ -67,7 +67,7 @@ export interface FileRoutesByTo {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
-  '/salesforce-integration': typeof SalesforceIntegrationRoute
+  '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
@@ -77,7 +77,7 @@ export interface FileRoutesById {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
-  '/salesforce-integration': typeof SalesforceIntegrationRoute
+  '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
 }
@@ -88,7 +88,7 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
-    | '/salesforce-integration'
+    | '/salesforce'
     | '/tbd'
     | '/v2'
   fileRoutesByTo: FileRoutesByTo
@@ -97,7 +97,7 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
-    | '/salesforce-integration'
+    | '/salesforce'
     | '/tbd'
     | '/v2'
   id:
@@ -106,7 +106,7 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
-    | '/salesforce-integration'
+    | '/salesforce'
     | '/tbd'
     | '/v2'
   fileRoutesById: FileRoutesById
@@ -116,7 +116,7 @@ export interface RootRouteChildren {
   CommunicateRoute: typeof CommunicateRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
   PricingRoute: typeof PricingRoute
-  SalesforceIntegrationRoute: typeof SalesforceIntegrationRoute
+  SalesforceRoute: typeof SalesforceRoute
   TbdRoute: typeof TbdRoute
   V2Route: typeof V2Route
 }
@@ -137,11 +137,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TbdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/salesforce-integration': {
-      id: '/salesforce-integration'
-      path: '/salesforce-integration'
-      fullPath: '/salesforce-integration'
-      preLoaderRoute: typeof SalesforceIntegrationRouteImport
+    '/salesforce': {
+      id: '/salesforce'
+      path: '/salesforce'
+      fullPath: '/salesforce'
+      preLoaderRoute: typeof SalesforceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -180,10 +180,20 @@ const rootRouteChildren: RootRouteChildren = {
   CommunicateRoute: CommunicateRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
   PricingRoute: PricingRoute,
-  SalesforceIntegrationRoute: SalesforceIntegrationRoute,
+  SalesforceRoute: SalesforceRoute,
   TbdRoute: TbdRoute,
   V2Route: V2Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -3,6 +3,8 @@ import { AlertCircle, MessageCircle, Zap } from "lucide-react";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { FAQ } from "@/components/yovu/FAQ";
+import { Statement } from "@/components/yovu/Statement";
+import { ZLayout, type ZLayoutItem } from "@/components/yovu/ZLayout";
 import {
   IndividualFeatureCards,
   type IndividualFeatureCard,
@@ -12,6 +14,19 @@ import {
   type SectionIntroFeatureItem,
 } from "@/components/yovu/teams/SectionIntroFeatureGrid";
 import { SalesforceHowItWorks } from "@/components/yovu/salesforce/SalesforceHowItWorks";
+
+const accuracyItems: ZLayoutItem[] = [
+  {
+    title: "Activity Log",
+    copy: "Review complete call history, reports and enter new data from within an active call. Stay in the account when the call is finished to complete logs on the spot. Log calls in any Object within focus logging. This unique integration allows admin, customer service and team members the ability to leverage the time-saving feature.",
+    cta: { label: "Learn More", href: "#demo" },
+  },
+  {
+    title: "Call Analytics",
+    copy: "From within Salesforce, you have instant access to all call details, history and recordings. Customize the experience to suit your unique business requirements by leveraging dashboards and reports. Understand who is achieving the most calls on your team. Engage in gamification for increased activity to help propel productivity.",
+    cta: { label: "See it in Action", href: "#demo" },
+  },
+];
 
 const featureCards: IndividualFeatureCard[] = [
   {
@@ -110,6 +125,8 @@ function SalesforceIntegrationPage() {
         heading="Everything you need, inside Salesforce"
         cards={featureCards}
       />
+      <Statement copy="Transform how you work with customers using YOVU's Salesforce integration for more personalized communication, increased productivity, and real-time results." />
+      <ZLayout heading="Improve Accuracy & Eliminate Manual Processes" items={accuracyItems} />
       <SalesforceHowItWorks />
       <SectionIntroFeatureGrid items={integrationBenefits} />
       <FAQ items={faqItems} />
@@ -118,7 +135,7 @@ function SalesforceIntegrationPage() {
   );
 }
 
-export const Route = createFileRoute("/salesforce-integration")({
+export const Route = createFileRoute("/salesforce")({
   head: () => ({
     meta: [
       { title: "Salesforce Integration — YOVU" },

@@ -6,6 +6,7 @@ export type ZLayoutItem = {
   title: string;
   copy: string;
   media?: ReactNode;
+  cta?: { label: string; href: string };
 };
 
 type ZLayoutProps = {
@@ -58,6 +59,14 @@ export function ZLayout({ heading, eyebrow, intro, items, className }: ZLayoutPr
                     {item.title}
                   </h3>
                   <p className="mt-5 max-w-xl text-pretty text-base text-ink/70">{item.copy}</p>
+                  {item.cta && (
+                    <a
+                      href={item.cta.href}
+                      className="mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-ink ring-1 ring-border transition-colors hover:bg-ink/5"
+                    >
+                      {item.cta.label}
+                    </a>
+                  )}
                 </div>
                 <div className={imageRight ? "lg:order-2" : "lg:order-1"}>
                   {item.media ?? (
