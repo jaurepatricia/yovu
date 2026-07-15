@@ -1,20 +1,15 @@
-## Improve margins in `TeamsBenefits.tsx`
+## Update TeamsBenefits items
 
-Scope: only the alternating benefit rows section on `/microsoft-teams`. No copy or structural changes.
+Update the `items` array in `src/components/yovu/teams/TeamsBenefits.tsx` so the second and third entries match the kicker + headline + body copy style used by the first entry.
 
-### Changes
-1. **Row gutter**: increase horizontal gap between copy and image so text doesn't crowd the visual.
-   - `lg:gap-16` → `lg:gap-20 xl:gap-24`
-2. **Row rhythm**: give more vertical breathing room between the three alternating rows.
-   - `space-y-16 lg:space-y-24` → `space-y-20 lg:space-y-32`
-3. **Copy column padding**: add inner side padding on desktop so text sits away from the row edge and aligns more editorially.
-   - Copy `<div>`: add `lg:px-4 xl:px-8`
-4. **Kicker spacing**: bump kicker → headline gap for a cleaner editorial stack.
-   - Kicker `<p>`: `mb-3` → `mb-4`
-5. **Headline → body**: slightly larger gap.
-   - Body `<p>`: `mt-4` → `mt-5`
-6. **Intro block**: increase the gap between the intro and the first row on large screens.
-   - Intro wrapper: `mb-16 lg:mb-24` → `mb-20 lg:mb-28`
+**Item 2 (Mobility)**
+- kicker: `MOBILITY`
+- title: `Work from anywhere, on any device`
+- copy: `Install Teams on any PC, Mac, or mobile device to keep your team connected on the go. Stay fully accessible and responsive no matter where your workday takes you.`
 
-### Out of scope
-Section-level `py-24 lg:py-32`, container `max-w-7xl px-6`, image aspect ratio, and all copy remain unchanged.
+**Item 3 (Security)**
+- kicker: `SECURITY`
+- title: `Protect your data with built-in security`
+- copy: `Enjoy enterprise-grade, end-to-end encryption for all your signaling and media. You maintain complete administrative control, including the ability to revoke Microsoft 365 tenant access securely at any time.`
+
+No component/markup changes — the existing render already handles the optional `kicker` field.

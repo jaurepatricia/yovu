@@ -7,12 +7,14 @@ const items = [
     copy: "Make and receive all your business calls directly within the Microsoft Teams interface. Unify your communication channels into a single platform so your team can collaborate without switching contexts.",
   },
   {
-    title: "Work from Anywhere",
-    copy: "Install Teams on any PC, Mac, or mobile device to keep your team connected on the go.",
+    kicker: "MOBILITY",
+    title: "Work from anywhere, on any device",
+    copy: "Install Teams on any PC, Mac, or mobile device to keep your team connected on the go. Stay fully accessible and responsive no matter where your workday takes you.",
   },
   {
-    title: "Built-in Security",
-    copy: "Enjoy enterprise-grade, end-to-end encryption for all signaling and media. You maintain full control with the ability to revoke Microsoft 365 tenant access at any time.",
+    kicker: "SECURITY",
+    title: "Protect your data with built-in security",
+    copy: "Enjoy enterprise-grade, end-to-end encryption for all your signaling and media. You maintain complete administrative control, including the ability to revoke Microsoft 365 tenant access securely at any time.",
   },
 ];
 
