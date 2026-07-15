@@ -37,7 +37,7 @@ export function TeamsCollaboration() {
         </div>
 
         {/* 3-column icon grid */}
-        <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:mt-28 lg:grid-cols-3">
+        <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:mt-32 lg:grid-cols-3">
           {items.map(({ icon: Icon, title, copy }) => (
             <div key={title}>
               <Icon className="size-8 text-signal" strokeWidth={1.75} />
