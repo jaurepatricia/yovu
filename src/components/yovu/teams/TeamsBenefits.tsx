@@ -21,7 +21,7 @@ export function TeamsBenefits() {
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Centered intro */}
-        <div className="mx-auto mb-20 max-w-3xl text-center lg:mb-28">
+        <div className="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             One shared workspace
           </h2>
