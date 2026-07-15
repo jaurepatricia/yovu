@@ -6,7 +6,7 @@ import { FAQ } from "@/components/yovu/FAQ";
 import { TeamsHero } from "@/components/yovu/teams/TeamsHero";
 import { TeamsBenefits } from "@/components/yovu/teams/TeamsBenefits";
 import { TeamsHowItWorks } from "@/components/yovu/teams/TeamsHowItWorks";
-import { TeamsCollaboration } from "@/components/yovu/teams/TeamsCollaboration";
+import { SectionIntroFeatureGrid } from "@/components/yovu/teams/SectionIntroFeatureGrid";
 
 const faqItems = [
   {
@@ -39,7 +39,7 @@ function MicrosoftTeamsPage() {
       <TeamsBenefits />
       <Statement copy="YOVU's integration brings Microsoft Teams to life, making meetings more personal while boosting real-time collaboration." />
       <TeamsHowItWorks />
-      <TeamsCollaboration />
+      <SectionIntroFeatureGrid />
       <FAQ heading="Frequently Asked Questions" items={faqItems} />
       <Footer />
     </main>
