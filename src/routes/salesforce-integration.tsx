@@ -73,7 +73,7 @@ const faqItems = [
   },
   {
     q: "What call controls are available inside Salesforce?",
-    a: "YOVU says users can manage calls from within Salesforce, including transferring, holding, ending, and switching to a second call.",
+    a: "Users can manage calls from within Salesforce, including transferring, holding, ending, and switching to a second call.",
   },
   {
     q: "How does the integration improve reporting and accuracy?",
@@ -81,7 +81,7 @@ const faqItems = [
   },
   {
     q: "Can the setup be customized for different users or teams?",
-    a: "Yes, YOVU says profiles, softphones, and search fields can be tailored to user roles and business requirements from the dashboard.",
+    a: "Yes, profiles, softphones, and search fields can be tailored to user roles and business requirements from the dashboard.",
   },
 ];
 
