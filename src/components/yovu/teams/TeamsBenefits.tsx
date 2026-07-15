@@ -2,8 +2,9 @@ import { motion } from "motion/react";
 
 const items = [
   {
-    title: "Communicate Effectively",
-    copy: "Make and receive business calls directly within the Microsoft Teams interface.",
+    kicker: "COMMUNICATION",
+    title: "Communicate effectively without leaving Teams",
+    copy: "Make and receive all your business calls directly within the Microsoft Teams interface. Unify your communication channels into a single platform so your team can collaborate without switching contexts.",
   },
   {
     title: "Work from Anywhere",
@@ -45,6 +46,11 @@ export function TeamsBenefits() {
               >
                 {/* Copy */}
                 <div className={imageRight ? "lg:order-1" : "lg:order-2"}>
+                  {item.kicker && (
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+                      {item.kicker}
+                    </p>
+                  )}
                   <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                     {item.title}
                   </h3>
