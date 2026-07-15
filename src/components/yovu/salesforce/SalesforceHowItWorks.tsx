@@ -71,27 +71,22 @@ export function SalesforceHowItWorks() {
 
         {/* Card matches the content width of the sections above */}
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-          <div className="rounded-3xl bg-white p-10 shadow-2xl shadow-black/10 md:p-14 lg:p-16">
+          <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-16 text-center shadow-2xl shadow-black/10 md:px-10 md:py-20 lg:py-24">
             <h2 className="font-display text-4xl font-bold tracking-tight text-[#0b1733] md:text-5xl">
               How it Works
             </h2>
 
             {/* Horizontal stepper — connector lines fill with scroll */}
-            <div className="mt-10 flex items-center gap-4 md:mt-12 md:gap-6">
+            <div className="mt-14 flex items-center justify-center md:mt-16">
               {steps.map((_, i) => (
-                <div
-                  key={i}
-                  className={`flex items-center ${i < count - 1 ? "flex-1" : ""} gap-4 md:gap-6`}
-                >
+                <div key={i} className="flex items-center">
                   <button
                     type="button"
                     onClick={() => goTo(i)}
                     aria-label={`Go to step ${i + 1}`}
                     aria-current={active === i}
                     className={`flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-colors duration-300 md:size-10 ${
-                      i <= active
-                        ? "bg-[#0b1733] text-white"
-                        : "bg-[#0b1733]/[0.06] text-[#0b1733]/40"
+                      i <= active ? "bg-signal text-white" : "bg-[#0b1733]/[0.06] text-[#0b1733]/40"
                     }`}
                   >
                     {i + 1}
@@ -104,7 +99,7 @@ export function SalesforceHowItWorks() {
             </div>
 
             {/* Cycling step content, stacked in one grid cell */}
-            <div className="mt-10 grid md:mt-12">
+            <div className="mt-14 grid md:mt-16">
               {steps.map((step, i) => (
                 <div
                   key={i}
@@ -115,7 +110,7 @@ export function SalesforceHowItWorks() {
                   <h3 className="font-display text-2xl font-bold tracking-tight text-[#0b1733] md:text-3xl">
                     {step.title}
                   </h3>
-                  <p className="mt-4 max-w-2xl text-pretty text-base text-[#0b1733]/70 md:text-lg">
+                  <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-[#0b1733]/70 md:text-lg">
                     {step.copy}
                   </p>
                 </div>
@@ -140,8 +135,8 @@ function Connector({
 }) {
   const scaleX = useTransform(progress, [index / count, (index + 1) / count], [0, 1]);
   return (
-    <div className="relative h-px flex-1 overflow-hidden bg-[#0b1733]/10">
-      <motion.span style={{ scaleX }} className="absolute inset-0 origin-left bg-[#0b1733]" />
+    <div className="relative mx-3 h-px w-16 overflow-hidden bg-[#0b1733]/10 md:mx-4 md:w-24">
+      <motion.span style={{ scaleX }} className="absolute inset-0 origin-left bg-signal" />
     </div>
   );
 }
