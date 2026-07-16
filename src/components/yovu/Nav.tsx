@@ -161,7 +161,7 @@ export function Nav() {
               {/* About Us */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <a href="#" className={itemCls}>
+                  <a href="/about-us" className={itemCls}>
                     About Us
                   </a>
                 </NavigationMenuLink>
