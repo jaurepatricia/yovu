@@ -98,7 +98,7 @@ export function Nav() {
 
               {/* Products */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className={triggerCls}>Products</NavigationMenuTrigger>
+                <NavigationMenuTrigger className={triggerCls}>Product</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[640px] grid-cols-2 gap-8 p-6">
                     {/* Features column */}
