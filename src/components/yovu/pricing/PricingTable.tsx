@@ -163,7 +163,6 @@ export function PricingTable() {
                     </div>
                     <p className="mt-1 text-sm text-ink/60">
                       {tier.priceNote}
-                      {annual ? ", billed annually" : ""}
                     </p>
                   </>
                 ) : (
