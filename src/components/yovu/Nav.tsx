@@ -13,7 +13,7 @@ import { StickyNoteTrigger } from "./StickyNotes";
 import { ThemeToggle } from "./ThemeToggle";
 import { YovuLogo } from "./YovuLogo";
 
-function useAlignNavViewport(rootRef: React.RefObject<HTMLDivElement>) {
+function useAlignNavViewport(rootRef: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
