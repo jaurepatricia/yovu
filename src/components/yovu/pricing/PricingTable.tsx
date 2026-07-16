@@ -40,7 +40,7 @@ const tiers: Tier[] = [
     tagline: "Queuing, Transcription Summary & Sentiment",
     monthly: "39",
     annually: "32",
-    priceNote: "per user / month",
+    priceNote: "per user",
     cta: { label: "Get Started", href: "#demo" },
     featuresTitle: "Everything in Starter, plus:",
     features: [
