@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,6 +12,47 @@ import { LocaleToggle } from "./LocaleToggle";
 import { StickyNoteTrigger } from "./StickyNotes";
 import { ThemeToggle } from "./ThemeToggle";
 import { YovuLogo } from "./YovuLogo";
+
+function useAlignNavViewport(rootRef: React.RefObject<HTMLDivElement>) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const align = () => {
+      const openTrigger = root.querySelector<HTMLElement>(
+        '[data-radix-collection-item] > button[data-state="open"]',
+      );
+      const viewportWrapper = root.querySelector<HTMLElement>(
+        ".absolute.left-0.top-full",
+      );
+      if (!viewportWrapper) return;
+      if (!openTrigger) {
+        viewportWrapper.style.transform = "";
+        return;
+      }
+      const list = root.querySelector<HTMLElement>('[data-slot="navigation-menu-list"], ul');
+      const listLeft = list?.getBoundingClientRect().left ?? 0;
+      const triggerRect = openTrigger.getBoundingClientRect();
+      const viewport = viewportWrapper.querySelector<HTMLElement>(".origin-top-center");
+      const viewportWidth = viewport?.getBoundingClientRect().width ?? 0;
+      const triggerCenter = triggerRect.left + triggerRect.width / 2 - listLeft;
+      const offset = Math.max(0, triggerCenter - viewportWidth / 2);
+      viewportWrapper.style.transform = `translateX(${offset}px)`;
+    };
+    align();
+    const mo = new MutationObserver(() => align());
+    mo.observe(root, {
+      attributes: true,
+      subtree: true,
+      attributeFilter: ["data-state", "style"],
+    });
+    window.addEventListener("resize", align);
+    return () => {
+      mo.disconnect();
+      window.removeEventListener("resize", align);
+    };
+  }, [rootRef]);
+}
+
 
 const industries = [
   { href: "#", label: "Insurance" },
