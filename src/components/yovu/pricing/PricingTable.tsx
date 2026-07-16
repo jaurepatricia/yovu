@@ -82,7 +82,7 @@ const tiers: Tier[] = [
         text: "All Integrations",
         tooltip: "Epic, Acturis, Vertafore, Salesforce, NetSuite, and Web CRM",
       },
-      "Full transcription included",
+      "Full Transcriptions",
       "Preferred Agent Routing",
       "AI Receptionist",
     ],
