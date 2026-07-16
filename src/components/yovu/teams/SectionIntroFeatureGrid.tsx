@@ -25,12 +25,14 @@ const defaultItems: SectionIntroFeatureItem[] = [
 ];
 
 type Props = {
+  eyebrow?: string;
   heading?: string;
   intro?: string;
   items?: SectionIntroFeatureItem[];
 };
 
 export function SectionIntroFeatureGrid({
+  eyebrow,
   heading = "Why use an integration?",
   intro = "Bring your team together while simplifying your tech stack. Boost productivity and inclusion by simplifying how your workforce collaborates.",
   items = defaultItems,
@@ -41,6 +43,11 @@ export function SectionIntroFeatureGrid({
         {/* 2-column intro */}
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20 xl:gap-24">
           <div>
+            {eyebrow && (
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-signal">
+                {eyebrow}
+              </p>
+            )}
             <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
               {heading}
             </h2>

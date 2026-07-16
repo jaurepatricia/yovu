@@ -84,7 +84,8 @@ function AboutUsPage() {
       <Nav />
       <AboutHero />
       <SectionIntroFeatureGrid
-        heading="Our Mission & Values"
+        eyebrow="Mission & Values"
+        heading="Built Differently"
         intro="In 2011, our founders left big telecom with a simple conviction: Canadian businesses deserved better. Phone service should be reliable, support should be responsive, and clients should never feel like just another ticket in the queue. That belief became YOVU. We built the kind of business phone company we knew should exist — one with modern technology, dependable service, and real people who answer when clients call. Fifteen years later, that is still the standard we hold ourselves to."
         items={values}
       />

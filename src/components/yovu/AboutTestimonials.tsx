@@ -54,7 +54,7 @@ function TestimonialsColumn({
             {testimonials.map(({ text, name }, i) => (
               <div
                 key={i}
-                className="w-full max-w-sm rounded-3xl bg-card p-8 shadow-sm shadow-black/[0.03] ring-1 ring-border"
+                className="w-full rounded-3xl bg-card p-8 shadow-sm shadow-black/[0.03] ring-1 ring-border"
               >
                 <p className="text-pretty text-base leading-relaxed text-ink/80">{text}</p>
                 <p className="mt-5 font-medium tracking-tight text-ink">{name}</p>
@@ -71,21 +71,21 @@ export function AboutTestimonials() {
   return (
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             What Customers Say About Us
           </h2>
           <p className="mx-auto mt-5 text-pretty text-base text-ink/70 md:text-lg">
             Backed by a 5-star Google rating, we consistently hear from clients who love how our
-            technology and support transform their workday, so check out what they are saying below.
+            technology and support transform their workday.
           </p>
         </div>
 
         <div className="mt-16 flex justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)] max-h-[42rem]">
-          <TestimonialsColumn testimonials={firstColumn} duration={44} />
+          <TestimonialsColumn testimonials={firstColumn} className="flex-1" duration={44} />
           <TestimonialsColumn
             testimonials={secondColumn}
-            className="hidden md:block"
+            className="hidden flex-1 md:block"
             duration={52}
           />
         </div>
