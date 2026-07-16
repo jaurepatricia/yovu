@@ -64,8 +64,9 @@ const tiers: Tier[] = [
       "Scripting",
       "Audio Signatures",
       "MS Teams Softphone",
-      "84-month recording",
       { text: "1 Integration", tooltip: "Epic, Acturis, Vertafore, or Salesforce" },
+      "84-month recording",
+
     ],
     emphasize: true,
   },
