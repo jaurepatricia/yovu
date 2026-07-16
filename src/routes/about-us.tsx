@@ -4,6 +4,7 @@ import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { Statement } from "@/components/yovu/Statement";
 import { AboutTestimonials } from "@/components/yovu/AboutTestimonials";
+import { AboutMap } from "@/components/yovu/AboutMap";
 import {
   SectionIntroFeatureGrid,
   type SectionIntroFeatureItem,
@@ -92,6 +93,7 @@ function AboutUsPage() {
       <Statement copy="We know that better conversations lead to real results. We help with the work that comes before and after each call so that professionals can focus on the work that matters most – connecting with people." />
       <LeadershipTeam />
       <AboutTestimonials />
+      <AboutMap />
       <Footer />
     </main>
   );
