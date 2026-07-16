@@ -49,7 +49,7 @@ function PricingPage() {
       <div className="pt-20">
         <PricingTable />
         <CompareFeatures />
-        <NonProfitBanner />
+        
         <FAQ items={faqItems} />
 
       </div>
