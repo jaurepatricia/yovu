@@ -96,55 +96,57 @@ export function Nav() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              {/* Products */}
+              {/* Product */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className={triggerCls}>Product</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-[640px] grid-cols-2 gap-8 p-6">
-                    {/* Features column */}
-                    <div>
-                      <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
-                        CAPABILITIES
-                      </p>
-                      <ul className="flex flex-col gap-1">
-                        {features.map((f) => (
-                          <li key={f.title}>
-                            <NavigationMenuLink asChild>
-                              <a
-                                href={f.href}
-                                className="block rounded-md px-2 py-2 transition-colors hover:bg-accent"
-                              >
-                                <div className="text-sm font-semibold text-ink">{f.title}</div>
-                                <p className="mt-0.5 text-xs leading-snug text-ink/60">
-                                  {f.description}
-                                </p>
-                              </a>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="w-[360px] p-6">
+                    <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
+                      CAPABILITIES
+                    </p>
+                    <ul className="flex flex-col gap-1">
+                      {features.map((f) => (
+                        <li key={f.title}>
+                          <NavigationMenuLink asChild>
+                            <a
+                              href={f.href}
+                              className="block rounded-md px-2 py-2 transition-colors hover:bg-accent"
+                            >
+                              <div className="text-sm font-semibold text-ink">{f.title}</div>
+                              <p className="mt-0.5 text-xs leading-snug text-ink/60">
+                                {f.description}
+                              </p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
-                    {/* Integrations column */}
-                    <div>
-                      <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
-                        Integrations
-                      </p>
-                      <ul className="flex flex-col">
-                        {integrations.map((i) => (
-                          <li key={i.label}>
-                            <NavigationMenuLink asChild>
-                              <a
-                                href={i.href}
-                                className="block rounded-md px-2 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-accent hover:text-ink"
-                              >
-                                {i.label}
-                              </a>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+              {/* Integrations */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className={triggerCls}>Integrations</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-64 p-4">
+                    <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
+                      Integrations
+                    </p>
+                    <ul className="flex flex-col">
+                      {integrations.map((i) => (
+                        <li key={i.label}>
+                          <NavigationMenuLink asChild>
+                            <a
+                              href={i.href}
+                              className="block rounded-md px-2 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-accent hover:text-ink"
+                            >
+                              {i.label}
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
