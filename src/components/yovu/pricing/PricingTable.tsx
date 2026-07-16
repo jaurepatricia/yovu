@@ -148,9 +148,6 @@ export function PricingTable() {
                 <h2 className="font-display text-2xl font-bold tracking-tight text-ink">
                   {tier.name}
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-ink/60 md:min-h-[3.5rem] lg:min-h-[5rem]">
-                  {tier.tagline}
-                </p>
               </div>
 
               {/* Price */}
