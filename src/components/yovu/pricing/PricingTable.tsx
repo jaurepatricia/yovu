@@ -22,7 +22,7 @@ const tiers: Tier[] = [
     tagline: "Standard Voice + Core Communicator",
     monthly: "18",
     annually: "15",
-    priceNote: "per user / month",
+    priceNote: "per user",
     cta: { label: "Get Started", href: "#demo" },
     featuresTitle: "What's included:",
     features: [
