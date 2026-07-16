@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AlertCircle, MessageCircle, Zap } from "lucide-react";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { FAQ } from "@/components/yovu/FAQ";
@@ -7,7 +8,29 @@ import {
   IndividualFeatureCards,
   type IndividualFeatureCard,
 } from "@/components/yovu/IndividualFeatureCards";
+import {
+  SectionIntroFeatureGrid,
+  type SectionIntroFeatureItem,
+} from "@/components/yovu/teams/SectionIntroFeatureGrid";
 import { AppliedHowItWorks } from "@/components/yovu/applied/AppliedHowItWorks";
+
+const integrationBenefits: SectionIntroFeatureItem[] = [
+  {
+    icon: AlertCircle,
+    title: "Live Updates",
+    copy: "Stop waiting for status updates on phone calls for days from sales and support team members.",
+  },
+  {
+    icon: Zap,
+    title: "Improve Accuracy",
+    copy: "Increase productivity and gain more visibility within your organization with improved metrics and reliable accuracy.",
+  },
+  {
+    icon: MessageCircle,
+    title: "Stay Current",
+    copy: "Communicate with customers and leads with the confidence that you have the most relevant and recent data on their account.",
+  },
+];
 
 const benefits: ZLayoutItem[] = [
   {
@@ -131,6 +154,7 @@ function AppliedEpicPage() {
         cards={featureCards}
       />
       <AppliedHowItWorks />
+      <SectionIntroFeatureGrid items={integrationBenefits} />
       <FAQ items={faqItems} />
       <Footer />
     </main>
