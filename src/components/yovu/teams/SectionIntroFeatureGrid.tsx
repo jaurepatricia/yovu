@@ -27,7 +27,7 @@ const defaultItems: SectionIntroFeatureItem[] = [
 type Props = {
   eyebrow?: string;
   heading?: string;
-  intro?: string;
+  intro?: string | React.ReactNode;
   items?: SectionIntroFeatureItem[];
 };
 
