@@ -73,6 +73,7 @@ export function CommunicateShowcase() {
   return (
     <section
       ref={sectionRef}
+      data-note-anchor="communicate-showcase"
       className="relative bg-canvas"
       style={{ height: `${count * 100}vh` }}
     >
