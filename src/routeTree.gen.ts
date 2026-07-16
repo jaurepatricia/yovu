@@ -15,6 +15,8 @@ import { Route as SalesforceRouteImport } from './routes/salesforce'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
 import { Route as CommunicateRouteImport } from './routes/communicate'
+import { Route as CoachRouteImport } from './routes/coach'
+import { Route as CaptureRouteImport } from './routes/capture'
 import { Route as AppliedEpicRouteImport } from './routes/applied-epic'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
@@ -49,6 +51,16 @@ const CommunicateRoute = CommunicateRouteImport.update({
   path: '/communicate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoachRoute = CoachRouteImport.update({
+  id: '/coach',
+  path: '/coach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaptureRoute = CaptureRouteImport.update({
+  id: '/capture',
+  path: '/capture',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppliedEpicRoute = AppliedEpicRouteImport.update({
   id: '/applied-epic',
   path: '/applied-epic',
@@ -69,6 +81,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/capture': typeof CaptureRoute
+  '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
@@ -80,6 +94,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/capture': typeof CaptureRoute
+  '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
@@ -92,6 +108,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/capture': typeof CaptureRoute
+  '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
@@ -105,6 +123,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about-us'
     | '/applied-epic'
+    | '/capture'
+    | '/coach'
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
@@ -116,6 +136,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about-us'
     | '/applied-epic'
+    | '/capture'
+    | '/coach'
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
@@ -127,6 +149,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about-us'
     | '/applied-epic'
+    | '/capture'
+    | '/coach'
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
@@ -139,6 +163,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutUsRoute: typeof AboutUsRoute
   AppliedEpicRoute: typeof AppliedEpicRoute
+  CaptureRoute: typeof CaptureRoute
+  CoachRoute: typeof CoachRoute
   CommunicateRoute: typeof CommunicateRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
   PricingRoute: typeof PricingRoute
@@ -191,6 +217,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunicateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/coach': {
+      id: '/coach'
+      path: '/coach'
+      fullPath: '/coach'
+      preLoaderRoute: typeof CoachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capture': {
+      id: '/capture'
+      path: '/capture'
+      fullPath: '/capture'
+      preLoaderRoute: typeof CaptureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/applied-epic': {
       id: '/applied-epic'
       path: '/applied-epic'
@@ -219,6 +259,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutUsRoute: AboutUsRoute,
   AppliedEpicRoute: AppliedEpicRoute,
+  CaptureRoute: CaptureRoute,
+  CoachRoute: CoachRoute,
   CommunicateRoute: CommunicateRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
   PricingRoute: PricingRoute,

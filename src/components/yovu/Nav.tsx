@@ -66,13 +66,13 @@ const features = [
       "A cloud phone system that streamlines your daily workflow with talk, text, and intelligent call queues.",
   },
   {
-    href: "#",
+    href: "/capture",
     title: "Capture",
     description:
       "Automatically log conversations with transcriptions, AI summaries, and sentiment analysis.",
   },
   {
-    href: "#",
+    href: "/coach",
     title: "Coach",
     description:
       "Accelerate new hire onboarding and team performance using analytics dashboards and training tools.",
