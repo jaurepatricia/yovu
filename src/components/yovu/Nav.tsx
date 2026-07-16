@@ -96,6 +96,8 @@ const itemCls =
   "inline-flex h-9 items-center justify-center rounded-md bg-transparent px-3 text-sm font-medium text-ink/60 transition-colors hover:bg-accent hover:text-ink focus:bg-accent focus:text-ink focus:outline-none";
 
 export function Nav() {
+  const navMenuRef = useRef<HTMLDivElement>(null);
+  useAlignNavViewport(navMenuRef);
   return (
     <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
       {/* Matte-glass layer with soft bottom fade */}
@@ -110,7 +112,7 @@ export function Nav() {
             <YovuLogo height={18} />
           </a>
 
-          <NavigationMenu className="hidden md:flex">
+          <NavigationMenu ref={navMenuRef} className="hidden md:flex">
             <NavigationMenuList className="gap-1">
               {/* Solutions */}
               <NavigationMenuItem>
