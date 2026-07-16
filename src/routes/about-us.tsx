@@ -30,7 +30,7 @@ const values: SectionIntroFeatureItem[] = [
 
 const leaders = [
   { name: "Aaron Atkinson", title: "President" },
-  { name: "Mariano Saint-Clair", title: "CTO & COO" },
+  { name: "Mariano Saint-Clair", title: "Chief Technology & Operating Officer" },
   { name: "Sean Loffhagen", title: "Senior Operations & Development Manager" },
   { name: "Blake Stephenson", title: "Infrastructure & Support Manager" },
   { name: "Matthew Reid", title: "Sales Manager" },
