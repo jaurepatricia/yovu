@@ -92,8 +92,8 @@ function AboutUsPage() {
       />
       <Statement copy="We know that better conversations lead to real results. We help with the work that comes before and after each call so that professionals can focus on the work that matters most – connecting with people." />
       <LeadershipTeam />
-      <AboutTestimonials />
       <AboutMap />
+      <AboutTestimonials />
       <Footer />
     </main>
   );
