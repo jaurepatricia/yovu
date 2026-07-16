@@ -124,7 +124,7 @@ function SalesforceIntegrationPage() {
       <Nav />
       <SalesforceHero />
       <IndividualFeatureCards
-        heading="Easy to use features right inside Salesforce"
+        heading="Keep every conversation connected in Salesforce"
         cards={featureCards}
       />
       <Statement copy="Transform how you work with customers using YOVU's Salesforce integration for more personalized communication, increased productivity, and real-time results." />
