@@ -31,9 +31,8 @@ const tiers: Tier[] = [
       "Call Control",
       "Click-to-Call",
       "History",
-      "Directory",
-      "Screen Pop URL",
       "1-month recording\u00a0",
+
     ],
   },
   {
