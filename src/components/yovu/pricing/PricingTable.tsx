@@ -60,14 +60,14 @@ const tiers: Tier[] = [
     cta: { label: "Schedule a Call", href: "#demo" },
     featuresTitle: "Everything in Professional, plus:",
     features: [
+      { text: "1 Integration", tooltip: "Epic, Acturis, Vertafore, or Salesforce" },
       "Queue Analytics",
       "Scripting",
       "Audio Signatures",
       "MS Teams Softphone",
-      { text: "1 Integration", tooltip: "Epic, Acturis, Vertafore, or Salesforce" },
       "84-month recording",
-
     ],
+
     emphasize: true,
   },
   {
