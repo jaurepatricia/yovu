@@ -133,12 +133,12 @@ export function PricingTable() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col rounded-xl bg-card p-8 ${
+              className={`relative flex flex-col rounded-xl bg-card p-8 text-center ${
                 tier.emphasize ? "ring-2 ring-signal lg:-my-2 lg:py-10" : "ring-1 ring-border"
               }`}
             >
               {tier.emphasize && (
-                <span className="absolute -top-3 left-8 rounded-full bg-signal px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-signal px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
                   Most Popular
                 </span>
               )}
@@ -157,7 +157,7 @@ export function PricingTable() {
               <div className="mt-6 min-h-[4.5rem]">
                 {tier.monthly ? (
                   <>
-                    <div className="flex items-baseline gap-1">
+                    <div className="flex items-baseline justify-center gap-1">
                       <span className="text-sm text-ink/60">Starting at</span>
                       <span className="font-display text-4xl font-bold text-ink">
                         ${annual ? tier.annually : tier.monthly}
@@ -193,6 +193,7 @@ export function PricingTable() {
 
               {/* Features */}
               <div className="mt-8 text-sm font-medium text-ink">{tier.featuresTitle}</div>
+
               <ul className="mt-4 flex-1 space-y-3">
                 {tier.features.map((feature) => {
                   const text = typeof feature === "string" ? feature : feature.text;
