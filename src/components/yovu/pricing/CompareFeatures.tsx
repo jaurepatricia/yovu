@@ -171,7 +171,7 @@ export function CompareFeatures() {
                     </div>
                     {!t.custom && (
                       <div className="mt-0.5 text-xs font-normal text-ink/60">
-                        per user{annual ? ", billed annually" : ""}
+                        per user
                       </div>
                     )}
                   </th>
