@@ -44,7 +44,8 @@ const tiers: Tier[] = [
     cta: { label: "Get Started", href: "#demo" },
     featuresTitle: "Everything in Starter, plus:",
     features: [
-      "Queue Login / Reason Codes",
+      "Queue Login",
+      "Reason Codes",
       "MS Teams Presence",
       "Voicemail Drop",
       "Transcription Summary / Sentiment / Topics",
