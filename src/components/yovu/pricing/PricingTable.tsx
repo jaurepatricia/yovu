@@ -195,7 +195,7 @@ export function PricingTable() {
               {/* Features */}
               <div className="mt-8 text-sm font-medium text-ink">{tier.featuresTitle}</div>
 
-              <ul className="mt-4 flex-1 space-y-3">
+              <ul className="mt-4 flex-1 space-y-3 text-left">
                 {tier.features.map((feature) => {
                   const text = typeof feature === "string" ? feature : feature.text;
                   const tooltip = typeof feature === "string" ? undefined : feature.tooltip;
