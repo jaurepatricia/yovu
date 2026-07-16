@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,6 +12,43 @@ import { LocaleToggle } from "./LocaleToggle";
 import { StickyNoteTrigger } from "./StickyNotes";
 import { ThemeToggle } from "./ThemeToggle";
 import { YovuLogo } from "./YovuLogo";
+
+function useAlignNavViewport(rootRef: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const align = () => {
+      const wrapper = root.querySelector<HTMLElement>(".absolute.left-0.top-full");
+      if (!wrapper) return;
+      const openTrigger = root.querySelector<HTMLElement>('button[data-state="open"]');
+      if (!openTrigger) {
+        wrapper.style.left = "";
+        wrapper.style.transform = "";
+        return;
+      }
+      const rootRect = root.getBoundingClientRect();
+      const trigRect = openTrigger.getBoundingClientRect();
+      const centerX = trigRect.left - rootRect.left + trigRect.width / 2;
+      wrapper.style.left = `${centerX}px`;
+      wrapper.style.transform = "translateX(-50%)";
+    };
+    const raf = () => requestAnimationFrame(align);
+    raf();
+    const mo = new MutationObserver(raf);
+    mo.observe(root, {
+      attributes: true,
+      subtree: true,
+      attributeFilter: ["data-state", "style"],
+    });
+    window.addEventListener("resize", raf);
+    return () => {
+      mo.disconnect();
+      window.removeEventListener("resize", raf);
+    };
+  }, [rootRef]);
+}
+
+
 
 const industries = [
   { href: "#", label: "Insurance" },
@@ -54,6 +92,8 @@ const itemCls =
   "inline-flex h-9 items-center justify-center rounded-md bg-transparent px-3 text-sm font-medium text-ink/60 transition-colors hover:bg-accent hover:text-ink focus:bg-accent focus:text-ink focus:outline-none";
 
 export function Nav() {
+  const navMenuRef = useRef<HTMLDivElement>(null);
+  useAlignNavViewport(navMenuRef);
   return (
     <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
       {/* Matte-glass layer with soft bottom fade */}
@@ -68,7 +108,7 @@ export function Nav() {
             <YovuLogo height={18} />
           </a>
 
-          <NavigationMenu className="hidden md:flex">
+          <NavigationMenu ref={navMenuRef} className="hidden md:flex">
             <NavigationMenuList className="gap-1">
               {/* Solutions */}
               <NavigationMenuItem>
