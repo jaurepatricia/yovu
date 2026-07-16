@@ -26,7 +26,7 @@ const tiers: Tier[] = [
     cta: { label: "Get Started", href: "#demo" },
     featuresTitle: "What's included:",
     features: [
-      "Voice features",
+      "Telephony features",
       "SMS",
       "Call Control",
       "Click-to-Call",
