@@ -104,7 +104,7 @@ export function Nav() {
                     {/* Features column */}
                     <div>
                       <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
-                        Features
+                        CAPABILITIES
                       </p>
                       <ul className="flex flex-col gap-1">
                         {features.map((f) => (
