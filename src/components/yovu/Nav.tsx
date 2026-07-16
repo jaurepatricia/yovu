@@ -114,7 +114,7 @@ export function Nav() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger className={triggerCls}>Solutions</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-64 p-4">
+                  <div className="w-52 p-4">
                     <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
                       By Industry
                     </p>
