@@ -95,7 +95,7 @@ export function PricingTable() {
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
-        <div className="mb-10 text-center">
+        <div className="mb-20 text-center lg:mb-28">
           <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             Plans & Pricing
           </h1>
