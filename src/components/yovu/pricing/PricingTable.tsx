@@ -167,9 +167,14 @@ export function PricingTable() {
                   </>
                 ) : (
                   <>
-                    <span className="font-display text-4xl font-bold text-ink">
-                      {tier.priceLabel}
-                    </span>
+                    <p aria-hidden="true" className="text-center text-sm text-ink/60">
+                      &nbsp;
+                    </p>
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="font-display text-4xl font-bold text-ink">
+                        {tier.priceLabel}
+                      </span>
+                    </div>
                     <p className="mt-1 text-sm text-ink/60">{tier.priceNote}</p>
                   </>
                 )}
