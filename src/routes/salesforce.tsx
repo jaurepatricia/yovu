@@ -24,7 +24,7 @@ const accuracyItems: ZLayoutItem[] = [
   },
   {
     kicker: "Call Analytics",
-    title: "Data-Driven Productivity",
+    title: "Productivity backed by real data",
     copy: "From within Salesforce, you have instant access to all call details, history and recordings. Customize the experience to suit your unique business requirements by leveraging dashboards and reports. Understand who is achieving the most calls on your team. Engage in gamification for increased activity to help propel productivity.",
     cta: { label: "See it in Action", href: "#demo" },
   },
