@@ -100,8 +100,9 @@ export function PricingTable() {
             Plans & Pricing
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-ink/70 md:text-lg">
-            Straightforward plans that grow with your organization. Start with core calling and scale
-            all the way up to full integrations and an AI receptionist.
+            Straightforward plans that grow with your organization. Start with our robust Telephony
+            features and scale all the way up to full integrations, transcriptions and an AI
+            receptionist.
           </p>
         </div>
 
