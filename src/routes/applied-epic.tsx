@@ -154,6 +154,7 @@ function AppliedEpicPage() {
         cards={featureCards}
       />
       <AppliedHowItWorks />
+      <SectionIntroFeatureGrid items={integrationBenefits} />
       <FAQ items={faqItems} />
       <Footer />
     </main>
