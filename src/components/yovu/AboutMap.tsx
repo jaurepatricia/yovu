@@ -29,8 +29,7 @@ export function AboutMap() {
             We were founded in London, Ontario, and we still proudly operate our business out of our
             hometown today. Every call you make routes through secure data centres on Canadian soil,
             keeping your private conversations fully protected under national laws. When you need
-            help, you will always speak to our in-house support team right here in Canada instead of
-            getting bounced to an offshore call center.
+            help, you will always speak to our in-house support team right here in Canada.
           </p>
         </div>
       </div>
