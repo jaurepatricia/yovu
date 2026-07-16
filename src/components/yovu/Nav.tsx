@@ -169,7 +169,7 @@ export function Nav() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger className={triggerCls}>Integrations</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-64 p-4">
+                  <div className="w-52 p-4">
                     <ul className="flex flex-col">
                       {integrations.map((i) => (
                         <li key={i.label}>
