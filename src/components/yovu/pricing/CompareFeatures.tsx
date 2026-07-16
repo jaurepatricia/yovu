@@ -163,7 +163,7 @@ export function CompareFeatures() {
                 {tiers.map((t) => (
                   <th
                     key={t.name}
-                    className="px-4 py-6 text-center align-middle text-sm font-semibold text-ink"
+                    className="px-4 py-6 text-center align-top text-sm font-semibold text-ink"
                   >
                     <div>{t.name}</div>
                     <div className="mt-1 font-display text-lg font-bold text-ink">
