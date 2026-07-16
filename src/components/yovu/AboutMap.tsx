@@ -1,6 +1,6 @@
 export function AboutMap() {
   return (
-    <section className="bg-canvas pb-24 lg:pb-32">
+    <section className="bg-canvas pt-24 pb-24 lg:pt-32 lg:pb-32">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left: map */}
         <div className="overflow-hidden rounded-3xl ring-1 ring-border">
