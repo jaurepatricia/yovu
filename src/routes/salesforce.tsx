@@ -123,12 +123,12 @@ function SalesforceIntegrationPage() {
     <main className="bg-canvas text-ink">
       <Nav />
       <SalesforceHero />
+      <ZLayout heading="Scale your workflows to new heights" items={accuracyItems} />
       <IndividualFeatureCards
         heading="Keep every conversation connected in Salesforce"
         cards={featureCards}
       />
       <Statement copy="Transform how you work with customers using YOVU's Salesforce integration for more personalized communication, increased productivity, and real-time results." />
-      <ZLayout heading="Scale your workflows to new heights" items={accuracyItems} />
       <SalesforceHowItWorks />
       <SectionIntroFeatureGrid items={integrationBenefits} />
       <FAQ items={faqItems} />
