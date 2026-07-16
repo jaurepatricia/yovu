@@ -18,40 +18,36 @@ function useAlignNavViewport(rootRef: React.RefObject<HTMLDivElement | null>) {
     const root = rootRef.current;
     if (!root) return;
     const align = () => {
-      const openTrigger = root.querySelector<HTMLElement>(
-        '[data-radix-collection-item] > button[data-state="open"]',
-      );
-      const viewportWrapper = root.querySelector<HTMLElement>(
-        ".absolute.left-0.top-full",
-      );
-      if (!viewportWrapper) return;
+      const wrapper = root.querySelector<HTMLElement>(".absolute.left-0.top-full");
+      if (!wrapper) return;
+      const openTrigger = root.querySelector<HTMLElement>('button[data-state="open"]');
       if (!openTrigger) {
-        viewportWrapper.style.transform = "";
+        wrapper.style.left = "";
+        wrapper.style.transform = "";
         return;
       }
-      const list = root.querySelector<HTMLElement>('[data-slot="navigation-menu-list"], ul');
-      const listLeft = list?.getBoundingClientRect().left ?? 0;
-      const triggerRect = openTrigger.getBoundingClientRect();
-      const viewport = viewportWrapper.querySelector<HTMLElement>(".origin-top-center");
-      const viewportWidth = viewport?.getBoundingClientRect().width ?? 0;
-      const triggerCenter = triggerRect.left + triggerRect.width / 2 - listLeft;
-      const offset = Math.max(0, triggerCenter - viewportWidth / 2);
-      viewportWrapper.style.transform = `translateX(${offset}px)`;
+      const rootRect = root.getBoundingClientRect();
+      const trigRect = openTrigger.getBoundingClientRect();
+      const centerX = trigRect.left - rootRect.left + trigRect.width / 2;
+      wrapper.style.left = `${centerX}px`;
+      wrapper.style.transform = "translateX(-50%)";
     };
-    align();
-    const mo = new MutationObserver(() => align());
+    const raf = () => requestAnimationFrame(align);
+    raf();
+    const mo = new MutationObserver(raf);
     mo.observe(root, {
       attributes: true,
       subtree: true,
       attributeFilter: ["data-state", "style"],
     });
-    window.addEventListener("resize", align);
+    window.addEventListener("resize", raf);
     return () => {
       mo.disconnect();
-      window.removeEventListener("resize", align);
+      window.removeEventListener("resize", raf);
     };
   }, [rootRef]);
 }
+
 
 
 const industries = [
