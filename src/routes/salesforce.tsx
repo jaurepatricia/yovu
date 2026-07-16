@@ -18,7 +18,7 @@ import { SalesforceHowItWorks } from "@/components/yovu/salesforce/SalesforceHow
 const accuracyItems: ZLayoutItem[] = [
   {
     kicker: "Activity Log",
-    title: "Keep Work Moving",
+    title: "Keep the work moving",
     copy: "Review complete call history, reports and enter new data from within an active call. Stay in the account when the call is finished to complete logs on the spot. Log calls in any Object within focus logging. This unique integration allows admin, customer service and team members the ability to leverage the time-saving feature.",
     cta: { label: "Learn More", href: "#demo" },
   },
