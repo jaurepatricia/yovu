@@ -154,8 +154,8 @@ export function PricingTable() {
               <div className="mt-6 min-h-[4.5rem]">
                 {tier.monthly ? (
                   <>
+                    <p className="text-center text-sm text-ink/60">Starting at</p>
                     <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-sm text-ink/60">Starting at</span>
                       <span className="font-display text-4xl font-bold text-ink">
                         ${annual ? tier.annually : tier.monthly}
                       </span>
