@@ -51,7 +51,9 @@ export function SectionIntroFeatureGrid({
             <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
               {heading}
             </h2>
-            <p className="mt-6 max-w-xl text-pretty text-base text-ink/70">{intro}</p>
+            <p className="mt-6 max-w-xl whitespace-pre-line text-pretty text-base text-ink/70">
+              {intro}
+            </p>
           </div>
           <div className="aspect-[4/3] w-full rounded-2xl bg-surface ring-1 ring-border" />
         </div>
