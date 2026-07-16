@@ -31,7 +31,7 @@ export function TestimonialsQuote() {
   const t = testimonials[i];
 
   return (
-    <section className="py-24 lg:py-32">
+    <section data-note-anchor="testimonials-quote" className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Headline */}
         <h2 className="text-center font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">

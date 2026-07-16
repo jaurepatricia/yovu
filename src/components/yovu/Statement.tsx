@@ -14,7 +14,7 @@ export function Statement({ copy = COPY }: { copy?: string }) {
   const words = copy.split(" ");
 
   return (
-    <section className="pt-24 pb-40 lg:pt-32 lg:pb-56">
+    <section data-note-anchor="statement" className="pt-24 pb-40 lg:pt-32 lg:pb-56">
       <div className="mx-auto max-w-7xl px-6">
         <p
           ref={ref}
