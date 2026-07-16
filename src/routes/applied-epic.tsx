@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { AlertCircle, MessageCircle, Zap } from "lucide-react";
+import { PlugZap, Lock, Database } from "lucide-react";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { FAQ } from "@/components/yovu/FAQ";
@@ -16,19 +16,19 @@ import { AppliedHowItWorks } from "@/components/yovu/applied/AppliedHowItWorks";
 
 const integrationBenefits: SectionIntroFeatureItem[] = [
   {
-    icon: AlertCircle,
-    title: "Live Updates",
-    copy: "Stop waiting for status updates on phone calls for days from sales and support team members.",
+    icon: PlugZap,
+    title: "Embedded by Design",
+    copy: "The only conversation capturing platform certified integration partner in Canada, built on Applied Systems' current API and embedded inside Applied Epic. No screen-switching necessary.",
   },
   {
-    icon: Zap,
-    title: "Improve Accuracy",
-    copy: "Increase productivity and gain more visibility within your organization with improved metrics and reliable accuracy.",
+    icon: Lock,
+    title: "Controlled Access",
+    copy: "Role-based access gives administrators control over who can view recordings, transcripts, and reports. Permissions stay aligned with your internal security and compliance requirements.",
   },
   {
-    icon: MessageCircle,
-    title: "Stay Current",
-    copy: "Communicate with customers and leads with the confidence that you have the most relevant and recent data on their account.",
+    icon: Database,
+    title: "Long-term Storage",
+    copy: "Retention is configurable up to seven years to support your long-term E&O documentation policy. Data is stored on Canadian servers for added control and compliance.",
   },
 ];
 
