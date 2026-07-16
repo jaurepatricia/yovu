@@ -12,11 +12,22 @@
  * Realtime. The publishable key below is client-safe; data is protected by the
  * row-level-security policy on the review_notes table. Access to the tool is
  * gated by a shared team passphrase (client-side — see REVIEW_PASSPHRASE).
+ *
+ * ANCHORING (v2): Notes are pinned to the nearest identifiable ancestor
+ * ("anchor") and stored as a fractional offset (rel_x, rel_y) inside that
+ * anchor, so notes track layout changes. Legacy absolute x/y are kept as a
+ * fallback for older rows and for when an anchor no longer exists on the page.
+ *
+ * Required DB columns (nullable, additive):
+ *   alter table public.review_notes
+ *     add column if not exists anchor_id text,
+ *     add column if not exists rel_x real,
+ *     add column if not exists rel_y real;
  */
-import { useSyncExternalStore, useState, useRef, useEffect } from "react";
+import { useSyncExternalStore, useState, useRef, useEffect, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
 import { createClient } from "@supabase/supabase-js";
-import { StickyNote, Check, GripVertical, Lock } from "lucide-react";
+import { StickyNote, Check, GripVertical, Lock, AlertTriangle } from "lucide-react";
 import { useLocation } from "@tanstack/react-router";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 
@@ -36,8 +47,11 @@ type Note = {
   author: string;
   text: string;
   pathname: string;
-  x: number;
+  x: number; // legacy absolute page coords (fallback)
   y: number;
+  anchor_id: string | null;
+  rel_x: number | null; // 0..1 within anchor
+  rel_y: number | null;
 };
 
 type Snapshot = {
@@ -84,6 +98,9 @@ function rowToNote(r: Record<string, unknown>): Note {
     pathname: String(r.pathname ?? ""),
     x: Number(r.x ?? 0),
     y: Number(r.y ?? 0),
+    anchor_id: r.anchor_id == null ? null : String(r.anchor_id),
+    rel_x: r.rel_x == null ? null : Number(r.rel_x),
+    rel_y: r.rel_y == null ? null : Number(r.rel_y),
   };
 }
 
@@ -137,20 +154,123 @@ function cancelPlacement() {
   draft = null;
   commit();
 }
-async function placeAt(x: number, y: number, pathname: string) {
+
+// ---------------------------------------------------------------------------
+// Anchor resolution
+// ---------------------------------------------------------------------------
+// Anchor key formats (all stable-ish across content edits):
+//   "a:<name>"    — element with data-note-anchor="<name>"    (most stable)
+//   "id:<name>"   — element with id="<name>"                   (very stable)
+//   "tag:<tag>:<i>" — nth ancestor of tag (section/footer/header/main/article)
+//                     among all same-tag elements in the document (best-effort)
+const ANCHORABLE_TAGS = new Set(["SECTION", "FOOTER", "HEADER", "MAIN", "ARTICLE"]);
+
+function elementAnchorKey(el: Element): string | null {
+  const data = (el as HTMLElement).dataset?.noteAnchor;
+  if (data) return `a:${data}`;
+  if (el.id) return `id:${el.id}`;
+  if (ANCHORABLE_TAGS.has(el.tagName)) {
+    const tag = el.tagName.toLowerCase();
+    const all = Array.from(document.getElementsByTagName(tag));
+    const idx = all.indexOf(el as HTMLElement);
+    if (idx >= 0) return `tag:${tag}:${idx}`;
+  }
+  return null;
+}
+
+// Walk up from `start` to the nearest ancestor we can key. Prefer
+// data-note-anchor / id (declared intent) over tag-index fallback.
+function findAnchor(start: Element | null): { el: HTMLElement; key: string } | null {
+  let bestFallback: { el: HTMLElement; key: string } | null = null;
+  let el: Element | null = start;
+  while (el && el !== document.body) {
+    const html = el as HTMLElement;
+    const data = html.dataset?.noteAnchor;
+    if (data) return { el: html, key: `a:${data}` };
+    if (html.id) return { el: html, key: `id:${html.id}` };
+    if (!bestFallback && ANCHORABLE_TAGS.has(html.tagName)) {
+      const key = elementAnchorKey(html);
+      if (key) bestFallback = { el: html, key };
+    }
+    el = el.parentElement;
+  }
+  return bestFallback;
+}
+
+function resolveAnchor(key: string | null): HTMLElement | null {
+  if (!key || typeof document === "undefined") return null;
+  if (key.startsWith("a:")) {
+    return document.querySelector<HTMLElement>(`[data-note-anchor="${CSS.escape(key.slice(2))}"]`);
+  }
+  if (key.startsWith("id:")) {
+    return document.getElementById(key.slice(3));
+  }
+  if (key.startsWith("tag:")) {
+    const rest = key.slice(4);
+    const sep = rest.lastIndexOf(":");
+    if (sep < 0) return null;
+    const tag = rest.slice(0, sep);
+    const idx = Number(rest.slice(sep + 1));
+    const all = document.getElementsByTagName(tag);
+    return (all[idx] as HTMLElement | undefined) ?? null;
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
+// Placement + drag persistence
+// ---------------------------------------------------------------------------
+async function placeAt(clientX: number, clientY: number, overlay: HTMLElement, pathname: string) {
   if (!draft) return;
-  const payload = { author: draft.author, text: draft.text, pathname, x, y };
+
+  // Look through the overlay to find the real element the reviewer clicked on.
+  const prevPointer = overlay.style.pointerEvents;
+  overlay.style.pointerEvents = "none";
+  const target = document.elementFromPoint(clientX, clientY);
+  overlay.style.pointerEvents = prevPointer;
+
+  const anchor = findAnchor(target);
+  const pageX = clientX + window.scrollX;
+  const pageY = clientY + window.scrollY;
+
+  let anchor_id: string | null = null;
+  let rel_x: number | null = null;
+  let rel_y: number | null = null;
+  if (anchor) {
+    const rect = anchor.el.getBoundingClientRect();
+    anchor_id = anchor.key;
+    rel_x = rect.width > 0 ? (clientX - rect.left) / rect.width : 0.5;
+    rel_y = rect.height > 0 ? (clientY - rect.top) / rect.height : 0.5;
+  }
+
+  const payload = {
+    author: draft.author,
+    text: draft.text,
+    pathname,
+    x: pageX,
+    y: pageY,
+    anchor_id,
+    rel_x,
+    rel_y,
+  };
   draft = null;
   commit();
   await supabase.from("review_notes").insert(payload); // Realtime echoes it back
 }
+
 // Live drag updates local state only; persisted once on drop.
-function setLocalPosition(id: string, x: number, y: number) {
-  notes = notes.map((n) => (n.id === id ? { ...n, x, y } : n));
+function setLocalPosition(id: string, patch: Partial<Note>) {
+  notes = notes.map((n) => (n.id === id ? { ...n, ...patch } : n));
   commit();
 }
-async function commitPosition(id: string, x: number, y: number) {
-  await supabase.from("review_notes").update({ x, y }).eq("id", id);
+async function commitPosition(id: string, patch: Partial<Note>) {
+  const update: Record<string, unknown> = {};
+  if ("x" in patch) update.x = patch.x;
+  if ("y" in patch) update.y = patch.y;
+  if ("anchor_id" in patch) update.anchor_id = patch.anchor_id;
+  if ("rel_x" in patch) update.rel_x = patch.rel_x;
+  if ("rel_y" in patch) update.rel_y = patch.rel_y;
+  await supabase.from("review_notes").update(update).eq("id", id);
 }
 async function resolveNote(id: string) {
   notes = notes.filter((n) => n.id !== id);
@@ -285,6 +405,7 @@ export function StickyNoteLayer() {
   const location = useLocation();
   const pathname = location.pathname;
   const [mounted, setMounted] = useState(false);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -306,7 +427,10 @@ export function StickyNoteLayer() {
     <>
       {draft && (
         <div
-          onClick={(e) => placeAt(e.pageX, e.pageY, pathname)}
+          ref={overlayRef}
+          onClick={(e) => {
+            if (overlayRef.current) placeAt(e.clientX, e.clientY, overlayRef.current, pathname);
+          }}
           className="fixed inset-0 z-[120] cursor-crosshair bg-signal/5"
         >
           <div className="pointer-events-none fixed left-1/2 top-6 -translate-x-1/2 rounded-full bg-ink px-4 py-2 text-sm font-medium text-canvas shadow-lg">
@@ -323,25 +447,119 @@ export function StickyNoteLayer() {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Live-positioned pinned note
+// ---------------------------------------------------------------------------
+function usePinnedPosition(note: Note) {
+  // pos in page (document) coordinates
+  const [state, setState] = useState<{ x: number; y: number; missing: boolean }>(() => ({
+    x: note.x,
+    y: note.y,
+    missing: false,
+  }));
+
+  useLayoutEffect(() => {
+    let raf = 0;
+
+    const recompute = () => {
+      const anchor = resolveAnchor(note.anchor_id);
+      if (anchor && note.rel_x != null && note.rel_y != null) {
+        const rect = anchor.getBoundingClientRect();
+        const x = rect.left + window.scrollX + note.rel_x * rect.width;
+        const y = rect.top + window.scrollY + note.rel_y * rect.height;
+        setState({ x, y, missing: false });
+      } else {
+        setState({ x: note.x, y: note.y, missing: !!note.anchor_id });
+      }
+    };
+
+    const schedule = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        recompute();
+      });
+    };
+
+    recompute();
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+
+    // Track anchor size changes (accordions opening, images loading, etc.).
+    const anchor = resolveAnchor(note.anchor_id);
+    let ro: ResizeObserver | null = null;
+    if (anchor && typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(schedule);
+      ro.observe(anchor);
+    }
+    // And react to DOM mutations in case the anchor is (re)inserted after load.
+    const mo = new MutationObserver(schedule);
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      ro?.disconnect();
+      mo.disconnect();
+    };
+  }, [note.anchor_id, note.rel_x, note.rel_y, note.x, note.y]);
+
+  return state;
+}
+
 function PinnedNote({ note }: { note: Note }) {
-  const dragging = useRef<{ dx: number; dy: number; x: number; y: number } | null>(null);
+  const { x, y, missing } = usePinnedPosition(note);
+
+  const dragging = useRef<{
+    startClientX: number;
+    startClientY: number;
+    startX: number;
+    startY: number;
+  } | null>(null);
 
   const onPointerDown = (e: React.PointerEvent) => {
     e.preventDefault();
-    dragging.current = { dx: e.pageX - note.x, dy: e.pageY - note.y, x: note.x, y: note.y };
+    dragging.current = {
+      startClientX: e.clientX,
+      startClientY: e.clientY,
+      startX: x,
+      startY: y,
+    };
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
   };
   const onPointerMove = (e: React.PointerEvent) => {
     if (!dragging.current) return;
-    const x = e.pageX - dragging.current.dx;
-    const y = e.pageY - dragging.current.dy;
-    dragging.current.x = x;
-    dragging.current.y = y;
-    setLocalPosition(note.id, x, y);
+    const dx = e.clientX - dragging.current.startClientX;
+    const dy = e.clientY - dragging.current.startClientY;
+    const newX = dragging.current.startX + dx;
+    const newY = dragging.current.startY + dy;
+    // Absolute update during drag; re-anchor happens on drop.
+    setLocalPosition(note.id, { x: newX, y: newY, anchor_id: null, rel_x: null, rel_y: null });
   };
   const onPointerUp = (e: React.PointerEvent) => {
     if (dragging.current) {
-      void commitPosition(note.id, dragging.current.x, dragging.current.y);
+      // Re-anchor to whatever the user dropped over.
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      const anchor = findAnchor(el);
+      let patch: Partial<Note>;
+      const pageX = e.clientX + window.scrollX;
+      const pageY = e.clientY + window.scrollY;
+      if (anchor) {
+        const rect = anchor.el.getBoundingClientRect();
+        patch = {
+          x: pageX,
+          y: pageY,
+          anchor_id: anchor.key,
+          rel_x: rect.width > 0 ? (e.clientX - rect.left) / rect.width : 0.5,
+          rel_y: rect.height > 0 ? (e.clientY - rect.top) / rect.height : 0.5,
+        };
+      } else {
+        patch = { x: pageX, y: pageY, anchor_id: null, rel_x: null, rel_y: null };
+      }
+      setLocalPosition(note.id, patch);
+      void commitPosition(note.id, patch);
     }
     dragging.current = null;
     (e.target as HTMLElement).releasePointerCapture(e.pointerId);
@@ -349,7 +567,7 @@ function PinnedNote({ note }: { note: Note }) {
 
   return (
     <div
-      style={{ left: note.x, top: note.y }}
+      style={{ left: x, top: y }}
       className="absolute z-[110] w-64 -translate-x-1/2 rounded-lg bg-[#fde68a] text-[#0b1733] shadow-xl ring-1 ring-black/10"
     >
       <div
@@ -360,6 +578,15 @@ function PinnedNote({ note }: { note: Note }) {
       >
         <GripVertical className="size-4 text-[#0b1733]/50" />
         <span className="truncate text-xs font-semibold">{note.author}</span>
+        {missing && (
+          <span
+            title="The section this note was pinned to no longer exists — showing at its last known position."
+            className="flex items-center gap-1 rounded-full bg-[#0b1733]/10 px-1.5 py-0.5 text-[10px] font-semibold text-[#7c2d12]"
+          >
+            <AlertTriangle className="size-3" />
+            anchor missing
+          </span>
+        )}
         <button
           type="button"
           aria-label="Resolve note"
