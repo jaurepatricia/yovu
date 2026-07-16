@@ -22,7 +22,7 @@ export function ZLayout({ heading, eyebrow, intro, items, className }: ZLayoutPr
     <section className={`bg-canvas py-24 lg:py-32 ${className ?? ""}`}>
       <div className="mx-auto max-w-7xl px-6">
         {(heading || eyebrow || intro) && (
-          <div className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
+          <div className="mx-auto mb-16 max-w-5xl text-center lg:mb-20">
             {eyebrow && (
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
                 {eyebrow}
