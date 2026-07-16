@@ -175,7 +175,7 @@ export function PricingTable() {
                         {tier.priceLabel}
                       </span>
                     </div>
-                    <p className="mt-1 text-sm text-ink/60">{tier.priceNote}</p>
+                    <p className="mt-1 text-sm text-ink/60">{tier.priceNote?.trim() || "\u00a0"}</p>
                   </>
                 )}
               </div>
