@@ -42,7 +42,7 @@ const features = [
 ];
 
 const integrations = [
-  { href: "#", label: "Applied Epic" },
+  { href: "/applied-epic", label: "Applied Epic" },
   { href: "/microsoft-teams", label: "Microsoft" },
   { href: "/salesforce", label: "SalesForce" },
 ];

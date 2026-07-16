@@ -15,6 +15,7 @@ import { Route as SalesforceRouteImport } from './routes/salesforce'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
 import { Route as CommunicateRouteImport } from './routes/communicate'
+import { Route as AppliedEpicRouteImport } from './routes/applied-epic'
 import { Route as IndexRouteImport } from './routes/index'
 
 const V2Route = V2RouteImport.update({
@@ -47,6 +48,11 @@ const CommunicateRoute = CommunicateRouteImport.update({
   path: '/communicate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppliedEpicRoute = AppliedEpicRouteImport.update({
+  id: '/applied-epic',
+  path: '/applied-epic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,6 +61,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/applied-epic': typeof AppliedEpicRoute
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/applied-epic': typeof AppliedEpicRoute
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/applied-epic': typeof AppliedEpicRoute
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/applied-epic'
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/applied-epic'
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/applied-epic'
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppliedEpicRoute: typeof AppliedEpicRoute
   CommunicateRoute: typeof CommunicateRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
   PricingRoute: typeof PricingRoute
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunicateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/applied-epic': {
+      id: '/applied-epic'
+      path: '/applied-epic'
+      fullPath: '/applied-epic'
+      preLoaderRoute: typeof AppliedEpicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppliedEpicRoute: AppliedEpicRoute,
   CommunicateRoute: CommunicateRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
   PricingRoute: PricingRoute,
@@ -187,3 +208,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
