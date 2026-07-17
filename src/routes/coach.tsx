@@ -10,7 +10,7 @@ import {
 
 const introBlocks: ZLayoutItem[] = [
   {
-    title: "Grounded in your team's reality.",
+    title: "Grounded in your team's reality",
     copy: "As the workforce evolves and experienced professionals retire, your best sales tactics should not leave with them. Instead of a generic, off-the-shelf training manual, Coach is wired directly into the call data YOVU already captures. Every piece of feedback is based on your team's real conversations, capturing the specific questions, niches, and follow-ups that make your top producers win.",
   },
   {
