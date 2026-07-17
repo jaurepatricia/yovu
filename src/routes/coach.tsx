@@ -70,11 +70,10 @@ function CoachHero() {
     <section className="bg-canvas pb-16 pt-40 lg:pb-24 lg:pt-56">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-          Scale your top performers with Coach.
+          Never lose your footing on a client call
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink/70">
-          Lead your team with confidence using advanced tools designed to foster collaboration,
-          accelerate employee growth, and hit your management goals.
+          Coach turns real-world call data into a steady path upward, guiding your agents safely through tough conversations and ambitious management goals.
         </p>
       </div>
     </section>
