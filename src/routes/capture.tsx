@@ -19,7 +19,7 @@ const introBlocks: ZLayoutItem[] = [
     copy: "Say goodbye to manual data entry, sticky notes, and incomplete client files. YOVU Capture seamlessly records, transcribes, and logs every call, text, and voicemail the moment it happens. Your team can focus entirely on the client, knowing the system is building a flawless, defensible record in the background.",
   },
   {
-    title: "Turn raw conversations into action.",
+    title: "Turn raw conversations into action",
     copy: "A recording is good, but actionable data is better. YOVU Capture goes beyond basic recording by instantly pulling out next steps, key details, and client sentiment. Whether it is a routine renewal or a complex service issue, anyone in your brokerage can open a file and instantly understand exactly where the client stands.",
   },
   {
