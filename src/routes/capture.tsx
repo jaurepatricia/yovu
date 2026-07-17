@@ -118,7 +118,7 @@ function CapturePage() {
       <SectionIntroFeatureGrid
         eyebrow="Featured Use Case"
         heading="Every call logged to Applied Epic, automatically."
-        intro="As Canada's only certified, embedded conversation-capture platform for Applied Epic, we capture calls, texts, and voicemails as they happen. Stop relying on manually typed notes that put you at risk for E&O claims two years down the line. Our platform closes the gap between the conversation and the record, giving your brokerage a searchable and defensible file without the manual data entry."
+        intro="As Canada's only certified, embedded conversation-capture platform for Applied Epic, we capture calls, texts, and voicemails as they happen. Stop relying on manually typed notes that put you at risk for E&O claims two years down the line. Our platform closes the gap between the conversation and the record, giving your brokerage a searchable and defensible file."
         items={appliedBenefits}
       />
       <FAQ items={faqItems} />
