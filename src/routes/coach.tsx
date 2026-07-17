@@ -14,7 +14,7 @@ const introBlocks: ZLayoutItem[] = [
     copy: "As the workforce evolves and experienced professionals retire, your best sales tactics should not leave with them. Instead of a generic, off-the-shelf training manual, Coach is wired directly into the call data YOVU already captures. Every piece of feedback is based on your team's real conversations, capturing the specific questions, niches, and follow-ups that make your top producers win.",
   },
   {
-    title: "Target bottlenecks, not blind spots.",
+    title: "Target bottlenecks, not blind spots",
     copy: "Accelerate onboarding by giving new hires structured guidance based on real interactions, rather than waiting for a manager to overhear a live call. Coach automatically surfaces the specific calls supervisors need to review by exception. This targeted approach saves management from monitoring everyone blindly while ensuring new hires hit their 30, 60, and 90-day ramp milestones.",
   },
 ];
