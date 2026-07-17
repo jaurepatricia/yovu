@@ -15,7 +15,7 @@ import {
 
 const introBlocks: ZLayoutItem[] = [
   {
-    title: "Capture every detail, automatically.",
+    title: "Capture every detail, automatically",
     copy: "Say goodbye to manual data entry, sticky notes, and incomplete client files. YOVU Capture seamlessly records, transcribes, and logs every call, text, and voicemail the moment it happens. Your team can focus entirely on the client, knowing the system is building a flawless, defensible record in the background.",
   },
   {
