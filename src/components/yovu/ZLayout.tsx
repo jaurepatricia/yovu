@@ -15,9 +15,11 @@ type ZLayoutProps = {
   intro?: string;
   items: ZLayoutItem[];
   className?: string;
+  /** When true, the first block leads with text on the left (image right). */
+  textFirst?: boolean;
 };
 
-export function ZLayout({ heading, eyebrow, intro, items, className }: ZLayoutProps) {
+export function ZLayout({ heading, eyebrow, intro, items, className, textFirst }: ZLayoutProps) {
   return (
     <section className={`bg-canvas py-24 lg:py-32 ${className ?? ""}`}>
       <div className="mx-auto max-w-7xl px-6">
@@ -39,7 +41,7 @@ export function ZLayout({ heading, eyebrow, intro, items, className }: ZLayoutPr
 
         <div className="space-y-20 lg:space-y-32">
           {items.map((item, i) => {
-            const imageRight = i % 2 === 1;
+            const imageRight = i % 2 === (textFirst ? 0 : 1);
             return (
               <motion.div
                 key={item.title}
