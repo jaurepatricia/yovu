@@ -88,11 +88,28 @@ const faqItems = [
   },
 ];
 
+function CaptureHero() {
+  return (
+    <section className="bg-canvas pb-16 pt-40 lg:pb-24 lg:pt-56">
+      <div className="mx-auto max-w-4xl px-6 text-center">
+        <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+          Every call captured, every detail logged.
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink/70">
+          Do not just record your calls. YOVU Capture uses AI to summarize details, extract next
+          steps, and log them directly to your client records.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function CapturePage() {
   return (
     <main className="bg-canvas text-ink">
       <Nav />
-      <ZLayout items={introBlocks} textFirst className="pt-40 lg:pt-52" />
+      <CaptureHero />
+      <ZLayout items={introBlocks} textFirst />
       <IndividualFeatureCards heading="Built to capture every conversation" cards={featureCards} />
       <SectionIntroFeatureGrid
         eyebrow="Featured Use Case"
