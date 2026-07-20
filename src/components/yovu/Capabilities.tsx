@@ -66,7 +66,7 @@ const categories: Category[] = [
       },
       {
         title: "Long Term Call Recording",
-        copy: "Capture every call with secure playback and up to seven years of data retention for long-term E&O defensibility. Transfer your existing recordings to YOVU.",
+        copy: "Capture every call with secure playback and up to seven years of retention for E&O defensibility. Easily transfer your existing recordings directly into YOVU.",
         cta: { label: "Learn More", href: "#demo" },
         media: <CallRecording />,
       },
