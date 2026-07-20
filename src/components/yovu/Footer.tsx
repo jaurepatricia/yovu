@@ -38,7 +38,7 @@ export function Footer() {
           {/* Brand + columns, with the flickering mountain flush to their
               bottom-left, stretching ~75% wide and behind the link columns —
               ending above the copyright line below. */}
-          <div className="relative">
+          <div className="relative pb-16">
             <FlickeringMountain className="absolute bottom-0 left-0 z-0 h-28 w-3/4 sm:h-40 lg:h-48" />
 
             <div className="relative z-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
@@ -73,8 +73,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Bottom bar — sits below the mountain */}
-          <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-ink/50 sm:flex-row">
+          {/* Bottom bar — divider sits directly under the mountain */}
+          <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-ink/50 sm:flex-row">
             <span>© {new Date().getFullYear()} YOVU Communications Inc.</span>
             <span>Proudly built and supported in Canada.</span>
           </div>
