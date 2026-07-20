@@ -1,3 +1,5 @@
+"use client";
+
 import React, {
   useCallback,
   useEffect,
@@ -5,7 +7,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { cn } from "@/lib/utils";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 interface FlickeringGridProps extends React.HTMLAttributes<HTMLDivElement> {
   squareSize?: number;
@@ -16,6 +19,10 @@ interface FlickeringGridProps extends React.HTMLAttributes<HTMLDivElement> {
   height?: number;
   className?: string;
   maxOpacity?: number;
+}
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
 
 export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
@@ -179,7 +186,11 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
   }, [setupCanvas, updateSquares, drawGrid, width, height, isInView]);
 
   return (
-    <div ref={containerRef} className={cn(`h-full w-full ${className}`)} {...props}>
+    <div
+      ref={containerRef}
+      className={cn(`h-full w-full ${className}`)}
+      {...props}
+    >
       <canvas
         ref={canvasRef}
         className="pointer-events-none"
