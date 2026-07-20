@@ -36,7 +36,7 @@ const categories: Category[] = [
     items: [
       {
         title: "Business Phone System",
-        copy: "Reliable cloud communications for modern insurance organizations. Equip your team with intelligent call routing, seamless warm transfers, and advanced call management.",
+        copy: "Reliable cloud communications for modern insurance teams, equipped with with intelligent call routing, seamless warm transfers, and advanced call management.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ClickToDial />,
       },
