@@ -5,7 +5,7 @@ import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
 import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
 import { CallerContext } from "@/components/yovu/animations/CallerContext";
-import { AppliedDashboard } from "@/components/yovu/animations/AppliedDashboard";
+import { IntegrationScreenPop } from "@/components/yovu/animations/IntegrationScreenPop";
 import { CallRecording } from "@/components/yovu/animations/CallRecording";
 import { TranscriptionSummary } from "@/components/yovu/animations/TranscriptionSummary";
 import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
@@ -44,7 +44,7 @@ const categories: Category[] = [
         title: "Insurance Integrations",
         copy: "Automate workflows directly within Applied Epic or your preferred management system. Get full caller context instantly with screen pops.",
         cta: { label: "Our Integrations", href: "#integrations" },
-        media: <AppliedDashboard />,
+        media: <IntegrationScreenPop />,
       },
       {
         title: "Work From Anywhere",
