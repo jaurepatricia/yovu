@@ -95,7 +95,7 @@ const categories: Category[] = [
         media: <ThreeWayCall />,
       },
       {
-        title: "More Coming Soon",
+        title: "Guided Conversations (Coming Soon)",
         copy: "Live prompts and questions surface during the call, helping new hires ramp faster and keeping documentation consistent across the team, which supports stronger E&O records.",
         cta: { label: "Get Early Access", href: "#demo" },
         media: <ComingSoon />,
