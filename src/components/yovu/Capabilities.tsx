@@ -4,8 +4,8 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
 import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
-import { CallerContext } from "@/components/yovu/animations/CallerContext";
 import { IntegrationScreenPop } from "@/components/yovu/animations/IntegrationScreenPop";
+import { DeviceHandoff } from "@/components/yovu/animations/DeviceHandoff";
 import { CallRecording } from "@/components/yovu/animations/CallRecording";
 import { TranscriptionSummary } from "@/components/yovu/animations/TranscriptionSummary";
 import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
@@ -50,7 +50,7 @@ const categories: Category[] = [
         title: "Work From Anywhere",
         copy: "Transition easily between desktop, mobile, and desk phones with a consistent communication experience wherever your team goes.",
         cta: { label: "Learn More", href: "#demo" },
-        media: <CallerContext />,
+        media: <DeviceHandoff />,
       },
     ],
   },
