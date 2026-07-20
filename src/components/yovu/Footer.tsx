@@ -3,11 +3,12 @@ import { FlickeringMountain } from "@/components/ui/flickering-mountain";
 
 const columns = [
   {
-    heading: "Product Capabilities",
+    heading: "Product",
     links: [
       { label: "Communicate", href: "/communicate" },
       { label: "Capture", href: "/capture" },
       { label: "Coach", href: "/coach" },
+      { label: "Plans & Pricing", href: "/pricing" },
     ],
   },
   {
