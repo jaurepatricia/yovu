@@ -35,20 +35,20 @@ const categories: Category[] = [
     label: "Communicate",
     items: [
       {
-        title: "Work Inside Your BMS",
-        copy: "Integrates natively with Applied Epic or fits into your preferred Broker Management System workflow.",
-        cta: { label: "Our Integrations", href: "#integrations" },
-        media: <AppliedDashboard />,
-      },
-      {
-        title: "Click-to-Call",
-        copy: "Call any number with one click from your desktop within your BMS or mobile using your business number.",
+        title: "Business Phone System",
+        copy: "Reliable cloud communications for modern insurance organizations. Equip your team with intelligent call routing, seamless warm transfers, and advanced call management.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ClickToDial />,
       },
       {
-        title: "Caller Context",
-        copy: "Screen pops instantly reveal caller accounts, letting you personalize service and eliminate repetitive questions.",
+        title: "Insurance Integrations",
+        copy: "Automate workflows directly within Applied Epic or your preferred management system. Enjoy one-click dialing and instant screen pops with full caller context.",
+        cta: { label: "Our Integrations", href: "#integrations" },
+        media: <AppliedDashboard />,
+      },
+      {
+        title: "Work From Anywhere",
+        copy: "Transition easily between desktop, mobile, and desk phones with a consistent communication experience wherever your team goes.",
         cta: { label: "Learn More", href: "#demo" },
         media: <CallerContext />,
       },
