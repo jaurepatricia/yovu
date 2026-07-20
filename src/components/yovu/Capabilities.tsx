@@ -59,22 +59,22 @@ const categories: Category[] = [
     label: "Capture",
     items: [
       {
-        title: "Call Recording",
-        copy: "Capture every call with secure playback and up to seven years of data retention for long-term E&O defensibility.",
+        title: "Automatic BMS Logging",
+        copy: "Recordings, summaries, and call data automatically attached to client files.",
         cta: { label: "Get a Demo", href: "#demo" },
+        media: <ActivityLogging />,
+      },
+      {
+        title: "Long Term Call Recording",
+        copy: "Capture every call with secure playback and up to seven years of data retention for long-term E&O defensibility. Transfer your existing recordings to YOVU.",
+        cta: { label: "Learn More", href: "#demo" },
         media: <CallRecording />,
       },
       {
-        title: "Transcription & AI Summary",
-        copy: "Automatically transcribe conversations and let our customizable AI highlight key points, sentiment, and follow-up tasks.",
-        cta: { label: "Learn More", href: "#demo" },
-        media: <TranscriptionSummary />,
-      },
-      {
-        title: "Activity Logging",
-        copy: "Easily connect calls into activities on client profiles, including what the discussion was about and any additional notes.",
+        title: "Transcription and Tailored AI Summaries",
+        copy: "Every call is transcribed and summarized by AI. We tune to your brokerage, so the key points, sentiment, and follow-up tasks come out the way your team needs them. We keep refining it until it is right.",
         cta: { label: "Our Security", href: "#security" },
-        media: <ActivityLogging />,
+        media: <TranscriptionSummary />,
       },
     ],
   },
