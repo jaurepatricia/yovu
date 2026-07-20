@@ -83,8 +83,14 @@ const categories: Category[] = [
     label: "Coach",
     items: [
       {
-        title: "In-Depth Reporting",
-        copy: "Track call activity, team performance, and queue trends with customizable dashboards.",
+        title: "Guided Conversations (Coming Soon)",
+        copy: "Real-time prompts guide your team during live calls to ramp up new hires faster. Ensure consistent documentation and strengthen E&O records.",
+        cta: { label: "Get Early Access", href: "#demo" },
+        media: <ComingSoon />,
+      },
+      {
+        title: "Performance Insights",
+        copy: "Track call activity, team performance, and trends with customizable reporting & dashboards.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ReportingDashboard />,
       },
@@ -93,12 +99,6 @@ const categories: Category[] = [
         copy: "Listen live, coach privately, or join the call when your team needs support.",
         cta: { label: "Learn More", href: "#demo" },
         media: <ThreeWayCall />,
-      },
-      {
-        title: "Guided Conversations (Coming Soon)",
-        copy: "Live prompts and questions surface during the call, helping new hires ramp faster and keeping documentation consistent across the team, which supports stronger E&O records.",
-        cta: { label: "Get Early Access", href: "#demo" },
-        media: <ComingSoon />,
       },
     ],
   },
