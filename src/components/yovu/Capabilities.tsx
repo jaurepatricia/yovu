@@ -42,7 +42,7 @@ const categories: Category[] = [
       },
       {
         title: "Insurance Integrations",
-        copy: "Automate workflows directly within Applied Epic or your preferred management system. Enjoy one-click dialing and instant screen pops with full caller context.",
+        copy: "Automate workflows directly within Applied Epic or your preferred management system. Get full caller context instantly with screen pops.",
         cta: { label: "Our Integrations", href: "#integrations" },
         media: <AppliedDashboard />,
       },
