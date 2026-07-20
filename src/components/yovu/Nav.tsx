@@ -81,7 +81,7 @@ const features = [
 
 const integrations = [
   { href: "/applied-epic", label: "Applied Epic" },
-  { href: "/microsoft-teams", label: "Microsoft" },
+  { href: "/microsoft-teams", label: "Microsoft Teams" },
   { href: "/salesforce", label: "SalesForce" },
 ];
 
@@ -217,7 +217,7 @@ export function Nav() {
             href="#demo"
             className="hidden text-sm font-medium text-ink/70 transition-colors hover:text-ink sm:inline"
           >
-            Log In
+            Log-in
           </a>
           <a
             href="#demo"
