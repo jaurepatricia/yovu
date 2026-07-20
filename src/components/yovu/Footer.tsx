@@ -33,52 +33,48 @@ const columns = [
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-canvas">
-      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:py-20">
-        <div className="relative z-10">
-          {/* Brand + columns, with the flickering mountain flush to their
-              bottom-left, stretching ~75% wide and behind the link columns —
-              ending above the copyright line below. */}
-          <div className="relative pb-24 sm:pb-36 lg:pb-44">
-            <FlickeringMountain className="absolute bottom-0 left-0 z-0 h-24 w-full sm:h-36 lg:h-44" />
-
-            <div className="relative z-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
-              {/* Left: brand + tagline */}
-              <div>
-                <YovuLogo height={36} />
-                <p className="mt-6 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-                  Your Voice. Unified.
-                </p>
-              </div>
-
-              {/* Right: tidy link columns */}
-              <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-                {columns.map((col) => (
-                  <div key={col.heading}>
-                    <h3 className="text-sm font-semibold text-ink">{col.heading}</h3>
-                    <ul className="mt-4 space-y-3">
-                      {col.links.map((link) => (
-                        <li key={link.label}>
-                          <a
-                            href={link.href}
-                            className="text-sm text-ink/60 transition-colors hover:text-ink"
-                          >
-                            {link.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
+      {/* Brand + link columns */}
+      <div className="mx-auto max-w-7xl px-6 pt-16 lg:pt-20">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left: brand + tagline */}
+          <div>
+            <YovuLogo height={36} />
+            <p className="mt-6 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Your Voice. Unified.
+            </p>
           </div>
 
-          {/* Bottom bar — divider sits directly under the mountain */}
-          <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-ink/50 sm:flex-row">
-            <span>© {new Date().getFullYear()} YOVU Communications Inc.</span>
-            <span>Proudly built and supported in Canada.</span>
+          {/* Right: tidy link columns */}
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            {columns.map((col) => (
+              <div key={col.heading}>
+                <h3 className="text-sm font-semibold text-ink">{col.heading}</h3>
+                <ul className="mt-4 space-y-3">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        className="text-sm text-ink/60 transition-colors hover:text-ink"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+
+      {/* Full-width flickering mountain — spans the entire footer, sized by
+          viewport width so it stays flush and scales up on wider screens. */}
+      <FlickeringMountain className="mt-16 h-[13.5vw] w-full lg:mt-24" />
+
+      {/* Copyright — below the mountain, no divider */}
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 pb-10 pt-6 text-sm text-ink/50 sm:flex-row">
+        <span>© {new Date().getFullYear()} YOVU Communications Inc.</span>
+        <span>Proudly built and supported in Canada.</span>
       </div>
     </footer>
   );
