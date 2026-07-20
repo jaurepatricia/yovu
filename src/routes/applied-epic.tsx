@@ -136,7 +136,7 @@ function AppliedEpicHero() {
           Applied Epic Integration
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink/70">
-          Log a call to Applied Epic, without typing it up.
+          Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
         </p>
       </div>
     </section>
