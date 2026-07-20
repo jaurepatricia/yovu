@@ -72,7 +72,7 @@ const categories: Category[] = [
       },
       {
         title: "Transcription and Tailored AI Summaries",
-        copy: "Every call is transcribed and summarized by AI. We tune to your brokerage, so the key points, sentiment, and follow-up tasks come out the way your team needs them. We keep refining it until it is right.",
+        copy: "Get instant transcripts and AI summaries customized for you. We capture the exact key points, sentiment, and follow-up tasks your team needs to act quickly.",
         cta: { label: "Our Security", href: "#security" },
         media: <TranscriptionSummary />,
       },
