@@ -38,7 +38,7 @@ const slides: Slide[] = [
   {
     headline: "Built to fit your stack",
     copy: "YOVU connects to the tools you already trust and use, so you can spend more time connecting with clients and closing policies.",
-    cta: { label: "Applied Epic Integration", href: "/applied-epic" },
+    cta: { label: "Applied Epic", href: "/applied-epic" },
     image: forestStream,
     tone: "light",
     showIntegrations: true,

@@ -81,10 +81,6 @@ export function IntegrationScreenPop() {
                 <img src={appliedLogomark} alt="" className="h-4 w-auto" />
                 <img src={appliedText} alt="Applied" className="h-3 w-auto" />
                 <span className="text-[10px] font-medium text-white/70">Epic</span>
-                <span className="ml-auto flex gap-1">
-                  <span className="size-2 rounded-full bg-white/25" />
-                  <span className="size-2 rounded-full bg-white/25" />
-                </span>
               </div>
 
               {/* Body */}
@@ -127,9 +123,6 @@ export function IntegrationScreenPop() {
                     transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
                     className="flex items-center gap-2 rounded border border-[#2563eb]/60 px-2 py-1.5"
                   >
-                    <span className="flex size-6 items-center justify-center rounded-full bg-[#2563eb]/10 text-[10px] font-semibold text-[#2563eb]">
-                      {demoContact.initials}
-                    </span>
                     <div className="min-w-0">
                       <p className="truncate text-[11px] font-semibold text-slate-800">
                         {demoContact.name}

@@ -56,7 +56,7 @@ const featureCards: IndividualFeatureCard[] = [
     copy: "Instantly see who is calling and access their full account details the moment your phone rings. You can easily customize this pop-up notification to trigger either when the line rings or when you answer.",
   },
   {
-    title: "Click to Call",
+    title: "Click-to-Call",
     copy: "Make calls with a single click directly from a client's profile without ever leaving the Applied Epic platform. This eliminates manual data entry, saving you valuable time and preventing accidental misdials.",
   },
   {
@@ -174,7 +174,7 @@ export const Route = createFileRoute("/applied-epic")({
       {
         property: "og:description",
         content:
-          "Screen pop, click to call, AI summaries, and up to seven years of secure Canadian call retention — right inside Applied Epic.",
+          "Screen pop, click-to-call, AI summaries, and up to seven years of secure Canadian call retention — right inside Applied Epic.",
       },
       { property: "og:type", content: "website" },
     ],

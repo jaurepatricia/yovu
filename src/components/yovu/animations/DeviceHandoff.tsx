@@ -52,15 +52,15 @@ export function DeviceHandoff() {
   }, []);
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 overflow-hidden px-4">
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-7 overflow-hidden px-4">
       {/* Shared business number badge */}
-      <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-medium text-slate-600 shadow-sm ring-1 ring-black/5">
-        <span className="size-1.5 rounded-full bg-emerald-500" />
+      <div className="flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-medium text-slate-600 shadow-sm ring-1 ring-black/5">
+        <span className="size-2 rounded-full bg-emerald-500" />
         One number · {demoContact.phone}
       </div>
 
       {/* Device row */}
-      <div className="flex items-end justify-center gap-3 sm:gap-4">
+      <div className="flex items-end justify-center gap-4 sm:gap-5">
         {devices.map((device, i) => {
           const active = i === activeIdx;
           return (
@@ -71,14 +71,14 @@ export function DeviceHandoff() {
                 opacity: active ? 1 : 0.55,
               }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className={`relative flex w-24 flex-col items-center gap-2 rounded-2xl bg-white p-3 shadow-lg shadow-black/10 ring-1 sm:w-28 ${
+              className={`relative flex w-32 flex-col items-center gap-3 rounded-2xl bg-white p-4 shadow-lg shadow-black/10 ring-1 sm:w-36 ${
                 active ? "ring-2 ring-[#2563eb]" : "ring-black/5"
               }`}
             >
               {/* Device screen */}
-              <div className="relative flex h-16 w-full items-center justify-center overflow-hidden rounded-lg bg-slate-50">
+              <div className="relative flex h-24 w-full items-center justify-center overflow-hidden rounded-lg bg-slate-50">
                 <device.Icon
-                  className={`size-6 ${active ? "text-[#2563eb]" : "text-slate-400"}`}
+                  className={`size-10 ${active ? "text-[#2563eb]" : "text-slate-400"}`}
                   strokeWidth={1.75}
                 />
 
@@ -87,15 +87,10 @@ export function DeviceHandoff() {
                   <motion.div
                     layoutId="call-token"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    className="absolute inset-x-1.5 bottom-1.5 flex items-center gap-1.5 rounded-md bg-[#2563eb] px-1.5 py-1 text-white shadow-md"
+                    className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-2 rounded-md bg-[#2563eb] px-2.5 py-1.5 text-white shadow-md"
                   >
-                    <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-white/20 text-[8px] font-semibold">
-                      {demoContact.initials}
-                    </span>
-                    <span className="truncate text-[9px] font-medium leading-none">
-                      {demoContact.firstName}
-                    </span>
-                    <span className="ml-auto text-[9px] tabular-nums leading-none text-white/80">
+                    <span className="text-[11px] font-medium leading-none">Call</span>
+                    <span className="text-[11px] tabular-nums leading-none text-white/80">
                       {formatTime(seconds)}
                     </span>
                   </motion.div>
@@ -103,7 +98,7 @@ export function DeviceHandoff() {
               </div>
 
               <span
-                className={`text-[10px] font-medium ${active ? "text-slate-700" : "text-slate-400"}`}
+                className={`text-xs font-medium ${active ? "text-slate-700" : "text-slate-400"}`}
               >
                 {device.label}
               </span>
@@ -111,8 +106,6 @@ export function DeviceHandoff() {
           );
         })}
       </div>
-
-      <p className="text-[11px] font-medium text-slate-500">Same call, wherever you are</p>
     </div>
   );
 }

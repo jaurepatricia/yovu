@@ -36,7 +36,7 @@ const featureCards: IndividualFeatureCard[] = [
     copy: "Inbound Calls associated with an account will show you who's calling with access to all the details on their account. Customize this notification to activate on ring or on answer.",
   },
   {
-    title: "Click to Call",
+    title: "Click-to-Call",
     copy: "Make calls directly from a client's account on a single click, remaining embedded in one tool. Save time by capturing the results of these calls instantly in their account.",
   },
   {
@@ -82,7 +82,7 @@ const faqItems = [
   },
   {
     q: "Can users make calls directly from Salesforce?",
-    a: "Yes, users can click to call directly from a client account and stay inside the same Salesforce workflow while capturing call results right away.",
+    a: "Yes, users can click-to-call directly from a client account and stay inside the same Salesforce workflow while capturing call results right away.",
   },
   {
     q: "Does YOVU's Salesforce integration support call recording?",
@@ -144,13 +144,13 @@ export const Route = createFileRoute("/salesforce")({
       {
         name: "description",
         content:
-          "Skyrocket sales, productivity, and reporting with YOVU's complete Salesforce integration — screen pop, click to call, recording, and full call control inside Salesforce.",
+          "Skyrocket sales, productivity, and reporting with YOVU's complete Salesforce integration — screen pop, click-to-call, recording, and full call control inside Salesforce.",
       },
       { property: "og:title", content: "Salesforce Integration — YOVU" },
       {
         property: "og:description",
         content:
-          "Connect YOVU's VoIP phone system with Salesforce for screen pop, click to call, call recording, and complete call control inside your CRM.",
+          "Connect YOVU's VoIP phone system with Salesforce for screen pop, click-to-call, call recording, and complete call control inside your CRM.",
       },
       { property: "og:type", content: "website" },
     ],
