@@ -38,8 +38,8 @@ export function Footer() {
           {/* Brand + columns, with the flickering mountain flush to their
               bottom-left, stretching ~75% wide and behind the link columns —
               ending above the copyright line below. */}
-          <div className="relative pb-16">
-            <FlickeringMountain className="absolute bottom-0 left-0 z-0 h-28 w-3/4 sm:h-40 lg:h-48" />
+          <div className="relative pb-24 sm:pb-36 lg:pb-44">
+            <FlickeringMountain className="absolute bottom-0 left-0 z-0 h-24 w-full sm:h-36 lg:h-44" />
 
             <div className="relative z-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
               {/* Left: brand + tagline */}

@@ -1,5 +1,5 @@
 import { FlickeringGrid } from "@/components/ui/flickering-grid-hero";
-import mountainVector from "@/assets/homepage/mountain vector graphic.svg";
+import mountainVector from "@/assets/homepage/Mountain Outline.svg";
 
 // Site signal blue for the twinkling squares.
 const GRID_COLOR = "#3b82f6";
