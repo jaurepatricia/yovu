@@ -34,44 +34,47 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-canvas">
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:py-20">
-        {/* Flickering mountain — flush to the bottom-left, stretching ~75%
-            across the footer and behind the link columns. */}
-        <FlickeringMountain className="absolute bottom-0 left-0 z-0 h-64 w-3/4 sm:h-80 lg:h-[26rem]" />
-
         <div className="relative z-10">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left: brand + tagline */}
-            <div>
-              <YovuLogo height={36} />
-              <p className="mt-6 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-                Your Voice. Unified.
-              </p>
-            </div>
+          {/* Brand + columns, with the flickering mountain flush to their
+              bottom-left, stretching ~75% wide and behind the link columns —
+              ending above the copyright line below. */}
+          <div className="relative">
+            <FlickeringMountain className="absolute bottom-0 left-0 z-0 h-28 w-3/4 sm:h-40 lg:h-48" />
 
-            {/* Right: tidy link columns */}
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-              {columns.map((col) => (
-                <div key={col.heading}>
-                  <h3 className="text-sm font-semibold text-ink">{col.heading}</h3>
-                  <ul className="mt-4 space-y-3">
-                    {col.links.map((link) => (
-                      <li key={link.label}>
-                        <a
-                          href={link.href}
-                          className="text-sm text-ink/60 transition-colors hover:text-ink"
-                        >
-                          {link.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+            <div className="relative z-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
+              {/* Left: brand + tagline */}
+              <div>
+                <YovuLogo height={36} />
+                <p className="mt-6 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+                  Your Voice. Unified.
+                </p>
+              </div>
+
+              {/* Right: tidy link columns */}
+              <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+                {columns.map((col) => (
+                  <div key={col.heading}>
+                    <h3 className="text-sm font-semibold text-ink">{col.heading}</h3>
+                    <ul className="mt-4 space-y-3">
+                      {col.links.map((link) => (
+                        <li key={link.label}>
+                          <a
+                            href={link.href}
+                            className="text-sm text-ink/60 transition-colors hover:text-ink"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Bottom bar */}
-          <div className="mt-24 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-ink/50 sm:flex-row lg:mt-40">
+          {/* Bottom bar — sits below the mountain */}
+          <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-ink/50 sm:flex-row">
             <span>© {new Date().getFullYear()} YOVU Communications Inc.</span>
             <span>Proudly built and supported in Canada.</span>
           </div>
