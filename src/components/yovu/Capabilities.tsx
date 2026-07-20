@@ -112,9 +112,7 @@ export function Capabilities() {
   const reducedMotion = useRef(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
-    reducedMotion.current = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    reducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }, []);
 
   const category = categories[activeCat];
@@ -203,9 +201,7 @@ export function Capabilities() {
                       </span>
                       <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
                         <ChevronDown
-                          className={`size-4 transition-transform ${
-                            isOpen ? "rotate-180" : ""
-                          }`}
+                          className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
                         />
                       </span>
                     </button>
@@ -215,9 +211,7 @@ export function Capabilities() {
                       }`}
                     >
                       <div className="min-h-0">
-                        <p className="text-pretty text-ink/65">
-                          {item.copy}
-                        </p>
+                        <p className="text-pretty text-ink/65">{item.copy}</p>
                         {/* Mobile media (inline under open item) */}
                         <div className="mt-6 lg:hidden">
                           <MediaCard item={item} />
@@ -232,7 +226,7 @@ export function Capabilities() {
             {/* CTA — links to the active category page */}
             <div className="mt-8">
               <a
-                href={`#${category.id}`}
+                href={`/${category.id}`}
                 className="inline-flex items-center gap-2 rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
               >
                 Learn More

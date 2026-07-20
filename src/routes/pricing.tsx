@@ -4,7 +4,6 @@ import { Footer } from "@/components/yovu/Footer";
 import { PricingTable } from "@/components/yovu/pricing/PricingTable";
 import { CompareFeatures } from "@/components/yovu/pricing/CompareFeatures";
 
-
 import { FAQ } from "@/components/yovu/FAQ";
 
 const faqItems = [
@@ -25,8 +24,8 @@ const faqItems = [
     a: "Yes! Contact your account specialist or our support team to have them add new numbers quickly to your account.",
   },
   {
-    q: "Can YOVU send faxes?",
-    a: "Yes! Our web portal is equipped to send and receive your faxes. It's simple and easy to use. Alternatively, we can provide an analogue ATA adapter that allows your fax machine to connect to our FoIP network.",
+    q: "Can I text clients using my business phone number?",
+    a: "Yes. By using the YOVU Mobile app or desktop application, you can send and receive SMS messages using your dedicated business caller ID. This protects your personal privacy while ensuring clients receive professional, consistent communication. Voice and text operate from the exact same workspace, and your intelligent call queues can even be configured to accept SMS messages for customer service inquiries.",
   },
   {
     q: "Can I move my VoIP phone to another location?",
@@ -35,6 +34,10 @@ const faqItems = [
   {
     q: "Can I use my existing desk phones?",
     a: "Depending on the type of desk phone you have. We are compatible with most newer Polycom, Cisco, Aastra, Snom, Yealink, Mitel and Grandstream phones. If it is a non-VoIP phone, we can use a VoIP ATA adapter. Sometimes, we are able to offer new customers trade-ins for ShoreTel, Cisco, Mitel and other newer systems.",
+  },
+  {
+    q: "Can YOVU send faxes?",
+    a: "Yes! Our web portal is equipped to send and receive your faxes. It's simple and easy to use. Alternatively, we can provide an analogue ATA adapter that allows your fax machine to connect to our FoIP network.",
   },
   {
     q: "Can I customize my YOVU phone number?",
@@ -49,9 +52,8 @@ function PricingPage() {
       <div className="pt-20">
         <PricingTable />
         <CompareFeatures />
-        
-        <FAQ items={faqItems} />
 
+        <FAQ items={faqItems} />
       </div>
       <Footer />
     </main>

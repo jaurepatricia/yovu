@@ -38,7 +38,7 @@ const slides: Slide[] = [
   {
     headline: "Built to fit your stack",
     copy: "YOVU connects to the tools you already trust and use, so you can spend more time connecting with clients and closing policies.",
-    cta: { label: "Our Integrations", href: "#integrations" },
+    cta: { label: "Applied Epic Integration", href: "/applied-epic" },
     image: forestStream,
     tone: "light",
     showIntegrations: true,
@@ -46,14 +46,14 @@ const slides: Slide[] = [
   {
     headline: "Built for the long road",
     copy: "YOVU stores your recordings for seven years to strengthen your E&O documentation. We take your data seriously, that’s why we’re also SOC 2 Type 2 Certified and PIPEDA Compliant.",
-    cta: { label: "Our Security", href: "#security" },
+    cta: { label: "Learn More", href: "/capture" },
     image: mountainRoad,
     tone: "dark",
   },
   {
     headline: "Built by Canadians",
     copy: "YOVU was built by a team of dedicated Canadians and our local support staff is ready to help 24/7. You’ll never have to speak to an off-shore call centre.",
-    cta: { label: "Our Team", href: "#canada" },
+    cta: { label: "Our Team", href: "/about-us" },
     image: manIpad,
     tone: "light",
     narrowCopy: true,

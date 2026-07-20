@@ -135,17 +135,18 @@ export function Hero() {
 
       {/* Certified Integration Partner pill — pops up from the bottom on load */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center pb-14">
-        <motion.div
+        <motion.a
+          href="/applied-epic"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
-          className="flex items-center justify-center gap-3.5 rounded-full bg-[#0b1733]/60 px-8 py-4 ring-1 ring-white/10 backdrop-blur-md"
+          className="pointer-events-auto flex items-center justify-center gap-3.5 rounded-full bg-[#0b1733]/60 px-8 py-4 ring-1 ring-white/10 backdrop-blur-md transition-colors hover:bg-[#0b1733]/75"
         >
           <img src={appliedLogoWhite} alt="Applied" className="h-6 w-auto md:h-7" />
           <span className="text-xs font-medium uppercase tracking-[0.18em] text-white md:text-sm">
             Epic Certified Integration Partner
           </span>
-        </motion.div>
+        </motion.a>
       </div>
     </section>
   );
