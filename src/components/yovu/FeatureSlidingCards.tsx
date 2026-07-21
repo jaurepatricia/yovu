@@ -53,7 +53,7 @@ export function FeatureSlidingCards({
                 </div>
                 <div className="md:col-span-1">
                   {card.media ? (
-                    <div className="relative mx-auto aspect-square w-full max-w-sm">
+                    <div className="relative mx-auto aspect-square w-full max-w-sm [&_*]:shadow-none">
                       {card.media}
                     </div>
                   ) : (
