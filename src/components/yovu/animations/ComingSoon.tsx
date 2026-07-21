@@ -19,9 +19,9 @@ export function ComingSoon() {
         {/* Animated lock */}
         <div className="relative">
           <motion.span
-            className="absolute inset-0 rounded-full ring-2 ring-[#3b82f6]"
-            animate={{ scale: [1, 1.7], opacity: [0.6, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+            className="absolute inset-0 rounded-full ring-1 ring-[#3b82f6]"
+            animate={{ scale: [1, 1.35], opacity: [0.35, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
           />
           <motion.span
             className="relative flex size-16 items-center justify-center rounded-full bg-[#2563eb] text-white shadow-lg shadow-[#2563eb]/40 ring-1 ring-[#3b82f6]/50"

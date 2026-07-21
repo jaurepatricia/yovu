@@ -42,7 +42,7 @@ export function FeatureSlidingCards({
           {cards.map((card) => (
             <div
               key={card.title}
-              className={`sticky top-[15rem] overflow-hidden rounded-3xl p-8 shadow-sm shadow-black/[0.03] ring-1 ring-border/60 md:p-12 lg:top-[16rem] ${cardClassName}`}
+              className={`sticky top-[13rem] overflow-hidden rounded-3xl p-8 shadow-sm shadow-black/[0.03] ring-1 ring-border/60 md:p-12 ${cardClassName}`}
             >
               <div className="grid items-center gap-8 md:grid-cols-3">
                 <div className="md:col-span-2">
@@ -53,7 +53,7 @@ export function FeatureSlidingCards({
                 </div>
                 <div className="md:col-span-1">
                   {card.media ? (
-                    <div className="relative mx-auto aspect-square w-full max-w-sm [&_*]:shadow-none">
+                    <div className="relative mx-auto h-72 w-full [&_*]:shadow-none">
                       {card.media}
                     </div>
                   ) : (

@@ -51,9 +51,9 @@ export function CallRecording() {
           {/* Recording button (highlighted) */}
           <div className="relative">
             <motion.span
-              className="absolute inset-0 rounded-full ring-2 ring-[#dc2626]"
-              animate={{ scale: [1, 1.35], opacity: [0.5, 0] }}
-              transition={{ duration: 1.3, repeat: Infinity, ease: "easeOut" }}
+              className="absolute inset-0 rounded-full ring-1 ring-[#dc2626]"
+              animate={{ scale: [1, 1.35], opacity: [0.35, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
             />
             <span className="relative flex items-center gap-1.5 rounded-full bg-[#dc2626] px-3 py-1.5 text-xs font-bold text-white shadow-lg shadow-[#dc2626]/30">
               <motion.span
