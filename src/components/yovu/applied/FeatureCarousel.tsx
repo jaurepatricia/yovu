@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 
-const FEATURES = ["Recording", "Transcription", "Custom AI Summaries", "Activity Logging"];
+const FEATURES = [
+  "Call Recording",
+  "Searchable Transcription",
+  "Custom AI Summary",
+  "Activity Logging",
+];
 
 /**
  * Vertical auto-rotating carousel of glassy feature pills. The focused pill
