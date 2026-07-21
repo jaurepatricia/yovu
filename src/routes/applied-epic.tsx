@@ -24,6 +24,7 @@ import mountainFlowers from "@/assets/imagery/snowy capped mountain and flowers.
 import developersWorking from "@/assets/imagery/developers working together.webp";
 import { ImageCallCard } from "@/components/yovu/applied/ImageCallCard";
 import { FeatureCarousel } from "@/components/yovu/applied/FeatureCarousel";
+import { ScaleCallout } from "@/components/yovu/ScaleCallout";
 
 const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
@@ -213,6 +214,7 @@ function AppliedEpicPage() {
         }
       />
       <FAQ items={faqItems} />
+      <ScaleCallout />
       <Footer />
     </main>
   );
