@@ -25,6 +25,7 @@ import developersWorking from "@/assets/imagery/developers working together.webp
 import { ImageCallCard } from "@/components/yovu/applied/ImageCallCard";
 import { FeatureCarousel } from "@/components/yovu/applied/FeatureCarousel";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
+import appliedHeroTest from "@/assets/hero/applied-hero-test.png.asset.json";
 
 const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
@@ -178,14 +179,36 @@ const faqItems = [
 
 function AppliedEpicHero() {
   return (
-    <section className="bg-canvas pb-16 pt-40 lg:pb-24 lg:pt-56">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-          Applied Epic Integration
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink/70">
-          Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
-        </p>
+    <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
+      <img
+        src={appliedHeroTest.url}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-canvas/80 via-canvas/40 to-transparent"
+      />
+      <div className="relative z-10 flex h-full items-center">
+        <div className="mx-auto w-full max-w-7xl px-6 pt-32 lg:pt-40">
+          <div className="max-w-2xl text-left">
+            <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+              Applied Epic Integration
+            </h1>
+            <p className="mt-6 text-pretty text-lg text-ink/70">
+              Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
+            </p>
+            <div className="mt-8">
+              <a
+                href="#demo"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+              >
+                See it in Action
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
