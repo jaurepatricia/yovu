@@ -2,7 +2,9 @@ import { Phone, MapPin } from "lucide-react";
 import { YovuLogo } from "./YovuLogo";
 import { FlickeringMountain } from "@/components/ui/flickering-mountain";
 
-const columns = [
+type FooterLink = { label: string; href: string; external?: boolean };
+
+const columns: { heading: string; links: FooterLink[] }[] = [
   {
     heading: "Product",
     links: [
@@ -24,8 +26,9 @@ const columns = [
     heading: "Company",
     links: [
       { label: "About Us", href: "/about-us" },
-      { label: "Contact Us", href: "#" },
-      { label: "Portal Log-in", href: "#" },
+      { label: "Contact Us", href: "/contact-us" },
+      { label: "Support Centre", href: "https://my.yovu.ca/s/", external: true },
+      { label: "Portal Login", href: "https://portal.yovu.ca/portal/", external: true },
     ],
   },
 ];
@@ -74,6 +77,7 @@ export function Footer() {
                       <a
                         href={link.href}
                         className="text-sm text-ink/60 transition-colors hover:text-ink"
+                        {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
                       >
                         {link.label}
                       </a>

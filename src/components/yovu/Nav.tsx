@@ -95,7 +95,7 @@ const companyLinks = [
   { href: "/about-us", label: "About Us", external: false },
   { href: "/contact-us", label: "Contact Us", external: false },
   { href: "https://my.yovu.ca/s/", label: "Support Centre", external: true },
-  { href: "https://portal.yovu.ca/portal/", label: "My Portal", external: true },
+  { href: "https://portal.yovu.ca/portal/", label: "Portal Login", external: true },
 ];
 
 const triggerCls =
@@ -242,7 +242,7 @@ export function Nav() {
             rel="noreferrer"
             className="hidden text-sm font-medium text-ink/70 transition-colors hover:text-ink sm:inline"
           >
-            Log-in
+            Login
           </a>
           <a
             href="/book-demo"
