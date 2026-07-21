@@ -7,7 +7,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { LocaleToggle } from "./LocaleToggle";
 // TEMPORARY review tool — remove before launch (see StickyNotes.tsx).
 import { StickyNoteTrigger } from "./StickyNotes";
 import { ThemeToggle } from "./ThemeToggle";
@@ -28,7 +27,16 @@ function useAlignNavViewport(rootRef: React.RefObject<HTMLDivElement | null>) {
       }
       const rootRect = root.getBoundingClientRect();
       const trigRect = openTrigger.getBoundingClientRect();
-      const centerX = trigRect.left - rootRect.left + trigRect.width / 2;
+      let centerX = trigRect.left - rootRect.left + trigRect.width / 2;
+      // Keep wide panels within the viewport (24px gutter) instead of
+      // overflowing off the left/right edge when centred under the trigger.
+      const halfW = wrapper.offsetWidth / 2;
+      const pad = 24;
+      const minCenter = pad - rootRect.left + halfW;
+      const maxCenter = window.innerWidth - pad - rootRect.left - halfW;
+      if (maxCenter >= minCenter) {
+        centerX = Math.max(minCenter, Math.min(centerX, maxCenter));
+      }
       wrapper.style.left = `${centerX}px`;
       wrapper.style.transform = "translateX(-50%)";
     };
@@ -48,17 +56,7 @@ function useAlignNavViewport(rootRef: React.RefObject<HTMLDivElement | null>) {
   }, [rootRef]);
 }
 
-
-
-const industries = [
-  { href: "#", label: "Insurance" },
-  { href: "#", label: "Healthcare" },
-  { href: "#", label: "Automotive" },
-  { href: "#", label: "Non-Profit & Charity" },
-  { href: "#", label: "All Others" },
-];
-
-const features = [
+const capabilities = [
   {
     href: "/communicate",
     title: "Communicate",
@@ -79,10 +77,24 @@ const features = [
   },
 ];
 
+const industries = [
+  { href: "#", label: "Insurance" },
+  { href: "#", label: "Healthcare" },
+  { href: "#", label: "Automotive" },
+  { href: "#", label: "Non-Profit & Charity" },
+  { href: "#", label: "All Others" },
+];
+
 const integrations = [
   { href: "/applied-epic", label: "Applied Epic" },
   { href: "/microsoft-teams", label: "Microsoft Teams" },
   { href: "/salesforce", label: "SalesForce" },
+];
+
+const contactLinks = [
+  { href: "/contact-us", label: "Contact Us", external: false },
+  { href: "https://my.yovu.ca/s/", label: "Support Centre", external: true },
+  { href: "https://portal.yovu.ca/portal/", label: "My Portal", external: true },
 ];
 
 const triggerCls =
@@ -90,6 +102,9 @@ const triggerCls =
 
 const itemCls =
   "inline-flex h-9 items-center justify-center rounded-md bg-transparent px-3 text-sm font-medium text-ink/60 transition-colors hover:bg-accent hover:text-ink focus:bg-accent focus:text-ink focus:outline-none";
+
+const menuLinkCls =
+  "block rounded-md px-2 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-accent hover:text-ink";
 
 export function Nav() {
   const navMenuRef = useRef<HTMLDivElement>(null);
@@ -110,57 +125,52 @@ export function Nav() {
 
           <NavigationMenu ref={navMenuRef} className="hidden md:flex">
             <NavigationMenuList className="gap-1">
-              {/* Solutions */}
+              {/* Solutions — capabilities + industries */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className={triggerCls}>Solutions</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-52 p-4">
-                    <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
-                      By Industry
-                    </p>
-                    <ul className="flex flex-col">
-                      {industries.map((item) => (
-                        <li key={item.label}>
-                          <NavigationMenuLink asChild>
-                            <a
-                              href={item.href}
-                              className="block rounded-md px-2 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-accent hover:text-ink"
-                            >
-                              {item.label}
-                            </a>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                  <div className="grid w-[600px] grid-cols-2 gap-8 p-6">
+                    {/* By Capabilities */}
+                    <div>
+                      <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
+                        By Capabilities
+                      </p>
+                      <ul className="flex flex-col gap-1">
+                        {capabilities.map((f) => (
+                          <li key={f.title}>
+                            <NavigationMenuLink asChild>
+                              <a
+                                href={f.href}
+                                className="block rounded-md px-2 py-2 transition-colors hover:bg-accent"
+                              >
+                                <div className="text-sm font-semibold text-ink">{f.title}</div>
+                                <p className="mt-0.5 text-xs leading-snug text-ink/60">
+                                  {f.description}
+                                </p>
+                              </a>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-              {/* Product */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className={triggerCls}>Product</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[360px] p-6">
-                    <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
-                      CAPABILITIES
-                    </p>
-                    <ul className="flex flex-col gap-1">
-                      {features.map((f) => (
-                        <li key={f.title}>
-                          <NavigationMenuLink asChild>
-                            <a
-                              href={f.href}
-                              className="block rounded-md px-2 py-2 transition-colors hover:bg-accent"
-                            >
-                              <div className="text-sm font-semibold text-ink">{f.title}</div>
-                              <p className="mt-0.5 text-xs leading-snug text-ink/60">
-                                {f.description}
-                              </p>
-                            </a>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* By Industry */}
+                    <div>
+                      <p className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-ink/50">
+                        By Industry
+                      </p>
+                      <ul className="flex flex-col">
+                        {industries.map((item) => (
+                          <li key={item.label}>
+                            <NavigationMenuLink asChild>
+                              <a href={item.href} className={menuLinkCls}>
+                                {item.label}
+                              </a>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -174,10 +184,7 @@ export function Nav() {
                       {integrations.map((i) => (
                         <li key={i.label}>
                           <NavigationMenuLink asChild>
-                            <a
-                              href={i.href}
-                              className="block rounded-md px-2 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-accent hover:text-ink"
-                            >
+                            <a href={i.href} className={menuLinkCls}>
                               {i.label}
                             </a>
                           </NavigationMenuLink>
@@ -205,26 +212,53 @@ export function Nav() {
                   </a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
+
+              {/* Contact */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className={triggerCls}>Contact</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-52 p-4">
+                    <ul className="flex flex-col">
+                      {contactLinks.map((c) => (
+                        <li key={c.label}>
+                          <NavigationMenuLink asChild>
+                            <a
+                              href={c.href}
+                              className={menuLinkCls}
+                              {...(c.external
+                                ? { target: "_blank", rel: "noreferrer" }
+                                : {})}
+                            >
+                              {c.label}
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
 
         <div className="flex items-center gap-3">
           <StickyNoteTrigger />
-          <LocaleToggle />
-          <ThemeToggle />
           <a
-            href="#demo"
+            href="https://portal.yovu.ca/portal/"
+            target="_blank"
+            rel="noreferrer"
             className="hidden text-sm font-medium text-ink/70 transition-colors hover:text-ink sm:inline"
           >
             Log-in
           </a>
           <a
-            href="#demo"
+            href="/book-demo"
             className="rounded-full bg-signal px-4 py-2 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
           >
-            Get a Demo
+            Book Demo
           </a>
+          <ThemeToggle />
         </div>
       </div>
     </nav>

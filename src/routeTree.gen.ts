@@ -16,9 +16,11 @@ import { Route as SalesforceRouteImport } from './routes/salesforce'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as CommunicateRouteImport } from './routes/communicate'
 import { Route as CoachRouteImport } from './routes/coach'
 import { Route as CaptureRouteImport } from './routes/capture'
+import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as AppliedEpicRouteImport } from './routes/applied-epic'
 import { Route as AccessibilityPlanRouteImport } from './routes/accessibility-plan'
 import { Route as AboutUsRouteImport } from './routes/about-us'
@@ -59,6 +61,11 @@ const MicrosoftTeamsRoute = MicrosoftTeamsRouteImport.update({
   path: '/microsoft-teams',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CommunicateRoute = CommunicateRouteImport.update({
   id: '/communicate',
   path: '/communicate',
@@ -72,6 +79,11 @@ const CoachRoute = CoachRouteImport.update({
 const CaptureRoute = CaptureRouteImport.update({
   id: '/capture',
   path: '/capture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookDemoRoute = BookDemoRouteImport.update({
+  id: '/book-demo',
+  path: '/book-demo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppliedEpicRoute = AppliedEpicRouteImport.update({
@@ -100,9 +112,11 @@ export interface FileRoutesByFullPath {
   '/about-us': typeof AboutUsRoute
   '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/book-demo': typeof BookDemoRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
+  '/contact-us': typeof ContactUsRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -116,9 +130,11 @@ export interface FileRoutesByTo {
   '/about-us': typeof AboutUsRoute
   '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/book-demo': typeof BookDemoRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
+  '/contact-us': typeof ContactUsRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -133,9 +149,11 @@ export interface FileRoutesById {
   '/about-us': typeof AboutUsRoute
   '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/book-demo': typeof BookDemoRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
+  '/contact-us': typeof ContactUsRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -151,9 +169,11 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/accessibility-plan'
     | '/applied-epic'
+    | '/book-demo'
     | '/capture'
     | '/coach'
     | '/communicate'
+    | '/contact-us'
     | '/microsoft-teams'
     | '/pricing'
     | '/privacy-policy'
@@ -167,9 +187,11 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/accessibility-plan'
     | '/applied-epic'
+    | '/book-demo'
     | '/capture'
     | '/coach'
     | '/communicate'
+    | '/contact-us'
     | '/microsoft-teams'
     | '/pricing'
     | '/privacy-policy'
@@ -183,9 +205,11 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/accessibility-plan'
     | '/applied-epic'
+    | '/book-demo'
     | '/capture'
     | '/coach'
     | '/communicate'
+    | '/contact-us'
     | '/microsoft-teams'
     | '/pricing'
     | '/privacy-policy'
@@ -200,9 +224,11 @@ export interface RootRouteChildren {
   AboutUsRoute: typeof AboutUsRoute
   AccessibilityPlanRoute: typeof AccessibilityPlanRoute
   AppliedEpicRoute: typeof AppliedEpicRoute
+  BookDemoRoute: typeof BookDemoRoute
   CaptureRoute: typeof CaptureRoute
   CoachRoute: typeof CoachRoute
   CommunicateRoute: typeof CommunicateRoute
+  ContactUsRoute: typeof ContactUsRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
   PricingRoute: typeof PricingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
@@ -263,6 +289,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MicrosoftTeamsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/communicate': {
       id: '/communicate'
       path: '/communicate'
@@ -282,6 +315,13 @@ declare module '@tanstack/react-router' {
       path: '/capture'
       fullPath: '/capture'
       preLoaderRoute: typeof CaptureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-demo': {
+      id: '/book-demo'
+      path: '/book-demo'
+      fullPath: '/book-demo'
+      preLoaderRoute: typeof BookDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/applied-epic': {
@@ -320,9 +360,11 @@ const rootRouteChildren: RootRouteChildren = {
   AboutUsRoute: AboutUsRoute,
   AccessibilityPlanRoute: AccessibilityPlanRoute,
   AppliedEpicRoute: AppliedEpicRoute,
+  BookDemoRoute: BookDemoRoute,
   CaptureRoute: CaptureRoute,
   CoachRoute: CoachRoute,
   CommunicateRoute: CommunicateRoute,
+  ContactUsRoute: ContactUsRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
   PricingRoute: PricingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
