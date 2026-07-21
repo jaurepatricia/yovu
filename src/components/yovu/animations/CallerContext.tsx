@@ -46,9 +46,9 @@ export function CallerContext() {
           <span className="relative flex size-7 items-center justify-center rounded-full bg-[#2563eb] text-white">
             <PhoneIncoming className="size-3.5" strokeWidth={2.5} />
             <motion.span
-              className="absolute inset-0 rounded-full ring-2 ring-[#2563eb]"
-              animate={{ scale: [1, 1.5], opacity: [0.6, 0] }}
-              transition={{ duration: 1.2, repeat: Infinity, ease: "easeOut" }}
+              className="absolute inset-0 rounded-full ring-1 ring-[#2563eb]"
+              animate={{ scale: [1, 1.35], opacity: [0.35, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
             />
           </span>
           <span className="text-xs font-medium text-slate-700">
