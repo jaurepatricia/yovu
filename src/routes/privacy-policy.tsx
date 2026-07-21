@@ -120,7 +120,7 @@ function PrivacyPolicyPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="mx-auto max-w-4xl px-6 pt-40 pb-12 text-center lg:pt-56">
+      <section className="mx-auto max-w-4xl px-6 pt-40 pb-16 text-center lg:pt-56 lg:pb-24">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
           Legal
         </p>
