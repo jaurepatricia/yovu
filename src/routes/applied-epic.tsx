@@ -188,7 +188,7 @@ function AppliedEpicHero() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-canvas/80 via-canvas/40 to-transparent"
+        className="absolute inset-0 bg-gradient-to-b from-canvas/70 via-canvas/40 to-canvas/70"
       />
       <div className="relative z-10 flex h-full items-center justify-center">
         <div className="mx-auto w-full max-w-7xl px-6 pt-32 lg:pt-40">
