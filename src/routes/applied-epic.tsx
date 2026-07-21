@@ -192,7 +192,7 @@ function AppliedEpicHero() {
       />
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6 pt-32 lg:pt-40">
-          <div className="flex max-w-2xl flex-col text-left">
+          <div className="flex max-w-xl flex-col text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
               Integrations
             </p>
