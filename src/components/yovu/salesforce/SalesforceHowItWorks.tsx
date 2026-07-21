@@ -66,10 +66,10 @@ export function SalesforceHowItWorks() {
           alt=""
           aria-hidden="true"
           style={{ scale, y }}
-          className="absolute inset-0 h-full w-full object-cover blur-md"
+          className="absolute inset-0 h-full w-full object-cover blur"
         />
         {/* Soft white wash to lighten and recede the clouds behind the card */}
-        <div aria-hidden="true" className="absolute inset-0 bg-white/40" />
+        <div aria-hidden="true" className="absolute inset-0 bg-white/30" />
 
         {/* Card matches the content width of the sections above */}
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
