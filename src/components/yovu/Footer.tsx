@@ -25,7 +25,7 @@ const columns = [
       { label: "About Us", href: "/about-us" },
       { label: "Contact Us", href: "#" },
       { label: "Portal Log-in", href: "#" },
-      { label: "Privacy Policy", href: "#" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Accessibility Plan", href: "#" },
     ],
   },

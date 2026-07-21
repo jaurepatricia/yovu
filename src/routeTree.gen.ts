@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as V2RouteImport } from './routes/v2'
 import { Route as TbdRouteImport } from './routes/tbd'
 import { Route as SalesforceRouteImport } from './routes/salesforce'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
 import { Route as CommunicateRouteImport } from './routes/communicate'
@@ -34,6 +35,11 @@ const TbdRoute = TbdRouteImport.update({
 const SalesforceRoute = SalesforceRouteImport.update({
   id: '/salesforce',
   path: '/salesforce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/communicate': typeof CommunicateRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/v2': typeof V2Route
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
+    | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
     | '/v2'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
+    | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
     | '/v2'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/microsoft-teams'
     | '/pricing'
+    | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
     | '/v2'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   CommunicateRoute: typeof CommunicateRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
   PricingRoute: typeof PricingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SalesforceRoute: typeof SalesforceRoute
   TbdRoute: typeof TbdRoute
   V2Route: typeof V2Route
@@ -194,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/salesforce'
       fullPath: '/salesforce'
       preLoaderRoute: typeof SalesforceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommunicateRoute: CommunicateRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
   PricingRoute: PricingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SalesforceRoute: SalesforceRoute,
   TbdRoute: TbdRoute,
   V2Route: V2Route,
