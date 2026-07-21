@@ -19,25 +19,19 @@ const STEPS: { phase: Phase; ms: number }[] = [
   { phase: "connected", ms: 1800 },
 ];
 
-
 export function ClickToDial() {
   const [step, setStep] = useState(0);
   const reduced = useRef(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    reduced.current = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    reduced.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced.current) setStep(3);
   }, []);
 
   useEffect(() => {
     if (reduced.current) return;
-    const t = setTimeout(
-      () => setStep((i) => (i + 1) % STEPS.length),
-      STEPS[step].ms,
-    );
+    const t = setTimeout(() => setStep((i) => (i + 1) % STEPS.length), STEPS[step].ms);
     return () => clearTimeout(t);
   }, [step]);
 
@@ -47,18 +41,15 @@ export function ClickToDial() {
   const inCall = phase === "calling" || phase === "connected";
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 overflow-hidden px-4">
       {/* Applied Epic contact card */}
-      <div className="relative w-[24rem] max-w-[92%] overflow-hidden rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5">
+      <div className="relative w-[24rem] max-w-full overflow-hidden rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5">
         {/* Tabs */}
         <div className="flex items-end gap-1 border-b border-slate-200 px-3 pt-3">
           <span className="rounded-t-md border border-b-0 border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700">
             Primary
           </span>
-          <span className="px-3 py-1 text-xs font-medium text-slate-400">
-            Additional
-          </span>
+          <span className="px-3 py-1 text-xs font-medium text-slate-400">Additional</span>
         </div>
 
         {/* Body */}
@@ -116,59 +107,59 @@ export function ClickToDial() {
         )}
       </div>
 
-      {/* Call status pill */}
-      <AnimatePresence>
-        {inCall && (
-          <motion.div
-            className="absolute bottom-[9%] flex items-center gap-2.5 rounded-full bg-white py-2 pl-2.5 pr-4 shadow-xl shadow-black/20 ring-1 ring-black/5"
-            initial={{ y: 24, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 16, opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-          >
-            <span className="flex size-7 items-center justify-center rounded-full bg-[#2563eb] text-white">
-              <PhoneCall className="size-3.5" strokeWidth={2.5} />
-            </span>
-            {phase === "calling" ? (
-              <span className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
-                Calling {demoContact.firstName}
-                <span className="flex gap-0.5">
-                  {[0, 1, 2].map((i) => (
-                    <motion.span
-                      key={i}
-                      className="size-1 rounded-full bg-slate-400"
-                      animate={{ opacity: [0.2, 1, 0.2] }}
-                      transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                    />
-                  ))}
-                </span>
+      {/* Call status pill — reserved row keeps the layout from shifting */}
+      <div className="flex h-10 items-center justify-center">
+        <AnimatePresence>
+          {inCall && (
+            <motion.div
+              className="flex items-center gap-2.5 rounded-full bg-white py-2 pl-2.5 pr-4 shadow-xl shadow-black/20 ring-1 ring-black/5"
+              initial={{ y: 12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 8, opacity: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <span className="flex size-7 items-center justify-center rounded-full bg-[#2563eb] text-white">
+                <PhoneCall className="size-3.5" strokeWidth={2.5} />
               </span>
-            ) : (
-              <span className="flex items-center gap-2 text-xs font-medium text-slate-700">
-                Connected
-                <span className="flex items-end gap-0.5">
-                  {[0, 1, 2, 3].map((i) => (
-                    <motion.span
-                      key={i}
-                      className="w-0.5 rounded-full bg-[#2563eb]"
-                      animate={{ height: [4, 12, 6, 10, 4] }}
-                      transition={{
-                        duration: 0.9,
-                        repeat: Infinity,
-                        delay: i * 0.12,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  ))}
+              {phase === "calling" ? (
+                <span className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
+                  Calling {demoContact.firstName}
+                  <span className="flex gap-0.5">
+                    {[0, 1, 2].map((i) => (
+                      <motion.span
+                        key={i}
+                        className="size-1 rounded-full bg-slate-400"
+                        animate={{ opacity: [0.2, 1, 0.2] }}
+                        transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+                      />
+                    ))}
+                  </span>
                 </span>
-                <span className="font-mono text-[11px] tabular-nums text-slate-400">
-                  00:04
+              ) : (
+                <span className="flex items-center gap-2 text-xs font-medium text-slate-700">
+                  Connected
+                  <span className="flex items-end gap-0.5">
+                    {[0, 1, 2, 3].map((i) => (
+                      <motion.span
+                        key={i}
+                        className="w-0.5 rounded-full bg-[#2563eb]"
+                        animate={{ height: [4, 12, 6, 10, 4] }}
+                        transition={{
+                          duration: 0.9,
+                          repeat: Infinity,
+                          delay: i * 0.12,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    ))}
+                  </span>
+                  <span className="font-mono text-[11px] tabular-nums text-slate-400">00:04</span>
                 </span>
-              </span>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
