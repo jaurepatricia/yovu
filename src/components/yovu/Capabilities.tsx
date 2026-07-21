@@ -59,20 +59,20 @@ const categories: Category[] = [
     label: "Capture",
     items: [
       {
-        title: "Automatic BMS Logging",
-        copy: "Recordings, summaries, and call data automatically attached to client files.",
+        title: "Automatic Logging",
+        copy: "Recordings, summaries, and call data automatically attached to client files in your management system.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ActivityLogging />,
       },
       {
         title: "Long Term Call Recording",
-        copy: "Capture every call with secure playback and up to seven years of retention for E&O defensibility. Easily transfer your existing recordings directly into YOVU.",
+        copy: "Ensure E&O defensibility with secure playback and up to seven years of retention and import your past recordings straight to YOVU.",
         cta: { label: "Learn More", href: "#demo" },
         media: <CallRecording />,
       },
       {
-        title: "Transcription and Tailored AI Summaries",
-        copy: "Get instant transcripts and AI summaries customized for you. We capture the exact key points, sentiment, and follow-up tasks your team needs to act quickly.",
+        title: "Transcription & Tailored AI Summaries",
+        copy: "Get transcripts and AI summaries customized for your insurance team. We capture the exact key points, sentiment, and follow-up tasks.",
         cta: { label: "Our Security", href: "#security" },
         media: <TranscriptionSummary />,
       },
