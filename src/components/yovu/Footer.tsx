@@ -75,7 +75,7 @@ export function Footer() {
       {/* Copyright — below the mountain, no divider */}
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 pb-10 pt-6 text-sm text-ink/50 sm:flex-row">
         <span>© {new Date().getFullYear()} YOVU Office Phone. All Rights Reserved. Powered by LCA Systems Inc.</span>
-        <span>Proudly built and supported in Canada.</span>
+        <span>1105 Frances St, London, ON N5W 2L9</span>
       </div>
     </footer>
   );
