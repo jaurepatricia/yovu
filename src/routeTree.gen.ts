@@ -19,6 +19,7 @@ import { Route as CommunicateRouteImport } from './routes/communicate'
 import { Route as CoachRouteImport } from './routes/coach'
 import { Route as CaptureRouteImport } from './routes/capture'
 import { Route as AppliedEpicRouteImport } from './routes/applied-epic'
+import { Route as AccessibilityPlanRouteImport } from './routes/accessibility-plan'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -72,6 +73,11 @@ const AppliedEpicRoute = AppliedEpicRouteImport.update({
   path: '/applied-epic',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessibilityPlanRoute = AccessibilityPlanRouteImport.update({
+  id: '/accessibility-plan',
+  path: '/accessibility-plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutUsRoute = AboutUsRouteImport.update({
   id: '/about-us',
   path: '/about-us',
@@ -86,6 +92,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about-us': typeof AboutUsRoute
+  '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about-us'
+    | '/accessibility-plan'
     | '/applied-epic'
     | '/capture'
     | '/coach'
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about-us'
+    | '/accessibility-plan'
     | '/applied-epic'
     | '/capture'
     | '/coach'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about-us'
+    | '/accessibility-plan'
     | '/applied-epic'
     | '/capture'
     | '/coach'
@@ -174,6 +186,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutUsRoute: typeof AboutUsRoute
+  AccessibilityPlanRoute: typeof AccessibilityPlanRoute
   AppliedEpicRoute: typeof AppliedEpicRoute
   CaptureRoute: typeof CaptureRoute
   CoachRoute: typeof CoachRoute
@@ -258,6 +271,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppliedEpicRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accessibility-plan': {
+      id: '/accessibility-plan'
+      path: '/accessibility-plan'
+      fullPath: '/accessibility-plan'
+      preLoaderRoute: typeof AccessibilityPlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about-us': {
       id: '/about-us'
       path: '/about-us'
@@ -278,6 +298,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutUsRoute: AboutUsRoute,
+  AccessibilityPlanRoute: AccessibilityPlanRoute,
   AppliedEpicRoute: AppliedEpicRoute,
   CaptureRoute: CaptureRoute,
   CoachRoute: CoachRoute,
