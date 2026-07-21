@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
+import accessibilityReport from "@/assets/accessibility-report-2026.pdf.asset.json";
 
 type Bullet = { lead: string; body?: string };
 type Section = {
@@ -164,6 +165,17 @@ function AccessibilityPlanPage() {
               )}
             </article>
           ))}
+        </div>
+
+        <div className="mt-16 flex justify-center lg:mt-24">
+          <a
+            href={accessibilityReport.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-ink px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-ink/90"
+          >
+            2026 Accessibility Report
+          </a>
         </div>
       </section>
 
