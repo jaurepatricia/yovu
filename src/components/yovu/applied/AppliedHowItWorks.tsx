@@ -56,7 +56,7 @@ export function AppliedHowItWorks() {
     <section
       ref={sectionRef}
       className="relative my-16 lg:my-24"
-      style={{ height: `${count * 140}vh` }}
+      style={{ height: `${count * 90}vh` }}
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.img

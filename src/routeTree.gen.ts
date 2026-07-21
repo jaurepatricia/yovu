@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as V2RouteImport } from './routes/v2'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as TbdRouteImport } from './routes/tbd'
 import { Route as SalesforceRouteImport } from './routes/salesforce'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
@@ -26,6 +27,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const V2Route = V2RouteImport.update({
   id: '/v2',
   path: '/v2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TbdRoute = TbdRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/v2': typeof V2Route
 }
 export interface FileRoutesByTo {
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/v2': typeof V2Route
 }
 export interface FileRoutesById {
@@ -133,6 +141,7 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/v2': typeof V2Route
 }
 export interface FileRouteTypes {
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
+    | '/terms-and-conditions'
     | '/v2'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
+    | '/terms-and-conditions'
     | '/v2'
   id:
     | '__root__'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
+    | '/terms-and-conditions'
     | '/v2'
   fileRoutesById: FileRoutesById
 }
@@ -196,6 +208,7 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SalesforceRoute: typeof SalesforceRoute
   TbdRoute: typeof TbdRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   V2Route: typeof V2Route
 }
 
@@ -206,6 +219,13 @@ declare module '@tanstack/react-router' {
       path: '/v2'
       fullPath: '/v2'
       preLoaderRoute: typeof V2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tbd': {
@@ -308,8 +328,19 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SalesforceRoute: SalesforceRoute,
   TbdRoute: TbdRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
   V2Route: V2Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

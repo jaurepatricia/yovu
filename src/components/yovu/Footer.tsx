@@ -1,3 +1,4 @@
+import { Phone, MapPin } from "lucide-react";
 import { YovuLogo } from "./YovuLogo";
 import { FlickeringMountain } from "@/components/ui/flickering-mountain";
 
@@ -25,10 +26,14 @@ const columns = [
       { label: "About Us", href: "/about-us" },
       { label: "Contact Us", href: "#" },
       { label: "Portal Log-in", href: "#" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Accessibility Plan", href: "/accessibility-plan" },
     ],
   },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
+  { label: "Accessibility Plan", href: "/accessibility-plan" },
 ];
 
 export function Footer() {
@@ -37,12 +42,25 @@ export function Footer() {
       {/* Brand + link columns */}
       <div className="mx-auto max-w-7xl px-6 pt-16 lg:pt-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left: brand + tagline */}
+          {/* Left: brand + tagline + contact */}
           <div>
             <YovuLogo height={36} />
             <p className="mt-6 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
               Your Voice. Unified.
             </p>
+            <div className="mt-8 space-y-3 text-sm text-ink/70">
+              <a
+                href="tel:+18446851001"
+                className="flex items-center gap-3 transition-colors hover:text-ink"
+              >
+                <Phone className="size-4 shrink-0 text-signal" strokeWidth={2} />
+                +1 (844) 685-1001
+              </a>
+              <p className="flex items-center gap-3">
+                <MapPin className="size-4 shrink-0 text-signal" strokeWidth={2} />
+                1105 Frances St, London, ON N5W 2L9
+              </p>
+            </div>
           </div>
 
           {/* Right: tidy link columns */}
@@ -72,10 +90,19 @@ export function Footer() {
           viewport width so it stays flush and scales up on wider screens. */}
       <FlickeringMountain className="mt-16 h-[13.5vw] w-full lg:mt-24" />
 
-      {/* Copyright — below the mountain, no divider */}
+      {/* Bottom bar — copyright + legal links, below the mountain */}
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 pb-10 pt-6 text-sm text-ink/50 sm:flex-row">
-        <span>© {new Date().getFullYear()} YOVU Office Phone. All Rights Reserved. Powered by LCA Systems Inc.</span>
-        <span>1105 Frances St, London, ON N5W 2L9</span>
+        <span>
+          © {new Date().getFullYear()} YOVU Office Phone. All Rights Reserved. Powered by LCA
+          Systems Inc.
+        </span>
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          {legalLinks.map((link) => (
+            <a key={link.label} href={link.href} className="transition-colors hover:text-ink">
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
     </footer>
   );

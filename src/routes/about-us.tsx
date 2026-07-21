@@ -33,7 +33,6 @@ const leaders = [
   { name: "Mariano Saint-Clair", title: "Chief Technology & Operating Officer" },
   { name: "Sean Loffhagen", title: "Senior Operations & Development Manager" },
   { name: "Blake Stephenson", title: "Infrastructure & Support Manager" },
-  { name: "Matthew Reid", title: "Sales Manager" },
   { name: "Glen McAfee", title: "Operations Manager" },
 ];
 
