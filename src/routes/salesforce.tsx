@@ -25,13 +25,11 @@ const accuracyItems: ZLayoutItem[] = [
     kicker: "Activity Log",
     title: "Keep the work moving",
     copy: "Review complete call history, reports and enter new data from within an active call. Stay in the account when the call is finished to complete logs on the spot. Log calls in any Object within focus logging. This unique integration allows admin, customer service and team members the ability to leverage the time-saving feature.",
-    cta: { label: "Learn More", href: "#demo" },
   },
   {
     kicker: "Call Analytics",
     title: "Productivity backed by real data",
     copy: "From within Salesforce, you have instant access to all call details, history and recordings. Customize the experience to suit your unique business requirements by leveraging dashboards and reports. Understand who is achieving the most calls on your team. Engage in gamification for increased activity to help propel productivity.",
-    cta: { label: "See it in Action", href: "#demo" },
   },
 ];
 
