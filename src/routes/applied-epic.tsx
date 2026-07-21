@@ -214,6 +214,7 @@ function AppliedEpicPage() {
         }
       />
       <FAQ items={faqItems} />
+      <ScaleCallout />
       <Footer />
     </main>
   );
