@@ -40,7 +40,7 @@ export function ScaleCallout({
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink ring-1 ring-border transition-colors hover:bg-ink/5"
               >
                 See Plans
-                <ArrowRight className="size-4" />
+                <ChevronRight className="size-4" />
               </a>
             </div>
           </div>
