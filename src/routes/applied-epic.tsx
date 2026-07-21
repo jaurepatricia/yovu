@@ -190,26 +190,28 @@ function AppliedEpicHero() {
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-r from-canvas/80 via-canvas/40 to-transparent"
       />
-      <div className="relative z-10 flex h-full items-center">
+      <div className="relative z-10 flex h-full items-center justify-center">
         <div className="mx-auto w-full max-w-7xl px-6 pt-32 lg:pt-40">
-          <div className="max-w-2xl text-left">
-            <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+              Integrations
+            </p>
+            <h1 className="mt-6 font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
               Applied Epic
             </h1>
             <p className="mt-6 text-pretty text-lg text-ink/70">
               Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
             </p>
-            <div className="mt-8">
-              <a
-                href="#demo"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-              >
-                See it in Action
-              </a>
-            </div>
+            <a
+              href="#demo"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+            >
+              See it in Action
+            </a>
           </div>
         </div>
       </div>
+
     </section>
   );
 }
