@@ -120,21 +120,22 @@ function PrivacyPolicyPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="mx-auto max-w-3xl px-6 pt-32 pb-12 lg:pt-40">
+      <section className="mx-auto max-w-4xl px-6 pt-40 pb-12 text-center lg:pt-56">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
           Legal
         </p>
         <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
           Use of Personal Data Policy and Disclosure
         </h1>
-        <p className="mt-6 text-lg text-ink/70">
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">
           How YOVU Office Phone collects, uses, shares, retains, and safeguards
           your personal information.
         </p>
       </section>
 
       {/* Body */}
-      <section className="mx-auto max-w-3xl px-6 pb-24 lg:pb-32">
+      <section className="mx-auto max-w-4xl px-6 py-24 lg:py-32">
+
         <div className="space-y-14">
           {sections.map((s) => (
             <article key={s.id}>
