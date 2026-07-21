@@ -26,7 +26,7 @@ const columns = [
       { label: "Contact Us", href: "#" },
       { label: "Portal Log-in", href: "#" },
       { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Accessibility Plan", href: "#" },
+      { label: "Accessibility Plan", href: "/accessibility-plan" },
     ],
   },
 ];
