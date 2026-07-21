@@ -1,43 +1,29 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import {
-  LayoutDashboard,
-  Workflow,
-  Route,
-  PhoneCall,
-  Users,
-  MessageSquare,
-} from "lucide-react";
 import whispyClouds from "@/assets/hero/whispy clouds.webp";
 
 const cards = [
   {
-    icon: LayoutDashboard,
     title: "Online Portal",
     copy: "Let employees manage their own extensions and settings via a secure dashboard.",
   },
   {
-    icon: Workflow,
     title: "Drag-and-Drop IVR",
     copy: "Visually build automated menus to guide clients to the right department.",
   },
   {
-    icon: Route,
     title: "Smart Routing",
     copy: "Route calls intelligently based on business hours or team availability.",
   },
   {
-    icon: PhoneCall,
     title: "Call Handling",
     copy: "Easily control custom greetings, voicemail timers, and missed call actions.",
   },
   {
-    icon: Users,
     title: "Call Queues",
     copy: "Smoothly manage high call volumes by routing callers to the next available agent.",
   },
   {
-    icon: MessageSquare,
     title: "Omnichannel SMS",
     copy: "Enable text messaging in your queues for faster, text-based customer support.",
   },
@@ -80,13 +66,13 @@ export function FloatingGridEnterprise() {
               The Enterprise Cloud Phone
             </h2>
             <p className="mt-5 text-pretty text-lg text-ink/70">
-              Everything a growing brokerage needs to route, manage, and scale every conversation
-              from one platform.
+              Enterprise-grade control over every call, queue, and conversation, built for
+              established brokerages that run on their phones.
             </p>
           </div>
 
           {/* Feature grid */}
-          <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-16 grid max-w-4xl gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {cards.map((card, i) => (
               <motion.div
                 key={card.title}
@@ -95,13 +81,10 @@ export function FloatingGridEnterprise() {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.5, delay: i * 0.05, ease: "easeOut" }}
               >
-                <div className="flex size-12 items-center justify-center rounded-xl bg-signal-soft text-signal">
-                  <card.icon className="size-6" strokeWidth={1.75} />
-                </div>
-                <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-ink">
+                <h3 className="font-display text-xl font-bold tracking-tight text-ink">
                   {card.title}
                 </h3>
-                <p className="mt-2 text-pretty text-base leading-relaxed text-ink/70">
+                <p className="mt-3 text-pretty text-base leading-relaxed text-ink/70">
                   {card.copy}
                 </p>
               </motion.div>
