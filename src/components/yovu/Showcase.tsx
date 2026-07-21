@@ -7,7 +7,7 @@ import {
   useMotionValueEvent,
   type MotionValue,
 } from "motion/react";
-import { ArrowRight, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import forestStream from "@/assets/homepage/forest stream blurred.png";
 import mountainRoad from "@/assets/homepage/mountain_winding_road.png";
 import manIpad from "@/assets/homepage/man holding ipad.png";
@@ -138,14 +138,13 @@ export function Showcase() {
                   </p>
                   <a
                     href={slide.cta.href}
-                    className={`mt-8 inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${
+                    className={`mt-8 inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${
                       light
                         ? "border-white/70 text-white hover:bg-white/10"
                         : "border-[#0b1733]/40 text-[#0b1733] hover:bg-[#0b1733]/5"
                     }`}
                   >
                     {slide.cta.label}
-                    <ArrowRight className="size-4" />
                   </a>
                 </div>
 
