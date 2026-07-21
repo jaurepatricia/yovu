@@ -69,13 +69,13 @@ export function AppliedHowItWorks() {
         {/* Soft white wash to lighten and recede the clouds behind the card */}
         <div aria-hidden="true" className="absolute inset-0 bg-white/30" />
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
-          <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-16 text-center shadow-2xl shadow-black/10 md:px-10 md:py-20 lg:py-24">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+          <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-20 text-center shadow-2xl shadow-black/10 md:px-12 md:py-24 lg:py-28">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
               How it Works
             </p>
 
-            <div className="mt-12 flex items-center justify-center">
+            <div className="mt-14 flex items-center justify-center">
               {steps.map((_, i) => (
                 <div key={i} className="flex items-center">
                   <button
@@ -96,7 +96,7 @@ export function AppliedHowItWorks() {
               ))}
             </div>
 
-            <div className="mt-12 grid">
+            <div className="mt-14 grid">
               {steps.map((step, i) => (
                 <div
                   key={i}
@@ -107,7 +107,7 @@ export function AppliedHowItWorks() {
                   <h3 className="font-display text-2xl font-bold tracking-tight text-[#0b1733] md:text-3xl">
                     {step.title}
                   </h3>
-                  <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-[#0b1733]/70 md:text-lg">
+                  <p className="mx-auto mt-6 max-w-2xl text-pretty text-base text-[#0b1733]/70 md:text-lg">
                     {step.copy}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ export function AppliedHowItWorks() {
 
             <a
               href="#demo"
-              className="mt-12 inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
+              className="mt-14 inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
             >
               Speak to an Expert
             </a>
