@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import dialerMockup from "@/assets/homepage/Dialer Iphone Cloud Mockup.png";
 
 export function ScaleCallout({
