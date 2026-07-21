@@ -25,7 +25,7 @@ import developersWorking from "@/assets/imagery/developers working together.webp
 import { ImageCallCard } from "@/components/yovu/applied/ImageCallCard";
 import { FeatureCarousel } from "@/components/yovu/applied/FeatureCarousel";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
-import appliedHeroTest from "@/assets/hero/applied-hero-test.png.asset.json";
+import appliedHeroTest from "@/assets/hero/applied-hero-test-2.png.asset.json";
 
 const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
