@@ -22,6 +22,7 @@ import womanOnPhone from "@/assets/imagery/woman on the phone working in corpora
 import manOnPhone from "@/assets/imagery/professional man on the phone walking outside.webp";
 import mountainFlowers from "@/assets/imagery/snowy capped mountain and flowers.webp";
 import { ImageCallCard } from "@/components/yovu/applied/ImageCallCard";
+import { FeatureCarousel } from "@/components/yovu/applied/FeatureCarousel";
 
 const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
@@ -64,11 +65,16 @@ const benefits: ZLayoutItem[] = [
     title: "Take your calls on the road",
     copy: "Keep your workflow completely unbroken when you leave the office. Calls taken on your mobile device automatically flow right back into the client's Applied Epic record, exactly like they would at your desk. Recordings, transcripts, and summaries sync instantly, ensuring every conversation is securely captured no matter where your team is working.",
     media: (
-      <img
-        src={manOnPhone}
-        alt="Professional taking a call on his mobile phone while walking outside"
-        className={zImageClass}
-      />
+      <div className="relative">
+        <img
+          src={manOnPhone}
+          alt="Professional taking a call on his mobile phone while walking outside"
+          className={zImageClass}
+        />
+        <div className="absolute inset-y-0 right-0 flex w-1/2 items-center justify-center">
+          <FeatureCarousel />
+        </div>
+      </div>
     ),
   },
   {
