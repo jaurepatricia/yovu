@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 const FEATURES = [
   "Call Recording",
-  "Searchable Transcription",
+  "Call Transcription",
   "Custom AI Summary",
   "Activity Logging",
 ];
