@@ -68,18 +68,9 @@ export function CallerContext() {
               className="w-full overflow-hidden rounded-xl bg-white text-left shadow-2xl shadow-black/30 ring-1 ring-black/5"
             >
               {/* Header */}
-              <div className="flex items-center gap-3 border-b border-slate-200 px-4 py-3">
-                <span className="flex size-9 items-center justify-center rounded-full bg-[#2563eb]/10 text-xs font-semibold text-[#2563eb]">
-                  {demoContact.initials}
-                </span>
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-slate-800">
-                    {demoContact.name}
-                  </p>
-                  <p className="truncate text-[11px] text-slate-500">
-                    {demoContact.addressLine2}
-                  </p>
-                </div>
+              <div className="border-b border-slate-200 px-4 py-3">
+                <p className="truncate text-sm font-semibold text-slate-800">{demoContact.name}</p>
+                <p className="truncate text-[11px] text-slate-500">{demoContact.addressLine2}</p>
               </div>
 
               {/* Detail rows */}
