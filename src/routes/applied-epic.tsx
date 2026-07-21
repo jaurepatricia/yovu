@@ -194,7 +194,7 @@ function AppliedEpicHero() {
         <div className="mx-auto w-full max-w-7xl px-6 pt-32 lg:pt-40">
           <div className="max-w-2xl text-left">
             <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-              Applied Epic Integration
+              Applied Epic
             </h1>
             <p className="mt-6 text-pretty text-lg text-ink/70">
               Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
