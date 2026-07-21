@@ -6,9 +6,9 @@ import { FAQ } from "@/components/yovu/FAQ";
 import { Statement } from "@/components/yovu/Statement";
 import { ZLayout, type ZLayoutItem } from "@/components/yovu/ZLayout";
 import {
-  IndividualFeatureCards,
-  type IndividualFeatureCard,
-} from "@/components/yovu/IndividualFeatureCards";
+  FeatureSlidingCards,
+  type FeatureSlidingCard,
+} from "@/components/yovu/FeatureSlidingCards";
 import {
   SectionIntroFeatureGrid,
   type SectionIntroFeatureItem,
@@ -30,7 +30,7 @@ const accuracyItems: ZLayoutItem[] = [
   },
 ];
 
-const featureCards: IndividualFeatureCard[] = [
+const featureCards: FeatureSlidingCard[] = [
   {
     title: "Screen Pop",
     copy: "Inbound Calls associated with an account will show you who's calling with access to all the details on their account. Customize this notification to activate on ring or on answer.",
@@ -124,7 +124,7 @@ function SalesforceIntegrationPage() {
       <Nav />
       <SalesforceHero />
       <ZLayout heading="Scale your workflows to new heights" items={accuracyItems} />
-      <IndividualFeatureCards
+      <FeatureSlidingCards
         heading="Keep every conversation connected in Salesforce"
         cards={featureCards}
       />

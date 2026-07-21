@@ -4,9 +4,9 @@ import { Footer } from "@/components/yovu/Footer";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ZLayout, type ZLayoutItem } from "@/components/yovu/ZLayout";
 import {
-  IndividualFeatureCards,
-  type IndividualFeatureCard,
-} from "@/components/yovu/IndividualFeatureCards";
+  FeatureSlidingCards,
+  type FeatureSlidingCard,
+} from "@/components/yovu/FeatureSlidingCards";
 
 const introBlocks: ZLayoutItem[] = [
   {
@@ -19,7 +19,7 @@ const introBlocks: ZLayoutItem[] = [
   },
 ];
 
-const featureCards: IndividualFeatureCard[] = [
+const featureCards: FeatureSlidingCard[] = [
   {
     title: "Guided Conversations (Coming Soon)",
     copy: "Live prompts and questions surface during the call, helping new hires ramp faster. This keeps documentation consistent across the team, supporting stronger, standardized E&O records.",
@@ -86,7 +86,7 @@ function CoachPage() {
       <Nav />
       <CoachHero />
       <ZLayout items={introBlocks} textFirst />
-      <IndividualFeatureCards heading="Built to grow your team" cards={featureCards} />
+      <FeatureSlidingCards heading="Built to grow your team" cards={featureCards} />
       <FAQ items={faqItems} />
       <Footer />
     </main>

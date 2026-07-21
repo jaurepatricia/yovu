@@ -1,18 +1,26 @@
 import type { ReactNode } from "react";
 
-export type IndividualFeatureCard = {
+export type FeatureSlidingCard = {
   title: string;
   copy: string;
   media?: ReactNode;
 };
 
-type IndividualFeatureCardsProps = {
+type FeatureSlidingCardsProps = {
   heading: string;
-  cards: IndividualFeatureCard[];
+  cards: FeatureSlidingCard[];
   className?: string;
+  /** Card background utility. Defaults to `bg-card`; pass e.g. `bg-surface`
+   * to lift the card off the page background so the visual pops. */
+  cardClassName?: string;
 };
 
-export function IndividualFeatureCards({ heading, cards, className }: IndividualFeatureCardsProps) {
+export function FeatureSlidingCards({
+  heading,
+  cards,
+  className,
+  cardClassName = "bg-card",
+}: FeatureSlidingCardsProps) {
   return (
     <section className={`bg-canvas ${className ?? ""}`}>
       <div className="mx-auto max-w-7xl px-6">
@@ -34,7 +42,7 @@ export function IndividualFeatureCards({ heading, cards, className }: Individual
           {cards.map((card) => (
             <div
               key={card.title}
-              className="sticky top-[15rem] overflow-hidden rounded-3xl bg-card p-8 shadow-sm shadow-black/[0.03] ring-1 ring-border/60 md:p-12 lg:top-[16rem]"
+              className={`sticky top-[15rem] overflow-hidden rounded-3xl p-8 shadow-sm shadow-black/[0.03] ring-1 ring-border/60 md:p-12 lg:top-[16rem] ${cardClassName}`}
             >
               <div className="grid items-center gap-8 md:grid-cols-3">
                 <div className="md:col-span-2">
@@ -44,7 +52,11 @@ export function IndividualFeatureCards({ heading, cards, className }: Individual
                   <p className="mt-4 max-w-xl text-pretty text-base text-ink/70">{card.copy}</p>
                 </div>
                 <div className="md:col-span-1">
-                  {card.media ?? (
+                  {card.media ? (
+                    <div className="relative mx-auto aspect-square w-full max-w-sm">
+                      {card.media}
+                    </div>
+                  ) : (
                     <div className="aspect-square w-full rounded-2xl bg-surface ring-1 ring-border" />
                   )}
                 </div>

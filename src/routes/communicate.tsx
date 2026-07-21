@@ -3,9 +3,9 @@ import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { CommunicateHero } from "@/components/yovu/communicate/CommunicateHero";
 import {
-  IndividualFeatureCards,
-  type IndividualFeatureCard,
-} from "@/components/yovu/IndividualFeatureCards";
+  FeatureSlidingCards,
+  type FeatureSlidingCard,
+} from "@/components/yovu/FeatureSlidingCards";
 import { CommunicateDevices } from "@/components/yovu/communicate/CommunicateDevices";
 import { FloatingGridEnterprise } from "@/components/yovu/communicate/FloatingGridEnterprise";
 import { CommunicateConnect } from "@/components/yovu/communicate/CommunicateConnect";
@@ -48,7 +48,7 @@ const faqItems = [
   },
 ];
 
-const collaborateCards: IndividualFeatureCard[] = [
+const collaborateCards: FeatureSlidingCard[] = [
   {
     title: "Unified Communications",
     copy: "Voice and SMS from the same workspace across multiple devices, so a quick text confirmation and a callback live in the same place as the rest of the conversation. Easily assign direct numbers and extensions to all employees within your organization.",
@@ -68,7 +68,7 @@ function CommunicatePage() {
     <main className="bg-canvas text-ink">
       <Nav />
       <CommunicateHero />
-      <IndividualFeatureCards
+      <FeatureSlidingCards
         heading="Collaborate with Your Team"
         cards={collaborateCards}
       />

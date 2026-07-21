@@ -5,9 +5,9 @@ import { Footer } from "@/components/yovu/Footer";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ZLayout, type ZLayoutItem } from "@/components/yovu/ZLayout";
 import {
-  IndividualFeatureCards,
-  type IndividualFeatureCard,
-} from "@/components/yovu/IndividualFeatureCards";
+  FeatureSlidingCards,
+  type FeatureSlidingCard,
+} from "@/components/yovu/FeatureSlidingCards";
 import {
   SectionIntroFeatureGrid,
   type SectionIntroFeatureItem,
@@ -28,7 +28,7 @@ const introBlocks: ZLayoutItem[] = [
   },
 ];
 
-const featureCards: IndividualFeatureCard[] = [
+const featureCards: FeatureSlidingCard[] = [
   {
     title: "AI summaries with next steps",
     copy: "Every call can be summarized by AI, with the key details and recommended next steps pulled out, not just a transcript dump. The next person who opens the file gets context they can act on, not a timestamp they have to decode. AI summaries can be customized to extract the information that counts.",
@@ -114,7 +114,7 @@ function CapturePage() {
       <Nav />
       <CaptureHero />
       <ZLayout items={introBlocks} textFirst />
-      <IndividualFeatureCards heading="Built to capture every conversation" cards={featureCards} />
+      <FeatureSlidingCards heading="Built to capture every conversation" cards={featureCards} />
       <SectionIntroFeatureGrid
         eyebrow="Featured Use Case"
         heading="Every call logged to Applied Epic, automatically."

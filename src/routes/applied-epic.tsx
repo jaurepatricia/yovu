@@ -5,14 +5,19 @@ import { Footer } from "@/components/yovu/Footer";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ZLayout, type ZLayoutItem } from "@/components/yovu/ZLayout";
 import {
-  IndividualFeatureCards,
-  type IndividualFeatureCard,
-} from "@/components/yovu/IndividualFeatureCards";
+  FeatureSlidingCards,
+  type FeatureSlidingCard,
+} from "@/components/yovu/FeatureSlidingCards";
 import {
   SectionIntroFeatureGrid,
   type SectionIntroFeatureItem,
 } from "@/components/yovu/teams/SectionIntroFeatureGrid";
 import { AppliedHowItWorks } from "@/components/yovu/applied/AppliedHowItWorks";
+import { CallerContext } from "@/components/yovu/animations/CallerContext";
+import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
+import { CallRecording } from "@/components/yovu/animations/CallRecording";
+import { TranscriptionSummary } from "@/components/yovu/animations/TranscriptionSummary";
+import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
 
 const integrationBenefits: SectionIntroFeatureItem[] = [
   {
@@ -50,26 +55,31 @@ const benefits: ZLayoutItem[] = [
   },
 ];
 
-const featureCards: IndividualFeatureCard[] = [
+const featureCards: FeatureSlidingCard[] = [
   {
     title: "Screen Pop",
     copy: "Instantly see who is calling and access their full account details the moment your phone rings. You can easily customize this pop-up notification to trigger either when the line rings or when you answer.",
+    media: <CallerContext />,
   },
   {
     title: "Click-to-Call",
     copy: "Make calls with a single click directly from a client's profile without ever leaving the Applied Epic platform. This eliminates manual data entry, saving you valuable time and preventing accidental misdials.",
+    media: <ClickToDial />,
   },
   {
     title: "Call Transcription & Retention",
     copy: "Review exact conversation transcripts for coaching, quality assurance, or efficiently resolving client disputes. Our secure seven-year data retention turns potential misunderstandings into concrete, easily accessible records for your E&O documentation.",
+    media: <CallRecording />,
   },
   {
     title: "Customizable AI Summaries",
     copy: "Automatically generate tailored AI summaries that extract key details and recommended next steps rather than providing a massive transcript. This ensures the next team member who opens the file gets immediate, actionable context instead of raw text they have to decode.",
+    media: <TranscriptionSummary />,
   },
   {
     title: "Activity Log",
     copy: "Review full call histories and enter new data directly during an active call to keep your workflow completely seamless. After hanging up, use the generated AI summaries to quickly complete your logs and finish administrative tasks on the spot.",
+    media: <ActivityLogging />,
   },
 ];
 
@@ -149,9 +159,10 @@ function AppliedEpicPage() {
       <Nav />
       <AppliedEpicHero />
       <ZLayout heading="Built into the way brokers already work" items={benefits} />
-      <IndividualFeatureCards
+      <FeatureSlidingCards
         heading="Easy to use features right inside Applied Epic"
         cards={featureCards}
+        cardClassName="bg-surface"
       />
       <AppliedHowItWorks />
       <SectionIntroFeatureGrid items={integrationBenefits} />
