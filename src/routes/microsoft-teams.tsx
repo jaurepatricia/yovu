@@ -25,6 +25,7 @@ const teamsBenefitsItems = [
 ];
 import { TeamsHowItWorks } from "@/components/yovu/teams/TeamsHowItWorks";
 import { SectionIntroFeatureGrid } from "@/components/yovu/teams/SectionIntroFeatureGrid";
+import developersWorking from "@/assets/imagery/developers working together.webp";
 
 const faqItems = [
   {
@@ -57,7 +58,15 @@ function MicrosoftTeamsPage() {
       <ZLayout heading="One shared workspace" items={teamsBenefitsItems} />
       <Statement copy="YOVU's integration brings Microsoft Teams to life, making meetings more personal while boosting real-time collaboration." />
       <TeamsHowItWorks />
-      <SectionIntroFeatureGrid />
+      <SectionIntroFeatureGrid
+        media={
+          <img
+            src={developersWorking}
+            alt="Developers collaborating together at a workstation"
+            className="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border"
+          />
+        }
+      />
       <FAQ heading="Frequently Asked Questions" items={faqItems} />
       <Footer />
     </main>

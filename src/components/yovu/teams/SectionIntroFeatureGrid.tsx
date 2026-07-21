@@ -29,6 +29,8 @@ type Props = {
   heading?: string;
   intro?: string | React.ReactNode;
   items?: SectionIntroFeatureItem[];
+  /** Optional visual for the right column; falls back to a placeholder. */
+  media?: React.ReactNode;
 };
 
 export function SectionIntroFeatureGrid({
@@ -36,6 +38,7 @@ export function SectionIntroFeatureGrid({
   heading = "Why use an integration?",
   intro = "Bring your team together while simplifying your tech stack. Boost productivity and inclusion by simplifying how your workforce collaborates.",
   items = defaultItems,
+  media,
 }: Props) {
   return (
     <section className="bg-canvas py-24 lg:py-32">
@@ -55,7 +58,7 @@ export function SectionIntroFeatureGrid({
               {intro}
             </p>
           </div>
-          <div className="aspect-[4/3] w-full rounded-2xl bg-surface ring-1 ring-border" />
+          {media ?? <div className="aspect-[4/3] w-full rounded-2xl bg-surface ring-1 ring-border" />}
         </div>
 
         {/* 3-column icon grid */}

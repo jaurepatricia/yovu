@@ -21,6 +21,7 @@ import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
 import womanOnPhone from "@/assets/imagery/woman on the phone working in corporate office.webp";
 import manOnPhone from "@/assets/imagery/professional man on the phone walking outside.webp";
 import mountainFlowers from "@/assets/imagery/snowy capped mountain and flowers.webp";
+import developersWorking from "@/assets/imagery/developers working together.webp";
 import { ImageCallCard } from "@/components/yovu/applied/ImageCallCard";
 import { FeatureCarousel } from "@/components/yovu/applied/FeatureCarousel";
 
@@ -201,7 +202,16 @@ function AppliedEpicPage() {
         cardClassName="bg-[#f8fafc] dark:bg-surface"
       />
       <AppliedHowItWorks />
-      <SectionIntroFeatureGrid items={integrationBenefits} />
+      <SectionIntroFeatureGrid
+        items={integrationBenefits}
+        media={
+          <img
+            src={developersWorking}
+            alt="Developers collaborating together at a workstation"
+            className={zImageClass}
+          />
+        }
+      />
       <FAQ items={faqItems} />
       <Footer />
     </main>

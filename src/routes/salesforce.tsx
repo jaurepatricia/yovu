@@ -14,6 +14,7 @@ import {
   type SectionIntroFeatureItem,
 } from "@/components/yovu/teams/SectionIntroFeatureGrid";
 import { SalesforceHowItWorks } from "@/components/yovu/salesforce/SalesforceHowItWorks";
+import developersWorking from "@/assets/imagery/developers working together.webp";
 
 const accuracyItems: ZLayoutItem[] = [
   {
@@ -130,7 +131,16 @@ function SalesforceIntegrationPage() {
       />
       <Statement copy="Transform how you work with customers using YOVU's Salesforce integration for more personalized communication, increased productivity, and real-time results." />
       <SalesforceHowItWorks />
-      <SectionIntroFeatureGrid items={integrationBenefits} />
+      <SectionIntroFeatureGrid
+        items={integrationBenefits}
+        media={
+          <img
+            src={developersWorking}
+            alt="Developers collaborating together at a workstation"
+            className="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border"
+          />
+        }
+      />
       <FAQ items={faqItems} />
       <Footer />
     </main>
