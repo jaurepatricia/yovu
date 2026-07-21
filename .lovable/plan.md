@@ -1,14 +1,12 @@
-Align the `/privacy-policy` page's spacing and width with the rest of the site (About Us as reference).
+# Fix `/privacy-policy` hero padding
 
-**Changes to `src/routes/privacy-policy.tsx`:**
+The body section (`py-24 lg:py-32`) already matches the standard used by other section components across the site. The mismatch is in the hero: it uses `pb-12` while the rest of the site's heroes (e.g. `/applied-epic`) use `pb-16 lg:pb-24`.
 
-1. Hero section (line 123):
-   - Update top padding from `pt-32 lg:pt-40` to `pt-40 lg:pt-56` to match other page heroes.
-   - Change container from `max-w-3xl` to `max-w-4xl` and center the text (`text-center`), matching About Us hero.
-   - Center the intro paragraph with `mx-auto max-w-2xl`.
+## Change
 
-2. Body section (line 137):
-   - Increase max width from `max-w-3xl` to `max-w-4xl` for consistency with content areas on other pages while keeping the long-form readability.
-   - Bump bottom padding from `pb-24 lg:pb-32` to `py-24 lg:py-32` so top/bottom spacing between hero and Footer is balanced like other pages.
+In `src/routes/privacy-policy.tsx` line 123, update the hero section classes:
 
-No changes to Nav, Footer, or copy.
+- From: `mx-auto max-w-4xl px-6 pt-40 pb-12 text-center lg:pt-56`
+- To: `mx-auto max-w-4xl px-6 pt-40 pb-16 text-center lg:pt-56 lg:pb-24`
+
+No other changes. Body section, max-widths, and horizontal padding already match the rest of the site.
