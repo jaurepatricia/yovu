@@ -120,7 +120,7 @@ function PrivacyPolicyPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="mx-auto max-w-4xl px-6 pt-40 pb-16 text-center lg:pt-56 lg:pb-24">
+      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 text-center lg:pt-56 lg:pb-24">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
           Legal
         </p>
@@ -134,7 +134,7 @@ function PrivacyPolicyPage() {
       </section>
 
       {/* Body */}
-      <section className="mx-auto max-w-4xl px-6 py-24 lg:py-32">
+      <section className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
 
         <div className="space-y-14">
           {sections.map((s) => (
