@@ -9,6 +9,12 @@ import {
   SectionIntroFeatureGrid,
   type SectionIntroFeatureItem,
 } from "@/components/yovu/teams/SectionIntroFeatureGrid";
+import teamPhoto from "@/assets/imagery/YOVU Team Photo.webp";
+import aaronImg from "@/assets/imagery/Aaron Atkinson.webp";
+import marianoImg from "@/assets/imagery/Mariano Saint-Clair.webp";
+import seanImg from "@/assets/imagery/Sean Loffhagen.webp";
+import blakeImg from "@/assets/imagery/Blake Stephenson.webp";
+import glenImg from "@/assets/imagery/Glen McAfee.webp";
 
 const values: SectionIntroFeatureItem[] = [
   {
@@ -29,11 +35,11 @@ const values: SectionIntroFeatureItem[] = [
 ];
 
 const leaders = [
-  { name: "Aaron Atkinson", title: "President" },
-  { name: "Mariano Saint-Clair", title: "Chief Technology & Operating Officer" },
-  { name: "Sean Loffhagen", title: "Senior Operations & Development Manager" },
-  { name: "Blake Stephenson", title: "Infrastructure & Support Manager" },
-  { name: "Glen McAfee", title: "Operations Manager" },
+  { name: "Aaron Atkinson", title: "President", image: aaronImg },
+  { name: "Mariano Saint-Clair", title: "Chief Technology & Operating Officer", image: marianoImg },
+  { name: "Sean Loffhagen", title: "Senior Operations & Development Manager", image: seanImg },
+  { name: "Blake Stephenson", title: "Infrastructure & Support Manager", image: blakeImg },
+  { name: "Glen McAfee", title: "Operations Manager", image: glenImg },
 ];
 
 function AboutHero() {
@@ -62,10 +68,17 @@ function LeadershipTeam() {
           </h2>
         </div>
 
-        <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
           {leaders.map((leader) => (
-            <div key={leader.name}>
-              <div className="aspect-square w-full rounded-3xl bg-surface ring-1 ring-border" />
+            <div
+              key={leader.name}
+              className="w-full sm:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)]"
+            >
+              <img
+                src={leader.image}
+                alt={leader.name}
+                className="aspect-square w-full rounded-3xl object-cover ring-1 ring-border"
+              />
               <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-ink">
                 {leader.name}
               </h3>
@@ -88,6 +101,13 @@ function AboutUsPage() {
         heading="Built Differently"
         intro={`In 2011, our founders left big telecom with a simple conviction: Canadian businesses deserved better. Phone service should be reliable, support should be responsive, and clients should never feel like just another ticket in the queue.\u00a0\n\nThat belief became YOVU. We built the kind of business phone company we knew should exist — one with modern technology, dependable service, and real people who answer when clients call. Fifteen years later, that is still the standard we hold ourselves to.`}
         items={values}
+        media={
+          <img
+            src={teamPhoto}
+            alt="The YOVU team"
+            className="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border"
+          />
+        }
       />
       <Statement copy="We know that better conversations lead to real results. We help with the work that comes before and after each call so that professionals can focus on the work that matters most – connecting with people." />
       <LeadershipTeam />

@@ -91,7 +91,8 @@ const integrations = [
   { href: "/salesforce", label: "SalesForce" },
 ];
 
-const contactLinks = [
+const companyLinks = [
+  { href: "/about-us", label: "About Us", external: false },
   { href: "/contact-us", label: "Contact Us", external: false },
   { href: "https://my.yovu.ca/s/", label: "Support Centre", external: true },
   { href: "https://portal.yovu.ca/portal/", label: "My Portal", external: true },
@@ -204,22 +205,13 @@ export function Nav() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
-              {/* About Us */}
+              {/* Company */}
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <a href="/about-us" className={itemCls}>
-                    About Us
-                  </a>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              {/* Contact */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className={triggerCls}>Contact</NavigationMenuTrigger>
+                <NavigationMenuTrigger className={triggerCls}>Company</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-52 p-4">
                     <ul className="flex flex-col">
-                      {contactLinks.map((c) => (
+                      {companyLinks.map((c) => (
                         <li key={c.label}>
                           <NavigationMenuLink asChild>
                             <a

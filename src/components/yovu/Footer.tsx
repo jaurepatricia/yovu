@@ -44,8 +44,8 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: brand + tagline + contact */}
           <div>
-            <YovuLogo height={36} />
-            <p className="mt-6 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+            <YovuLogo height={44} />
+            <p className="mt-6 font-display text-3xl font-bold tracking-tight text-signal md:text-4xl">
               Your Voice. Unified.
             </p>
             <div className="mt-8 space-y-3 text-sm text-ink/70">
