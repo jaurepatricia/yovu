@@ -18,6 +18,11 @@ import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
 import { CallRecording } from "@/components/yovu/animations/CallRecording";
 import { TranscriptionSummary } from "@/components/yovu/animations/TranscriptionSummary";
 import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
+import womanOnPhone from "@/assets/imagery/woman on the phone working in corporate office.webp";
+import manOnPhone from "@/assets/imagery/professional man on the phone walking outside.webp";
+import mountainFlowers from "@/assets/imagery/snowy capped mountain and flowers.webp";
+
+const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
 const integrationBenefits: SectionIntroFeatureItem[] = [
   {
@@ -42,16 +47,37 @@ const benefits: ZLayoutItem[] = [
     kicker: "COMMUNICATION",
     title: "Every call connected to the client",
     copy: "See exactly who is calling before you say hello. YOVU automatically matches incoming numbers to your Applied Epic records, instantly popping the client's profile on your screen so you never have to ask for an account number again. Need to make a call? Use one-click dialing directly from Applied Epic, and log activities right after the call ends. No more deciphering hand-written notes.",
+    media: (
+      <img
+        src={womanOnPhone}
+        alt="Insurance professional taking a call at her desk in a corporate office"
+        className={zImageClass}
+      />
+    ),
   },
   {
     kicker: "MOBILITY",
     title: "Take your calls on the road",
     copy: "Keep your workflow completely unbroken when you leave the office. Calls taken on your mobile device automatically flow right back into the client's Applied Epic record, exactly like they would at your desk. Recordings, transcripts, and summaries sync instantly, ensuring every conversation is securely captured no matter where your team is working.",
+    media: (
+      <img
+        src={manOnPhone}
+        alt="Professional taking a call on his mobile phone while walking outside"
+        className={zImageClass}
+      />
+    ),
   },
   {
     kicker: "SECURITY",
     title: "Our policy is peace of mind",
-    copy: "Built specifically for long-term E&O documentation, we offer up to seven years of call retention stored securely on Canadian servers. As your brokerage grows and your tech stack evolves, our conversation logging is designed to travel with you, continuously extending to integrate seamlessly with additional management systems.",
+    copy: "Made specifically for long-term E&O documentation, we offer up to seven years of call retention stored securely on Canadian servers. As your brokerage grows and your tech stack evolves, our conversation logging is designed to travel with you, continuously extending to integrate seamlessly with additional management systems.",
+    media: (
+      <img
+        src={mountainFlowers}
+        alt="Snow-capped mountain rising above a field of flowers"
+        className={zImageClass}
+      />
+    ),
   },
 ];
 
@@ -158,7 +184,7 @@ function AppliedEpicPage() {
     <main className="bg-canvas text-ink">
       <Nav />
       <AppliedEpicHero />
-      <ZLayout heading="Built into the way brokers already work" items={benefits} />
+      <ZLayout heading="Built for insurance professionals" items={benefits} />
       <FeatureSlidingCards
         heading="Easy to use features right inside Applied Epic"
         cards={featureCards}
