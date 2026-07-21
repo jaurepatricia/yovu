@@ -162,7 +162,7 @@ function AppliedEpicPage() {
       <FeatureSlidingCards
         heading="Easy to use features right inside Applied Epic"
         cards={featureCards}
-        cardClassName="bg-surface/40 dark:bg-surface"
+        cardClassName="bg-[#f8fafc] dark:bg-surface"
       />
       <AppliedHowItWorks />
       <SectionIntroFeatureGrid items={integrationBenefits} />
