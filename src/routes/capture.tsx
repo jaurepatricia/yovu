@@ -12,6 +12,10 @@ import {
   SectionIntroFeatureGrid,
   type SectionIntroFeatureItem,
 } from "@/components/yovu/teams/SectionIntroFeatureGrid";
+import { TranscriptionSummary } from "@/components/yovu/animations/TranscriptionSummary";
+import { TranscriptSentiment } from "@/components/yovu/animations/TranscriptSentiment";
+import { SearchableHistory } from "@/components/yovu/animations/SearchableHistory";
+import { CallRecording } from "@/components/yovu/animations/CallRecording";
 
 const introBlocks: ZLayoutItem[] = [
   {
@@ -32,18 +36,22 @@ const featureCards: FeatureSlidingCard[] = [
   {
     title: "AI summaries with next steps",
     copy: "Every call can be summarized by AI, with the key details and recommended next steps pulled out, not just a transcript dump. The next person who opens the file gets context they can act on, not a timestamp they have to decode. AI summaries can be customized to extract the information that counts.",
+    media: <TranscriptionSummary />,
   },
   {
     title: "Transcription and sentiment",
     copy: "Conversations are transcribed and tagged for sentiment, so a service issue or an unhappy client is visible in the record rather than buried in a recording nobody has time to replay.",
+    media: <TranscriptSentiment />,
   },
   {
     title: "Searchable call history",
     copy: "Find any conversation by client, phone number, date, or keyword. Renewals and policy changes stop starting with “let me find my notes.”",
+    media: <SearchableHistory />,
   },
   {
     title: "Recording and playback, retained up to seven years",
     copy: "Review what was actually said for coaching, quality, a dispute, or a follow-up. Seven-year retention is what turns a he-said-she-said into a record you can pull up.",
+    media: <CallRecording />,
   },
 ];
 
@@ -114,7 +122,11 @@ function CapturePage() {
       <Nav />
       <CaptureHero />
       <ZLayout items={introBlocks} textFirst />
-      <FeatureSlidingCards heading="Built to capture every conversation" cards={featureCards} />
+      <FeatureSlidingCards
+        heading="Built to capture every conversation"
+        cards={featureCards}
+        cardClassName="bg-[#f8fafc] dark:bg-surface"
+      />
       <SectionIntroFeatureGrid
         eyebrow="Featured Use Case"
         heading="Every call logged to Applied Epic, automatically."

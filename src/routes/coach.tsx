@@ -7,6 +7,10 @@ import {
   FeatureSlidingCards,
   type FeatureSlidingCard,
 } from "@/components/yovu/FeatureSlidingCards";
+import { ComingSoon } from "@/components/yovu/animations/ComingSoon";
+import { ThreeWayCall } from "@/components/yovu/animations/ThreeWayCall";
+import { ReportingDashboard } from "@/components/yovu/animations/ReportingDashboard";
+import { Scorecard } from "@/components/yovu/animations/Scorecard";
 
 const introBlocks: ZLayoutItem[] = [
   {
@@ -23,18 +27,22 @@ const featureCards: FeatureSlidingCard[] = [
   {
     title: "Guided Conversations (Coming Soon)",
     copy: "Live prompts and questions surface during the call, helping new hires ramp faster. This keeps documentation consistent across the team, supporting stronger, standardized E&O records.",
+    media: <ComingSoon />,
   },
   {
     title: "Listen, Whisper & Collaborate",
     copy: "Provide real-time coaching without disrupting the client experience. Listen to calls silently, whisper advice that only your employee can hear, or collaborate and create a three-way call when your team needs backup.",
+    media: <ThreeWayCall />,
   },
   {
     title: "Unified Dashboards & Automated Reporting",
     copy: "Get a 360-degree view of your operations at a glance. Understand call volume, queue times, and team bandwidth in real time to support inbound callers, or have customized metrics on employee activity emailed directly to your team daily.",
+    media: <ReportingDashboard />,
   },
   {
     title: "Scorecards & Playbooks (Roadmap)",
     copy: "We are building a central knowledge base to equip new hires with scripts and carrier details, alongside call scorecards that grade actual recorded conversations against your custom rubrics for greetings, disclosures, and closing techniques.",
+    media: <Scorecard />,
   },
 ];
 
@@ -86,7 +94,11 @@ function CoachPage() {
       <Nav />
       <CoachHero />
       <ZLayout items={introBlocks} textFirst />
-      <FeatureSlidingCards heading="Built to grow your team" cards={featureCards} />
+      <FeatureSlidingCards
+        heading="Built to grow your team"
+        cards={featureCards}
+        cardClassName="bg-[#f8fafc] dark:bg-surface"
+      />
       <FAQ items={faqItems} />
       <Footer />
     </main>

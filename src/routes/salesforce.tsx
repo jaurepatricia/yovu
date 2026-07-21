@@ -15,6 +15,10 @@ import {
 } from "@/components/yovu/teams/SectionIntroFeatureGrid";
 import { SalesforceHowItWorks } from "@/components/yovu/salesforce/SalesforceHowItWorks";
 import developersWorking from "@/assets/imagery/developers working together.webp";
+import { CallerContext } from "@/components/yovu/animations/CallerContext";
+import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
+import { CallRecording } from "@/components/yovu/animations/CallRecording";
+import { CallControl } from "@/components/yovu/animations/CallControl";
 
 const accuracyItems: ZLayoutItem[] = [
   {
@@ -35,18 +39,22 @@ const featureCards: FeatureSlidingCard[] = [
   {
     title: "Screen Pop",
     copy: "Inbound Calls associated with an account will show you who's calling with access to all the details on their account. Customize this notification to activate on ring or on answer.",
+    media: <CallerContext />,
   },
   {
     title: "Click-to-Call",
     copy: "Make calls directly from a client's account on a single click, remaining embedded in one tool. Save time by capturing the results of these calls instantly in their account.",
+    media: <ClickToDial />,
   },
   {
     title: "Call Recording",
     copy: "Listen to previously recorded calls directly from the account. Give sales and customer service managers insights through easily accessible call playback directly within Salesforce.",
+    media: <CallRecording />,
   },
   {
     title: "Call Control",
     copy: "All the power in one tool. Transfer, hold, end and switch to a second call all from within Salesforce.",
+    media: <CallControl />,
   },
 ];
 
@@ -128,6 +136,7 @@ function SalesforceIntegrationPage() {
       <FeatureSlidingCards
         heading="Keep every conversation connected in Salesforce"
         cards={featureCards}
+        cardClassName="bg-[#f8fafc] dark:bg-surface"
       />
       <Statement copy="Transform how you work with customers using YOVU's Salesforce integration for more personalized communication, increased productivity, and real-time results." />
       <SalesforceHowItWorks />
