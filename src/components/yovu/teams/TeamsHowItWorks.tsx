@@ -71,7 +71,7 @@ export function TeamsHowItWorks() {
 
         {/* Card matches the content width of the sections above */}
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
-          <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-16 text-center shadow-2xl shadow-black/10 md:px-10 md:py-20 lg:py-24">
+          <div className="flex flex-col items-center rounded-3xl bg-white/60 px-6 py-16 text-center shadow-2xl shadow-black/10 ring-1 ring-white/50 backdrop-blur-2xl backdrop-saturate-150 md:px-10 md:py-20 lg:py-24">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
               How it Works
             </p>
