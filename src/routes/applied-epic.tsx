@@ -64,14 +64,11 @@ const benefits: ZLayoutItem[] = [
     title: "Take your calls on the road",
     copy: "Keep your workflow completely unbroken when you leave the office. Calls taken on your mobile device automatically flow right back into the client's Applied Epic record, exactly like they would at your desk. Recordings, transcripts, and summaries sync instantly, ensuring every conversation is securely captured no matter where your team is working.",
     media: (
-      <div className="relative">
-        <img
-          src={manOnPhone}
-          alt="Professional taking a call on his mobile phone while walking outside"
-          className={zImageClass}
-        />
-        <ImageCallCard />
-      </div>
+      <img
+        src={manOnPhone}
+        alt="Professional taking a call on his mobile phone while walking outside"
+        className={zImageClass}
+      />
     ),
   },
   {
@@ -79,14 +76,11 @@ const benefits: ZLayoutItem[] = [
     title: "Our policy is peace of mind",
     copy: "Made specifically for long-term E&O documentation, we offer up to seven years of call retention stored securely on Canadian servers. As your brokerage grows and your tech stack evolves, our conversation logging is designed to travel with you, continuously extending to integrate seamlessly with additional management systems.",
     media: (
-      <div className="relative">
-        <img
-          src={mountainFlowers}
-          alt="Snow-capped mountain rising above a field of flowers"
-          className={zImageClass}
-        />
-        <ImageCallCard />
-      </div>
+      <img
+        src={mountainFlowers}
+        alt="Snow-capped mountain rising above a field of flowers"
+        className={zImageClass}
+      />
     ),
   },
 ];
