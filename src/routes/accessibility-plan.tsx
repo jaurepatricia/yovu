@@ -172,7 +172,7 @@ function AccessibilityPlanPage() {
             href={accessibilityReport.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-ink px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-ink/90"
+            className="inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
           >
             2026 Accessibility Report
           </a>
