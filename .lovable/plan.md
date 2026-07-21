@@ -1,28 +1,11 @@
-## Applied Epic Hero Redesign
+## Change
 
-Restructure the `AppliedEpicHero` section in `src/routes/applied-epic.tsx` with a background image, left-aligned copy, and a CTA button.
+In `src/routes/applied-epic.tsx`, revert the hero content block from centered to left-aligned, and align its left edge with the site's standard section gutter (the `max-w-7xl` + `px-6` container used by sections below).
 
-### Changes
+### Details
 
-**1. Upload test background image as a Lovable Asset**
-- Run `lovable-assets create --file /mnt/user-uploads/hero_image_test.png --filename applied-hero-test.png > src/assets/hero/applied-hero-test.png.asset.json`
-- Import the pointer in `applied-epic.tsx`
-
-**2. Rewrite `AppliedEpicHero` section**
-- Section becomes a full-viewport hero: `relative h-screen w-screen overflow-hidden` (matches the homepage `Hero.tsx` pattern for a 16:9-ish cinematic feel at typical viewports). On very tall/narrow viewports we'll cap with `min-h-[56.25vw]` (16:9) so it never stretches unnaturally.
-- Background: `<img>` absolutely positioned, `object-cover`, `object-right` so the mountain peak sits on the right (matching the uploaded test image composition).
-- Subtle left-side gradient overlay (`bg-gradient-to-r from-canvas/70 via-canvas/30 to-transparent`) to keep text legible against the sky.
-- Content container: `max-w-7xl mx-auto px-6` with an inner `max-w-2xl` block, left-aligned (`text-left`), vertically centered, pushed down below the Nav (`pt-40 lg:pt-48`).
-- H1 unchanged: "Applied Epic Integration".
-- Paragraph unchanged, left-aligned (remove `mx-auto`).
-- New CTA button below the paragraph: **"See it in Action"** — primary pill styled to match the site's existing signal-blue button used on the accessibility page (rounded-full, bg-primary, text-primary-foreground, hover state). Link target `#demo` for now.
-
-### Technical notes
-
-- Keeps the change scoped to the hero `<section>` on `/applied-epic` only — no other pages affected.
-- Background image is a placeholder test asset; easily swappable later by replacing the `.asset.json` pointer.
-- Uses the same asset-pointer pattern already in use for hero videos, so no new plumbing.
-
-### Files touched
-- `src/assets/hero/applied-hero-test.png.asset.json` (new)
-- `src/routes/applied-epic.tsx` (edit `AppliedEpicHero` only)
+- Remove `justify-center` from the flex row wrapping the content.
+- Remove `mx-auto items-center text-center` from the inner content block; keep it left-aligned with `max-w-2xl`.
+- Keep the eyebrow ("Integrations"), H1, paragraph, and "See it in Action" button; keep their vertical spacing (`mt-6` / `mt-8`).
+- Container stays `max-w-7xl px-6` so the left edge matches every section below (ZLayout, FeatureSlidingCards, FAQ, etc.).
+- Gradient overlay: switch back to a left-weighted gradient (`bg-gradient-to-r from-canvas/80 via-canvas/40 to-transparent`) so the left-aligned copy stays legible over the hero image.
