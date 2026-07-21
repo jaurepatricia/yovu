@@ -188,11 +188,11 @@ function AppliedEpicHero() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-b from-canvas/70 via-canvas/40 to-canvas/70"
+        className="absolute inset-0 bg-gradient-to-r from-canvas/80 via-canvas/40 to-transparent"
       />
-      <div className="relative z-10 flex h-full items-center justify-center">
+      <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6 pt-32 lg:pt-40">
-          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          <div className="flex max-w-2xl flex-col text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
               Integrations
             </p>
@@ -204,13 +204,14 @@ function AppliedEpicHero() {
             </p>
             <a
               href="#demo"
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+              className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
             >
               See it in Action
             </a>
           </div>
         </div>
       </div>
+
 
     </section>
   );
