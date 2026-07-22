@@ -199,23 +199,22 @@ function AppliedEpicHero() {
         className="absolute inset-0 z-0 h-full w-full object-cover"
       />
 
-      {/* Layer 2: dashboard in a matte glass frame, flush right, tucked behind the peak */}
-      <div className="absolute inset-0 z-10 flex items-center">
-        <div className="mx-auto flex w-full max-w-7xl justify-end px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 36 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="w-[34rem] max-w-[52vw] rounded-2xl bg-white/45 p-2.5 shadow-2xl shadow-black/20 ring-1 ring-white/50 backdrop-blur-md dark:bg-white/10 dark:ring-white/15 lg:w-[42rem]"
-          >
-            <img
-              src={appliedDashboard}
-              alt="The Applied Epic dashboard with YOVU capturing a call"
-              decoding="async"
-              className="block w-full rounded-xl"
-            />
-          </motion.div>
-        </div>
+      {/* Layer 2: dashboard in a matte glass frame, tucked behind the peak and
+          bleeding off the right edge so the copy keeps plenty of breathing room */}
+      <div className="absolute inset-y-0 right-0 z-10 flex items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 36 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className="w-[52rem] max-w-[70vw] translate-x-[12%] rounded-2xl bg-white/45 p-3 shadow-2xl shadow-black/20 ring-1 ring-white/50 backdrop-blur-md dark:bg-white/10 dark:ring-white/15 lg:w-[64rem]"
+        >
+          <img
+            src={appliedDashboard}
+            alt="The Applied Epic dashboard with YOVU capturing a call"
+            decoding="async"
+            className="block w-full rounded-xl"
+          />
+        </motion.div>
       </div>
 
       {/* Layer 3: mountain mask foreground — same framing as the base so the peak
