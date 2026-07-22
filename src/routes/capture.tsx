@@ -21,24 +21,24 @@ const introBlocks: ZLayoutItem[] = [
   {
     kicker: "Effortless Capture",
     title: "Capture every detail, automatically",
-    copy: "Say goodbye to manual data entry, sticky notes, and incomplete client files. YOVU Capture seamlessly records, transcribes, and logs every call, text, and voicemail the moment it happens. Your team can focus entirely on the client, knowing the system is building a flawless, defensible record in the background.",
+    copy: "Say goodbye to manual data entry, sticky notes, and incomplete client files. YOVU seamlessly captures conversations, transcribes, and logs every call, text, and voicemail the moment it happens. Your team can focus entirely on the client, knowing the system is building a defensible record in the background.",
   },
   {
     kicker: "Actionable Insight",
     title: "Turn raw conversations into action",
-    copy: "A recording is good, but actionable data is better. YOVU Capture goes beyond basic recording by instantly pulling out next steps, key details, and client sentiment. Whether it is a routine renewal or a complex service issue, anyone in your brokerage can open a file and instantly understand exactly where the client stands.",
+    copy: "A recording is good, but actionable data is better. YOVU goes beyond basic recording by instantly pulling out next steps, key details, and client sentiment. Whether it is a routine renewal or a complex service issue, anyone in your team can open a file and instantly understand exactly where the client stands.",
   },
   {
     kicker: "Built for Teams",
-    title: "Made to empower your team",
-    copy: "Capture is designed to make your client records complete, not to watch your team. Strict role-based access controls let administrators decide exactly who can view recordings, transcripts, and reports. The real value belongs to the daily operator: less time writing up manual notes, no more reconstructing calls from memory, and a seamless handoff process where clients never have to repeat their story.",
+    title: "Made to empower your workforce",
+    copy: "Capture is designed to make your client records complete, not to watch your team. Strict role-based access controls let administrators decide exactly who can view recordings, transcripts, and reports. The real value belongs to the daily operator: less time writing up manual notes, no more reconstructing calls from memory, and a seamless handoff process where callers don’t have to repeat themselves.",
   },
 ];
 
 const featureCards: FeatureSlidingCard[] = [
   {
     title: "AI summaries with next steps",
-    copy: "Every call can be summarized by AI, with the key details and recommended next steps pulled out, not just a transcript dump. The next person who opens the file gets context they can act on, not a timestamp they have to decode. AI summaries can be customized to extract the information that counts.",
+    copy: "Stop digging through raw transcripts. Our AI instantly extracts the key takeaways and next steps from every call, giving your team the exact context they need to take action right away.",
     media: <TranscriptionSummary />,
   },
   {
@@ -108,11 +108,11 @@ function CaptureHero() {
     <section className="bg-canvas pb-16 pt-40 lg:pb-24 lg:pt-56">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-          Every call captured, every detail logged.
+          Every call captured in one place.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink/70">
-          Do not just record your calls. YOVU Capture uses AI to summarize details, extract next
-          steps, and log them directly to your client records.
+          Don’t just record your calls. YOVU uses AI to summarize details, extract next steps, and
+          log them directly to your client records.
         </p>
       </div>
     </section>
