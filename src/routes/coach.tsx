@@ -7,7 +7,7 @@ import {
   FeatureSlidingCards,
   type FeatureSlidingCard,
 } from "@/components/yovu/FeatureSlidingCards";
-import { ComingSoon } from "@/components/yovu/animations/ComingSoon";
+import { GuidedConversation } from "@/components/yovu/animations/GuidedConversation";
 import { ThreeWayCall } from "@/components/yovu/animations/ThreeWayCall";
 import { ReportingDashboard } from "@/components/yovu/animations/ReportingDashboard";
 import { Scorecard } from "@/components/yovu/animations/Scorecard";
@@ -61,7 +61,7 @@ const featureCards: FeatureSlidingCard[] = [
     title: "Guided Conversations",
     tag: "Coming Soon",
     copy: "Live prompts and questions surface during the call, helping new hires ramp faster. This keeps documentation consistent across the team, supporting stronger, standardized E&O records.",
-    media: <ComingSoon />,
+    media: <GuidedConversation />,
   },
   {
     title: "Listen, Whisper & Collaborate",
