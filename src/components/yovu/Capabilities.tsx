@@ -21,6 +21,8 @@ type Item = {
   cta: { label: string; href: string };
   /** Optional animated overlay shown over the card background. */
   media?: ReactNode;
+  /** Small eyebrow-style label shown inline beside the title (e.g. "Coming Soon"). */
+  tag?: string;
 };
 
 type Category = {
@@ -83,7 +85,8 @@ const categories: Category[] = [
     label: "Coach",
     items: [
       {
-        title: "Guided Conversations (Coming Soon)",
+        title: "Guided Conversations",
+        tag: "Coming Soon",
         copy: "Real-time prompts guide your team during live calls to ramp up new hires faster. Ensure consistent documentation and strengthen E&O records.",
         cta: { label: "Get Early Access", href: "#demo" },
         media: <GuidedConversation />,
@@ -98,7 +101,7 @@ const categories: Category[] = [
         title: "Listen, Whisper & Collaborate",
         copy: "Listen live, coach privately, or join the call when your team needs support.",
         cta: { label: "Learn More", href: "#demo" },
-        media: <ThreeWayCall />,
+        media: <ThreeWayCall framed />,
       },
     ],
   },
@@ -190,14 +193,21 @@ export function Capabilities() {
                       aria-expanded={isOpen}
                       className="flex w-full items-center justify-between gap-6 py-5 text-left"
                     >
-                      <span
-                        className={
-                          isOpen
-                            ? "font-display text-lg font-semibold tracking-tight text-ink md:text-xl"
-                            : "font-display text-lg font-semibold tracking-tight text-ink/55 transition-colors md:text-xl"
-                        }
-                      >
-                        {item.title}
+                      <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                        <span
+                          className={
+                            isOpen
+                              ? "font-display text-lg font-semibold tracking-tight text-ink md:text-xl"
+                              : "font-display text-lg font-semibold tracking-tight text-ink/55 transition-colors md:text-xl"
+                          }
+                        >
+                          {item.title}
+                        </span>
+                        {item.tag && (
+                          <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-signal">
+                            {item.tag}
+                          </span>
+                        )}
                       </span>
                       <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
                         <ChevronDown

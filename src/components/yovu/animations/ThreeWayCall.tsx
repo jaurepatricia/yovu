@@ -20,32 +20,42 @@ function Node({ label, x, y }: { label: string; x: string; y: string }) {
   );
 }
 
-export function ThreeWayCall() {
+export function ThreeWayCall({ framed = false }: { framed?: boolean }) {
+  const content = (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`relative ${framed ? "h-60 w-[24rem]" : "h-56 w-[22rem]"} max-w-[94%] text-signal`}
+    >
+      {/* Triangle of connecting lines behind the nodes */}
+      <svg viewBox="0 0 320 224" className="absolute inset-0 h-full w-full">
+        <polygon
+          points="80,62 240,62 160,178"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+          opacity="0.5"
+        />
+      </svg>
+
+      <Node label="Agent" x="25%" y="27.7%" />
+      <Node label="Client" x="75%" y="27.7%" />
+      <Node label="Supervisor" x="50%" y="79.5%" />
+    </motion.div>
+  );
+
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative h-56 w-[22rem] max-w-[94%] text-signal"
-      >
-        {/* Triangle of connecting lines behind the nodes */}
-        <svg viewBox="0 0 320 224" className="absolute inset-0 h-full w-full">
-          <polygon
-            points="80,62 240,62 160,178"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinejoin="round"
-            opacity="0.5"
-          />
-        </svg>
-
-        <Node label="Agent" x="25%" y="27.7%" />
-        <Node label="Client" x="75%" y="27.7%" />
-        <Node label="Supervisor" x="50%" y="79.5%" />
-      </motion.div>
+      {framed ? (
+        <div className="flex items-center justify-center rounded-3xl bg-white/40 px-6 py-5 ring-1 ring-white/50 backdrop-blur-md dark:bg-white/10 dark:ring-white/15">
+          {content}
+        </div>
+      ) : (
+        content
+      )}
     </div>
   );
 }
