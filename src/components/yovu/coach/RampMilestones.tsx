@@ -13,14 +13,14 @@ const milestones = [
  */
 export function RampMilestones() {
   return (
-    <div className="absolute inset-y-0 right-0 flex w-1/2 items-center justify-center p-4 sm:p-6">
+    <div className="absolute inset-y-0 right-0 flex items-center justify-end p-4 sm:p-6">
       <motion.div
         aria-hidden="true"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-[17rem] overflow-hidden rounded-2xl bg-white/90 shadow-xl shadow-black/20 ring-1 ring-black/5 backdrop-blur-md dark:bg-[#0b1733]/75 dark:ring-white/10"
+        className="w-max max-w-[20rem] overflow-hidden rounded-2xl bg-white/75 shadow-xl shadow-black/20 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/15"
       >
         <div className="border-b border-slate-200/70 px-4 py-3 dark:border-white/10">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-white/60">
@@ -46,11 +46,13 @@ export function RampMilestones() {
               >
                 <Check className="size-4" strokeWidth={3} />
               </motion.span>
-              <div className="min-w-0">
-                <p className="text-[13px] font-semibold text-slate-800 dark:text-white">
+              <div>
+                <p className="whitespace-nowrap text-[13px] font-semibold text-slate-800 dark:text-white">
                   {m.day}-Day &middot; {m.label}
                 </p>
-                <p className="truncate text-[11px] text-slate-500 dark:text-white/55">{m.metric}</p>
+                <p className="whitespace-nowrap text-[11px] text-slate-500 dark:text-white/55">
+                  {m.metric}
+                </p>
               </div>
             </motion.div>
           ))}

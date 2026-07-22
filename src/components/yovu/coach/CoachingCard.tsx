@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Star } from "lucide-react";
 
 /**
  * Glassy coaching card overlaid on the left of a z-layout image. Shows a short
@@ -14,7 +15,7 @@ export function CoachingCard() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-[17rem] overflow-hidden rounded-2xl bg-white/90 shadow-xl shadow-black/20 ring-1 ring-black/5 backdrop-blur-md dark:bg-[#0b1733]/75 dark:ring-white/10"
+        className="w-full max-w-[17rem] overflow-hidden rounded-2xl bg-white/75 shadow-xl shadow-black/20 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/15"
       >
         {/* Header */}
         <div className="flex items-center gap-2 border-b border-slate-200/70 px-4 py-3 dark:border-white/10">
@@ -51,12 +52,12 @@ export function CoachingCard() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5, delay: 0.9 }}
-          className="flex items-center gap-2 border-t border-slate-200/70 px-4 py-3 dark:border-white/10"
+          className="flex items-center gap-1.5 border-t border-slate-200/70 px-4 py-3 dark:border-white/10"
         >
-          <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-300">
+          <Star className="size-3.5 shrink-0 fill-amber-400 text-amber-400" strokeWidth={0} />
+          <span className="text-[13px] font-semibold text-slate-800 dark:text-white">
             Strong discovery
           </span>
-          <span className="text-[11px] text-slate-500 dark:text-white/55">Nice open question</span>
         </motion.div>
       </motion.div>
     </div>

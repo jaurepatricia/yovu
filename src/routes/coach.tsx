@@ -29,6 +29,8 @@ const introBlocks: ZLayoutItem[] = [
         <img
           src={womanSmiling}
           alt="Insurance professional smiling on a call at her desk"
+          loading="lazy"
+          decoding="async"
           className={zImageClass}
         />
         <CoachingCard />
@@ -44,6 +46,8 @@ const introBlocks: ZLayoutItem[] = [
         <img
           src={manOnPeak}
           alt="Professional standing on a mountain peak"
+          loading="lazy"
+          decoding="async"
           className={zImageClass}
         />
         <RampMilestones />
@@ -54,7 +58,8 @@ const introBlocks: ZLayoutItem[] = [
 
 const featureCards: FeatureSlidingCard[] = [
   {
-    title: "Guided Conversations (Coming Soon)",
+    title: "Guided Conversations",
+    tag: "Coming Soon",
     copy: "Live prompts and questions surface during the call, helping new hires ramp faster. This keeps documentation consistent across the team, supporting stronger, standardized E&O records.",
     media: <ComingSoon />,
   },
@@ -69,7 +74,8 @@ const featureCards: FeatureSlidingCard[] = [
     media: <ReportingDashboard />,
   },
   {
-    title: "Scorecards & Playbooks (Roadmap)",
+    title: "Scorecards & Playbooks",
+    tag: "Roadmap",
     copy: "We are building a central knowledge base to equip new hires with scripts and carrier details, alongside call scorecards that grade actual recorded conversations against your custom rubrics for greetings, disclosures, and closing techniques.",
     media: <Scorecard />,
   },
@@ -109,15 +115,14 @@ function CoachHero() {
         src={coachHero}
         alt=""
         aria-hidden="true"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="flex max-w-xl flex-col text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
-              Coach
-            </p>
-            <h1 className="mt-6 font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+            <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
               Never lose your footing on a call
             </h1>
             <p className="mt-6 text-pretty text-lg text-ink/70">

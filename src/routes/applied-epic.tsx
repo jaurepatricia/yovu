@@ -57,6 +57,8 @@ const benefits: ZLayoutItem[] = [
         <img
           src={womanOnPhone}
           alt="Insurance professional taking a call at her desk in a corporate office"
+          loading="lazy"
+          decoding="async"
           className={zImageClass}
         />
         <ImageCallCard />
@@ -72,6 +74,8 @@ const benefits: ZLayoutItem[] = [
         <img
           src={manOnPhone}
           alt="Professional taking a call on his mobile phone while walking outside"
+          loading="lazy"
+          decoding="async"
           className={zImageClass}
         />
         <div className="absolute inset-y-0 right-0 flex w-1/2 items-center justify-center">
@@ -88,6 +92,8 @@ const benefits: ZLayoutItem[] = [
       <img
         src={mountainFlowers}
         alt="Snow-capped mountain rising above a field of flowers"
+        loading="lazy"
+        decoding="async"
         className={zImageClass}
       />
     ),
@@ -184,6 +190,8 @@ function AppliedEpicHero() {
         src={appliedHeroTest.url}
         alt=""
         aria-hidden="true"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="relative z-10 flex h-full items-center">
@@ -231,6 +239,8 @@ function AppliedEpicPage() {
           <img
             src={developersWorking}
             alt="Developers collaborating together at a workstation"
+            loading="lazy"
+            decoding="async"
             className={zImageClass}
           />
         }
