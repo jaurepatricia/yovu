@@ -171,8 +171,8 @@ function CaptureHero() {
               <br className="hidden sm:block" /> in one place.
             </h1>
             <p className="mt-4 max-w-xl text-pretty text-lg text-white/80">
-              Don’t just record your calls. YOVU uses AI to summarize details, extract next steps,
-              and log them directly to your client records.
+              Turn calls, texts, and voicemails into easy-to-read records. Our AI automatically
+              extracts key details, recommends next steps, and logs everything right to your system.
             </p>
             <a
               href="/book-demo"
@@ -209,7 +209,7 @@ function CapturePage() {
             alt="Applied Epic shown on a MacBook with YOVU capturing the call"
             loading="lazy"
             decoding="async"
-            className="w-full object-contain"
+            className={zImageClass}
           />
         }
       />

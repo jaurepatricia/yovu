@@ -6,9 +6,9 @@ import { Search, Play } from "lucide-react";
  * calls with client, date, and playback. Matches the feature card style.
  */
 const results = [
-  { name: "James Carter", meta: "Renewal · Mar 4", dur: "6:12" },
-  { name: "Priya Anand", meta: "Policy change · Mar 2", dur: "3:48" },
-  { name: "Marc Tremblay", meta: "New quote · Feb 28", dur: "8:05" },
+  { name: "David Smith", meta: "Renewal · Mar 4", dur: "6:12" },
+  { name: "Olivia Johnson", meta: "Policy change · Mar 2", dur: "3:48" },
+  { name: "Michael Brown", meta: "New quote · Feb 28", dur: "8:05" },
 ];
 
 export function SearchableHistory() {

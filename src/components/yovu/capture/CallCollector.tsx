@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { PhoneIncoming, PhoneOutgoing } from "lucide-react";
+import davidSmith from "@/assets/imagery/david-smith.webp";
+import oliviaJohnson from "@/assets/imagery/olivia-johnson.webp";
+import michaelBrown from "@/assets/imagery/michael-brown.webp";
+import annTremblay from "@/assets/imagery/ann-tremblay.webp";
+import noahMartin from "@/assets/imagery/noah-martin.webp";
+import emmaWilson from "@/assets/imagery/emma-wilson.webp";
 
 /**
  * Capture hero animation: client-call cards orbit in a circle, then collapse
@@ -15,15 +21,16 @@ type Call = {
   name: string;
   number: string;
   dir: "in" | "out";
+  photo: string;
 };
 
 const calls: Call[] = [
-  { name: "David Smith", number: "+1 (416) 555-0148", dir: "out" },
-  { name: "Olivia Johnson", number: "+1 (604) 555-0192", dir: "in" },
-  { name: "Michael Brown", number: "+1 (902) 555-0173", dir: "out" },
-  { name: "Ann Tremblay", number: "+1 (613) 555-0110", dir: "in" },
-  { name: "Noah Martin", number: "+1 (306) 555-0126", dir: "out" },
-  { name: "Emma Wilson", number: "+1 (514) 555-0164", dir: "in" },
+  { name: "David Smith", number: "+1 (416) 555-0148", dir: "out", photo: davidSmith },
+  { name: "Olivia Johnson", number: "+1 (604) 555-0192", dir: "in", photo: oliviaJohnson },
+  { name: "Michael Brown", number: "+1 (902) 555-0173", dir: "out", photo: michaelBrown },
+  { name: "Ann Tremblay", number: "+1 (613) 555-0110", dir: "in", photo: annTremblay },
+  { name: "Noah Martin", number: "+1 (306) 555-0126", dir: "out", photo: noahMartin },
+  { name: "Emma Wilson", number: "+1 (514) 555-0164", dir: "in", photo: emmaWilson },
 ];
 
 const COUNT = calls.length;
@@ -31,22 +38,15 @@ const RADIUS = 230;
 const ORBIT_MS = 9000;
 const STACK_HOLD_MS = 2600;
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
-
 function CallCard({ call }: { call: Call }) {
   const Dir = call.dir === "in" ? PhoneIncoming : PhoneOutgoing;
   return (
     <div className="flex h-full w-full items-center gap-4 rounded-2xl bg-white/70 px-5 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/10">
-      <span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-slate-400 to-slate-600 text-lg font-semibold text-white dark:from-slate-500 dark:to-slate-700">
-        {initials(call.name)}
-      </span>
+      <img
+        src={call.photo}
+        alt=""
+        className="size-16 shrink-0 rounded-full object-cover object-top ring-1 ring-black/5 dark:ring-white/10"
+      />
       <span className="flex min-w-0 flex-1 flex-col">
         <span className="truncate text-lg font-semibold text-ink">{call.name}</span>
         <span className="flex items-center gap-1.5 text-sm text-ink/55">
