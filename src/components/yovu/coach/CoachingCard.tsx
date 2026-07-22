@@ -24,7 +24,7 @@ export function CoachingCard() {
             <span className="relative inline-flex size-2 rounded-full bg-signal" />
           </span>
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-white/60">
-            AI Coach
+            Live Coach
           </p>
         </div>
 

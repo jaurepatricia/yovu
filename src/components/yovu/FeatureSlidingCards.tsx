@@ -49,16 +49,14 @@ export function FeatureSlidingCards({
             >
               <div className="grid items-center gap-8 md:grid-cols-3">
                 <div className="md:col-span-2">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
-                      {card.title}
-                    </h3>
-                    {card.tag && (
-                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
-                        {card.tag}
-                      </span>
-                    )}
-                  </div>
+                  {card.tag && (
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+                      {card.tag}
+                    </p>
+                  )}
+                  <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                    {card.title}
+                  </h3>
                   <p className="mt-4 max-w-xl text-pretty text-base text-ink/70">{card.copy}</p>
                 </div>
                 <div className="md:col-span-1">

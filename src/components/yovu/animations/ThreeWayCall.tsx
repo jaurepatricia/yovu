@@ -12,7 +12,7 @@ function Node({ label, x, y }: { label: string; x: string; y: string }) {
       className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
       style={{ left: x, top: y }}
     >
-      <span className="flex size-14 items-center justify-center rounded-full bg-signal/10 text-signal ring-1 ring-signal/25">
+      <span className="flex size-14 items-center justify-center rounded-full bg-white text-signal ring-1 ring-black/10 dark:ring-white/20">
         <User className="size-6" strokeWidth={2} />
       </span>
       <span className="text-[11px] font-medium text-ink/60">{label}</span>
