@@ -17,23 +17,63 @@ import { TranscriptSentiment } from "@/components/yovu/animations/TranscriptSent
 import { SearchableHistory } from "@/components/yovu/animations/SearchableHistory";
 import { CallRecording } from "@/components/yovu/animations/CallRecording";
 import { CallCollector } from "@/components/yovu/capture/CallCollector";
+import { VoicemailAlert } from "@/components/yovu/capture/VoicemailAlert";
+import { ServiceSummary } from "@/components/yovu/capture/ServiceSummary";
 import captureHero from "@/assets/hero/blurred-greenery-and-foliage.webp";
+import manLookingAtPhone from "@/assets/imagery/professional man looking at phone.webp";
+import mechanic from "@/assets/imagery/mechanic working on a vehicle.webp";
+import treeSkyline from "@/assets/imagery/tree skyline.webp";
+
+const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
 const introBlocks: ZLayoutItem[] = [
   {
     kicker: "Effortless Capture",
     title: "Capture every detail, automatically",
-    copy: "Say goodbye to manual data entry, sticky notes, and incomplete client files. YOVU seamlessly captures conversations, transcribes, and logs every call, text, and voicemail the moment it happens. Your team can focus entirely on the client, knowing the system is building a defensible record in the background.",
+    copy: "Say goodbye to manual data entry, sticky notes, and incomplete client files. YOVU seamlessly captures conversations, transcribes, and logs every call, text, and voicemail the moment it happens. Your team can focus entirely on the client, knowing there’s a defensible record in the background.",
+    media: (
+      <div className="relative">
+        <img
+          src={manLookingAtPhone}
+          alt="Professional checking his phone"
+          loading="lazy"
+          decoding="async"
+          className={zImageClass}
+        />
+        <VoicemailAlert />
+      </div>
+    ),
   },
   {
     kicker: "Actionable Insight",
     title: "Turn raw conversations into action",
     copy: "A recording is good, but actionable data is better. YOVU goes beyond basic recording by instantly pulling out next steps, key details, and client sentiment. Whether it is a routine renewal or a complex service issue, anyone in your team can open a file and instantly understand exactly where the client stands.",
+    media: (
+      <div className="relative">
+        <img
+          src={mechanic}
+          alt="Mechanic working on a vehicle"
+          loading="lazy"
+          decoding="async"
+          className={zImageClass}
+        />
+        <ServiceSummary />
+      </div>
+    ),
   },
   {
     kicker: "Built for Teams",
-    title: "Made to empower your workforce",
+    title: "Made to help your employees thrive",
     copy: "Capture is designed to make your client records complete, not to watch your team. Strict role-based access controls let administrators decide exactly who can view recordings, transcripts, and reports. The real value belongs to the daily operator: less time writing up manual notes, no more reconstructing calls from memory, and a seamless handoff process where callers don’t have to repeat themselves.",
+    media: (
+      <img
+        src={treeSkyline}
+        alt="Trees against a bright sky"
+        loading="lazy"
+        decoding="async"
+        className={zImageClass}
+      />
+    ),
   },
 ];
 
@@ -129,7 +169,7 @@ function CaptureHero() {
               Every call captured
               <br className="hidden sm:block" /> in one place.
             </h1>
-            <p className="mt-6 max-w-xl text-pretty text-lg text-white/80">
+            <p className="mt-4 max-w-xl text-pretty text-lg text-white/80">
               Don’t just record your calls. YOVU uses AI to summarize details, extract next steps,
               and log them directly to your client records.
             </p>
