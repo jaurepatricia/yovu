@@ -25,7 +25,10 @@ import developersWorking from "@/assets/imagery/developers working together.webp
 import { ImageCallCard } from "@/components/yovu/applied/ImageCallCard";
 import { FeatureCarousel } from "@/components/yovu/applied/FeatureCarousel";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
-import appliedHeroTest from "@/assets/hero/applied-hero-test-3.png.asset.json";
+import { motion } from "motion/react";
+import mountainPeak from "@/assets/hero/light-mountain-peak.webp";
+import mountainPeakMask from "@/assets/hero/light-mountain-peak-mask.webp";
+import appliedDashboard from "@/assets/hero/applied-epic-dashboard.webp";
 
 const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
@@ -186,15 +189,47 @@ const faqItems = [
 function AppliedEpicHero() {
   return (
     <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
+      {/* Layer 1: mountain peak background */}
       <img
-        src={appliedHeroTest.url}
+        src={mountainPeak}
         alt=""
         aria-hidden="true"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 z-0 h-full w-full object-cover"
       />
-      <div className="relative z-10 flex h-full items-center">
+
+      {/* Layer 2: dashboard in a matte glass frame, flush right, tucked behind the peak */}
+      <div className="absolute inset-0 z-10 flex items-center">
+        <div className="mx-auto flex w-full max-w-7xl justify-end px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 36 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="w-[34rem] max-w-[52vw] rounded-2xl bg-white/45 p-2.5 shadow-2xl shadow-black/20 ring-1 ring-white/50 backdrop-blur-md dark:bg-white/10 dark:ring-white/15 lg:w-[42rem]"
+          >
+            <img
+              src={appliedDashboard}
+              alt="The Applied Epic dashboard with YOVU capturing a call"
+              decoding="async"
+              className="block w-full rounded-xl"
+            />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Layer 3: mountain mask foreground — same framing as the base so the peak
+          overlaps the dashboard, making it peek out from behind the mountain */}
+      <img
+        src={mountainPeakMask}
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+        className="pointer-events-none absolute inset-0 z-20 h-full w-full object-cover"
+      />
+
+      {/* Layer 4: hero copy, above everything */}
+      <div className="relative z-30 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="flex max-w-xl flex-col text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
@@ -215,8 +250,6 @@ function AppliedEpicHero() {
           </div>
         </div>
       </div>
-
-
     </section>
   );
 }
