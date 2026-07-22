@@ -18,16 +18,16 @@ type Call = {
 };
 
 const calls: Call[] = [
-  { name: "Maple Ridge Insurance", number: "+1 (416) 555-0148", dir: "out" },
-  { name: "Sarah Thompson", number: "+1 (604) 555-0192", dir: "in" },
-  { name: "Coastal Brokers Ltd.", number: "+1 (902) 555-0173", dir: "out" },
-  { name: "David Chen", number: "+1 (613) 555-0110", dir: "in" },
-  { name: "Prairie Mutual Group", number: "+1 (306) 555-0126", dir: "out" },
-  { name: "Émilie Tremblay", number: "+1 (514) 555-0164", dir: "in" },
+  { name: "Priya Kapadia", number: "+1 (416) 555-0148", dir: "out" },
+  { name: "Marcus Bellemare", number: "+1 (604) 555-0192", dir: "in" },
+  { name: "Hannah Okafor", number: "+1 (902) 555-0173", dir: "out" },
+  { name: "Noah Vandenberg", number: "+1 (613) 555-0110", dir: "in" },
+  { name: "Farah Haddad", number: "+1 (306) 555-0126", dir: "out" },
+  { name: "Owen Fitzgerald", number: "+1 (514) 555-0164", dir: "in" },
 ];
 
 const COUNT = calls.length;
-const RADIUS = 210;
+const RADIUS = 230;
 const ORBIT_MS = 9000;
 const STACK_HOLD_MS = 2600;
 
@@ -43,14 +43,14 @@ function initials(name: string) {
 function CallCard({ call }: { call: Call }) {
   const Dir = call.dir === "in" ? PhoneIncoming : PhoneOutgoing;
   return (
-    <div className="flex h-full w-full items-center gap-3 rounded-2xl bg-white/70 px-4 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/10">
-      <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-slate-400 to-slate-600 text-sm font-semibold text-white dark:from-slate-500 dark:to-slate-700">
+    <div className="flex h-full w-full items-center gap-4 rounded-2xl bg-white/70 px-5 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/10">
+      <span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-slate-400 to-slate-600 text-lg font-semibold text-white dark:from-slate-500 dark:to-slate-700">
         {initials(call.name)}
       </span>
       <span className="flex min-w-0 flex-1 flex-col">
-        <span className="truncate text-base font-semibold text-ink">{call.name}</span>
+        <span className="truncate text-lg font-semibold text-ink">{call.name}</span>
         <span className="flex items-center gap-1.5 text-sm text-ink/55">
-          <Dir className="size-3.5 shrink-0" strokeWidth={2.25} />
+          <Dir className="size-4 shrink-0" strokeWidth={2.25} />
           <span className="truncate">{call.number}</span>
         </span>
       </span>
@@ -87,7 +87,7 @@ export function CallCollector() {
   const orbiting = phase === "orbit";
 
   return (
-    <div className="relative flex size-[34rem] items-center justify-center">
+    <div className="relative flex size-[38rem] items-center justify-center">
       <motion.div
         className="absolute inset-0"
         animate={{ rotate: orbiting ? 360 : 0 }}
@@ -106,8 +106,8 @@ export function CallCollector() {
           return (
             <motion.div
               key={i}
-              className="absolute left-1/2 top-1/2 h-24 w-60"
-              style={{ marginLeft: "-7.5rem", marginTop: "-3rem" }}
+              className="absolute left-1/2 top-1/2 h-24 w-72"
+              style={{ marginLeft: "-9rem", marginTop: "-3rem" }}
               animate={
                 orbiting
                   ? { x: orbitX, y: orbitY, rotate: -360, scale: 1, opacity: 1 }

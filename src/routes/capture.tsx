@@ -118,7 +118,7 @@ function CaptureHero() {
       />
 
       {/* Orbit-to-stack call animation, sitting in the right half */}
-      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[6%] lg:block xl:-translate-x-[4%]">
+      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 -translate-x-[16%] lg:block xl:-translate-x-[30%]">
         <CallCollector />
       </div>
 
