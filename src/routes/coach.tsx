@@ -14,11 +14,13 @@ import { Scorecard } from "@/components/yovu/animations/Scorecard";
 
 const introBlocks: ZLayoutItem[] = [
   {
-    title: "Grounded in your team's reality",
+    kicker: "Real Conversations",
+    title: "Grounded by real work",
     copy: "As the workforce evolves and experienced professionals retire, your best sales tactics should not leave with them. Instead of a generic, off-the-shelf training manual, Coach is wired directly into the call data YOVU already captures. Every piece of feedback is based on your team's real conversations, capturing the specific questions, niches, and follow-ups that make your top producers win.",
   },
   {
-    title: "Target bottlenecks, not blind spots",
+    kicker: "Faster Onboarding",
+    title: "Reach new heights",
     copy: "Accelerate onboarding by giving new hires structured guidance based on real interactions, rather than waiting for a manager to overhear a live call. Coach automatically surfaces the specific calls supervisors need to review by exception. This targeted approach saves management from monitoring everyone blindly while ensuring new hires hit their 30, 60, and 90-day ramp milestones.",
   },
 ];
@@ -75,14 +77,31 @@ const faqItems = [
 
 function CoachHero() {
   return (
-    <section className="bg-canvas pb-16 pt-40 lg:pb-24 lg:pt-56">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-          Never lose your footing on a client call
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink/70">
-          Coach turns real-world call data into a steady path upward, guiding your agents safely through tough conversations and ambitious management goals.
-        </p>
+    <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
+      {/* TODO: background image — mountain climbers working together (webp).
+          Add once the asset is synced:
+          <img src={coachHero} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" /> */}
+      <div className="relative z-10 flex h-full items-center">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="flex max-w-xl flex-col text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+              Coach
+            </p>
+            <h1 className="mt-6 font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+              Never lose your footing on a call
+            </h1>
+            <p className="mt-6 text-pretty text-lg text-ink/70">
+              Coach turns real-world call data into a steady path upward, guiding your agents safely
+              through tough conversations and ambitious management goals.
+            </p>
+            <a
+              href="/book-demo"
+              className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+            >
+              See it in Action
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
