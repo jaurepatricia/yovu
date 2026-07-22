@@ -19,14 +19,17 @@ import { CallRecording } from "@/components/yovu/animations/CallRecording";
 
 const introBlocks: ZLayoutItem[] = [
   {
+    kicker: "Effortless Capture",
     title: "Capture every detail, automatically",
     copy: "Say goodbye to manual data entry, sticky notes, and incomplete client files. YOVU Capture seamlessly records, transcribes, and logs every call, text, and voicemail the moment it happens. Your team can focus entirely on the client, knowing the system is building a flawless, defensible record in the background.",
   },
   {
+    kicker: "Actionable Insight",
     title: "Turn raw conversations into action",
     copy: "A recording is good, but actionable data is better. YOVU Capture goes beyond basic recording by instantly pulling out next steps, key details, and client sentiment. Whether it is a routine renewal or a complex service issue, anyone in your brokerage can open a file and instantly understand exactly where the client stands.",
   },
   {
+    kicker: "Built for Teams",
     title: "Made to empower your team",
     copy: "Capture is designed to make your client records complete, not to watch your team. Strict role-based access controls let administrators decide exactly who can view recordings, transcripts, and reports. The real value belongs to the daily operator: less time writing up manual notes, no more reconstructing calls from memory, and a seamless handoff process where clients never have to repeat their story.",
   },
