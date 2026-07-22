@@ -11,17 +11,44 @@ import { ComingSoon } from "@/components/yovu/animations/ComingSoon";
 import { ThreeWayCall } from "@/components/yovu/animations/ThreeWayCall";
 import { ReportingDashboard } from "@/components/yovu/animations/ReportingDashboard";
 import { Scorecard } from "@/components/yovu/animations/Scorecard";
+import { CoachingCard } from "@/components/yovu/coach/CoachingCard";
+import { RampMilestones } from "@/components/yovu/coach/RampMilestones";
+import coachHero from "@/assets/hero/mountain-climbers-working-together.webp";
+import womanSmiling from "@/assets/imagery/professional woman on the phone smiling.webp";
+import manOnPeak from "@/assets/imagery/man on mountain peak.webp";
+
+const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
 const introBlocks: ZLayoutItem[] = [
   {
     kicker: "Real Conversations",
     title: "Grounded by real work",
     copy: "As the workforce evolves and experienced professionals retire, your best sales tactics should not leave with them. Instead of a generic, off-the-shelf training manual, Coach is wired directly into the call data YOVU already captures. Every piece of feedback is based on your team's real conversations, capturing the specific questions, niches, and follow-ups that make your top producers win.",
+    media: (
+      <div className="relative">
+        <img
+          src={womanSmiling}
+          alt="Insurance professional smiling on a call at her desk"
+          className={zImageClass}
+        />
+        <CoachingCard />
+      </div>
+    ),
   },
   {
     kicker: "Faster Onboarding",
     title: "Reach new heights",
     copy: "Accelerate onboarding by giving new hires structured guidance based on real interactions, rather than waiting for a manager to overhear a live call. Coach automatically surfaces the specific calls supervisors need to review by exception. This targeted approach saves management from monitoring everyone blindly while ensuring new hires hit their 30, 60, and 90-day ramp milestones.",
+    media: (
+      <div className="relative">
+        <img
+          src={manOnPeak}
+          alt="Professional standing on a mountain peak"
+          className={zImageClass}
+        />
+        <RampMilestones />
+      </div>
+    ),
   },
 ];
 
@@ -78,9 +105,12 @@ const faqItems = [
 function CoachHero() {
   return (
     <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
-      {/* TODO: background image — mountain climbers working together (webp).
-          Add once the asset is synced:
-          <img src={coachHero} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" /> */}
+      <img
+        src={coachHero}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="flex max-w-xl flex-col text-left">
