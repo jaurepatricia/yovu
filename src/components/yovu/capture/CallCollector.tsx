@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Phone, PhoneIncoming, PhoneOutgoing } from "lucide-react";
+import { PhoneIncoming, PhoneOutgoing } from "lucide-react";
 
 /**
  * Capture hero animation: client-call cards orbit in a circle, then collapse
@@ -15,22 +15,19 @@ type Call = {
   name: string;
   number: string;
   dir: "in" | "out";
-  day: string;
 };
 
 const calls: Call[] = [
-  { name: "Maple Ridge Insurance", number: "+1 (416) 555-0148", dir: "out", day: "Monday" },
-  { name: "Sarah Thompson", number: "+1 (604) 555-0192", dir: "in", day: "Monday" },
-  { name: "Coastal Brokers Ltd.", number: "+1 (902) 555-0173", dir: "out", day: "Tuesday" },
-  { name: "David Chen", number: "+1 (613) 555-0110", dir: "in", day: "Tuesday" },
-  { name: "Prairie Mutual Group", number: "+1 (306) 555-0126", dir: "out", day: "Wednesday" },
-  { name: "Émilie Tremblay", number: "+1 (514) 555-0164", dir: "in", day: "Wednesday" },
-  { name: "Summit Risk Advisors", number: "+1 (587) 555-0139", dir: "out", day: "Thursday" },
-  { name: "Jordan Reid", number: "+1 (709) 555-0157", dir: "in", day: "Friday" },
+  { name: "Maple Ridge Insurance", number: "+1 (416) 555-0148", dir: "out" },
+  { name: "Sarah Thompson", number: "+1 (604) 555-0192", dir: "in" },
+  { name: "Coastal Brokers Ltd.", number: "+1 (902) 555-0173", dir: "out" },
+  { name: "David Chen", number: "+1 (613) 555-0110", dir: "in" },
+  { name: "Prairie Mutual Group", number: "+1 (306) 555-0126", dir: "out" },
+  { name: "Émilie Tremblay", number: "+1 (514) 555-0164", dir: "in" },
 ];
 
 const COUNT = calls.length;
-const RADIUS = 220;
+const RADIUS = 210;
 const ORBIT_MS = 9000;
 const STACK_HOLD_MS = 2600;
 
@@ -46,20 +43,16 @@ function initials(name: string) {
 function CallCard({ call }: { call: Call }) {
   const Dir = call.dir === "in" ? PhoneIncoming : PhoneOutgoing;
   return (
-    <div className="flex h-full w-full items-center gap-3 rounded-2xl bg-white/70 px-3.5 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/10">
-      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-slate-400 to-slate-600 text-xs font-semibold text-white dark:from-slate-500 dark:to-slate-700">
+    <div className="flex h-full w-full items-center gap-3 rounded-2xl bg-white/70 px-4 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/10">
+      <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-slate-400 to-slate-600 text-sm font-semibold text-white dark:from-slate-500 dark:to-slate-700">
         {initials(call.name)}
       </span>
       <span className="flex min-w-0 flex-1 flex-col">
-        <span className="truncate text-sm font-semibold text-ink">{call.name}</span>
-        <span className="flex items-center gap-1 text-xs text-ink/55">
-          <Dir className="size-3 shrink-0" strokeWidth={2.25} />
+        <span className="truncate text-base font-semibold text-ink">{call.name}</span>
+        <span className="flex items-center gap-1.5 text-sm text-ink/55">
+          <Dir className="size-3.5 shrink-0" strokeWidth={2.25} />
           <span className="truncate">{call.number}</span>
         </span>
-      </span>
-      <span className="shrink-0 text-xs text-ink/45">{call.day}</span>
-      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-signal/10 text-signal">
-        <Phone className="size-4" strokeWidth={2.25} />
       </span>
     </div>
   );
@@ -94,7 +87,7 @@ export function CallCollector() {
   const orbiting = phase === "orbit";
 
   return (
-    <div className="relative flex size-[36rem] items-center justify-center">
+    <div className="relative flex size-[34rem] items-center justify-center">
       <motion.div
         className="absolute inset-0"
         animate={{ rotate: orbiting ? 360 : 0 }}
@@ -113,8 +106,8 @@ export function CallCollector() {
           return (
             <motion.div
               key={i}
-              className="absolute left-1/2 top-1/2 h-[4.25rem] w-60"
-              style={{ marginLeft: "-7.5rem", marginTop: "-2.125rem" }}
+              className="absolute left-1/2 top-1/2 h-24 w-60"
+              style={{ marginLeft: "-7.5rem", marginTop: "-3rem" }}
               animate={
                 orbiting
                   ? { x: orbitX, y: orbitY, rotate: -360, scale: 1, opacity: 1 }

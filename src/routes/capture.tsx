@@ -124,11 +124,12 @@ function CaptureHero() {
 
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6">
-          <div className="flex max-w-xl flex-col text-left">
-            <h1 className="max-w-[9em] font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-              Every call captured in one place.
+          <div className="flex max-w-2xl flex-col text-left">
+            <h1 className="font-display text-5xl font-bold tracking-tight text-white md:text-6xl">
+              Every call captured
+              <br className="hidden sm:block" /> in one place.
             </h1>
-            <p className="mt-6 text-pretty text-lg text-ink/70">
+            <p className="mt-6 max-w-xl text-pretty text-lg text-white/80">
               Don’t just record your calls. YOVU uses AI to summarize details, extract next steps,
               and log them directly to your client records.
             </p>
