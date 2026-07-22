@@ -11,7 +11,7 @@ import { TranscriptionSummary } from "@/components/yovu/animations/Transcription
 import { ActivityLogging } from "@/components/yovu/animations/ActivityLogging";
 import { ReportingDashboard } from "@/components/yovu/animations/ReportingDashboard";
 import { ThreeWayCall } from "@/components/yovu/animations/ThreeWayCall";
-import { ComingSoon } from "@/components/yovu/animations/ComingSoon";
+import { GuidedConversation } from "@/components/yovu/animations/GuidedConversation";
 
 const CYCLE_MS = 5000;
 
@@ -86,7 +86,7 @@ const categories: Category[] = [
         title: "Guided Conversations (Coming Soon)",
         copy: "Real-time prompts guide your team during live calls to ramp up new hires faster. Ensure consistent documentation and strengthen E&O records.",
         cta: { label: "Get Early Access", href: "#demo" },
-        media: <ComingSoon />,
+        media: <GuidedConversation />,
       },
       {
         title: "Performance Insights",
