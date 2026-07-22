@@ -10,11 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as V2RouteImport } from './routes/v2'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as TbdRouteImport } from './routes/tbd'
 import { Route as SalesforceRouteImport } from './routes/salesforce'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as OopsRouteImport } from './routes/oops'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as CommunicateRouteImport } from './routes/communicate'
@@ -29,6 +31,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const V2Route = V2RouteImport.update({
   id: '/v2',
   path: '/v2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
@@ -54,6 +61,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OopsRoute = OopsRouteImport.update({
+  id: '/oops',
+  path: '/oops',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MicrosoftTeamsRoute = MicrosoftTeamsRouteImport.update({
@@ -118,11 +130,13 @@ export interface FileRoutesByFullPath {
   '/communicate': typeof CommunicateRoute
   '/contact-us': typeof ContactUsRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
+  '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/thank-you': typeof ThankYouRoute
   '/v2': typeof V2Route
 }
 export interface FileRoutesByTo {
@@ -136,11 +150,13 @@ export interface FileRoutesByTo {
   '/communicate': typeof CommunicateRoute
   '/contact-us': typeof ContactUsRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
+  '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/thank-you': typeof ThankYouRoute
   '/v2': typeof V2Route
 }
 export interface FileRoutesById {
@@ -155,11 +171,13 @@ export interface FileRoutesById {
   '/communicate': typeof CommunicateRoute
   '/contact-us': typeof ContactUsRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
+  '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/salesforce': typeof SalesforceRoute
   '/tbd': typeof TbdRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/thank-you': typeof ThankYouRoute
   '/v2': typeof V2Route
 }
 export interface FileRouteTypes {
@@ -175,11 +193,13 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/contact-us'
     | '/microsoft-teams'
+    | '/oops'
     | '/pricing'
     | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
     | '/terms-and-conditions'
+    | '/thank-you'
     | '/v2'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -193,11 +213,13 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/contact-us'
     | '/microsoft-teams'
+    | '/oops'
     | '/pricing'
     | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
     | '/terms-and-conditions'
+    | '/thank-you'
     | '/v2'
   id:
     | '__root__'
@@ -211,11 +233,13 @@ export interface FileRouteTypes {
     | '/communicate'
     | '/contact-us'
     | '/microsoft-teams'
+    | '/oops'
     | '/pricing'
     | '/privacy-policy'
     | '/salesforce'
     | '/tbd'
     | '/terms-and-conditions'
+    | '/thank-you'
     | '/v2'
   fileRoutesById: FileRoutesById
 }
@@ -230,11 +254,13 @@ export interface RootRouteChildren {
   CommunicateRoute: typeof CommunicateRoute
   ContactUsRoute: typeof ContactUsRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
+  OopsRoute: typeof OopsRoute
   PricingRoute: typeof PricingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SalesforceRoute: typeof SalesforceRoute
   TbdRoute: typeof TbdRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  ThankYouRoute: typeof ThankYouRoute
   V2Route: typeof V2Route
 }
 
@@ -245,6 +271,13 @@ declare module '@tanstack/react-router' {
       path: '/v2'
       fullPath: '/v2'
       preLoaderRoute: typeof V2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms-and-conditions': {
@@ -280,6 +313,13 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oops': {
+      id: '/oops'
+      path: '/oops'
+      fullPath: '/oops'
+      preLoaderRoute: typeof OopsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/microsoft-teams': {
@@ -366,11 +406,13 @@ const rootRouteChildren: RootRouteChildren = {
   CommunicateRoute: CommunicateRoute,
   ContactUsRoute: ContactUsRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
+  OopsRoute: OopsRoute,
   PricingRoute: PricingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SalesforceRoute: SalesforceRoute,
   TbdRoute: TbdRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
+  ThankYouRoute: ThankYouRoute,
   V2Route: V2Route,
 }
 export const routeTree = rootRouteImport
