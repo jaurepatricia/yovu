@@ -117,15 +117,15 @@ function CaptureHero() {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Orbit-to-stack call animation, bleeding off the right edge */}
-      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/3 lg:block xl:translate-x-1/4">
+      {/* Orbit-to-stack call animation, sitting in the right half */}
+      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[6%] lg:block xl:-translate-x-[4%]">
         <CallCollector />
       </div>
 
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="flex max-w-xl flex-col text-left">
-            <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+            <h1 className="max-w-[9em] font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
               Every call captured in one place.
             </h1>
             <p className="mt-6 text-pretty text-lg text-ink/70">
