@@ -28,6 +28,8 @@ import { ScaleCallout } from "@/components/yovu/ScaleCallout";
 import { motion } from "motion/react";
 import mountainPeak from "@/assets/hero/light-mountain-peak.webp";
 import mountainPeakMask from "@/assets/hero/light-mountain-peak-mask.webp";
+import mountainPeakDark from "@/assets/hero/dark-mountain-peak.webp";
+import mountainPeakMaskDark from "@/assets/hero/dark-mountain-peak-mask.webp";
 import appliedDashboard from "@/assets/hero/applied-epic-dashboard.webp";
 
 const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
@@ -189,14 +191,22 @@ const faqItems = [
 function AppliedEpicHero() {
   return (
     <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
-      {/* Layer 1: mountain peak background */}
+      {/* Layer 1: mountain peak background (light / dark) */}
       <img
         src={mountainPeak}
         alt=""
         aria-hidden="true"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 z-0 h-full w-full object-cover"
+        className="absolute inset-0 z-0 h-full w-full object-cover dark:hidden"
+      />
+      <img
+        src={mountainPeakDark}
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 z-0 hidden h-full w-full object-cover dark:block"
       />
 
       {/* Layer 2: dashboard in a matte glass frame, tucked behind the peak and
@@ -217,14 +227,21 @@ function AppliedEpicHero() {
         </motion.div>
       </div>
 
-      {/* Layer 3: mountain mask foreground — same framing as the base so the peak
-          overlaps the dashboard, making it peek out from behind the mountain */}
+      {/* Layer 3: mountain mask foreground (light / dark) — same framing as the
+          base so the peak overlaps the dashboard, making it peek out from behind */}
       <img
         src={mountainPeakMask}
         alt=""
         aria-hidden="true"
         decoding="async"
-        className="pointer-events-none absolute inset-0 z-20 h-full w-full object-cover"
+        className="pointer-events-none absolute inset-0 z-20 h-full w-full object-cover dark:hidden"
+      />
+      <img
+        src={mountainPeakMaskDark}
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+        className="pointer-events-none absolute inset-0 z-20 hidden h-full w-full object-cover dark:block"
       />
 
       {/* Layer 4: hero copy, above everything */}

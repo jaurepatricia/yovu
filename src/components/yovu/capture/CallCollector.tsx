@@ -35,8 +35,8 @@ const calls: Call[] = [
 
 const COUNT = calls.length;
 const RADIUS = 230;
-const ORBIT_MS = 9000;
-const STACK_HOLD_MS = 2600;
+const ORBIT_MS = 3500;
+const STACK_HOLD_MS = 5000;
 
 function CallCard({ call }: { call: Call }) {
   const Dir = call.dir === "in" ? PhoneIncoming : PhoneOutgoing;
