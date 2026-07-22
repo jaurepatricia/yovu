@@ -114,15 +114,6 @@ function BookDemoForm() {
         />
       </div>
 
-      <label className="flex items-start gap-3 text-sm text-ink/80">
-        <input
-          type="checkbox"
-          required
-          className="mt-0.5 size-4 shrink-0 rounded border-border text-signal focus:ring-2 focus:ring-signal/30"
-        />
-        <span>I agree to be contacted by a YOVU sales representative.</span>
-      </label>
-
       <button
         type="submit"
         disabled={submitting}
@@ -132,11 +123,13 @@ function BookDemoForm() {
       </button>
 
       <p className="text-xs leading-relaxed text-ink/50">
+        *Required fields.
+        <br />
         By submitting this form, I confirm that I have read and agree to YOVU&rsquo;s{" "}
         <a href="/privacy-policy" className="underline underline-offset-2 hover:text-ink">
           privacy policy
-        </a>
-        .
+        </a>{" "}
+        and consent to being contacted by a YOVU representative.
       </p>
     </form>
   );
