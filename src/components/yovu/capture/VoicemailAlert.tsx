@@ -17,7 +17,11 @@ export function VoicemailAlert() {
         className="flex w-full max-w-[17rem] items-center gap-3 rounded-2xl bg-white/75 p-3.5 shadow-xl shadow-black/20 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/15"
       >
         <span className="relative flex size-10 shrink-0 items-center justify-center rounded-full bg-signal/10 text-signal">
-          <span className="absolute inline-flex size-full animate-ping rounded-full bg-signal opacity-30" />
+          <motion.span
+            className="absolute inline-flex size-full rounded-full bg-signal"
+            animate={{ scale: [1, 1.3], opacity: [0.25, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
+          />
           <Voicemail className="relative size-5" strokeWidth={2.25} />
         </span>
         <div className="min-w-0">

@@ -23,6 +23,7 @@ import captureHero from "@/assets/hero/blurred-greenery-and-foliage.webp";
 import manLookingAtPhone from "@/assets/imagery/professional man looking at phone.webp";
 import mechanic from "@/assets/imagery/mechanic working on a vehicle.webp";
 import treeSkyline from "@/assets/imagery/tree skyline.webp";
+import appliedMacbook from "@/assets/imagery/applied-epic-macbook-mockup.webp";
 
 const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
@@ -158,7 +159,7 @@ function CaptureHero() {
       />
 
       {/* Orbit-to-stack call animation, sitting in the right half */}
-      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 -translate-x-[16%] lg:block xl:-translate-x-[30%]">
+      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 -translate-x-[2%] lg:block xl:-translate-x-[12%]">
         <CallCollector />
       </div>
 
@@ -202,6 +203,15 @@ function CapturePage() {
         heading="Every call logged to Applied Epic, automatically."
         intro="As Canada's only certified, embedded conversation-capture platform for Applied Epic, we capture calls, texts, and voicemails as they happen. Stop relying on manually typed notes that put you at risk for E&O claims two years down the line. Our platform closes the gap between the conversation and the record, giving your brokerage a searchable and defensible file."
         items={appliedBenefits}
+        media={
+          <img
+            src={appliedMacbook}
+            alt="Applied Epic shown on a MacBook with YOVU capturing the call"
+            loading="lazy"
+            decoding="async"
+            className="w-full object-contain"
+          />
+        }
       />
       <FAQ items={faqItems} />
       <Footer />

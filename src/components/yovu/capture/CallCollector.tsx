@@ -21,7 +21,7 @@ const calls: Call[] = [
   { name: "David Smith", number: "+1 (416) 555-0148", dir: "out" },
   { name: "Olivia Johnson", number: "+1 (604) 555-0192", dir: "in" },
   { name: "Michael Brown", number: "+1 (902) 555-0173", dir: "out" },
-  { name: "Charlotte Tremblay", number: "+1 (613) 555-0110", dir: "in" },
+  { name: "Ann Tremblay", number: "+1 (613) 555-0110", dir: "in" },
   { name: "Noah Martin", number: "+1 (306) 555-0126", dir: "out" },
   { name: "Emma Wilson", number: "+1 (514) 555-0164", dir: "in" },
 ];
