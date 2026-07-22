@@ -61,30 +61,44 @@ function BookDemoForm() {
           </label>
           <input id="last_name" name="last_name" type="text" autoComplete="family-name" required className={inputCls} />
         </div>
-        <div>
-          <label htmlFor="email" className={labelCls}>
-            Email <span className="text-signal">*</span>
-          </label>
-          <input id="email" name="email" type="email" autoComplete="email" required className={inputCls} />
-        </div>
-        <div>
-          <label htmlFor="mobile" className={labelCls}>
-            Phone Number <span className="text-signal">*</span>
-          </label>
-          <input id="mobile" name="mobile" type="tel" autoComplete="tel" required className={inputCls} />
-        </div>
-        <div>
-          <label htmlFor="company" className={labelCls}>
-            Company <span className="text-signal">*</span>
-          </label>
-          <input id="company" name="company" type="text" autoComplete="organization" required className={inputCls} />
-        </div>
-        <div>
-          <label htmlFor="title" className={labelCls}>
-            Title
-          </label>
-          <input id="title" name="title" type="text" autoComplete="organization-title" className={inputCls} />
-        </div>
+      </div>
+
+      <div>
+        <label htmlFor="email" className={labelCls}>
+          Email <span className="text-signal">*</span>
+        </label>
+        <input id="email" name="email" type="email" autoComplete="email" required className={inputCls} />
+      </div>
+      <div>
+        <label htmlFor="mobile" className={labelCls}>
+          Phone Number <span className="text-signal">*</span>
+        </label>
+        <input id="mobile" name="mobile" type="tel" autoComplete="tel" required className={inputCls} />
+      </div>
+      <div>
+        <label htmlFor="company" className={labelCls}>
+          Company <span className="text-signal">*</span>
+        </label>
+        <input id="company" name="company" type="text" autoComplete="organization" required className={inputCls} />
+      </div>
+      <div>
+        <label htmlFor="title" className={labelCls}>
+          Title
+        </label>
+        <input id="title" name="title" type="text" autoComplete="organization-title" className={inputCls} />
+      </div>
+      <div>
+        <label htmlFor="employees" className={labelCls}>
+          Number of Employees
+        </label>
+        <input
+          id="employees"
+          name="NumberOfEmployees"
+          type="number"
+          min="1"
+          inputMode="numeric"
+          className={inputCls}
+        />
       </div>
 
       <div>
@@ -134,9 +148,9 @@ function BookDemoPage() {
       <Nav />
 
       <section className="bg-canvas pb-20 pt-40 lg:pt-52">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2 lg:gap-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
           {/* Left column */}
-          <div className="lg:pt-6">
+          <div>
             <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
               Transform the way your business communicates.
             </h1>
