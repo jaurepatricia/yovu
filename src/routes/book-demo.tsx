@@ -101,19 +101,6 @@ function BookDemoForm() {
         />
       </div>
 
-      <div>
-        <label htmlFor="description" className={labelCls}>
-          How can we help?
-        </label>
-        <textarea
-          id="description"
-          name="Description_Rich_Text__c"
-          rows={4}
-          className={`${inputCls} resize-y`}
-          placeholder="Tell us what you're looking for..."
-        />
-      </div>
-
       <button
         type="submit"
         disabled={submitting}
