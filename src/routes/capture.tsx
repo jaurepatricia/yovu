@@ -16,6 +16,8 @@ import { TranscriptionSummary } from "@/components/yovu/animations/Transcription
 import { TranscriptSentiment } from "@/components/yovu/animations/TranscriptSentiment";
 import { SearchableHistory } from "@/components/yovu/animations/SearchableHistory";
 import { CallRecording } from "@/components/yovu/animations/CallRecording";
+import { CallCollector } from "@/components/yovu/capture/CallCollector";
+import captureHero from "@/assets/hero/blurred-greenery-and-foliage.webp";
 
 const introBlocks: ZLayoutItem[] = [
   {
@@ -105,15 +107,39 @@ const faqItems = [
 
 function CaptureHero() {
   return (
-    <section className="bg-canvas pb-16 pt-40 lg:pb-24 lg:pt-56">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-          Every call captured in one place.
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink/70">
-          Don’t just record your calls. YOVU uses AI to summarize details, extract next steps, and
-          log them directly to your client records.
-        </p>
+    <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
+      <img
+        src={captureHero}
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+
+      {/* Orbit-to-stack call animation, bleeding off the right edge */}
+      <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/3 lg:block xl:translate-x-1/4">
+        <CallCollector />
+      </div>
+
+      <div className="relative z-10 flex h-full items-center">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="flex max-w-xl flex-col text-left">
+            <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+              Every call captured in one place.
+            </h1>
+            <p className="mt-6 text-pretty text-lg text-ink/70">
+              Don’t just record your calls. YOVU uses AI to summarize details, extract next steps,
+              and log them directly to your client records.
+            </p>
+            <a
+              href="/book-demo"
+              className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+            >
+              See it in Action
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
