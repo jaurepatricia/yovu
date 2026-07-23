@@ -30,17 +30,18 @@ function HomePage() {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "YOVU — Enterprise VoIP for Canadian P&C Brokerages" },
+      { title: "YOVU — VoIP Phone System for Canadian Insurance Brokerages" },
       {
         name: "description",
         content:
-          "YOVU is enterprise-scale VoIP for Canadian P&C insurance brokerages — embedded in Applied Epic, with AI call summaries, auto-logging, and SOC 2 security.",
+          "YOVU is the enterprise VoIP phone system built for Canadian P&C insurance brokerages — embedded in Applied Epic, with AI call summaries, automatic call logging, and SOC 2 security.",
       },
-      { property: "og:title", content: "YOVU — Built for Canadian P&C Brokerages" },
+      { name: "keywords", content: "insurance phone system, VoIP for insurance brokerages, Applied Epic phone integration, Canadian business VoIP, brokerage communications" },
+      { property: "og:title", content: "YOVU — VoIP Phone System for Canadian Insurance Brokerages" },
       {
         property: "og:description",
         content:
-          "Breathe new life into your brokerage communications. Enterprise VoIP deeply integrated with Applied Epic.",
+          "Enterprise VoIP built for Canadian insurance brokerages — deeply integrated with Applied Epic, with AI call summaries, auto-logging, and SOC 2 security.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
