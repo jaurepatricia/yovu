@@ -80,7 +80,7 @@ const capabilities = [
 const industries = [
   { href: "/", label: "Insurance" },
   { href: "#", label: "Healthcare" },
-  { href: "#", label: "Automotive" },
+  { href: "/automotive", label: "Automotive" },
   { href: "#", label: "Non-Profit & Charity" },
   { href: "#", label: "All Others" },
 ];
