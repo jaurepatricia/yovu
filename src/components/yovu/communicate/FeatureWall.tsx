@@ -60,14 +60,19 @@ function MarqueeColumn({
 }
 
 /** A wall of feature pills scrolling, blurring in/out at the edges.
- *  `fade` sets the colour the pills fade into at the top/bottom edges. */
-export function FeatureWall({ fade = "card" }: { fade?: "card" | "surface" }) {
-  const third = Math.ceil(features.length / 3);
-  const cols = [
-    features.slice(0, third),
-    features.slice(third, third * 2),
-    features.slice(third * 2),
-  ];
+ *  `fade` sets the colour the pills fade into (or "none" to drop the edge
+ *  fade/blur effect). `columns` sets how many marquee columns to show. */
+export function FeatureWall({
+  fade = "card",
+  columns = 3,
+}: {
+  fade?: "card" | "surface" | "none";
+  columns?: number;
+}) {
+  const perCol = Math.ceil(features.length / columns);
+  const cols = Array.from({ length: columns }, (_, i) =>
+    features.slice(i * perCol, (i + 1) * perCol),
+  );
   const from = fade === "surface" ? "from-surface" : "from-card";
   return (
     <div className="relative h-64 w-full overflow-hidden">
@@ -76,10 +81,14 @@ export function FeatureWall({ fade = "card" }: { fade?: "card" | "surface" }) {
           <MarqueeColumn key={i} items={items} reverse={i % 2 === 1} duration={26 + i * 5} />
         ))}
       </div>
-      <div className={`pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b ${from} to-transparent`} />
-      <div className={`pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t ${from} to-transparent`} />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-16 backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black,transparent)]" />
+      {fade !== "none" && (
+        <>
+          <div className={`pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b ${from} to-transparent`} />
+          <div className={`pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t ${from} to-transparent`} />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black,transparent)]" />
+        </>
+      )}
     </div>
   );
 }

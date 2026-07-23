@@ -84,7 +84,7 @@ const featureCards: FeatureSlidingCard[] = [
   {
     title: "A Complete Suite of VoIP Features",
     copy: "Access an expansive library of standard VoIP capabilities equipped with absolutely everything your business needs to power its communications. From the basics to advanced tools, we provide all the essential features to keep your calls organized, teams aligned, and conversations running smoothly.",
-    media: <FeatureWall fade="surface" />,
+    media: <FeatureWall columns={1} fade="none" />,
   },
 ];
 

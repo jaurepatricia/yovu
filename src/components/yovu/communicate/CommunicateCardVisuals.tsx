@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Phone, PhoneCall } from "lucide-react";
+import { Phone, PhoneCall, User } from "lucide-react";
 
 /** Chat, SMS & Text: an incoming "call me back" text and a call kicking off. */
 export function ChatToCall() {
@@ -55,8 +55,8 @@ export function AvailabilityRouting() {
         <div className="space-y-3">
           {team.map((m) => (
             <div key={m.initials} className="flex items-center gap-3">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-signal/10 text-xs font-semibold text-signal">
-                {m.initials}
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-signal/10 text-signal">
+                <User className="size-[18px]" strokeWidth={2} />
               </span>
               <span className="flex-1 text-sm font-medium text-slate-800 dark:text-white">
                 {m.name}
