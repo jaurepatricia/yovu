@@ -188,9 +188,47 @@ const faqItems = [
   },
 ];
 
+function HeroCopy({ centered = false }: { centered?: boolean }) {
+  return (
+    <div className={`flex max-w-xl flex-col ${centered ? "items-center text-center" : "text-left"}`}>
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">Integrations</p>
+      <h1 className="mt-6 font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+        Applied Epic
+      </h1>
+      <p className="mt-6 text-pretty text-lg text-ink/70">
+        Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
+      </p>
+      <a
+        href="#demo"
+        className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+      >
+        See it in Action
+      </a>
+    </div>
+  );
+}
+
+function DashboardPanel({ className }: { className?: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 36 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+      className={`rounded-2xl bg-white/45 p-3 shadow-2xl shadow-black/20 ring-1 ring-white/50 backdrop-blur-md dark:bg-white/10 dark:ring-white/15 ${className ?? ""}`}
+    >
+      <img
+        src={appliedDashboard}
+        alt="The Applied Epic dashboard with YOVU capturing a call"
+        decoding="async"
+        className="block w-full rounded-xl"
+      />
+    </motion.div>
+  );
+}
+
 function AppliedEpicHero() {
   return (
-    <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
+    <section className="relative w-full overflow-hidden bg-canvas xl:aspect-video xl:max-h-screen xl:min-h-[640px]">
       {/* Layer 1: mountain peak background (light / dark) */}
       <img
         src={mountainPeak}
@@ -209,22 +247,10 @@ function AppliedEpicHero() {
         className="absolute inset-0 z-0 hidden h-full w-full object-cover dark:block"
       />
 
-      {/* Layer 2: dashboard in a matte glass frame, tucked behind the peak and
-          bleeding off the right edge so the copy keeps plenty of breathing room */}
-      <div className="absolute inset-y-0 right-0 z-10 flex items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 36 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-          className="w-[52rem] max-w-[70vw] translate-x-[12%] rounded-2xl bg-white/45 p-3 shadow-2xl shadow-black/20 ring-1 ring-white/50 backdrop-blur-md dark:bg-white/10 dark:ring-white/15 lg:w-[64rem]"
-        >
-          <img
-            src={appliedDashboard}
-            alt="The Applied Epic dashboard with YOVU capturing a call"
-            decoding="async"
-            className="block w-full rounded-xl"
-          />
-        </motion.div>
+      {/* Layer 2 (xl+ only): dashboard tucked behind the peak, scaling with the
+          viewport and bleeding off the right edge so the copy keeps its room */}
+      <div className="absolute inset-y-0 right-0 z-10 hidden items-center xl:flex">
+        <DashboardPanel className="w-[44rem] translate-x-[10%] 2xl:w-[56rem]" />
       </div>
 
       {/* Layer 3: mountain mask foreground (light / dark) — same framing as the
@@ -244,27 +270,18 @@ function AppliedEpicHero() {
         className="pointer-events-none absolute inset-0 z-20 hidden h-full w-full object-cover dark:block"
       />
 
-      {/* Layer 4: hero copy, above everything */}
-      <div className="relative z-30 flex h-full items-center">
+      {/* xl+ layout: copy pinned left, above every layer */}
+      <div className="relative z-30 hidden h-full items-center xl:flex">
         <div className="mx-auto w-full max-w-7xl px-6">
-          <div className="flex max-w-xl flex-col text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
-              Integrations
-            </p>
-            <h1 className="mt-6 font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-              Applied Epic
-            </h1>
-            <p className="mt-6 text-pretty text-lg text-ink/70">
-              Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
-            </p>
-            <a
-              href="#demo"
-              className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-            >
-              See it in Action
-            </a>
-          </div>
+          <HeroCopy />
         </div>
+      </div>
+
+      {/* Below xl: stacked — copy on top, dashboard centered floating above the
+          mountain (above the mask), so nothing gets squished on smaller screens */}
+      <div className="relative z-30 flex flex-col items-center gap-10 px-6 pb-16 pt-36 lg:pt-40 xl:hidden">
+        <HeroCopy centered />
+        <DashboardPanel className="w-full max-w-md sm:max-w-lg lg:max-w-2xl" />
       </div>
     </section>
   );
