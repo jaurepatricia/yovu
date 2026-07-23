@@ -36,7 +36,7 @@ const introBlocks: ZLayoutItem[] = [
   {
     kicker: "Business Phone System",
     title: "Roam Free, Stay Connected",
-    copy: "Experience seamless, reliable VoIP calling and routing customized to fit your organization's exact needs. Manage all communication from a single workspace across multiple devices, allowing you to easily assign direct numbers and extensions to your entire team.",
+    copy: "Experience reliable VoIP calling customized to fit your organization's exact needs. Manage all communication from a single workspace across multiple devices, allowing your team to stay connected no matter where they are.",
     compactCopy: true,
     extra: <DeviceAccordion />,
     media: <ZPlaceholder />,
@@ -49,8 +49,8 @@ const introBlocks: ZLayoutItem[] = [
   },
   {
     kicker: "Reliable & Secure",
-    title: "Uncompromising Security and Frictionless Support",
-    copy: "Enjoy peace of mind with a fully encrypted, highly reliable cloud phone system that keeps your communications safe, all backed by our amazing, dedicated support team. You can also elevate your own customer experience using frictionless caller features, like clear wait-time updates and convenient callback requests, that put clients in control and eliminate hold-time fatigue.",
+    title: "Uncompromising Security & Frictionless Support",
+    copy: "Ensure your operations run without interruption using a premier cloud-based phone system built for uncompromising reliability. Enjoy secure, fully encrypted calls that protect your sensitive information and keep your daily communications safe, all backed by our amazing, dedicated support team.",
     media: <ZPlaceholder />,
   },
 ];
