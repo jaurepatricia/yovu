@@ -91,7 +91,7 @@ export function QueueCallback() {
           Estimated wait: 4 min
         </p>
         <p className="mt-1 text-[13px] text-slate-500 dark:text-white/60">
-          Keep your place in line — we&rsquo;ll call you back.
+          Keep your place in line and we&rsquo;ll call you back.
         </p>
         <span className="mt-3 inline-flex items-center justify-center rounded-full bg-signal px-4 py-2 text-[13px] font-semibold text-white">
           Request a callback
