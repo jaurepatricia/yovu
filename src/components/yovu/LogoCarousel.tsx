@@ -21,22 +21,31 @@ const defaultLogos: Logo[] = [
 
 type Props = {
   logos?: Logo[];
-  /** Force a solid white background and show logos in full colour — for logo
-   * sets that have no white/dark variants (e.g. car-brand logos). */
+  /** Force a solid white background — for logo sets that have no white/dark
+   * variants (e.g. car-brand logos) so they stay visible in dark mode. */
   solidWhite?: boolean;
+  /** Seconds for one full marquee loop. Larger = slower. Scale this up when the
+   * logo set is longer so the scroll speed stays consistent. */
+  durationSeconds?: number;
 };
 
-export function LogoCarousel({ logos = defaultLogos, solidWhite = false }: Props = {}) {
+export function LogoCarousel({
+  logos = defaultLogos,
+  solidWhite = false,
+  durationSeconds,
+}: Props = {}) {
   const doubled = [...logos, ...logos];
-  const imgCls = solidWhite
-    ? "max-h-full max-w-full object-contain opacity-80 transition duration-300 group-hover:opacity-100"
-    : "max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100";
+  const imgCls =
+    "max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100";
   const fade = solidWhite ? "#ffffff" : "var(--canvas)";
 
   return (
     <section className={`border-y border-border py-16 ${solidWhite ? "bg-white" : "bg-canvas"}`}>
       <div className="relative overflow-hidden">
-        <div className="marquee-track flex w-max items-center gap-28">
+        <div
+          className="marquee-track flex w-max items-center gap-28"
+          style={durationSeconds ? { animationDuration: `${durationSeconds}s` } : undefined}
+        >
           {doubled.map((logo, i) => {
             const inner = (
               <>

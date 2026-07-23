@@ -11,6 +11,7 @@ import { AboutTestimonials } from "@/components/yovu/AboutTestimonials";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
 import { ReportingDashboard } from "@/components/yovu/animations/ReportingDashboard";
+import { VanityNumberPromo } from "@/components/yovu/automotive/VanityNumberPromo";
 import acura from "@/assets/automotive logos/Acura.png";
 import chevrolet from "@/assets/automotive logos/Chevrolet.png";
 import gm from "@/assets/automotive logos/General-Motors.png";
@@ -55,7 +56,7 @@ const featureOverrides: Record<string, Partial<Item>> = {
     title: "Targeted Marketing Solutions",
     copy: "Dedicated phone numbers for specific advertising campaigns to track dialed-number statistics and monitor campaign success.",
     cta: { label: "Learn More", href: "#demo" },
-    media: <ReportingDashboard />,
+    media: <VanityNumberPromo />,
   },
   "Automatic Logging": {
     copy: "Recordings, summaries, and call data automatically attached to customer records in your dealership's system.",
@@ -175,7 +176,7 @@ function AutomotivePage() {
         showAppliedPill={false}
         subcopy="Discover how dealerships across Canada are improving efficiency with our all-in-one unified communications platform."
       />
-      <LogoCarousel logos={carLogos} solidWhite />
+      <LogoCarousel logos={carLogos} solidWhite durationSeconds={100} />
       <Capabilities categories={autoCategories} />
       <Statement copy="Every conversation moves a deal forward — that's why whether your team is on the lot, at the service desk, or in parts, every call is clear, tracked, and dependable." />
       <ZLayout heading="One platform for your whole dealership" items={departmentBlocks} />
