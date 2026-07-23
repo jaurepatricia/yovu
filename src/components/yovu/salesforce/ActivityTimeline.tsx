@@ -7,21 +7,21 @@ const rows: Row[] = [
   {
     Icon: Mail,
     tint: "bg-emerald-100 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300",
-    title: "Commercial General Liability Insurance Quote",
+    title: "Insurance Quote",
     sub: "You sent an email to David Smith",
     when: "Today",
   },
   {
     Icon: MessageSquare,
     tint: "bg-emerald-100 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300",
-    title: "SMS to David Smith — here it is attached",
+    title: "SMS to David Smith",
     sub: "You had a task",
     when: "Today",
   },
   {
     Icon: MessageSquare,
     tint: "bg-emerald-100 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300",
-    title: "SMS from David Smith — could you text it?",
+    title: "SMS from David Smith",
     sub: "You had a task",
     when: "Today",
   },
@@ -29,7 +29,7 @@ const rows: Row[] = [
     Icon: Phone,
     tint: "bg-signal/10 text-signal",
     title: "Call to David Smith",
-    sub: "You logged a call about YOVU Office Phone",
+    sub: "You logged a call about a quote",
     when: "Yesterday",
   },
 ];
