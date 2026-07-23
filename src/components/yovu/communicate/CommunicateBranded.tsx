@@ -27,13 +27,28 @@ export function CommunicateBranded() {
   return (
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Cultivate a Branded Experience
-          </h2>
+        {/* Featured-use-case style intro */}
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20 xl:gap-24">
+          <div>
+            <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Cultivate a Branded Experience
+            </h2>
+            <p className="mt-6 max-w-xl text-pretty text-base text-ink/70">
+              Ensure every interaction reflects your unique identity with customizable greetings,
+              branded hold music, and seamless AI receptionist routing. Plus, you can easily control
+              your outbound caller ID and spin up custom numbers to maintain a professional, cohesive
+              image across all your communications.
+            </p>
+          </div>
+          {/* TODO: replace with branded-experience image */}
+          <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-surface ring-1 ring-border">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink/25">
+              Image placeholder
+            </span>
+          </div>
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:mt-28 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, copy }) => (
             <div key={title}>
               <Icon className="size-8 text-signal" strokeWidth={1.75} />

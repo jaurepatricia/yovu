@@ -2,16 +2,91 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { CommunicateHero } from "@/components/yovu/communicate/CommunicateHero";
+import { ZLayout, type ZLayoutItem } from "@/components/yovu/ZLayout";
+import { Statement } from "@/components/yovu/Statement";
 import {
   FeatureSlidingCards,
   type FeatureSlidingCard,
 } from "@/components/yovu/FeatureSlidingCards";
-import { CommunicateDevices } from "@/components/yovu/communicate/CommunicateDevices";
 import { FloatingGridEnterprise } from "@/components/yovu/communicate/FloatingGridEnterprise";
-import { CommunicateConnect } from "@/components/yovu/communicate/CommunicateConnect";
 import { CommunicateBranded } from "@/components/yovu/communicate/CommunicateBranded";
+import { DeviceAccordion } from "@/components/yovu/communicate/DeviceAccordion";
+import {
+  ChatToCall,
+  AvailabilityRouting,
+  QueueCallback,
+} from "@/components/yovu/communicate/CommunicateCardVisuals";
+import { FeatureWall } from "@/components/yovu/communicate/FeatureWall";
+import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
+import { CallerContext } from "@/components/yovu/animations/CallerContext";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
+
+function ZPlaceholder() {
+  return (
+    <div className="flex aspect-square w-full items-center justify-center rounded-2xl bg-surface ring-1 ring-border">
+      <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink/25">
+        Image placeholder
+      </span>
+    </div>
+  );
+}
+
+const introBlocks: ZLayoutItem[] = [
+  {
+    kicker: "Business Phone System",
+    title: "Roam Free, Stay Connected",
+    copy: "Experience seamless, reliable VoIP calling and routing customized to fit your organization's exact needs. Manage all communication from a single workspace across multiple devices, allowing you to easily assign direct numbers and extensions to your entire team.",
+    compactCopy: true,
+    extra: <DeviceAccordion />,
+    media: <ZPlaceholder />,
+  },
+  {
+    kicker: "Integrations",
+    title: "Sync Your Tools, Elevate Your Workflows",
+    copy: "Empower your team's productivity by linking your phone system with over 70 essential platforms you use daily, including Applied Epic, Salesforce, and Microsoft Teams. Seamlessly trigger automated replies, establish advanced call routing, and configure custom workflows that perfectly match your business operations.",
+    media: <ZPlaceholder />,
+  },
+  {
+    kicker: "Reliable & Secure",
+    title: "Uncompromising Security and Frictionless Support",
+    copy: "Enjoy peace of mind with a fully encrypted, highly reliable cloud phone system that keeps your communications safe, all backed by our amazing, dedicated support team. You can also elevate your own customer experience using frictionless caller features, like clear wait-time updates and convenient callback requests, that put clients in control and eliminate hold-time fatigue.",
+    media: <ZPlaceholder />,
+  },
+];
+
+const featureCards: FeatureSlidingCard[] = [
+  {
+    title: "Chat, SMS, & Text",
+    copy: "Keep your personal number private by managing all your business chats, SMS, and texts on a secure line within one unified workspace. Enhance your professional presence by listing multiple company numbers and easily assigning local, international, or toll-free numbers directly to your team members.",
+    media: <ChatToCall />,
+  },
+  {
+    title: "Click-to-Call",
+    copy: "Make calls with a single click directly from any phone number or client profile, without ever leaving the tool you are working in. This eliminates manual dialing, saving time and preventing misdials.",
+    media: <ClickToDial />,
+  },
+  {
+    title: "Screen Pop Up",
+    copy: "Deliver highly personalized service — a screen pop surfaces the caller's identity and account before anyone picks up, informing your team instantly on the exact needs of the caller.",
+    media: <CallerContext />,
+  },
+  {
+    title: "Call Routing",
+    copy: "Direct every conversation to the right person using custom distribution rules and personalized ring sequences for your entire team. You can easily check real-time availability statuses and seamlessly loop colleagues into live calls.",
+    media: <AvailabilityRouting />,
+  },
+  {
+    title: "Queue Callback",
+    copy: "Put clients in control of their time. By offering clear wait-time updates and convenient callback requests, you can eliminate hold-time fatigue and improve the caller experience.",
+    media: <QueueCallback />,
+  },
+  {
+    title: "A Complete Suite of VoIP Features",
+    copy: "Access an expansive library of standard VoIP capabilities equipped with absolutely everything your business needs to power its communications. From the basics to advanced tools, we provide all the essential features to keep your calls organized, teams aligned, and conversations running smoothly.",
+    media: <FeatureWall fade="surface" />,
+  },
+];
 
 const faqItems = [
   {
@@ -48,34 +123,19 @@ const faqItems = [
   },
 ];
 
-const collaborateCards: FeatureSlidingCard[] = [
-  {
-    title: "Unified Communications",
-    copy: "Voice and SMS from the same workspace across multiple devices, so a quick text confirmation and a callback live in the same place as the rest of the conversation. Easily assign direct numbers and extensions to all employees within your organization.",
-  },
-  {
-    title: "Empower Your Employees",
-    copy: "Equip your team with our powerful VoIP capabilities in one easy-to-use platform. You can instantly check a colleague's real-time availability, seamlessly transfer calls with context, and merge team members into ongoing conversations.",
-  },
-  {
-    title: "Tailored Workflows",
-    copy: "Boost your team's daily productivity by configuring our platform to match your exact business needs. You can easily set up advanced call routing, trigger automated replies, and connect your favorite software integrations for easier task completion.",
-  },
-];
-
 function CommunicatePage() {
   return (
     <main className="bg-canvas text-ink">
       <Nav />
       <CommunicateHero />
+      <ZLayout items={introBlocks} textFirst />
+      <Statement copy="Every conversation matters — that's why whether you're working from home or the office, every call is clear, secure, and dependable." />
       <FeatureSlidingCards
-        heading="Collaborate with Your Team"
-        cards={collaborateCards}
+        heading="Everything your team needs to connect"
+        cards={featureCards}
+        cardClassName="bg-[#f8fafc] dark:bg-surface"
       />
-
-      <CommunicateDevices />
       <FloatingGridEnterprise />
-      <CommunicateConnect />
       <CommunicateBranded />
       <FAQ items={faqItems} />
       <ScaleCallout heading="Ready to navigate your calls with total clarity and ease?" />

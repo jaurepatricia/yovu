@@ -7,6 +7,10 @@ export type ZLayoutItem = {
   copy: string;
   media?: ReactNode;
   cta?: { label: string; href: string };
+  /** Extra content rendered under the copy in the text column (e.g. an accordion). */
+  extra?: ReactNode;
+  /** Tighter copy for denser sections (e.g. one carrying an accordion). */
+  compactCopy?: boolean;
 };
 
 type ZLayoutProps = {
@@ -60,7 +64,12 @@ export function ZLayout({ heading, eyebrow, intro, items, className, textFirst }
                   <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                     {item.title}
                   </h3>
-                  <p className="mt-5 max-w-xl text-pretty text-base text-ink/70">{item.copy}</p>
+                  <p
+                    className={`mt-5 max-w-xl text-pretty text-ink/70 ${item.compactCopy ? "text-sm" : "text-base"}`}
+                  >
+                    {item.copy}
+                  </p>
+                  {item.extra && <div className="mt-6">{item.extra}</div>}
                   {item.cta && (
                     <a
                       href={item.cta.href}
