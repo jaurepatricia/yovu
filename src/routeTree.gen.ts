@@ -23,6 +23,7 @@ import { Route as CommunicateRouteImport } from './routes/communicate'
 import { Route as CoachRouteImport } from './routes/coach'
 import { Route as CaptureRouteImport } from './routes/capture'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
+import { Route as AutomotiveRouteImport } from './routes/automotive'
 import { Route as AppliedEpicRouteImport } from './routes/applied-epic'
 import { Route as AccessibilityPlanRouteImport } from './routes/accessibility-plan'
 import { Route as AboutUsRouteImport } from './routes/about-us'
@@ -98,6 +99,11 @@ const BookDemoRoute = BookDemoRouteImport.update({
   path: '/book-demo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AutomotiveRoute = AutomotiveRouteImport.update({
+  id: '/automotive',
+  path: '/automotive',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppliedEpicRoute = AppliedEpicRouteImport.update({
   id: '/applied-epic',
   path: '/applied-epic',
@@ -124,6 +130,7 @@ export interface FileRoutesByFullPath {
   '/about-us': typeof AboutUsRoute
   '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/automotive': typeof AutomotiveRoute
   '/book-demo': typeof BookDemoRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
@@ -144,6 +151,7 @@ export interface FileRoutesByTo {
   '/about-us': typeof AboutUsRoute
   '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/automotive': typeof AutomotiveRoute
   '/book-demo': typeof BookDemoRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
@@ -165,6 +173,7 @@ export interface FileRoutesById {
   '/about-us': typeof AboutUsRoute
   '/accessibility-plan': typeof AccessibilityPlanRoute
   '/applied-epic': typeof AppliedEpicRoute
+  '/automotive': typeof AutomotiveRoute
   '/book-demo': typeof BookDemoRoute
   '/capture': typeof CaptureRoute
   '/coach': typeof CoachRoute
@@ -187,6 +196,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/accessibility-plan'
     | '/applied-epic'
+    | '/automotive'
     | '/book-demo'
     | '/capture'
     | '/coach'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/accessibility-plan'
     | '/applied-epic'
+    | '/automotive'
     | '/book-demo'
     | '/capture'
     | '/coach'
@@ -227,6 +238,7 @@ export interface FileRouteTypes {
     | '/about-us'
     | '/accessibility-plan'
     | '/applied-epic'
+    | '/automotive'
     | '/book-demo'
     | '/capture'
     | '/coach'
@@ -248,6 +260,7 @@ export interface RootRouteChildren {
   AboutUsRoute: typeof AboutUsRoute
   AccessibilityPlanRoute: typeof AccessibilityPlanRoute
   AppliedEpicRoute: typeof AppliedEpicRoute
+  AutomotiveRoute: typeof AutomotiveRoute
   BookDemoRoute: typeof BookDemoRoute
   CaptureRoute: typeof CaptureRoute
   CoachRoute: typeof CoachRoute
@@ -364,6 +377,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/automotive': {
+      id: '/automotive'
+      path: '/automotive'
+      fullPath: '/automotive'
+      preLoaderRoute: typeof AutomotiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/applied-epic': {
       id: '/applied-epic'
       path: '/applied-epic'
@@ -400,6 +420,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutUsRoute: AboutUsRoute,
   AccessibilityPlanRoute: AccessibilityPlanRoute,
   AppliedEpicRoute: AppliedEpicRoute,
+  AutomotiveRoute: AutomotiveRoute,
   BookDemoRoute: BookDemoRoute,
   CaptureRoute: CaptureRoute,
   CoachRoute: CoachRoute,

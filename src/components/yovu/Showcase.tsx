@@ -24,7 +24,7 @@ const integrations = [
 
 type Tone = "light" | "dark";
 
-type Slide = {
+export type Slide = {
   headline: string;
   copy: string;
   cta: { label: string; href: string };
@@ -34,7 +34,9 @@ type Slide = {
   narrowCopy?: boolean;
 };
 
-const slides: Slide[] = [
+export { forestStream, mountainRoad, manIpad };
+
+const defaultSlides: Slide[] = [
   {
     headline: "Built to fit your stack",
     copy: "YOVU connects to the tools you already trust and use, so you can spend more time connecting with clients and closing policies.",
@@ -60,7 +62,7 @@ const slides: Slide[] = [
   },
 ];
 
-export function Showcase() {
+export function Showcase({ slides = defaultSlides }: { slides?: Slide[] } = {}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const count = slides.length;
 

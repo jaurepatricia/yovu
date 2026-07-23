@@ -15,10 +15,23 @@ const INDUSTRIES = [
   "Other",
 ] as const;
 
-export function Hero() {
+type HeroProps = {
+  /** Subheadline under the title. Defaults to the insurance homepage copy. */
+  subcopy?: string;
+  /** Which industry the selector pill starts on. */
+  defaultIndustry?: (typeof INDUSTRIES)[number];
+  /** Show the Applied Epic certified-partner pill at the bottom (insurance only). */
+  showAppliedPill?: boolean;
+};
+
+export function Hero({
+  subcopy = "Discover how insurance brokerages across Canada are improving efficiency with our all-in-one unified communications platform.",
+  defaultIndustry = "Insurance",
+  showAppliedPill = true,
+}: HeroProps = {}) {
   const [lightVideoFailed, setLightVideoFailed] = useState(false);
   const [darkVideoFailed, setDarkVideoFailed] = useState(false);
-  const [industry, setIndustry] = useState<(typeof INDUSTRIES)[number]>("Insurance");
+  const [industry, setIndustry] = useState<(typeof INDUSTRIES)[number]>(defaultIndustry);
   const [open, setOpen] = useState(false);
   const pillRef = useRef<HTMLDivElement>(null);
 
@@ -127,27 +140,26 @@ export function Hero() {
           Peak Communication
         </h1>
 
-        <p className="mt-5 max-w-2xl text-base text-ink/80 md:text-lg">
-          Discover how insurance brokerages across Canada are improving efficiency with our
-          all-in-one unified communications platform.
-        </p>
+        <p className="mt-5 max-w-2xl text-base text-ink/80 md:text-lg">{subcopy}</p>
       </div>
 
       {/* Certified Integration Partner pill — pops up from the bottom on load */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center pb-14">
-        <motion.a
-          href="/applied-epic"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
-          className="pointer-events-auto flex items-center justify-center gap-3.5 rounded-full bg-[#0b1733]/60 px-8 py-4 ring-1 ring-white/10 backdrop-blur-md transition-colors hover:bg-[#0b1733]/75"
-        >
-          <img src={appliedLogoWhite} alt="Applied" className="h-6 w-auto md:h-7" />
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-white md:text-sm">
-            Epic Certified Integration Partner
-          </span>
-        </motion.a>
-      </div>
+      {showAppliedPill && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center pb-14">
+          <motion.a
+            href="/applied-epic"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
+            className="pointer-events-auto flex items-center justify-center gap-3.5 rounded-full bg-[#0b1733]/60 px-8 py-4 ring-1 ring-white/10 backdrop-blur-md transition-colors hover:bg-[#0b1733]/75"
+          >
+            <img src={appliedLogoWhite} alt="Applied" className="h-6 w-auto md:h-7" />
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-white md:text-sm">
+              Epic Certified Integration Partner
+            </span>
+          </motion.a>
+        </div>
+      )}
     </section>
   );
 }

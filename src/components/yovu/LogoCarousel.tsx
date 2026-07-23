@@ -8,9 +8,9 @@ import selectpath from "@/assets/logos/selectpath.png.asset.json";
 import selectpathDark from "@/assets/logos/selectpath-dark.png.asset.json";
 import aaMunro from "@/assets/logos/aa-munro.png.asset.json";
 
-type Logo = { name: string; src: string; srcDark?: string; href: string };
+export type Logo = { name: string; src: string; srcDark?: string; href?: string };
 
-const logos: Logo[] = [
+const defaultLogos: Logo[] = [
   { name: "McFarlan Rowlands", src: mcfarlanRowlands.url, href: "https://mcfarlanrowlands.com/" },
   { name: "McDougall Insurance", src: mcdougall.url, srcDark: mcdougallDark.url, href: "https://www.mcdougallinsurance.com/" },
   { name: "Youngs Insurance Brokers", src: youngs.url, href: "https://www.youngsinsurance.ca/site/home" },
@@ -19,44 +19,68 @@ const logos: Logo[] = [
   { name: "AA Munro Insurance", src: aaMunro.url, href: "https://www.aamunro.com/" },
 ];
 
-export function LogoCarousel() {
+type Props = {
+  logos?: Logo[];
+  /** Force a solid white background and show logos in full colour — for logo
+   * sets that have no white/dark variants (e.g. car-brand logos). */
+  solidWhite?: boolean;
+};
+
+export function LogoCarousel({ logos = defaultLogos, solidWhite = false }: Props = {}) {
   const doubled = [...logos, ...logos];
+  const imgCls = solidWhite
+    ? "max-h-full max-w-full object-contain opacity-80 transition duration-300 group-hover:opacity-100"
+    : "max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100";
+  const fade = solidWhite ? "#ffffff" : "var(--canvas)";
+
   return (
-    <section className="border-y border-border bg-canvas py-16">
+    <section className={`border-y border-border py-16 ${solidWhite ? "bg-white" : "bg-canvas"}`}>
       <div className="relative overflow-hidden">
         <div className="marquee-track flex w-max items-center gap-28">
-          {doubled.map((logo, i) => (
-            <a
-              key={i}
-              href={logo.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={logo.name}
-              className="group flex h-16 w-44 shrink-0 items-center justify-center"
-            >
-              <img
-                src={logo.src}
-                alt={logo.name}
-                loading="lazy"
-                className={`max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100 ${logo.srcDark ? "dark:hidden" : ""}`}
-              />
-              {logo.srcDark && (
+          {doubled.map((logo, i) => {
+            const inner = (
+              <>
                 <img
-                  src={logo.srcDark}
+                  src={logo.src}
                   alt={logo.name}
                   loading="lazy"
-                  className="hidden max-h-full max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100 dark:block"
+                  className={`${imgCls} ${logo.srcDark ? "dark:hidden" : ""}`}
                 />
-              )}
-            </a>
-          ))}
+                {logo.srcDark && (
+                  <img
+                    src={logo.srcDark}
+                    alt={logo.name}
+                    loading="lazy"
+                    className={`hidden dark:block ${imgCls}`}
+                  />
+                )}
+              </>
+            );
+            const cls = "group flex h-16 w-44 shrink-0 items-center justify-center";
+            return logo.href ? (
+              <a
+                key={i}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={logo.name}
+                className={cls}
+              >
+                {inner}
+              </a>
+            ) : (
+              <div key={i} aria-label={logo.name} className={cls}>
+                {inner}
+              </div>
+            );
+          })}
         </div>
         <div
           className="pointer-events-none absolute inset-y-0 left-0 w-32 backdrop-blur-sm"
           style={{
             maskImage: "linear-gradient(to right, black, transparent)",
             WebkitMaskImage: "linear-gradient(to right, black, transparent)",
-            background: "linear-gradient(to right, var(--canvas), transparent)",
+            background: `linear-gradient(to right, ${fade}, transparent)`,
           }}
         />
         <div
@@ -64,7 +88,7 @@ export function LogoCarousel() {
           style={{
             maskImage: "linear-gradient(to left, black, transparent)",
             WebkitMaskImage: "linear-gradient(to left, black, transparent)",
-            background: "linear-gradient(to left, var(--canvas), transparent)",
+            background: `linear-gradient(to left, ${fade}, transparent)`,
           }}
         />
       </div>

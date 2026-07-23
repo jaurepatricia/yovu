@@ -15,7 +15,7 @@ import { GuidedConversation } from "@/components/yovu/animations/GuidedConversat
 
 const CYCLE_MS = 5000;
 
-type Item = {
+export type Item = {
   title: string;
   copy: string;
   cta: { label: string; href: string };
@@ -25,13 +25,13 @@ type Item = {
   tag?: string;
 };
 
-type Category = {
+export type Category = {
   id: string;
   label: string;
   items: Item[];
 };
 
-const categories: Category[] = [
+const defaultCategories: Category[] = [
   {
     id: "communicate",
     label: "Communicate",
@@ -107,7 +107,9 @@ const categories: Category[] = [
   },
 ];
 
-export function Capabilities() {
+export { defaultCategories };
+
+export function Capabilities({ categories = defaultCategories }: { categories?: Category[] } = {}) {
   const [activeCat, setActiveCat] = useState(0);
   const [activeItem, setActiveItem] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
