@@ -8,8 +8,8 @@ const items = [
   },
   {
     icon: PhoneOutgoing,
-    title: "Caller ID & Custom Numbers",
-    copy: "Control how your business appears on outbound calls using individual or company-wide caller IDs. Instantly spin up custom numbers for special promotions or new services.",
+    title: "Custom Numbers",
+    copy: "Control how your business appears on outbound calls Instantly spin up custom numbers for special promotions or new services.",
   },
   {
     icon: Music,
