@@ -250,7 +250,7 @@ function AppliedEpicHero() {
       {/* Layer 2 (xl+ only): dashboard tucked behind the peak, scaling with the
           viewport and bleeding off the right edge so the copy keeps its room */}
       <div className="absolute inset-y-0 right-0 z-10 hidden items-center xl:flex">
-        <DashboardPanel className="w-[44rem] translate-x-[10%] 2xl:w-[56rem]" />
+        <DashboardPanel className="w-[46rem] 2xl:w-[54rem]" />
       </div>
 
       {/* Layer 3: mountain mask foreground (light / dark) — same framing as the
