@@ -14,19 +14,19 @@ export function ActivityPrompt() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex w-full max-w-[19rem] items-start gap-3 rounded-2xl bg-white/75 p-3.5 shadow-xl shadow-black/20 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/15"
+        className="flex w-full max-w-[20rem] flex-col rounded-2xl bg-white/75 p-3.5 shadow-xl shadow-black/20 ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#0b1733]/60 dark:ring-white/15"
       >
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-emerald-100 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300">
-          <Mail className="size-[18px]" strokeWidth={2.25} />
-        </span>
-        <div className="min-w-0">
+        <div className="flex items-start gap-3">
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-emerald-100 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300">
+            <Mail className="size-[18px]" strokeWidth={2.25} />
+          </span>
           <p className="text-[13px] font-semibold leading-snug text-slate-800 dark:text-white">
             Commercial General Liability Insurance Quote
           </p>
-          <p className="mt-1 text-[12px] text-slate-500 dark:text-white/60">
-            Michael Brown sent an email to David Smith
-          </p>
         </div>
+        <p className="mt-2 whitespace-nowrap text-[12px] text-slate-500 dark:text-white/60">
+          Michael Brown sent an email to David Smith
+        </p>
       </motion.div>
     </div>
   );
