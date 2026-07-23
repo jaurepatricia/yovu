@@ -15,6 +15,7 @@ import marianoImg from "@/assets/imagery/Mariano Saint-Clair.webp";
 import seanImg from "@/assets/imagery/Sean Loffhagen.webp";
 import blakeImg from "@/assets/imagery/Blake Stephenson.webp";
 import glenImg from "@/assets/imagery/Glen McAfee.webp";
+import aboutHero from "@/assets/hero/canadian-flag-mountains.webp";
 
 const values: SectionIntroFeatureItem[] = [
   {
@@ -44,15 +45,27 @@ const leaders = [
 
 function AboutHero() {
   return (
-    <section className="bg-canvas pb-16 pt-40 lg:pb-24 lg:pt-56">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-          Canadian business phones, done right since 2011.
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink/70">
-          Fifteen years building the business phone system that brokerages, dealerships, healthcare
-          clinics, non-profits, and small businesses use across Canada.
-        </p>
+    <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
+      <img
+        src={aboutHero}
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="relative z-10 flex h-full items-center">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="flex max-w-xl flex-col text-left">
+            <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
+              Business phones done right since 2011.
+            </h1>
+            <p className="mt-6 text-pretty text-lg text-ink/70">
+              Fifteen years building the business phone system that brokerages, dealerships,
+              healthcare clinics, non-profits, and small businesses use across Canada.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
