@@ -49,7 +49,7 @@ const introBlocks: ZLayoutItem[] = [
   },
   {
     kicker: "Reliable & Secure",
-    title: "Uncompromising Security & Frictionless Support",
+    title: "Uncompromising Security & Constant Support",
     copy: "Ensure your operations run without interruption using a premier cloud-based phone system built for uncompromising reliability. Enjoy secure, fully encrypted calls that protect your sensitive information and keep your daily communications safe, all backed by our amazing, dedicated support team.",
     media: <ZPlaceholder />,
   },
