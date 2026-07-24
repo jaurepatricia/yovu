@@ -3,7 +3,7 @@ import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 import { Hero } from "@/components/yovu/Hero";
 import { LogoCarousel, type Logo } from "@/components/yovu/LogoCarousel";
-import { Capabilities, defaultCategories, type Category, type Item } from "@/components/yovu/Capabilities";
+import { Capabilities, type Category } from "@/components/yovu/Capabilities";
 import { Statement } from "@/components/yovu/Statement";
 import { ZLayout, type ZLayoutItem } from "@/components/yovu/ZLayout";
 import { Showcase, type Slide, forestStream, mountainRoad, manIpad } from "@/components/yovu/Showcase";
@@ -11,7 +11,14 @@ import { AboutTestimonials } from "@/components/yovu/AboutTestimonials";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
 import { ReportingDashboard } from "@/components/yovu/animations/ReportingDashboard";
+import { DeviceHandoff } from "@/components/yovu/animations/DeviceHandoff";
+import { CallRecording } from "@/components/yovu/animations/CallRecording";
+import { CallControl } from "@/components/yovu/animations/CallControl";
+import { ThreeWayCall } from "@/components/yovu/animations/ThreeWayCall";
+import { GuidedConversation } from "@/components/yovu/animations/GuidedConversation";
 import { VanityNumberPromo } from "@/components/yovu/automotive/VanityNumberPromo";
+import { AutoActivityLog } from "@/components/yovu/automotive/AutoActivityLog";
+import { AutoCallSummary } from "@/components/yovu/automotive/AutoCallSummary";
 import acura from "@/assets/automotive logos/Acura.png";
 import chevrolet from "@/assets/automotive logos/Chevrolet.png";
 import gm from "@/assets/automotive logos/General-Motors.png";
@@ -46,43 +53,84 @@ const carLogos: Logo[] = [
   { name: "Genesis", src: genesis },
 ];
 
-// Automotive copy overrides for the "Explore Key Features" tabs, keyed by the
-// original (insurance) card title.
-const featureOverrides: Record<string, Partial<Item>> = {
-  "Business Phone System": {
-    copy: "Reliable cloud communications for modern dealership teams, equipped with click-to-call, warm transfers, and advanced call management.",
+// Automotive-specific "Explore key features" tabs — dealership copy and
+// visuals throughout (no insurance content).
+const cta = { label: "Learn more", href: "#demo" };
+const autoCategories: Category[] = [
+  {
+    id: "communicate",
+    label: "Communicate",
+    items: [
+      {
+        title: "Business phone system",
+        copy: "Reliable cloud communications for your whole dealership, with click-to-call, warm transfers, and advanced call management across sales, service, and parts.",
+        cta,
+        media: <CallControl />,
+      },
+      {
+        title: "Targeted marketing solutions",
+        copy: "Dedicated phone numbers for specific advertising campaigns to track dialed-number statistics and monitor campaign success.",
+        cta,
+        media: <VanityNumberPromo />,
+      },
+      {
+        title: "Work from anywhere",
+        copy: "Answer sales leads and service calls from the showroom, the lot, or on the road. Desktop, mobile, and desk phones stay perfectly in sync.",
+        cta,
+        media: <DeviceHandoff />,
+      },
+    ],
   },
-  "Insurance Integrations": {
-    title: "Targeted marketing solutions",
-    copy: "Dedicated phone numbers for specific advertising campaigns to track dialed-number statistics and monitor campaign success.",
-    cta: { label: "Learn More", href: "#demo" },
-    media: <VanityNumberPromo />,
+  {
+    id: "capture",
+    label: "Capture",
+    items: [
+      {
+        title: "Automatic logging",
+        copy: "Every call, text, and service booking attaches to the right customer record automatically, so nothing gets lost between the phone and the CRM.",
+        cta,
+        media: <AutoActivityLog />,
+      },
+      {
+        title: "Long-term call recording",
+        copy: "Reduce customer conflict and protect every quote, price, and repair order with secure playback and long-term call retention.",
+        cta,
+        media: <CallRecording />,
+      },
+      {
+        title: "AI call summaries",
+        copy: "Get an instant summary of every call — the vehicle, the customer's interest, and the next step — captured and logged without manual notes.",
+        cta,
+        media: <AutoCallSummary />,
+      },
+    ],
   },
-  "Automatic Logging": {
-    copy: "Recordings, summaries, and call data automatically attached to customer records in your dealership's system.",
+  {
+    id: "coach",
+    label: "Coach",
+    items: [
+      {
+        title: "Department based reporting",
+        copy: "Review analytics and progress reports for individual Sales teams, Service Department, and Parts Department separately.",
+        cta,
+        media: <ReportingDashboard />,
+      },
+      {
+        title: "Listen, whisper & collaborate",
+        copy: "Listen to a live call silently, whisper guidance only your salesperson can hear, or jump in on a three-way call when a deal needs backup.",
+        cta,
+        media: <ThreeWayCall framed />,
+      },
+      {
+        title: "Guided conversations",
+        tag: "Coming Soon",
+        copy: "Real-time prompts guide your team during live calls to ramp up new hires faster and keep every department consistent.",
+        cta,
+        media: <GuidedConversation />,
+      },
+    ],
   },
-  "Long Term Call Recording": {
-    copy: "Reduce customer conflict and protect every quote with secure playback and long-term retention. Import your past recordings straight to YOVU.",
-    cta: { label: "Learn More", href: "#demo" },
-  },
-  "Transcription & Tailored AI Summaries": {
-    copy: "Get transcripts and AI summaries tailored to your dealership, capturing the exact key points, sentiment, and follow-up tasks from every call.",
-    cta: { label: "Learn More", href: "#demo" },
-  },
-  "Guided Conversations": {
-    copy: "Real-time prompts guide your team during live calls to ramp up new hires faster and keep documentation consistent across departments.",
-  },
-  "Performance Insights": {
-    title: "Department based reporting",
-    copy: "Review analytics and progress reports for individual Sales teams, Service Department, and Parts Department separately.",
-    media: <ReportingDashboard />,
-  },
-};
-
-const autoCategories: Category[] = defaultCategories.map((cat) => ({
-  ...cat,
-  items: cat.items.map((it) => ({ ...it, ...(featureOverrides[it.title] ?? {}) })),
-}));
+];
 
 const departmentBlocks: ZLayoutItem[] = [
   {
