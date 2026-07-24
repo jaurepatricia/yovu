@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import { Button } from "@/components/yovu/ui/Button";
 import dialerMockup from "@/assets/homepage/Dialer Iphone Cloud Mockup.png";
 
 export function ScaleCallout({
@@ -17,12 +18,7 @@ export function ScaleCallout({
               {heading}
             </h2>
             <div>
-              <a
-                href="#demo"
-                className="inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
-              >
-                Book a demo
-              </a>
+              <Button href="#demo">Book a demo</Button>
             </div>
           </div>
 
@@ -35,13 +31,10 @@ export function ScaleCallout({
               Curious if YOVU is for you?
             </h3>
             <div>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink ring-1 ring-border transition-colors hover:bg-ink/5"
-              >
-                See Plans
+              <Button href="#" variant="secondary" className="gap-2">
+                See plans
                 <ChevronRight className="size-4" />
-              </a>
+              </Button>
             </div>
           </div>
         </div>

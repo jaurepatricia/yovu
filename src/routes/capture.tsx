@@ -176,7 +176,7 @@ function CaptureHero() {
               extracts key details, recommends next steps, and logs everything right to your system.
             </p>
             <Button href="/book-demo" className="mt-8 w-fit">
-              See it in Action
+              See it in action
             </Button>
           </div>
         </div>

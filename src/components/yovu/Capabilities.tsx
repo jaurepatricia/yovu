@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, ArrowRight } from "lucide-react";
+import { Button } from "@/components/yovu/ui/Button";
 import mountainLightBlurred from "@/assets/homepage/mountain_light_blurred.png";
 import mountainDarkBlurred from "@/assets/homepage/mountain_dark_blurred.png";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
@@ -235,13 +236,10 @@ export function Capabilities({ categories = defaultCategories }: { categories?: 
 
             {/* CTA — links to the active category page */}
             <div className="mt-8">
-              <a
-                href={`/${category.id}`}
-                className="inline-flex items-center gap-2 rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
-              >
-                Learn More
+              <Button href={`/${category.id}`} className="gap-2">
+                Learn more
                 <ArrowRight className="size-4" />
-              </a>
+              </Button>
             </div>
           </div>
 

@@ -131,7 +131,7 @@ function CoachHero() {
               through tough conversations and ambitious management goals.
             </p>
             <Button href="/book-demo" className="mt-8 w-fit">
-              See it in Action
+              See it in action
             </Button>
           </div>
         </div>

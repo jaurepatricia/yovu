@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "@/components/yovu/ui/Button";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
@@ -101,13 +102,9 @@ function BookDemoForm() {
         />
       </div>
 
-      <button
-        type="submit"
-        disabled={submitting}
-        className="inline-flex w-full items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.01] disabled:opacity-60"
-      >
+      <Button type="submit" disabled={submitting} className="w-full">
         {submitting ? "Submitting…" : "Book my demo"}
-      </button>
+      </Button>
 
       <p className="text-xs leading-relaxed text-ink/50">
         *Required fields.

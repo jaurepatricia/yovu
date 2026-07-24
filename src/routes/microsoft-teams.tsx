@@ -101,7 +101,7 @@ function HeroCopy({ centered = false }: { centered?: boolean }) {
         Microsoft Teams. Boost productivity and simplify your IT with one seamless integration.
       </p>
       <Button href="#demo" className="mt-8 w-fit">
-              See it in Action
+              See it in action
             </Button>
     </div>
   );

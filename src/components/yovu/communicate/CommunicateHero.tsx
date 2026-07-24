@@ -22,7 +22,7 @@ export function CommunicateHero() {
               communications platform purpose-built for you.
             </p>
             <Button href="/book-demo" className="mt-8 w-fit">
-              See it in Action
+              See it in action
             </Button>
           </div>
         </div>

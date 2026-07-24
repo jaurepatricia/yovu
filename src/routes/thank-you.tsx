@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/yovu/ui/Button";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 
@@ -16,12 +17,9 @@ function ThankYouPage() {
           Your request has been received. A YOVU specialist will reach out shortly to book your
           personalized demo.
         </p>
-        <a
-          href="/"
-          className="mt-10 inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
-        >
+        <Button href="/" className="mt-10">
           Back to home
-        </a>
+        </Button>
       </section>
       <Footer />
     </main>

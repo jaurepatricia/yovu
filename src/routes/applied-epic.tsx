@@ -201,7 +201,7 @@ function HeroCopy({ centered = false }: { centered?: boolean }) {
         Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
       </p>
       <Button href="#demo" className="mt-8 w-fit">
-              See it in Action
+              See it in action
             </Button>
     </div>
   );

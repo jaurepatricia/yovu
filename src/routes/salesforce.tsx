@@ -167,7 +167,7 @@ function HeroCopy({ centered = false }: { centered?: boolean }) {
         right into our VoIP phone service.
       </p>
       <Button href="#demo" className="mt-8 w-fit">
-              See it in Action
+              See it in action
             </Button>
     </div>
   );

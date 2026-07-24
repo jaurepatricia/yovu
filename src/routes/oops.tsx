@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AlertTriangle } from "lucide-react";
+import { Button } from "@/components/yovu/ui/Button";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
 
@@ -19,12 +20,9 @@ function OopsPage() {
           </a>
           .
         </p>
-        <a
-          href="/book-demo"
-          className="mt-10 inline-flex items-center justify-center rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white ring-1 ring-signal transition-transform hover:scale-[1.02]"
-        >
+        <Button href="/book-demo" className="mt-10">
           Try again
-        </a>
+        </Button>
       </section>
       <Footer />
     </main>
