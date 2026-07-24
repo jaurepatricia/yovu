@@ -82,7 +82,6 @@ const industries = [
   { href: "/healthcare", label: "Healthcare" },
   { href: "/automotive", label: "Automotive" },
   { href: "/nonprofit", label: "Non-Profit & Charity" },
-  { href: "#", label: "All Others" },
 ];
 
 const integrations = [
