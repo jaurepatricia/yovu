@@ -40,7 +40,7 @@ export function SearchableHistory() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-[11px] tabular-nums text-slate-400">{r.dur}</span>
-                <span className="flex size-6 items-center justify-center rounded-full bg-[#2563eb]/10 text-[#2563eb]">
+                <span className="flex size-6 items-center justify-center rounded-full bg-signal/10 text-signal">
                   <Play className="size-3 fill-current" strokeWidth={0} />
                 </span>
               </div>

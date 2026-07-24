@@ -43,10 +43,10 @@ export function CallerContext() {
       <div className="relative flex w-[24rem] max-w-[92%] flex-col items-center gap-3">
         {/* Incoming call banner */}
         <div className="flex items-center gap-2.5 rounded-full bg-white py-2 pl-2.5 pr-4 shadow-lg shadow-black/15 ring-1 ring-black/5">
-          <span className="relative flex size-7 items-center justify-center rounded-full bg-[#2563eb] text-white">
+          <span className="relative flex size-7 items-center justify-center rounded-full bg-signal text-white">
             <PhoneIncoming className="size-3.5" strokeWidth={2.5} />
             <motion.span
-              className="absolute inset-0 rounded-full ring-1 ring-[#2563eb]"
+              className="absolute inset-0 rounded-full ring-1 ring-signal"
               animate={{ scale: [1, 1.35], opacity: [0.35, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
             />

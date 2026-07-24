@@ -25,7 +25,7 @@ export function CallControl() {
         {/* Active call header */}
         <div className="flex items-center justify-between border-b border-slate-100 pb-3">
           <div className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center rounded-full bg-[#2563eb] text-white">
+            <span className="flex size-9 items-center justify-center rounded-full bg-signal text-white">
               <Phone className="size-4" strokeWidth={2.5} />
             </span>
             <div>
@@ -37,7 +37,7 @@ export function CallControl() {
             {[6, 11, 7, 13, 8].map((h, i) => (
               <span
                 key={i}
-                className="w-0.5 rounded-full bg-[#2563eb]"
+                className="w-0.5 rounded-full bg-signal"
                 style={{ height: `${h}px` }}
               />
             ))}

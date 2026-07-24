@@ -72,13 +72,13 @@ export function DeviceHandoff() {
               }}
               transition={{ duration: 0.4, ease: "easeOut" }}
               className={`relative flex w-32 flex-col items-center gap-3 rounded-2xl bg-white p-4 shadow-lg shadow-black/10 ring-1 sm:w-36 ${
-                active ? "ring-2 ring-[#2563eb]" : "ring-black/5"
+                active ? "ring-2 ring-signal" : "ring-black/5"
               }`}
             >
               {/* Device screen */}
               <div className="relative flex h-24 w-full items-center justify-center overflow-hidden rounded-lg bg-slate-50">
                 <device.Icon
-                  className={`size-10 ${active ? "text-[#2563eb]" : "text-slate-400"}`}
+                  className={`size-10 ${active ? "text-signal" : "text-slate-400"}`}
                   strokeWidth={1.75}
                 />
 
@@ -87,7 +87,7 @@ export function DeviceHandoff() {
                   <motion.div
                     layoutId="call-token"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-2 rounded-md bg-[#2563eb] px-2.5 py-1.5 text-white shadow-md"
+                    className="absolute inset-x-2 bottom-2 flex items-center justify-between gap-2 rounded-md bg-signal px-2.5 py-1.5 text-white shadow-md"
                   >
                     <span className="text-[11px] font-medium leading-none">Call</span>
                     <span className="text-[11px] tabular-nums leading-none text-white/80">

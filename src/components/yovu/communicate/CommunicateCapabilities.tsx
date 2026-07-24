@@ -20,7 +20,7 @@ function TalkTextVisual() {
         Can you call me back?
       </div>
       <div className="ml-auto mt-3 flex w-max items-center gap-2 rounded-full bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 shadow-lg ring-1 ring-black/5">
-        <span className="flex size-6 items-center justify-center rounded-full bg-[#2563eb] text-white">
+        <span className="flex size-6 items-center justify-center rounded-full bg-signal text-white">
           <Phone className="size-3.5" strokeWidth={2.5} />
         </span>
         Calling {demoContact.firstName}…
@@ -34,7 +34,7 @@ function CallerVisual() {
   return (
     <div className="w-full max-w-[17rem] rounded-xl bg-white p-4 text-left shadow-2xl ring-1 ring-black/5 transition-transform duration-500 ease-out group-hover:-translate-y-1.5">
       <div className="flex items-center gap-3">
-        <span className="flex size-10 items-center justify-center rounded-full bg-[#2563eb]/10 text-sm font-semibold text-[#2563eb]">
+        <span className="flex size-10 items-center justify-center rounded-full bg-signal/10 text-sm font-semibold text-signal">
           {demoContact.initials}
         </span>
         <div className="min-w-0">
@@ -65,7 +65,7 @@ function StatusVisual() {
   return (
     <div className="w-full max-w-[14rem] rounded-xl bg-white p-4 shadow-2xl ring-1 ring-black/5">
       <div className="flex items-center gap-3">
-        <span className="flex size-10 items-center justify-center rounded-full bg-[#2563eb]/10 text-sm font-semibold text-[#2563eb]">
+        <span className="flex size-10 items-center justify-center rounded-full bg-signal/10 text-sm font-semibold text-signal">
           AV
         </span>
         <div>

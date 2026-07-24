@@ -55,7 +55,7 @@ function StatTile({
           transition={{ duration: 0.9, ease: "easeOut", delay: delay + 0.2 }}
         />
       </svg>
-      <span className="-mt-1 text-base font-semibold text-[#2563eb]">
+      <span className="-mt-1 text-base font-semibold text-signal">
         {value}
       </span>
     </motion.div>

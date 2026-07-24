@@ -35,7 +35,7 @@ export function TranscriptSentiment() {
               <div className="flex items-center gap-2">
                 <span
                   className={`text-[11px] font-semibold ${
-                    line.who === "Agent" ? "text-[#2563eb]" : "text-slate-700"
+                    line.who === "Agent" ? "text-signal" : "text-slate-700"
                   }`}
                 >
                   {line.who}

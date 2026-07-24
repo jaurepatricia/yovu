@@ -23,16 +23,16 @@ export function ActivityLogging() {
       >
         {/* Header */}
         <div className="flex items-center gap-2 border-b border-slate-100 px-4 py-3">
-          <FileText className="size-4 text-[#2563eb]" />
-          <span className="text-sm font-semibold text-[#2563eb]">Call Log</span>
-          <ChevronDown className="ml-auto size-4 text-[#2563eb]" />
+          <FileText className="size-4 text-signal" />
+          <span className="text-sm font-semibold text-signal">Call Log</span>
+          <ChevronDown className="ml-auto size-4 text-signal" />
         </div>
 
         <div className="space-y-3 px-4 py-3">
           {/* What */}
           <fieldset className="rounded-md border border-slate-200 px-3 pb-2 pt-1">
             <legend className="px-1 text-[11px] text-slate-500">What *</legend>
-            <span className="text-[13px] font-medium text-[#2563eb]">
+            <span className="text-[13px] font-medium text-signal">
               Adding a Driver
             </span>
           </fieldset>
@@ -54,7 +54,7 @@ export function ActivityLogging() {
           {/* Save */}
           <div className="flex justify-end">
             <motion.span
-              className="flex size-9 items-center justify-center rounded-md bg-[#2563eb] text-white shadow-md shadow-[#2563eb]/30"
+              className="flex size-9 items-center justify-center rounded-md bg-signal text-white shadow-md shadow-signal/30"
               animate={{ scale: [1, 1.06, 1] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
             >

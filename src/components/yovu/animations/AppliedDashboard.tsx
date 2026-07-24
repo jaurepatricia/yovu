@@ -71,12 +71,12 @@ export function AppliedDashboard() {
                   transition={{ duration: 0.3, delay: 0.25 + i * 0.06 }}
                   className={`flex items-center gap-2 px-3 py-[5px] text-[11px] ${
                     active
-                      ? "border-l-2 border-[#2563eb] bg-white font-semibold text-[#2563eb]"
+                      ? "border-l-2 border-signal bg-white font-semibold text-signal"
                       : "border-l-2 border-transparent text-slate-600"
                   }`}
                 >
                   <t.Icon
-                    className={`size-3.5 ${active ? "text-[#2563eb]" : "text-slate-400"}`}
+                    className={`size-3.5 ${active ? "text-signal" : "text-slate-400"}`}
                   />
                   <span className="truncate">{t.label}</span>
                 </motion.div>
@@ -87,7 +87,7 @@ export function AppliedDashboard() {
           {/* Content */}
           <div className="flex-1 space-y-2 p-3">
             <p className="text-[11px] font-semibold text-slate-700">Account</p>
-            <div className="rounded border border-[#2563eb]/60 px-2 py-1 text-[11px] text-slate-700">
+            <div className="rounded border border-signal/60 px-2 py-1 text-[11px] text-slate-700">
               {demoContact.name}
             </div>
             {[70, 55, 62].map((w, i) => (

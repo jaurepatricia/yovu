@@ -24,7 +24,7 @@ export function ComingSoon() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
           />
           <motion.span
-            className="relative flex size-16 items-center justify-center rounded-full bg-[#2563eb] text-white shadow-lg shadow-[#2563eb]/40 ring-1 ring-[#3b82f6]/50"
+            className="relative flex size-16 items-center justify-center rounded-full bg-signal text-white shadow-lg shadow-signal/40 ring-1 ring-[#3b82f6]/50"
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
           >

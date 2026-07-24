@@ -63,14 +63,14 @@ export function ClickToDial() {
           <div className="relative pt-0.5">
             <span
               className={`relative inline-flex items-center gap-1.5 rounded px-1.5 py-0.5 transition-colors ${
-                active ? "bg-[#2563eb]/10 ring-1 ring-[#2563eb]/30" : ""
+                active ? "bg-signal/10 ring-1 ring-signal/30" : ""
               }`}
             >
               {/* Tap ripple */}
               <AnimatePresence>
                 {tapping && (
                   <motion.span
-                    className="absolute inset-0 rounded bg-[#2563eb]/25"
+                    className="absolute inset-0 rounded bg-signal/25"
                     initial={{ scale: 0.6, opacity: 0.7 }}
                     animate={{ scale: 1.4, opacity: 0 }}
                     exit={{ opacity: 0 }}
@@ -78,8 +78,8 @@ export function ClickToDial() {
                   />
                 )}
               </AnimatePresence>
-              <Phone className="size-3.5 text-[#2563eb]" strokeWidth={2.5} />
-              <span className="font-medium text-[#2563eb] underline decoration-[#2563eb]/40 underline-offset-2">
+              <Phone className="size-3.5 text-signal" strokeWidth={2.5} />
+              <span className="font-medium text-signal underline decoration-signal/40 underline-offset-2">
                 {demoContact.phone}
               </span>
             </span>
@@ -118,7 +118,7 @@ export function ClickToDial() {
               exit={{ y: 8, opacity: 0 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
-              <span className="flex size-7 items-center justify-center rounded-full bg-[#2563eb] text-white">
+              <span className="flex size-7 items-center justify-center rounded-full bg-signal text-white">
                 <PhoneCall className="size-3.5" strokeWidth={2.5} />
               </span>
               {phase === "calling" ? (
@@ -142,7 +142,7 @@ export function ClickToDial() {
                     {[0, 1, 2, 3].map((i) => (
                       <motion.span
                         key={i}
-                        className="w-0.5 rounded-full bg-[#2563eb]"
+                        className="w-0.5 rounded-full bg-signal"
                         animate={{ height: [4, 12, 6, 10, 4] }}
                         transition={{
                           duration: 0.9,

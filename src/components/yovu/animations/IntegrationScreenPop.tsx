@@ -51,11 +51,11 @@ export function IntegrationScreenPop() {
       <div className="relative flex w-[26rem] max-w-[92%] flex-col items-center gap-3">
         {/* Incoming call banner — leads the sequence */}
         <div className="z-10 flex items-center gap-2.5 rounded-full bg-white py-2 pl-2.5 pr-4 shadow-lg shadow-black/15 ring-1 ring-black/5">
-          <span className="relative flex size-7 items-center justify-center rounded-full bg-[#2563eb] text-white">
+          <span className="relative flex size-7 items-center justify-center rounded-full bg-signal text-white">
             <PhoneIncoming className="size-3.5" strokeWidth={2.5} />
             {!matched && (
               <motion.span
-                className="absolute inset-0 rounded-full ring-1 ring-[#2563eb]"
+                className="absolute inset-0 rounded-full ring-1 ring-signal"
                 animate={{ scale: [1, 1.35], opacity: [0.35, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
               />
@@ -97,11 +97,11 @@ export function IntegrationScreenPop() {
                         transition={{ duration: 0.3, delay: 0.25 + i * 0.06 }}
                         className={`flex items-center gap-2 px-3 py-[5px] text-[11px] ${
                           active
-                            ? "border-l-2 border-[#2563eb] bg-white font-semibold text-[#2563eb]"
+                            ? "border-l-2 border-signal bg-white font-semibold text-signal"
                             : "border-l-2 border-transparent text-slate-600"
                         }`}
                       >
-                        <t.Icon className={`size-3.5 ${active ? "text-[#2563eb]" : "text-slate-400"}`} />
+                        <t.Icon className={`size-3.5 ${active ? "text-signal" : "text-slate-400"}`} />
                         <span className="truncate">{t.label}</span>
                       </motion.div>
                     );
@@ -121,7 +121,7 @@ export function IntegrationScreenPop() {
                       ],
                     }}
                     transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
-                    className="flex items-center gap-2 rounded border border-[#2563eb]/60 px-2 py-1.5"
+                    className="flex items-center gap-2 rounded border border-signal/60 px-2 py-1.5"
                   >
                     <div className="min-w-0">
                       <p className="truncate text-[11px] font-semibold text-slate-800">

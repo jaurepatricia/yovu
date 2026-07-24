@@ -53,7 +53,7 @@ export function TranscriptionSummary() {
             {["Renewal", "Adding a Driver"].map((topic) => (
               <span
                 key={topic}
-                className="inline-flex items-center gap-1 rounded-full bg-[#2563eb]/10 px-2 py-0.5 text-[11px] font-medium text-[#2563eb]"
+                className="inline-flex items-center gap-1 rounded-full bg-signal/10 px-2 py-0.5 text-[11px] font-medium text-signal"
               >
                 <Star className="size-3 fill-amber-400 text-amber-400" />
                 {topic}
