@@ -32,9 +32,7 @@ export function CommunicateDevices() {
 
           {/* Right: headline, intro copy, and accordion */}
           <div>
-            <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-              Roam Free
-            </h2>
+            <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Roam free</h2>
             <p className="mt-6 text-pretty text-base text-ink/70">
               Give your team the freedom to work from anywhere. Whether at a desk or in the field,
               they can make and receive calls with the same reliability and professionalism as they

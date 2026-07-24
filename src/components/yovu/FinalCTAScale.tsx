@@ -10,9 +10,7 @@ export function FinalCTAScale() {
       <div className="relative mx-auto flex max-w-7xl flex-col items-center overflow-hidden rounded-[2.5rem] bg-ink px-6 py-24 text-center text-canvas lg:py-32">
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center">
-          <h2 className="animate-fade-in-up text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight opacity-0 [animation-delay:200ms] md:text-6xl">
-            Scale Your Brokerage
-          </h2>
+          <h2 className="animate-fade-in-up text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight opacity-0 [animation-delay:200ms] md:text-6xl">Scale your brokerage</h2>
           <p className="mt-6 max-w-4xl animate-fade-in-up text-pretty text-lg text-canvas/65 opacity-0 [animation-delay:300ms]">
             Connect your team and upgrade your client experience in one move.
             Book a 30-minute demo to see how simple scaling your business

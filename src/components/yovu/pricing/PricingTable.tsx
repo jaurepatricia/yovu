@@ -97,9 +97,7 @@ export function PricingTable() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-20 text-center lg:mb-28">
-          <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Plans & Pricing
-          </h1>
+          <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Plans &amp; pricing</h1>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-base text-ink/70 md:text-lg">
             Straightforward plans that grow with your organization. Start with our robust telephony
             features and scale all the way up to full integrations, transcriptions and an AI

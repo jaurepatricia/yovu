@@ -33,9 +33,7 @@ export function CommunicateBranded() {
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-signal">
               Featured Use Case
             </p>
-            <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-              Cultivate a Branded Experience
-            </h2>
+            <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Cultivate a branded experience</h2>
             <p className="mt-6 max-w-xl text-pretty text-base text-ink/70">
               Ensure every interaction reflects your unique identity with customizable greetings,
               branded hold music, and seamless AI receptionist routing. Plus, you can easily control

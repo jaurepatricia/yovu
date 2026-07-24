@@ -34,9 +34,7 @@ export function TestimonialsQuote() {
     <section data-note-anchor="testimonials-quote" className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Headline */}
-        <h2 className="text-center font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-          Our Clients Say It Best
-        </h2>
+        <h2 className="text-center font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Our clients say it best</h2>
 
         <div className="mt-12">
           <AnimatePresence mode="wait">

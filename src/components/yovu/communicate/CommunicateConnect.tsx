@@ -19,9 +19,7 @@ export function CommunicateConnect() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
         {/* Left: copy */}
         <div>
-          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Connect with Your Clients
-          </h2>
+          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Connect with your clients</h2>
           <div className="mt-8 space-y-8">
             {items.map((item) => (
               <div key={item.title}>

@@ -116,9 +116,7 @@ function AccessibilityPlanPage() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
           Legal
         </p>
-        <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-          Accessibility Plan
-        </h1>
+        <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Accessibility plan</h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">
           How YOVU Office Phone identifies, removes, and prevents barriers to
           accessibility across our services, workplace, and communications.

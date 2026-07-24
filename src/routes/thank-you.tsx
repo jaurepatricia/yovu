@@ -11,9 +11,7 @@ function ThankYouPage() {
         <span className="mx-auto flex size-16 items-center justify-center rounded-full bg-signal-soft text-signal">
           <CheckCircle2 className="size-8" strokeWidth={2} />
         </span>
-        <h1 className="mt-8 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-          Thank you — we&rsquo;ll be in touch.
-        </h1>
+        <h1 className="mt-8 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Thank you, we’ll be in touch</h1>
         <p className="mx-auto mt-6 max-w-lg text-pretty text-lg text-ink/70">
           Your request has been received. A YOVU specialist will reach out shortly to book your
           personalized demo.

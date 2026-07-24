@@ -61,9 +61,7 @@ export function Features() {
     <section id="features" className="py-24 lg:py-32">
       <div className="mx-auto mb-16 max-w-7xl px-6">
         <div className="max-w-2xl">
-          <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Built for Insurance Brokerages.
-          </h2>
+          <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">Built for insurance brokerages</h2>
         </div>
       </div>
       <Feature197 features={features} />

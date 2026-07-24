@@ -58,9 +58,7 @@ function TermsPage() {
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pb-16 pt-40 text-center lg:pb-24 lg:pt-56">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">Legal</p>
-        <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-          Terms and Conditions
-        </h1>
+        <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Terms and conditions</h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">
           Here, you will find information regarding the terms and conditions of our services. We
           strive to provide our customers with clear and concise information about our services.

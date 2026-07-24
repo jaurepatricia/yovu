@@ -109,9 +109,7 @@ export function CompareFeatures() {
     <section className="bg-canvas pb-24 lg:pb-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-10 text-center">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
-            Compare Features by Category
-          </h2>
+          <h2 className="font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">Compare features by category</h2>
         </div>
 
         {/* Tabs */}

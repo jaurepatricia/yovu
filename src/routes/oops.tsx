@@ -11,9 +11,7 @@ function OopsPage() {
         <span className="mx-auto flex size-16 items-center justify-center rounded-full bg-amber-100 text-amber-600">
           <AlertTriangle className="size-8" strokeWidth={2} />
         </span>
-        <h1 className="mt-8 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-          Oops — something went wrong.
-        </h1>
+        <h1 className="mt-8 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Oops, something went wrong</h1>
         <p className="mx-auto mt-6 max-w-lg text-pretty text-lg text-ink/70">
           We couldn&rsquo;t submit your request. Please try again, or reach us directly at{" "}
           <a href="tel:+18446851001" className="font-semibold text-signal hover:underline">

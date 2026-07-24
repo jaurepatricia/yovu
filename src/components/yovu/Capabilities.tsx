@@ -146,9 +146,7 @@ export function Capabilities({ categories = defaultCategories }: { categories?: 
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Explore Key Features
-          </h2>
+          <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">Explore key features</h2>
         </div>
 
         {/* Content: accordion + media */}

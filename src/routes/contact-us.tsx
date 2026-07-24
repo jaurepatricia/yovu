@@ -151,7 +151,7 @@ function ContactInfoMap() {
           <div className="flex gap-4">
             <MapPin className="size-6 shrink-0 text-signal" strokeWidth={1.75} />
             <div>
-              <h3 className="font-display text-lg font-bold tracking-tight text-ink">Head Office</h3>
+              <h3 className="font-display text-lg font-bold tracking-tight text-ink">Head office</h3>
               <p className="mt-2 text-pretty text-ink/70">
                 1105 Frances Street London,
                 <br />
@@ -163,7 +163,7 @@ function ContactInfoMap() {
           <div className="flex gap-4">
             <Phone className="size-6 shrink-0 text-signal" strokeWidth={1.75} />
             <div>
-              <h3 className="font-display text-lg font-bold tracking-tight text-ink">Call Us</h3>
+              <h3 className="font-display text-lg font-bold tracking-tight text-ink">Call us</h3>
               <p className="mt-2 text-ink/70">
                 Sales:{" "}
                 <a href="tel:+15194881001" className="text-signal hover:underline">
@@ -182,9 +182,7 @@ function ContactInfoMap() {
           <div className="flex gap-4">
             <Clock className="size-6 shrink-0 text-signal" strokeWidth={1.75} />
             <div>
-              <h3 className="font-display text-lg font-bold tracking-tight text-ink">
-                Business Hours
-              </h3>
+              <h3 className="font-display text-lg font-bold tracking-tight text-ink">Business hours</h3>
               <p className="mt-2 text-ink/70">Mon - Fri: 8:30am - 5:00pm (EST)</p>
               <p className="mt-2 text-pretty text-sm text-ink/60">
                 If you are a customer who needs support after hours, please contact our support
@@ -222,9 +220,7 @@ function ContactUsPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
           {/* Left column */}
           <div>
-            <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-              Get in touch.
-            </h1>
+            <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Get in touch</h1>
             <p className="mt-6 text-pretty text-lg text-ink/70">
               Have a question about YOVU, your service, or which plan fits your team? Send us a
               message and the right person will get back to you. Prefer to talk it through? Our team

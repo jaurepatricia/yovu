@@ -17,9 +17,7 @@ export function Integrations() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
-              Plays nice with your tech stack.
-            </h2>
+            <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">Plays nice with your tech stack</h2>
             <p className="mt-6 max-w-md text-pretty text-base text-ink/70 md:text-lg">
               We adapt to your workflow, not the other way around. YOVU connects seamlessly
               with your CRMs and business tools to automate tasks and eliminate manual

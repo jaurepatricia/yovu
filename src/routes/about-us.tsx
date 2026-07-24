@@ -57,9 +57,7 @@ function AboutHero() {
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="flex max-w-xl flex-col text-left">
-            <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
-              Business phones done right since 2011.
-            </h1>
+            <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">Business phones done right since 2011</h1>
             <p className="mt-6 text-pretty text-lg text-ink/70">
               Fifteen years building the business phone system that brokerages, dealerships,
               healthcare clinics, non-profits, and small businesses use across Canada.
@@ -76,9 +74,7 @@ function LeadershipTeam() {
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Our Leadership Team
-          </h2>
+          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Our leadership team</h2>
         </div>
 
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">

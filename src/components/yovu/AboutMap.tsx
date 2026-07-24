@@ -21,9 +21,9 @@ export function AboutMap() {
             Proudly Canadian
           </p>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Born in London, ON.
+            Born in London, ON,
             <br />
-            Kept in Canada.
+            kept in Canada
           </h2>
           <p className="mt-6 max-w-xl text-pretty text-base text-ink/70 md:text-lg">
             We were founded in London, Ontario, and we still proudly operate our business out of our

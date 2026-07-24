@@ -91,9 +91,7 @@ export function CommunicateCapabilities() {
     <section id="capabilities" className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            VoIP Phone Features
-          </h2>
+          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">VoIP phone features</h2>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
@@ -101,9 +99,7 @@ export function CommunicateCapabilities() {
           <Card className="min-h-[14rem]">
             <div className="flex h-full items-center gap-5">
               <div className="w-[42%] shrink-0">
-                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
-                  Talk &amp; Text
-                </h3>
+                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">Talk &amp; text</h3>
                 <p className="mt-3 text-pretty text-ink/70">
                   Voice and SMS from the same workspace — a quick text and a callback in one place.
                 </p>
@@ -118,9 +114,7 @@ export function CommunicateCapabilities() {
           <Card className="min-h-[30rem] md:row-span-2">
             <div className="flex h-full flex-col">
               <div>
-                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
-                  Warm &amp; Personalized Calls
-                </h3>
+                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">Warm &amp; personalized calls</h3>
                 <p className="mt-3 max-w-md text-pretty text-ink/70">
                   Deliver highly personalized service — a screen pop surfaces the caller's identity
                   and account before anyone picks up, eliminating unnecessary repetition and
@@ -137,9 +131,7 @@ export function CommunicateCapabilities() {
           <Card className="min-h-[14rem]">
             <div className="relative flex h-full items-center">
               <div className="w-1/2">
-                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
-                  Transfers &amp; Statuses
-                </h3>
+                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">Transfers &amp; statuses</h3>
                 <p className="mt-3 text-pretty text-ink/70">
                   See who's available, transfer with context, or bring a colleague onto the call.
                 </p>
@@ -154,9 +146,7 @@ export function CommunicateCapabilities() {
           <Card className="min-h-[22rem] md:col-span-2">
             <div className="flex h-full flex-col gap-8 lg:flex-row lg:items-center">
               <div className="lg:max-w-sm">
-                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
-                  All That &amp; More
-                </h3>
+                <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">All that &amp; more</h3>
                 <p className="mt-3 max-w-md text-pretty text-ink/70">
                   We offer everything your business needs to keep calls organized, teams connected,
                   and conversations running smoothly.

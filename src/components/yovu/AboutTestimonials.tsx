@@ -72,9 +72,7 @@ export function AboutTestimonials() {
     <section className="bg-canvas py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            What Customers Say About Us
-          </h2>
+          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">What customers say about us</h2>
           <p className="mx-auto mt-5 text-pretty text-base text-ink/70 md:text-lg">
             Backed by a 5-star Google rating, we consistently hear from clients who love how our
             technology and support transform their workday.

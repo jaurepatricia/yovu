@@ -131,9 +131,7 @@ function BookDemoPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
           {/* Left column */}
           <div>
-            <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-              Transform the way your business communicates.
-            </h1>
+            <h1 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Transform the way your business communicates</h1>
             <p className="mt-6 text-pretty text-lg text-ink/70">
               Stop letting manual data entry and dropped calls slow you down. Get a personalized
               tour of the all-in-one phone system built to adapt to your workflow. Tell us a little

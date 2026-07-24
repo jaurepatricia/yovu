@@ -6,9 +6,7 @@ export function Security() {
     <section id="security" className="bg-surface/50 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 max-w-3xl">
-          <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
-            Protect your brokerage and minimize liability.
-          </h2>
+          <h2 className="mt-3 text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">Protect your brokerage and minimize liability</h2>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-12">
@@ -16,10 +14,7 @@ export function Security() {
             spotlightColor="rgba(37, 99, 235, 0.22)"
             className="lg:col-span-7 rounded-3xl bg-ink p-8 text-canvas ring-1 ring-black/10 lg:p-12"
           >
-            <h3 className="font-display text-2xl font-bold md:text-3xl">
-
-              E&amp;O Audit Logs
-            </h3>
+            <h3 className="font-display text-2xl font-bold md:text-3xl">E&amp;O audit logs</h3>
             <p className="mt-3 max-w-md text-pretty text-canvas/70">
               Eliminate undocumented conversations. Every call is instantly logged,
               recorded, and completely exportable for foolproof E&amp;O protection.
@@ -51,7 +46,7 @@ export function Security() {
               spotlightColor="rgba(59, 130, 246, 0.18)"
               className="flex-1 rounded-3xl bg-card p-8 ring-1 ring-border"
             >
-              <h3 className="font-display text-2xl font-bold">SOC 2 Certified</h3>
+              <h3 className="font-display text-2xl font-bold">SOC 2 certified</h3>
 
               <p className="mt-3 text-pretty text-ink/70">
                 Your data is safe with us. We undergo annual, independent third-party

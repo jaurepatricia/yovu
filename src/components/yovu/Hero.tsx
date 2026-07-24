@@ -136,9 +136,7 @@ export function Hero({
           )}
         </div>
 
-        <h1 className="font-display text-6xl font-bold tracking-tight text-ink md:text-8xl">
-          Peak Communication
-        </h1>
+        <h1 className="font-display text-6xl font-bold tracking-tight text-ink md:text-8xl">Peak communication</h1>
 
         <p className="mt-5 max-w-2xl text-base text-ink/80 md:text-lg">{subcopy}</p>
       </div>
