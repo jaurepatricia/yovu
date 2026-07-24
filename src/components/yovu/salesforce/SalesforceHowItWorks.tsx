@@ -74,7 +74,7 @@ export function SalesforceHowItWorks() {
         {/* Card matches the content width of the sections above */}
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
           <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-20 text-center shadow-2xl shadow-black/10 md:px-12 md:py-24 lg:py-28">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
               How it Works
             </p>
 

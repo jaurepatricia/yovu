@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@/components/yovu/ui/Button";
 import { PlugZap, Lock, Database } from "lucide-react";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
@@ -198,12 +199,9 @@ function HeroCopy({ centered = false }: { centered?: boolean }) {
       <p className="mt-6 text-pretty text-lg text-ink/70">
         Automatically link calls to client profiles in Applied Epic without manual data entry. Reduce administrative workload and keep your team focused on what matters—your clients.
       </p>
-      <a
-        href="#demo"
-        className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-      >
-        See it in Action
-      </a>
+      <Button href="#demo" className="mt-8 w-fit">
+              See it in Action
+            </Button>
     </div>
   );
 }

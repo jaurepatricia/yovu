@@ -1,3 +1,5 @@
+import { Button } from "@/components/yovu/ui/Button";
+
 export function CommunicateHero() {
   return (
     <section className="relative w-full overflow-hidden bg-canvas aspect-video max-h-screen min-h-[600px]">
@@ -19,12 +21,9 @@ export function CommunicateHero() {
               YOVU combines enterprise-grade reliability, responsive Canadian support, and a business
               communications platform purpose-built for you.
             </p>
-            <a
-              href="/book-demo"
-              className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-            >
+            <Button href="/book-demo" className="mt-8 w-fit">
               See it in Action
-            </a>
+            </Button>
           </div>
         </div>
       </div>

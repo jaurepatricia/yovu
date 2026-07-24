@@ -30,7 +30,7 @@ export function CommunicateBranded() {
         {/* Featured-use-case style intro */}
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20 xl:gap-24">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-signal">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
               Featured Use Case
             </p>
             <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Cultivate a branded experience</h2>

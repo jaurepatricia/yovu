@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@/components/yovu/ui/Button";
 import { RefreshCw, Smartphone, Layers } from "lucide-react";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
@@ -174,12 +175,9 @@ function CaptureHero() {
               Turn calls, texts, and voicemails into easy-to-read records. Our AI automatically
               extracts key details, recommends next steps, and logs everything right to your system.
             </p>
-            <a
-              href="/book-demo"
-              className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-            >
+            <Button href="/book-demo" className="mt-8 w-fit">
               See it in Action
-            </a>
+            </Button>
           </div>
         </div>
       </div>

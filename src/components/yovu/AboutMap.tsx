@@ -17,7 +17,7 @@ export function AboutMap() {
 
         {/* Right: copy */}
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
             Proudly Canadian
           </p>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">

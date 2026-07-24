@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@/components/yovu/ui/Button";
 import { AlertCircle, MessageCircle, Zap } from "lucide-react";
 import { motion } from "motion/react";
 import { Nav } from "@/components/yovu/Nav";
@@ -164,12 +165,9 @@ function HeroCopy({ centered = false }: { centered?: boolean }) {
         Skyrocket sales, productivity, and reporting with complete Salesforce integration built
         right into our VoIP phone service.
       </p>
-      <a
-        href="#demo"
-        className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-      >
-        See it in Action
-      </a>
+      <Button href="#demo" className="mt-8 w-fit">
+              See it in Action
+            </Button>
     </div>
   );
 }
