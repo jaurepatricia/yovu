@@ -17,20 +17,16 @@ import {
   QueueCallback,
 } from "@/components/yovu/communicate/CommunicateCardVisuals";
 import { FeatureWall } from "@/components/yovu/communicate/FeatureWall";
+import { IntegrationCircles } from "@/components/yovu/communicate/IntegrationCircles";
 import { ClickToDial } from "@/components/yovu/animations/ClickToDial";
 import { CallerContext } from "@/components/yovu/animations/CallerContext";
 import { FAQ } from "@/components/yovu/FAQ";
 import { ScaleCallout } from "@/components/yovu/ScaleCallout";
+import baliRemote from "@/assets/imagery/young-professional-working-remotely-in-bali.webp";
+import greenCanopy from "@/assets/imagery/mountain-forest-with-green-canopy.webp";
+import supportPerson from "@/assets/imagery/contacting-a-professional-support-person.webp";
 
-function ZPlaceholder() {
-  return (
-    <div className="flex aspect-square w-full items-center justify-center rounded-2xl bg-surface ring-1 ring-border">
-      <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink/25">
-        Image placeholder
-      </span>
-    </div>
-  );
-}
+const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
 const introBlocks: ZLayoutItem[] = [
   {
@@ -39,19 +35,46 @@ const introBlocks: ZLayoutItem[] = [
     copy: "Experience reliable VoIP calling customized to fit your organization's exact needs. Manage all communication from a single workspace across multiple devices, allowing your team to stay connected no matter where they are.",
     compactCopy: true,
     extra: <DeviceAccordion />,
-    media: <ZPlaceholder />,
+    media: (
+      <img
+        src={baliRemote}
+        alt="Professional working remotely on a laptop"
+        loading="lazy"
+        decoding="async"
+        className={zImageClass}
+      />
+    ),
   },
   {
     kicker: "Integrations",
     title: "Sync your tools, elevate your workflows",
     copy: "Empower your team's productivity by linking your phone system with over 70 essential platforms you use daily, including Applied Epic, Salesforce, and Microsoft Teams. Seamlessly trigger automated replies, establish advanced call routing, and configure custom workflows that perfectly match your business operations.",
-    media: <ZPlaceholder />,
+    media: (
+      <div className="relative">
+        <img
+          src={greenCanopy}
+          alt="Aerial view of a green forest canopy"
+          loading="lazy"
+          decoding="async"
+          className={zImageClass}
+        />
+        <IntegrationCircles />
+      </div>
+    ),
   },
   {
     kicker: "Reliable & Secure",
     title: "Uncompromising security & constant support",
     copy: "Ensure your operations run without interruption using a premier cloud-based phone system built for uncompromising reliability. Enjoy secure, fully encrypted calls that protect your sensitive information and keep your daily communications safe, all backed by our amazing, dedicated support team.",
-    media: <ZPlaceholder />,
+    media: (
+      <img
+        src={supportPerson}
+        alt="A friendly support specialist on a call"
+        loading="lazy"
+        decoding="async"
+        className={zImageClass}
+      />
+    ),
   },
 ];
 

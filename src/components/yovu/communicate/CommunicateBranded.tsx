@@ -1,5 +1,6 @@
 import { Clock, PhoneOutgoing, Music, Bot } from "lucide-react";
 import { Eyebrow } from "@/components/yovu/ui/Eyebrow";
+import brandedImage from "@/assets/imagery/happy-customer-on-the-phone.webp";
 
 const items = [
   {
@@ -42,12 +43,13 @@ export function CommunicateBranded() {
               image across all your communications.
             </p>
           </div>
-          {/* TODO: replace with branded-experience image */}
-          <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-surface ring-1 ring-border">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink/25">
-              Image placeholder
-            </span>
-          </div>
+          <img
+            src={brandedImage}
+            alt="Happy customer talking on the phone"
+            loading="lazy"
+            decoding="async"
+            className="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border"
+          />
         </div>
 
         <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:mt-28 lg:grid-cols-4">
