@@ -17,6 +17,7 @@ import { Route as SalesforceRouteImport } from './routes/salesforce'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as OopsRouteImport } from './routes/oops'
+import { Route as NonprofitRouteImport } from './routes/nonprofit'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
 import { Route as HealthcareRouteImport } from './routes/healthcare'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
@@ -68,6 +69,11 @@ const PricingRoute = PricingRouteImport.update({
 const OopsRoute = OopsRouteImport.update({
   id: '/oops',
   path: '/oops',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NonprofitRoute = NonprofitRouteImport.update({
+  id: '/nonprofit',
+  path: '/nonprofit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MicrosoftTeamsRoute = MicrosoftTeamsRouteImport.update({
@@ -144,6 +150,7 @@ export interface FileRoutesByFullPath {
   '/contact-us': typeof ContactUsRoute
   '/healthcare': typeof HealthcareRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
+  '/nonprofit': typeof NonprofitRoute
   '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -166,6 +173,7 @@ export interface FileRoutesByTo {
   '/contact-us': typeof ContactUsRoute
   '/healthcare': typeof HealthcareRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
+  '/nonprofit': typeof NonprofitRoute
   '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -189,6 +197,7 @@ export interface FileRoutesById {
   '/contact-us': typeof ContactUsRoute
   '/healthcare': typeof HealthcareRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
+  '/nonprofit': typeof NonprofitRoute
   '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -213,6 +222,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/healthcare'
     | '/microsoft-teams'
+    | '/nonprofit'
     | '/oops'
     | '/pricing'
     | '/privacy-policy'
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/healthcare'
     | '/microsoft-teams'
+    | '/nonprofit'
     | '/oops'
     | '/pricing'
     | '/privacy-policy'
@@ -257,6 +268,7 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/healthcare'
     | '/microsoft-teams'
+    | '/nonprofit'
     | '/oops'
     | '/pricing'
     | '/privacy-policy'
@@ -280,6 +292,7 @@ export interface RootRouteChildren {
   ContactUsRoute: typeof ContactUsRoute
   HealthcareRoute: typeof HealthcareRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
+  NonprofitRoute: typeof NonprofitRoute
   OopsRoute: typeof OopsRoute
   PricingRoute: typeof PricingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
@@ -346,6 +359,13 @@ declare module '@tanstack/react-router' {
       path: '/oops'
       fullPath: '/oops'
       preLoaderRoute: typeof OopsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nonprofit': {
+      id: '/nonprofit'
+      path: '/nonprofit'
+      fullPath: '/nonprofit'
+      preLoaderRoute: typeof NonprofitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/microsoft-teams': {
@@ -448,6 +468,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactUsRoute: ContactUsRoute,
   HealthcareRoute: HealthcareRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
+  NonprofitRoute: NonprofitRoute,
   OopsRoute: OopsRoute,
   PricingRoute: PricingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,

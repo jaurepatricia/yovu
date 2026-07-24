@@ -54,6 +54,11 @@ function AboutHero() {
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
+      {/* Left legibility scrim — theme-aware (white in light, dark in dark) */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-canvas/80 via-canvas/30 to-transparent"
+      />
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="flex max-w-xl flex-col text-left">
