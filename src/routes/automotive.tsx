@@ -19,6 +19,9 @@ import { GuidedConversation } from "@/components/yovu/animations/GuidedConversat
 import { VanityNumberPromo } from "@/components/yovu/automotive/VanityNumberPromo";
 import { AutoActivityLog } from "@/components/yovu/automotive/AutoActivityLog";
 import { AutoCallSummary } from "@/components/yovu/automotive/AutoCallSummary";
+import zImg1 from "@/assets/imagery/sales-person-and-customer-at-a-car-dealership.webp";
+import zImg2 from "@/assets/imagery/mechanic-working-on-engine.webp";
+import zImg3 from "@/assets/imagery/mechanic-inspecting-car-parts.webp";
 import acura from "@/assets/automotive logos/Acura.png";
 import chevrolet from "@/assets/automotive logos/Chevrolet.png";
 import gm from "@/assets/automotive logos/General-Motors.png";
@@ -132,24 +135,26 @@ const autoCategories: Category[] = [
   },
 ];
 
+const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
+
 const departmentBlocks: ZLayoutItem[] = [
   {
     kicker: "Sales",
     title: "Sell from anywhere on the lot",
     copy: "Review analytics and progress reports for individual sales teams. Answer sales leads from your vehicle lot or anywhere across the dealership. Text and follow up with prospects direct from mobile or webphone.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg1} alt="Salesperson with a customer at a car dealership" loading="lazy" decoding="async" className={zImageClass} />,
   },
   {
     kicker: "Service",
     title: "Keep the service lane moving",
     copy: "Dashboards provide insights to peak hours and more efficient service advisor staffing. Book service appointments from anywhere. Call recording reduces customer conflict by ensuring quoting and pricing is accurate and approved.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg2} alt="Mechanic working on an engine" loading="lazy" decoding="async" className={zImageClass} />,
   },
   {
     kicker: "Parts",
     title: "Every order on the record",
     copy: "Track calls and orders seamlessly with the added layer of protection. Eliminate discrepancies and enforce vendor accountability through call recording.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg3} alt="Mechanic inspecting car parts" loading="lazy" decoding="async" className={zImageClass} />,
   },
 ];
 
@@ -204,16 +209,6 @@ const faqItems = [
     a: "No. With YOVU you will never pay long-distance fees for calls within Canada and the continental US, with competitive rates for international calling.",
   },
 ];
-
-function ZPlaceholder() {
-  return (
-    <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-surface ring-1 ring-border">
-      <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink/25">
-        Image placeholder
-      </span>
-    </div>
-  );
-}
 
 function AutomotivePage() {
   return (

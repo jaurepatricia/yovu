@@ -26,6 +26,9 @@ import jhso from "@/assets/nonprofit logos/jhso-logo-2020-en.png";
 import vanier from "@/assets/nonprofit logos/Vanier Logo.png";
 import msLogo from "@/assets/nonprofit logos/MS-Logo.png";
 import genericLogo from "@/assets/nonprofit logos/logo.png";
+import zImg1 from "@/assets/imagery/volunteer-on-her-phone.webp";
+import zImg2 from "@/assets/imagery/community-supporting-each-other.webp";
+import zImg3 from "@/assets/imagery/non-profit-employee-on-phone-and-laptop.webp";
 
 const nonprofitLogos: Logo[] = [
   { name: "Big Brothers Big Sisters", src: bbbs },
@@ -113,34 +116,26 @@ const nonprofitCategories: Category[] = [
   },
 ];
 
-function ZPlaceholder() {
-  return (
-    <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-surface ring-1 ring-border">
-      <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink/25">
-        Image placeholder
-      </span>
-    </div>
-  );
-}
+const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
 const introBlocks: ZLayoutItem[] = [
   {
     kicker: "Personal Experience",
     title: "Community connection",
     copy: "Reduce resources and stay connected with your community through centralized inbound calling. Triage all incoming calls from one location. Integrate branch locations and answer from anywhere with a single system.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg1} alt="Volunteer on her phone" loading="lazy" decoding="async" className={zImageClass} />,
   },
   {
     kicker: "Consistent Performance",
     title: "Reliable support",
     copy: "User friendly, one-step setup, without the need for a dedicated IT team. Connect with multiple locations, receive an ongoing reduction in pricing, and enjoy exclusive benefits for your organization.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg2} alt="Community members supporting each other" loading="lazy" decoding="async" className={zImageClass} />,
   },
   {
     kicker: "Secure",
     title: "Safety and privacy",
     copy: "Your team's privacy is always protected with customizable private display options. Send and receive work calls and text messages from personal devices without using personal numbers.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg3} alt="Non-profit employee on a phone and laptop" loading="lazy" decoding="async" className={zImageClass} />,
   },
 ];
 

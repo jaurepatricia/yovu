@@ -15,6 +15,9 @@ import { CallRecording } from "@/components/yovu/animations/CallRecording";
 import { ReportingDashboard } from "@/components/yovu/animations/ReportingDashboard";
 import { ThreeWayCall } from "@/components/yovu/animations/ThreeWayCall";
 import { GuidedConversation } from "@/components/yovu/animations/GuidedConversation";
+import zImg1 from "@/assets/imagery/healthcare-worker-on-the-phone.webp";
+import zImg2 from "@/assets/imagery/nurse-smiling.webp";
+import zImg3 from "@/assets/imagery/doctor-with-young-patient.webp";
 import {
   ChatToCall,
   AvailabilityRouting,
@@ -99,34 +102,26 @@ const healthcareCategories: Category[] = [
   },
 ];
 
-function ZPlaceholder() {
-  return (
-    <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-surface ring-1 ring-border">
-      <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink/25">
-        Image placeholder
-      </span>
-    </div>
-  );
-}
+const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-border";
 
 const introBlocks: ZLayoutItem[] = [
   {
     kicker: "Personal Experience",
     title: "Support & service",
     copy: "Confidently serve your patients using trusted, highly secure lines and customizable live answering rules. Personalize every step of the patient journey with intelligent automated routing and seamless software integrations.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg1} alt="Healthcare worker on the phone" loading="lazy" decoding="async" className={zImageClass} />,
   },
   {
     kicker: "Consistent Platform",
     title: "Secure connection",
     copy: "Protect your sensitive conversations with a confidential communications platform built for uncompromising reliability. We provide best-in-class call encryption, active fraud mitigation, and robust network security so you can operate with complete peace of mind.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg2} alt="Nurse smiling" loading="lazy" decoding="async" className={zImageClass} />,
   },
   {
     kicker: "Secure Integrations",
     title: "Patient insights",
     copy: "Make every interaction count by unifying your essential tools to deliver reliable, real-time patient insights to your staff. Seamlessly connect with your wider team of specialists to ensure coordinated care and a frictionless experience for every caller.",
-    media: <ZPlaceholder />,
+    media: <img src={zImg3} alt="Doctor with a young patient" loading="lazy" decoding="async" className={zImageClass} />,
   },
 ];
 
