@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Eyebrow } from "@/components/yovu/ui/Eyebrow";
 import { Button } from "@/components/yovu/ui/Button";
 import { PlugZap, Lock, Database } from "lucide-react";
 import { Nav } from "@/components/yovu/Nav";
@@ -192,7 +193,7 @@ const faqItems = [
 function HeroCopy({ centered = false }: { centered?: boolean }) {
   return (
     <div className={`flex max-w-xl flex-col ${centered ? "items-center text-center" : "text-left"}`}>
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">Integrations</p>
+      <Eyebrow>Integrations</Eyebrow>
       <h1 className="mt-6 font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
         Applied Epic
       </h1>

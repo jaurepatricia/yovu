@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Eyebrow } from "@/components/yovu/ui/Eyebrow";
 import {
   motion,
   useScroll,
@@ -74,9 +75,9 @@ export function TeamsHowItWorks() {
         {/* Card matches the content width of the sections above */}
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
           <div className="flex flex-col items-center rounded-3xl bg-white px-6 py-20 text-center shadow-2xl shadow-black/10 md:px-12 md:py-24 lg:py-28">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+            <Eyebrow>
               How it Works
-            </p>
+            </Eyebrow>
 
             {/* Horizontal stepper — connector lines fill with scroll */}
             <div className="mt-14 flex items-center justify-center">

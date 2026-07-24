@@ -1,3 +1,5 @@
+import { Eyebrow } from "@/components/yovu/ui/Eyebrow";
+
 export function AboutMap() {
   return (
     <section className="bg-canvas pt-24 pb-24 lg:pt-32 lg:pb-32">
@@ -17,9 +19,9 @@ export function AboutMap() {
 
         {/* Right: copy */}
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+          <Eyebrow>
             Proudly Canadian
-          </p>
+          </Eyebrow>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             Born in London, ON,
             <br />

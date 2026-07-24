@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Eyebrow } from "@/components/yovu/ui/Eyebrow";
 
 export type FeatureSlidingCard = {
   title: string;
@@ -50,9 +51,9 @@ export function FeatureSlidingCards({
               <div className="grid items-center gap-8 md:grid-cols-3">
                 <div className="md:col-span-2">
                   {card.tag && (
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+                    <Eyebrow className="mb-3">
                       {card.tag}
-                    </p>
+                    </Eyebrow>
                   )}
                   <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                     {card.title}

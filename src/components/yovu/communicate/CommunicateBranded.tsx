@@ -1,4 +1,5 @@
 import { Clock, PhoneOutgoing, Music, Bot } from "lucide-react";
+import { Eyebrow } from "@/components/yovu/ui/Eyebrow";
 
 const items = [
   {
@@ -30,9 +31,9 @@ export function CommunicateBranded() {
         {/* Featured-use-case style intro */}
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20 xl:gap-24">
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+            <Eyebrow className="mb-4">
               Featured Use Case
-            </p>
+            </Eyebrow>
             <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Cultivate a branded experience</h2>
             <p className="mt-6 max-w-xl text-pretty text-base text-ink/70">
               Ensure every interaction reflects your unique identity with customizable greetings,

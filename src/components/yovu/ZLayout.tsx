@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Eyebrow } from "@/components/yovu/ui/Eyebrow";
 import type { ReactNode } from "react";
 
 export type ZLayoutItem = {
@@ -30,9 +31,9 @@ export function ZLayout({ heading, eyebrow, intro, items, className, textFirst }
         {(heading || eyebrow || intro) && (
           <div className="mx-auto mb-16 max-w-5xl text-center lg:mb-20">
             {eyebrow && (
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+              <Eyebrow className="mb-4">
                 {eyebrow}
-              </p>
+              </Eyebrow>
             )}
             {heading && (
               <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
@@ -57,9 +58,9 @@ export function ZLayout({ heading, eyebrow, intro, items, className, textFirst }
               >
                 <div className={`${imageRight ? "lg:order-1" : "lg:order-2"} lg:px-4 xl:px-8`}>
                   {item.kicker && (
-                    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
+                    <Eyebrow className="mb-4">
                       {item.kicker}
-                    </p>
+                    </Eyebrow>
                   )}
                   <h3 className="font-display text-2xl font-bold tracking-tight text-ink md:text-3xl">
                     {item.title}
