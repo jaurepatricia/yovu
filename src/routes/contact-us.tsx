@@ -4,6 +4,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { MapPin, Phone, Clock } from "lucide-react";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
+import { PageTopClouds } from "@/components/yovu/PageTopClouds";
 import { AboutTestimonials } from "@/components/yovu/AboutTestimonials";
 
 // Salesforce Web-to-Lead — reuses the org id; routing/record-type config to be
@@ -210,10 +211,11 @@ function ContactInfoMap() {
 
 function ContactUsPage() {
   return (
-    <main className="min-h-screen bg-canvas text-ink">
+    <main className="relative min-h-screen bg-canvas text-ink">
       <Nav />
+      <PageTopClouds />
 
-      <section className="bg-canvas pb-20 pt-40 lg:pt-52">
+      <section className="relative z-10 pb-20 pt-40 lg:pt-52">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
           {/* Left column */}
           <div>

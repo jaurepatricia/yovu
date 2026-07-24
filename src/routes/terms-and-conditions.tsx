@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
+import { PageTopClouds } from "@/components/yovu/PageTopClouds";
 
 type Section = {
   id: string;
@@ -52,11 +53,12 @@ const sections: Section[] = [
 
 function TermsPage() {
   return (
-    <main className="min-h-screen bg-canvas text-ink">
+    <main className="relative min-h-screen bg-canvas text-ink">
       <Nav />
+      <PageTopClouds />
 
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-6 pb-16 pt-40 text-center lg:pb-24 lg:pt-56">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pb-16 pt-40 text-center lg:pb-24 lg:pt-56">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">Legal</p>
         <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">Terms and conditions</h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">

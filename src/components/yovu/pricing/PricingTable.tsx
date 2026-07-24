@@ -93,7 +93,7 @@ export function PricingTable() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section className="bg-canvas py-24 lg:py-32">
+    <section className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-20 text-center lg:mb-28">

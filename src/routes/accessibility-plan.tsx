@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
+import { PageTopClouds } from "@/components/yovu/PageTopClouds";
 import accessibilityReport from "@/assets/accessibility-report-2026.pdf.asset.json";
 
 type Bullet = { lead: string; body?: string };
@@ -108,11 +109,12 @@ const sections: Section[] = [
 
 function AccessibilityPlanPage() {
   return (
-    <main className="min-h-screen bg-canvas text-ink">
+    <main className="relative min-h-screen bg-canvas text-ink">
       <Nav />
+      <PageTopClouds />
 
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-6 pt-40 pb-16 text-center lg:pt-56 lg:pb-24">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pt-40 pb-16 text-center lg:pt-56 lg:pb-24">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
           Legal
         </p>

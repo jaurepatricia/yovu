@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/yovu/Nav";
 import { Footer } from "@/components/yovu/Footer";
+import { PageTopClouds } from "@/components/yovu/PageTopClouds";
 import { PricingTable } from "@/components/yovu/pricing/PricingTable";
 import { CompareFeatures } from "@/components/yovu/pricing/CompareFeatures";
 
@@ -47,9 +48,10 @@ const faqItems = [
 
 function PricingPage() {
   return (
-    <main className="bg-canvas text-ink">
+    <main className="relative bg-canvas text-ink">
       <Nav />
-      <div className="pt-20">
+      <PageTopClouds />
+      <div className="relative z-10 pt-20">
         <PricingTable />
         <CompareFeatures />
 
