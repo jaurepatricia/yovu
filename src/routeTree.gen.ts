@@ -18,6 +18,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as OopsRouteImport } from './routes/oops'
 import { Route as MicrosoftTeamsRouteImport } from './routes/microsoft-teams'
+import { Route as HealthcareRouteImport } from './routes/healthcare'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as CommunicateRouteImport } from './routes/communicate'
 import { Route as CoachRouteImport } from './routes/coach'
@@ -72,6 +73,11 @@ const OopsRoute = OopsRouteImport.update({
 const MicrosoftTeamsRoute = MicrosoftTeamsRouteImport.update({
   id: '/microsoft-teams',
   path: '/microsoft-teams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthcareRoute = HealthcareRouteImport.update({
+  id: '/healthcare',
+  path: '/healthcare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactUsRoute = ContactUsRouteImport.update({
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
   '/contact-us': typeof ContactUsRoute
+  '/healthcare': typeof HealthcareRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
   '/contact-us': typeof ContactUsRoute
+  '/healthcare': typeof HealthcareRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
@@ -179,6 +187,7 @@ export interface FileRoutesById {
   '/coach': typeof CoachRoute
   '/communicate': typeof CommunicateRoute
   '/contact-us': typeof ContactUsRoute
+  '/healthcare': typeof HealthcareRoute
   '/microsoft-teams': typeof MicrosoftTeamsRoute
   '/oops': typeof OopsRoute
   '/pricing': typeof PricingRoute
@@ -202,6 +211,7 @@ export interface FileRouteTypes {
     | '/coach'
     | '/communicate'
     | '/contact-us'
+    | '/healthcare'
     | '/microsoft-teams'
     | '/oops'
     | '/pricing'
@@ -223,6 +233,7 @@ export interface FileRouteTypes {
     | '/coach'
     | '/communicate'
     | '/contact-us'
+    | '/healthcare'
     | '/microsoft-teams'
     | '/oops'
     | '/pricing'
@@ -244,6 +255,7 @@ export interface FileRouteTypes {
     | '/coach'
     | '/communicate'
     | '/contact-us'
+    | '/healthcare'
     | '/microsoft-teams'
     | '/oops'
     | '/pricing'
@@ -266,6 +278,7 @@ export interface RootRouteChildren {
   CoachRoute: typeof CoachRoute
   CommunicateRoute: typeof CommunicateRoute
   ContactUsRoute: typeof ContactUsRoute
+  HealthcareRoute: typeof HealthcareRoute
   MicrosoftTeamsRoute: typeof MicrosoftTeamsRoute
   OopsRoute: typeof OopsRoute
   PricingRoute: typeof PricingRoute
@@ -340,6 +353,13 @@ declare module '@tanstack/react-router' {
       path: '/microsoft-teams'
       fullPath: '/microsoft-teams'
       preLoaderRoute: typeof MicrosoftTeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/healthcare': {
+      id: '/healthcare'
+      path: '/healthcare'
+      fullPath: '/healthcare'
+      preLoaderRoute: typeof HealthcareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact-us': {
@@ -426,6 +446,7 @@ const rootRouteChildren: RootRouteChildren = {
   CoachRoute: CoachRoute,
   CommunicateRoute: CommunicateRoute,
   ContactUsRoute: ContactUsRoute,
+  HealthcareRoute: HealthcareRoute,
   MicrosoftTeamsRoute: MicrosoftTeamsRoute,
   OopsRoute: OopsRoute,
   PricingRoute: PricingRoute,
@@ -439,3 +460,4 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
