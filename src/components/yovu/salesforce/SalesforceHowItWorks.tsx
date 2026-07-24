@@ -10,15 +10,15 @@ import blueSky from "@/assets/hero/Blue Sky with Clouds.webp";
 
 const steps = [
   {
-    title: "Connect Your Accounts",
+    title: "Connect your accounts",
     copy: "Activate YOVU inside of Salesforce to easily link your VoIP phone system with your CRM. This integration is automatically available for any new or existing YOVU client using Salesforce Lightning.",
   },
   {
-    title: "Customize Your Setup",
+    title: "Customize your setup",
     copy: "Configure your dashboard to perfectly fit your team's workflow by tailoring user profiles and softphones to specific roles. You can also update search fields so your team only sees the most relevant customer data instantly.",
   },
   {
-    title: "Communicate Seamlessly",
+    title: "Communicate seamlessly",
     copy: "Enjoy one-click calling, screen pops, and full call controls without ever leaving your CRM. Save time by automatically logging call results and accessing recordings in one place.",
   },
 ];

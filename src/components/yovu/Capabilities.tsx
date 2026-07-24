@@ -37,19 +37,19 @@ const defaultCategories: Category[] = [
     label: "Communicate",
     items: [
       {
-        title: "Business Phone System",
+        title: "Business phone system",
         copy: "Reliable cloud communications for modern insurance teams, equipped with with click-to-call, warm transfers, and advanced call management.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ClickToDial />,
       },
       {
-        title: "Insurance Integrations",
+        title: "Insurance integrations",
         copy: "Automate workflows directly within Applied Epic or your preferred management system. Get full caller context instantly with screen pops.",
         cta: { label: "Our Integrations", href: "#integrations" },
         media: <IntegrationScreenPop />,
       },
       {
-        title: "Work From Anywhere",
+        title: "Work from anywhere",
         copy: "Transition easily between desktop, mobile, and desk phones with a consistent communication experience wherever your team goes.",
         cta: { label: "Learn More", href: "#demo" },
         media: <DeviceHandoff />,
@@ -61,19 +61,19 @@ const defaultCategories: Category[] = [
     label: "Capture",
     items: [
       {
-        title: "Automatic Logging",
+        title: "Automatic logging",
         copy: "Recordings, summaries, and call data automatically attached to client files in your management system.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ActivityLogging />,
       },
       {
-        title: "Long Term Call Recording",
+        title: "Long term call recording",
         copy: "Ensure E&O defensibility with secure playback and up to seven years of retention and import your past recordings straight to YOVU.",
         cta: { label: "Learn More", href: "#demo" },
         media: <CallRecording />,
       },
       {
-        title: "Transcription & Tailored AI Summaries",
+        title: "Transcription & tailored AI summaries",
         copy: "Get transcripts and AI summaries customized for your insurance team. We capture the exact key points, sentiment, and follow-up tasks.",
         cta: { label: "Our Security", href: "#security" },
         media: <TranscriptionSummary />,
@@ -85,20 +85,20 @@ const defaultCategories: Category[] = [
     label: "Coach",
     items: [
       {
-        title: "Guided Conversations",
+        title: "Guided conversations",
         tag: "Coming Soon",
         copy: "Real-time prompts guide your team during live calls to ramp up new hires faster. Ensure consistent documentation and strengthen E&O records.",
         cta: { label: "Get Early Access", href: "#demo" },
         media: <GuidedConversation />,
       },
       {
-        title: "Performance Insights",
+        title: "Performance insights",
         copy: "Track call activity, team performance, and trends with customizable reporting & dashboards.",
         cta: { label: "Get a Demo", href: "#demo" },
         media: <ReportingDashboard />,
       },
       {
-        title: "Listen, Whisper & Collaborate",
+        title: "Listen, whisper & collaborate",
         copy: "Listen live, coach privately, or join the call when your team needs support.",
         cta: { label: "Learn More", href: "#demo" },
         media: <ThreeWayCall framed />,

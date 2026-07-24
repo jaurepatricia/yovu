@@ -37,17 +37,17 @@ const zImageClass = "aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-bo
 const integrationBenefits: SectionIntroFeatureItem[] = [
   {
     icon: PlugZap,
-    title: "Embedded by Design",
+    title: "Embedded by design",
     copy: "The only conversation capturing platform certified integration partner in Canada, built on Applied Systems' current API and embedded inside Applied Epic. No screen-switching necessary.",
   },
   {
     icon: Lock,
-    title: "Controlled Access",
+    title: "Controlled access",
     copy: "Role-based access gives administrators control over who can view recordings, transcripts, and reports. Permissions stay aligned with your internal security and compliance requirements.",
   },
   {
     icon: Database,
-    title: "Long-term Storage",
+    title: "Long-term storage",
     copy: "Retention is configurable up to seven years to support your long-term E&O documentation policy. Data is stored on Canadian servers for added control and compliance.",
   },
 ];
@@ -107,27 +107,27 @@ const benefits: ZLayoutItem[] = [
 
 const featureCards: FeatureSlidingCard[] = [
   {
-    title: "Screen Pop",
+    title: "Screen pop",
     copy: "Instantly see who is calling and access their full account details the moment your phone rings. You can easily customize this pop-up notification to trigger either when the line rings or when you answer.",
     media: <CallerContext />,
   },
   {
-    title: "Click-to-Call",
+    title: "Click-to-call",
     copy: "Make calls with a single click directly from a client's profile without ever leaving the Applied Epic platform. This eliminates manual data entry, saving you valuable time and preventing accidental misdials.",
     media: <ClickToDial />,
   },
   {
-    title: "Call Transcription & Retention",
+    title: "Call transcription & retention",
     copy: "Review exact conversation transcripts for coaching, quality assurance, or efficiently resolving client disputes. Our secure seven-year data retention turns potential misunderstandings into concrete, easily accessible records for your E&O documentation.",
     media: <CallRecording />,
   },
   {
-    title: "Customizable AI Summaries",
+    title: "Customizable AI summaries",
     copy: "Automatically generate tailored AI summaries that extract key details and recommended next steps rather than providing a massive transcript. This ensures the next team member who opens the file gets immediate, actionable context instead of raw text they have to decode.",
     media: <TranscriptionSummary />,
   },
   {
-    title: "Activity Log",
+    title: "Activity log",
     copy: "Review full call histories and enter new data directly during an active call to keep your workflow completely seamless. After hanging up, use the generated AI summaries to quickly complete your logs and finish administrative tasks on the spot.",
     media: <ActivityLogging />,
   },

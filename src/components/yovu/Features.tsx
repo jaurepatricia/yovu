@@ -4,35 +4,35 @@ import { Feature197, type FeatureItem } from "@/components/ui/accordion-feature-
 const rawFeatures = [
   {
     id: 1,
-    title: "Click-to-Dial & Warm Transfer",
+    title: "Click-to-dial & warm transfer",
     icon: Phone,
     description:
       "Call any client directly from Applied Epic with one click. Transfer calls with full context attached — no searching for numbers, no repeating information.",
   },
   {
     id: 2,
-    title: "Screen Pop-up for Applied Epic",
+    title: "Screen pop-up for Applied Epic",
     icon: MonitorSmartphone,
     description:
       "YOVU instantly matches the incoming caller to their Applied Epic record. Policy details, renewal dates, and E&O flags appear on screen before you even say hello.",
   },
   {
     id: 3,
-    title: "Call Transcription",
+    title: "Call transcription",
     icon: FileText,
     description:
       "See the conversation transcribed with both speakers labeled. All calls are recorded and searchable so you can review conversations with ease.",
   },
   {
     id: 4,
-    title: "AI Call Summary & Action Items",
+    title: "AI call summary & action items",
     icon: Sparkles,
     description:
       "When the call ends, YOVU generates a structured summary with key discussion points and action items, ready for approval before logging to Epic.",
   },
   {
     id: 5,
-    title: "Auto Task & Activity Logging",
+    title: "Auto task & activity logging",
     icon: ListChecks,
     description:
       "Every call is automatically logged to Applied Epic — duration, summary, broker, and timestamp. Follow-up tasks are created instantly, keeping your E&O record up to date.",

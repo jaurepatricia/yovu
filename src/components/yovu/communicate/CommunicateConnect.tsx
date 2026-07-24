@@ -1,14 +1,14 @@
 const items = [
   {
-    title: "Personalized Calls",
+    title: "Personalized calls",
     copy: "Deliver highly personalized service, a screen pop surfaces the caller's identity and account before anyone picks up, informing your team instantly on the exact needs of the caller.",
   },
   {
-    title: "Warm Transfer",
+    title: "Warm transfer",
     copy: "Ensure a seamless hand-off by sharing context with your team before connecting the call. Your clients get to the right person faster, without the frustration of repeating themselves.",
   },
   {
-    title: "Frictionless Support",
+    title: "Frictionless support",
     copy: "Put clients in control of their time. By offering clear wait-time updates and convenient callback requests, you can eliminate hold-time fatigue and elevate the customer experience.",
   },
 ];

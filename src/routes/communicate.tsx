@@ -35,7 +35,7 @@ function ZPlaceholder() {
 const introBlocks: ZLayoutItem[] = [
   {
     kicker: "Business Phone System",
-    title: "Roam Free, Stay Connected",
+    title: "Roam free, stay connected",
     copy: "Experience reliable VoIP calling customized to fit your organization's exact needs. Manage all communication from a single workspace across multiple devices, allowing your team to stay connected no matter where they are.",
     compactCopy: true,
     extra: <DeviceAccordion />,
@@ -43,13 +43,13 @@ const introBlocks: ZLayoutItem[] = [
   },
   {
     kicker: "Integrations",
-    title: "Sync Your Tools, Elevate Your Workflows",
+    title: "Sync your tools, elevate your workflows",
     copy: "Empower your team's productivity by linking your phone system with over 70 essential platforms you use daily, including Applied Epic, Salesforce, and Microsoft Teams. Seamlessly trigger automated replies, establish advanced call routing, and configure custom workflows that perfectly match your business operations.",
     media: <ZPlaceholder />,
   },
   {
     kicker: "Reliable & Secure",
-    title: "Uncompromising Security & Constant Support",
+    title: "Uncompromising security & constant support",
     copy: "Ensure your operations run without interruption using a premier cloud-based phone system built for uncompromising reliability. Enjoy secure, fully encrypted calls that protect your sensitive information and keep your daily communications safe, all backed by our amazing, dedicated support team.",
     media: <ZPlaceholder />,
   },
@@ -57,32 +57,32 @@ const introBlocks: ZLayoutItem[] = [
 
 const featureCards: FeatureSlidingCard[] = [
   {
-    title: "Chat, SMS, & Text",
+    title: "Chat, SMS, & text",
     copy: "Keep your personal number private by managing all your business chats, SMS, and texts on a secure line within one unified workspace. Enhance your professional presence by listing multiple company numbers and easily assigning local, international, or toll-free numbers directly to your team members.",
     media: <ChatToCall />,
   },
   {
-    title: "Click-to-Call",
+    title: "Click-to-call",
     copy: "Make calls with a single click directly from any phone number or client profile, without ever leaving the tool you are working in. This eliminates manual dialing, saving time and preventing misdials.",
     media: <ClickToDial />,
   },
   {
-    title: "Screen Pop Up",
+    title: "Screen pop up",
     copy: "Deliver highly personalized service — a screen pop surfaces the caller's identity and account before anyone picks up, informing your team instantly on the exact needs of the caller.",
     media: <CallerContext />,
   },
   {
-    title: "Call Routing",
+    title: "Call routing",
     copy: "Direct every conversation to the right person using custom distribution rules and personalized ring sequences for your entire team. You can easily check real-time availability statuses and seamlessly loop colleagues into live calls.",
     media: <AvailabilityRouting />,
   },
   {
-    title: "Queue Callback",
+    title: "Queue callback",
     copy: "Put clients in control of their time. By offering clear wait-time updates and convenient callback requests, you can eliminate hold-time fatigue and improve the caller experience.",
     media: <QueueCallback />,
   },
   {
-    title: "A Complete Suite of VoIP Features",
+    title: "A complete suite of VoIP features",
     copy: "Access an expansive library of standard VoIP capabilities equipped with absolutely everything your business needs to power its communications. From the basics to advanced tools, we provide all the essential features to keep your calls organized, teams aligned, and conversations running smoothly.",
     media: <FeatureWall columns={1} fade="none" />,
   },

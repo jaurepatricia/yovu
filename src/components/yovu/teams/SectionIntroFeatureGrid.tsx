@@ -9,17 +9,17 @@ export type SectionIntroFeatureItem = {
 const defaultItems: SectionIntroFeatureItem[] = [
   {
     icon: Layers,
-    title: "Simplify Your IT",
+    title: "Simplify your IT",
     copy: "Reduce the number of applications your team needs to juggle, lowering support costs while increasing efficiency.",
   },
   {
     icon: Users,
-    title: "Increase Connection",
+    title: "Increase connection",
     copy: "Voice-enabled collaboration is a growing asset for company inclusion, keeping remote and distributed teams connected.",
   },
   {
     icon: Zap,
-    title: "Boost Productivity",
+    title: "Boost productivity",
     copy: "When employees can easily collaborate and connect from any device, business goals are achieved faster.",
   },
 ];

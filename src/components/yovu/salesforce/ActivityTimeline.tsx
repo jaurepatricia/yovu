@@ -7,7 +7,7 @@ const rows: Row[] = [
   {
     Icon: Mail,
     tint: "bg-emerald-100 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-300",
-    title: "Insurance Quote",
+    title: "Insurance quote",
     sub: "You sent an email to David Smith",
     when: "Today",
   },

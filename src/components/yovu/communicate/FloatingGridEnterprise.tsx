@@ -4,23 +4,23 @@ import whispyClouds from "@/assets/hero/whispy clouds.webp";
 
 const cards = [
   {
-    title: "Online Portal",
+    title: "Online portal",
     copy: "Let employees manage their own extensions and settings via a secure dashboard.",
   },
   {
-    title: "Drag-and-Drop IVR",
+    title: "Drag-and-drop IVR",
     copy: "Visually build automated menus to guide clients to the right department.",
   },
   {
-    title: "Smart Routing",
+    title: "Smart routing",
     copy: "Route calls intelligently based on business hours or team availability.",
   },
   {
-    title: "Call Handling",
+    title: "Call handling",
     copy: "Easily control custom greetings, voicemail timers, and missed call actions.",
   },
   {
-    title: "Call Queues",
+    title: "Call queues",
     copy: "Smoothly manage high call volumes by routing callers to the next available agent.",
   },
   {

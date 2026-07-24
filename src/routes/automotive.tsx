@@ -53,7 +53,7 @@ const featureOverrides: Record<string, Partial<Item>> = {
     copy: "Reliable cloud communications for modern dealership teams, equipped with click-to-call, warm transfers, and advanced call management.",
   },
   "Insurance Integrations": {
-    title: "Targeted Marketing Solutions",
+    title: "Targeted marketing solutions",
     copy: "Dedicated phone numbers for specific advertising campaigns to track dialed-number statistics and monitor campaign success.",
     cta: { label: "Learn More", href: "#demo" },
     media: <VanityNumberPromo />,
@@ -73,7 +73,7 @@ const featureOverrides: Record<string, Partial<Item>> = {
     copy: "Real-time prompts guide your team during live calls to ramp up new hires faster and keep documentation consistent across departments.",
   },
   "Performance Insights": {
-    title: "Department based Reporting",
+    title: "Department based reporting",
     copy: "Review analytics and progress reports for individual Sales teams, Service Department, and Parts Department separately.",
     media: <ReportingDashboard />,
   },

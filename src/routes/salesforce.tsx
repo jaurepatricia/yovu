@@ -69,32 +69,32 @@ const accuracyItems: ZLayoutItem[] = [
 
 const featureCards: FeatureSlidingCard[] = [
   {
-    title: "Screen Pop",
+    title: "Screen pop",
     copy: "Inbound Calls associated with an account will show you who's calling with access to all the details on their account. Customize this notification to activate on ring or on answer.",
     media: <CallerContext />,
   },
   {
-    title: "Click-to-Call",
+    title: "Click-to-call",
     copy: "Make calls directly from a client's account on a single click, remaining embedded in one tool. Save time by capturing the results of these calls instantly in their account.",
     media: <SalesforceContactCard />,
   },
   {
-    title: "Call Recording",
+    title: "Call recording",
     copy: "Listen to previously recorded calls directly from the account. Give sales and customer service managers insights through easily accessible call playback directly within Salesforce.",
     media: <CallRecording />,
   },
   {
-    title: "Call Control",
+    title: "Call control",
     copy: "All the power in one tool. Transfer, hold, end and switch to a second call all from within Salesforce.",
     media: <CallControl />,
   },
   {
-    title: "SMS Support",
+    title: "SMS support",
     copy: "Send and receive SMS messages directly within the Salesforce UI, complete with file attachment support. Drives faster client engagement and traceable conversations within Salesforce.",
     media: <SmsChat />,
   },
   {
-    title: "Activity Tracking",
+    title: "Activity tracking",
     copy: "All SMS and calls from YOVU are automatically captured alongside Salesforce records such as emails, events, and tasks in the native activity feed timeline.",
     media: <ActivityTimeline />,
   },
@@ -103,17 +103,17 @@ const featureCards: FeatureSlidingCard[] = [
 const integrationBenefits: SectionIntroFeatureItem[] = [
   {
     icon: AlertCircle,
-    title: "Live Updates",
+    title: "Live updates",
     copy: "Stop waiting for status updates on phone calls for days from sales and support team members.",
   },
   {
     icon: Zap,
-    title: "Improve Accuracy",
+    title: "Improve accuracy",
     copy: "Increase productivity and gain more visibility within your organization with improved metrics and reliable accuracy.",
   },
   {
     icon: MessageCircle,
-    title: "Stay Current",
+    title: "Stay current",
     copy: "Communicate with customers and leads with the confidence that you have the most relevant and recent data on their account.",
   },
 ];

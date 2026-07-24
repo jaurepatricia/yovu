@@ -3,19 +3,19 @@ import { ChevronDown } from "lucide-react";
 
 const items = [
   {
-    title: "Mobile App",
+    title: "Mobile app",
     copy: "Turn your iOS or Android device into your business phone. Access your corporate directory, sync contacts, and keep your personal number private while working.",
   },
   {
-    title: "Desktop & Web Phone",
+    title: "Desktop & web phone",
     copy: "Make calls and check voicemails right from your browser or desktop app, with click-to-call on any phone number.",
   },
   {
-    title: "Call Flipping",
+    title: "Call flipping",
     copy: "Start a call on your desktop and move it to your mobile or desk phone without dropping the connection.",
   },
   {
-    title: "Multi-Ring",
+    title: "Multi-ring",
     copy: "Ring your desk phone, web dialer, and mobile device at once so you never miss a client.",
   },
 ];

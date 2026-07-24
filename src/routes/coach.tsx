@@ -58,23 +58,23 @@ const introBlocks: ZLayoutItem[] = [
 
 const featureCards: FeatureSlidingCard[] = [
   {
-    title: "Guided Conversations",
+    title: "Guided conversations",
     tag: "Coming Soon",
     copy: "Live prompts and questions surface during the call, helping new hires ramp faster. This keeps documentation consistent across the team, supporting stronger, standardized E&O records.",
     media: <GuidedConversation />,
   },
   {
-    title: "Listen, Whisper & Collaborate",
+    title: "Listen, whisper & collaborate",
     copy: "Provide real-time coaching without disrupting the client experience. Listen to calls silently, whisper advice that only your employee can hear, or collaborate and create a three-way call when your team needs backup.",
     media: <ThreeWayCall />,
   },
   {
-    title: "Unified Dashboards & Automated Reporting",
+    title: "Unified dashboards & automated reporting",
     copy: "Get a 360-degree view of your operations at a glance. Understand call volume, queue times, and team bandwidth in real time to support inbound callers, or have customized metrics on employee activity emailed directly to your team daily.",
     media: <ReportingDashboard />,
   },
   {
-    title: "Scorecards & Playbooks",
+    title: "Scorecards & playbooks",
     tag: "Roadmap",
     copy: "We are building a central knowledge base to equip new hires with scripts and carrier details, alongside call scorecards that grade actual recorded conversations against your custom rubrics for greetings, disclosures, and closing techniques.",
     media: <Scorecard />,

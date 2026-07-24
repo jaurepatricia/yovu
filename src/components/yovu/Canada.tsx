@@ -20,17 +20,17 @@ function MapleLeaf({ className }: { className?: string }) {
 const pillars = [
   {
     icon: Server,
-    title: "99.99% Server Uptime",
+    title: "99.99% server uptime",
     copy: "Hosted on geo-redundant Canadian data centers for unbreakable reliability.",
   },
   {
     icon: Headset,
-    title: "24/7 Local Support",
+    title: "24/7 local support",
     copy: "Speak directly to our in-house VoIP experts around the clock, never an offshore call center.",
   },
   {
     icon: ShieldCheck,
-    title: "PIPEDA Compliant",
+    title: "PIPEDA compliant",
     copy: "Client data stays in Canada with no cross-border exposure.",
   },
 ];

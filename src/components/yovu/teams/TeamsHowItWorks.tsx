@@ -10,7 +10,7 @@ import blueSky from "@/assets/hero/Blue Sky with Clouds.webp";
 
 const steps = [
   {
-    title: "Add Your Microsoft License",
+    title: "Add your Microsoft license",
     copy: "Start by adding a Microsoft common area phone license to your existing Microsoft Teams account. This simple prerequisite ensures your environment is properly equipped to link seamlessly with our phone system.",
   },
   {
@@ -18,7 +18,7 @@ const steps = [
     copy: "Once licensed, YOVU's integration automatically registers your Microsoft Teams softphone as an active endpoint on our secure network. This bridges the two platforms together behind the scenes without any complicated hardware setup.",
   },
   {
-    title: "Make and Receive Calls Anywhere",
+    title: "Make and receive calls anywhere",
     copy: "With the integration live, your communication is completely unified. Any inbound call to a YOVU number can simultaneously ring one or more of your Teams clients, while all your outbound Teams calls will route reliably through YOVU's powerful VoIP network.",
   },
 ];
