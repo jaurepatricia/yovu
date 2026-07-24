@@ -13,15 +13,9 @@ export function CommunicateHero() {
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      {/* Left legibility scrim — theme-aware */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-canvas/80 via-canvas/40 to-transparent"
-      />
-
       <div className="relative z-10 flex h-full items-center">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-6 pt-32 pb-16 lg:grid-cols-2 lg:gap-8 lg:py-0">
-          <div className="flex max-w-xl flex-col text-left">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-6 pt-32 pb-16 lg:grid-cols-2 lg:gap-12 lg:py-0">
+          <div className="flex max-w-lg flex-col text-left">
             <h1 className="font-display text-5xl font-bold tracking-tight text-ink md:text-6xl lg:text-7xl">
               Elevate your business phone system
             </h1>
